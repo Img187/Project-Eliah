@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /data/
+Disallow: /README.md
+Disallow: /SECTION-INDEX.md
+
+Sitemap: https://www.sparkyenergies.com/sitemap.xml

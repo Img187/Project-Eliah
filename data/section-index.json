@@ -1,0 +1,4282 @@
+{
+  "metadata": {
+    "schema_version": 2,
+    "generated_on": "2026-08-11",
+    "language": "nl",
+    "source_files": [
+      "index.html",
+      "thuisbatterijen.html",
+      "zonnepanelen.html",
+      "laadpalen.html",
+      "elektrotechnische-renovaties.html",
+      "over-ons.html",
+      "contact.html"
+    ],
+    "scope": "Publieke pagina’s; primaire secties, ondersteunende main-secties, headings, paragrafen, buttons, formulieren en Google-tagconfiguratie.",
+    "counts": {
+      "pages": 7,
+      "primary_sections": 48,
+      "supporting_sections": 5,
+      "paragraphs": 204,
+      "buttons": 41,
+      "forms": 7
+    }
+  },
+  "tracking": {
+    "measurement_id": "G-B8QNYQR8CY",
+    "google_tag_id": "GT-PL9T2DJM",
+    "stream_id": "15270728473",
+    "pages": [
+      {
+        "page": "Home",
+        "file": "index.html",
+        "measurement_id": "G-B8QNYQR8CY",
+        "config_id": "G-B8QNYQR8CY",
+        "google_tag_id": "GT-PL9T2DJM",
+        "script_in_head": false,
+        "consent_default_in_head": false,
+        "loaded_after_full_consent": true
+      },
+      {
+        "page": "Thuisbatterijen",
+        "file": "thuisbatterijen.html",
+        "measurement_id": "G-B8QNYQR8CY",
+        "config_id": "G-B8QNYQR8CY",
+        "google_tag_id": "GT-PL9T2DJM",
+        "script_in_head": false,
+        "consent_default_in_head": false,
+        "loaded_after_full_consent": true
+      },
+      {
+        "page": "Zonnepanelen",
+        "file": "zonnepanelen.html",
+        "measurement_id": "G-B8QNYQR8CY",
+        "config_id": "G-B8QNYQR8CY",
+        "google_tag_id": "GT-PL9T2DJM",
+        "script_in_head": false,
+        "consent_default_in_head": false,
+        "loaded_after_full_consent": true
+      },
+      {
+        "page": "Laadpalen",
+        "file": "laadpalen.html",
+        "measurement_id": "G-B8QNYQR8CY",
+        "config_id": "G-B8QNYQR8CY",
+        "google_tag_id": "GT-PL9T2DJM",
+        "script_in_head": false,
+        "consent_default_in_head": false,
+        "loaded_after_full_consent": true
+      },
+      {
+        "page": "Elektrotechnische renovaties",
+        "file": "elektrotechnische-renovaties.html",
+        "measurement_id": "G-B8QNYQR8CY",
+        "config_id": "G-B8QNYQR8CY",
+        "google_tag_id": "GT-PL9T2DJM",
+        "script_in_head": false,
+        "consent_default_in_head": false,
+        "loaded_after_full_consent": true
+      },
+      {
+        "page": "Over ons",
+        "file": "over-ons.html",
+        "measurement_id": "G-B8QNYQR8CY",
+        "config_id": "G-B8QNYQR8CY",
+        "google_tag_id": "GT-PL9T2DJM",
+        "script_in_head": false,
+        "consent_default_in_head": false,
+        "loaded_after_full_consent": true
+      },
+      {
+        "page": "Contact",
+        "file": "contact.html",
+        "measurement_id": "G-B8QNYQR8CY",
+        "config_id": "G-B8QNYQR8CY",
+        "google_tag_id": "GT-PL9T2DJM",
+        "script_in_head": false,
+        "consent_default_in_head": false,
+        "loaded_after_full_consent": true
+      }
+    ]
+  },
+  "sections": [
+    {
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 1,
+      "id": "homeSectGecertificeerdeInstallateursMetVakmanschap",
+      "class": "homeSectGecertificeerdeInstallateursMetVakmanschap",
+      "classes": [
+        "siteSectie",
+        "homeSectGecertificeerdeInstallateursMetVakmanschap",
+        "homeHeroReferentieSectie"
+      ],
+      "layout_classes": [],
+      "data_section_title": "Energie van nu, zekerheid voor morgen",
+      "heading_id": "homeSectGecertificeerdeInstallateursMetVakmanschapH1",
+      "heading_tag": "h1",
+      "heading": "Energie van nu, zekerheid voor morgen.",
+      "heading_status": "present",
+      "type": "hero"
+    },
+    {
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 2,
+      "id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
+      "class": "homeSectWatWijVoorUInstallerenEnOnderhouden",
+      "classes": [
+        "siteSectie",
+        "homeSectWatWijVoorUInstallerenEnOnderhouden",
+        "layoutServices"
+      ],
+      "layout_classes": [
+        "layoutServices"
+      ],
+      "data_section_title": "Wat wij voor u installeren en onderhouden",
+      "heading_id": "homeSectWatWijVoorUInstallerenEnOnderhoudenH2",
+      "heading_tag": "h2",
+      "heading": "Onze diensten",
+      "heading_status": "present",
+      "type": "services"
+    },
+    {
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 3,
+      "id": "homeSectVanIdeeTotInstallatieVanVonkTotVermogen",
+      "class": "homeSectVanIdeeTotInstallatieVanVonkTotVermogen",
+      "classes": [
+        "siteSectie",
+        "homeSectVanIdeeTotInstallatieVanVonkTotVermogen",
+        "layoutImageCta"
+      ],
+      "layout_classes": [
+        "layoutImageCta"
+      ],
+      "data_section_title": "Van idee tot installatie, van vonk tot vermogen",
+      "heading_id": "homeSectVanIdeeTotInstallatieVanVonkTotVermogenH4",
+      "heading_tag": "h4",
+      "heading": "Van idee tot installatie, van vonk tot vermogen.",
+      "heading_status": "present",
+      "type": "image_cta"
+    },
+    {
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 4,
+      "id": "homeSectTwijfeltUOfUwInstallatieGeschiktIs",
+      "class": "homeSectTwijfeltUOfUwInstallatieGeschiktIs",
+      "classes": [
+        "siteSectie",
+        "homeSectTwijfeltUOfUwInstallatieGeschiktIs",
+        "layoutText"
+      ],
+      "layout_classes": [
+        "layoutText"
+      ],
+      "data_section_title": "Twijfelt u of uw installatie geschikt is?",
+      "heading_id": "homeSectTwijfeltUOfUwInstallatieGeschiktIsH2",
+      "heading_tag": "h2",
+      "heading": "Twijfelt u of uw installatie geschikt is?",
+      "heading_status": "present",
+      "type": "text"
+    },
+    {
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 5,
+      "id": "homeSectRecentWerk",
+      "class": "homeSectRecentWerk",
+      "classes": [
+        "siteSectie",
+        "homeSectRecentWerk",
+        "layoutPortfolio"
+      ],
+      "layout_classes": [
+        "layoutPortfolio"
+      ],
+      "data_section_title": "Recent werk",
+      "heading_id": "homeSectRecentWerkH2",
+      "heading_tag": "h2",
+      "heading": "Recent werk",
+      "heading_status": "present",
+      "type": "portfolio"
+    },
+    {
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 7,
+      "id": "homeSectKlaarOmUwWoningToekomstbestendigTeMaken",
+      "class": "homeSectKlaarOmUwWoningToekomstbestendigTeMaken",
+      "classes": [
+        "siteSectie",
+        "homeSectKlaarOmUwWoningToekomstbestendigTeMaken",
+        "layoutEmailCta"
+      ],
+      "layout_classes": [
+        "layoutEmailCta"
+      ],
+      "data_section_title": "Klaar om uw woning toekomstbestendig te maken?",
+      "heading_id": "homeSectKlaarOmUwWoningToekomstbestendigTeMakenH2",
+      "heading_tag": "h2",
+      "heading": "Klaar om uw woning toekomstbestendig te maken?",
+      "heading_status": "present",
+      "type": "email_cta"
+    },
+    {
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_number": 1,
+      "id": "thuisbatterijSectThuisbatterijLatenInstalleren",
+      "class": "thuisbatterijSectThuisbatterijLatenInstalleren",
+      "classes": [
+        "siteSectie",
+        "thuisbatterijSectThuisbatterijLatenInstalleren",
+        "layoutSplitCard"
+      ],
+      "layout_classes": [
+        "layoutSplitCard"
+      ],
+      "data_section_title": "Thuisbatterij laten installeren",
+      "heading_id": "thuisbatterijSectThuisbatterijLatenInstallerenH1",
+      "heading_tag": "h1",
+      "heading": "Thuisbatterij laten installeren",
+      "heading_status": "present",
+      "type": "split_card"
+    },
+    {
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_number": 2,
+      "id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparen",
+      "class": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparen",
+      "classes": [
+        "siteSectie",
+        "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparen",
+        "kenmerkKaartenSectie",
+        "layoutFeatures"
+      ],
+      "layout_classes": [
+        "kenmerkKaartenSectie",
+        "layoutFeatures"
+      ],
+      "data_section_title": "Slim opslaan, slim gebruiken en slim besparen",
+      "heading_id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparenH2",
+      "heading_tag": "h2",
+      "heading": "Slim opslaan, slim gebruiken en slim besparen",
+      "heading_status": "present",
+      "type": "features"
+    },
+    {
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_number": 3,
+      "id": "thuisbatterijSectVoorWoningEnBedrijf",
+      "class": "thuisbatterijSectVoorWoningEnBedrijf",
+      "classes": [
+        "siteSectie",
+        "thuisbatterijSectVoorWoningEnBedrijf",
+        "layoutSplitCard"
+      ],
+      "layout_classes": [
+        "layoutSplitCard"
+      ],
+      "data_section_title": "Voor woning en bedrijf",
+      "heading_id": "thuisbatterijSectVoorWoningEnBedrijfH2",
+      "heading_tag": "h2",
+      "heading": "Voor woning en bedrijf",
+      "heading_status": "present",
+      "type": "split_card"
+    },
+    {
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_number": 4,
+      "id": "thuisbatterijSectHoeWerktEenThuisbatterij",
+      "class": "thuisbatterijSectHoeWerktEenThuisbatterij",
+      "classes": [
+        "siteSectie",
+        "thuisbatterijSectHoeWerktEenThuisbatterij",
+        "layoutSplitCard"
+      ],
+      "layout_classes": [
+        "layoutSplitCard"
+      ],
+      "data_section_title": "Hoe werkt een thuisbatterij?",
+      "heading_id": "thuisbatterijSectHoeWerktEenThuisbatterijH2",
+      "heading_tag": "h2",
+      "heading": "Hoe werkt een thuisbatterij?",
+      "heading_status": "present",
+      "type": "split_card"
+    },
+    {
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_number": 5,
+      "id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturing",
+      "class": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturing",
+      "classes": [
+        "siteSectie",
+        "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturing",
+        "layoutStickySplitCards"
+      ],
+      "layout_classes": [
+        "layoutStickySplitCards"
+      ],
+      "data_section_title": "Sla overtollige energie op voor gebruik wanneer de zon niet schijnt.",
+      "heading_id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturingH2",
+      "heading_tag": "h2",
+      "heading": "Sla overtollige energie op voor gebruik wanneer de zon niet schijnt.",
+      "heading_status": "present",
+      "type": "sticky_split_cards"
+    },
+    {
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_number": 7,
+      "id": "thuisbatterijSectZoWerkenWij",
+      "class": "thuisbatterijSectZoWerkenWij",
+      "classes": [
+        "siteSectie",
+        "thuisbatterijSectZoWerkenWij",
+        "layoutProcessTimeline"
+      ],
+      "layout_classes": [
+        "layoutProcessTimeline"
+      ],
+      "data_section_title": "Sparky Energies helpt u met een passend advies, veilige installatie en duidelijke uitleg. Wij kijken niet alleen naar de batterij, maar naar de volledige elektrische installatie.",
+      "heading_id": "thuisbatterijSectZoWerkenWijH2",
+      "heading_tag": "h2",
+      "heading": "Sparky Energies helpt u met een passend advies, veilige installatie en duidelijke uitleg. Wij kijken niet alleen naar de batterij, maar naar de volledige elektrische installatie.",
+      "heading_status": "present",
+      "type": "timeline_process"
+    },
+    {
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_number": 8,
+      "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
+      "class": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
+      "classes": [
+        "siteSectie",
+        "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
+        "thuisbatterijFaq",
+        "siteFaq",
+        "layoutFaq"
+      ],
+      "layout_classes": [
+        "layoutFaq"
+      ],
+      "data_section_title": "Vragen",
+      "heading_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenH2",
+      "heading_tag": "h2",
+      "heading": "Veelgestelde vragen over thuisbatterijen, installatie en voordelen",
+      "heading_status": "present",
+      "type": "faq"
+    },
+    {
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_number": 9,
+      "id": "thuisbatterijSectOntdekWelkeBatterijPastBijU",
+      "class": "thuisbatterijSectOntdekWelkeBatterijPastBijU",
+      "classes": [
+        "siteSectie",
+        "thuisbatterijSectOntdekWelkeBatterijPastBijU",
+        "layoutEmailCta"
+      ],
+      "layout_classes": [
+        "layoutEmailCta"
+      ],
+      "data_section_title": "Ontdek welke batterij bij u past",
+      "heading_id": "thuisbatterijSectOntdekWelkeBatterijPastBijUH2",
+      "heading_tag": "h2",
+      "heading": "Ontdek welke batterij bij u past",
+      "heading_status": "present",
+      "type": "email_cta"
+    },
+    {
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_number": 1,
+      "id": "zonnepanelenSectZonnepanelenLatenInstalleren",
+      "class": "zonnepanelenSectZonnepanelenLatenInstalleren",
+      "classes": [
+        "siteSectie",
+        "zonnepanelenSectZonnepanelenLatenInstalleren",
+        "layoutSplitCard"
+      ],
+      "layout_classes": [
+        "layoutSplitCard"
+      ],
+      "data_section_title": "Zonnepanelen laten installeren",
+      "heading_id": "zonnepanelenSectZonnepanelenLatenInstallerenH1",
+      "heading_tag": "h1",
+      "heading": "Zonnepanelen laten installeren",
+      "heading_status": "present",
+      "type": "hero"
+    },
+    {
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_number": 2,
+      "id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak",
+      "class": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak",
+      "classes": [
+        "siteSectie",
+        "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak",
+        "kenmerkKaartenSectie",
+        "layoutFeatures"
+      ],
+      "layout_classes": [
+        "kenmerkKaartenSectie",
+        "layoutFeatures"
+      ],
+      "data_section_title": "Profiteer van duurzame energie uit eigen dak",
+      "heading_id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDakH2",
+      "heading_tag": "h2",
+      "heading": "Profiteer van duurzame energie uit eigen dak",
+      "heading_status": "present",
+      "type": "features"
+    },
+    {
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_number": 3,
+      "id": "zonnepanelenSectEenInstallatieDiePastBijUwSituatie",
+      "class": "zonnepanelenSectEenInstallatieDiePastBijUwSituatie",
+      "classes": [
+        "siteSectie",
+        "zonnepanelenSectEenInstallatieDiePastBijUwSituatie",
+        "layoutSplitCard"
+      ],
+      "layout_classes": [
+        "layoutSplitCard"
+      ],
+      "data_section_title": "Een installatie die past bij uw situatie",
+      "heading_id": "zonnepanelenSectEenInstallatieDiePastBijUwSituatieH2",
+      "heading_tag": "h2",
+      "heading": "Een installatie die past bij uw situatie",
+      "heading_status": "present",
+      "type": "split"
+    },
+    {
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_number": 4,
+      "id": "zonnepanelenSectHoeWerkenZonnepanelen",
+      "class": "zonnepanelenSectHoeWerkenZonnepanelen",
+      "classes": [
+        "siteSectie",
+        "zonnepanelenSectHoeWerkenZonnepanelen",
+        "layoutSplitCard"
+      ],
+      "layout_classes": [
+        "layoutSplitCard"
+      ],
+      "data_section_title": "Hoe werken zonnepanelen?",
+      "heading_id": "zonnepanelenSectHoeWerkenZonnepanelenH2",
+      "heading_tag": "h2",
+      "heading": "Hoe werken zonnepanelen?",
+      "heading_status": "present",
+      "type": "split"
+    },
+    {
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_number": 5,
+      "id": "zonnepanelenSectSlaOvertolligeStroomOp",
+      "class": "zonnepanelenSectSlaOvertolligeStroomOp",
+      "classes": [
+        "siteSectie",
+        "zonnepanelenSectSlaOvertolligeStroomOp",
+        "layoutStickySplitCards"
+      ],
+      "layout_classes": [
+        "layoutStickySplitCards"
+      ],
+      "data_section_title": "Sla overtollige stroom op",
+      "heading_id": "zonnepanelenSectSlaOvertolligeStroomOpH2",
+      "heading_tag": "h2",
+      "heading": "Sla overtollige stroom op",
+      "heading_status": "present",
+      "type": "sticky_split_cards"
+    },
+    {
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_number": 7,
+      "id": "zonnepanelenSectZoWerkenWij",
+      "class": "zonnepanelenSectZoWerkenWij",
+      "classes": [
+        "siteSectie",
+        "zonnepanelenSectZoWerkenWij",
+        "layoutProcessTimeline"
+      ],
+      "layout_classes": [
+        "layoutProcessTimeline"
+      ],
+      "data_section_title": "Sparky Energies denkt met u mee over de juiste oplossing. Wij helpen met advies, installatie, onderhoud en uitbreiding van bestaande installaties.",
+      "heading_id": "zonnepanelenSectZoWerkenWijH2",
+      "heading_tag": "h2",
+      "heading": "Sparky Energies denkt met u mee over de juiste oplossing. Wij helpen met advies, installatie, onderhoud en uitbreiding van bestaande installaties.",
+      "heading_status": "present",
+      "type": "process"
+    },
+    {
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_number": 8,
+      "id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelen",
+      "class": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelen",
+      "classes": [
+        "siteSectie",
+        "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelen",
+        "zonnepanelenFaq",
+        "siteFaq",
+        "layoutFaq"
+      ],
+      "layout_classes": [
+        "layoutFaq"
+      ],
+      "data_section_title": "Antwoorden op de meest gestelde vragen over zonnepanelen.",
+      "heading_id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelenH2",
+      "heading_tag": "h2",
+      "heading": "Veel gestelde vragen over zonnepanelen.",
+      "heading_status": "present",
+      "type": "faq"
+    },
+    {
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_number": 9,
+      "id": "zonnepanelenSectBenieuwdHoeveelUKuntBesparen",
+      "class": "zonnepanelenSectBenieuwdHoeveelUKuntBesparen",
+      "classes": [
+        "siteSectie",
+        "zonnepanelenSectBenieuwdHoeveelUKuntBesparen",
+        "layoutEmailCta"
+      ],
+      "layout_classes": [
+        "layoutEmailCta"
+      ],
+      "data_section_title": "Benieuwd hoeveel u kunt besparen?",
+      "heading_id": "zonnepanelenSectBenieuwdHoeveelUKuntBesparenH2",
+      "heading_tag": "h2",
+      "heading": "Benieuwd hoeveel u kunt besparen?",
+      "heading_status": "present",
+      "type": "email_cta"
+    },
+    {
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_number": 1,
+      "id": "laadpalenSectLaadpaalLatenInstalleren",
+      "class": "laadpalenSectLaadpaalLatenInstalleren",
+      "classes": [
+        "siteSectie",
+        "laadpalenSectLaadpaalLatenInstalleren",
+        "layoutSplitCard"
+      ],
+      "layout_classes": [
+        "layoutSplitCard"
+      ],
+      "data_section_title": "Laadpaal laten installeren",
+      "heading_id": "laadpalenSectLaadpaalLatenInstallerenH1",
+      "heading_tag": "h1",
+      "heading": "Laadpaal laten installeren",
+      "heading_status": "present",
+      "type": "hero"
+    },
+    {
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_number": 2,
+      "id": "laadpalenSectLaadUwElektrischeAutoVeiligEnGemakkelijkOpEigenLocatie",
+      "class": "laadpalenSectLaadUwElektrischeAutoVeiligEnGemakkelijkOpEigenLocatie",
+      "classes": [
+        "siteSectie",
+        "laadpalenSectLaadUwElektrischeAutoVeiligEnGemakkelijkOpEigenLocatie",
+        "kenmerkKaartenSectie",
+        "layoutFeatures"
+      ],
+      "layout_classes": [
+        "kenmerkKaartenSectie",
+        "layoutFeatures"
+      ],
+      "data_section_title": "Laad uw elektrische auto veilig en gemakkelijk op eigen locatie",
+      "heading_id": "laadpalenSectLaadUwElektrischeAutoVeiligEnGemakkelijkOpEigenLocatieH2",
+      "heading_tag": "h2",
+      "heading": "Laad uw elektrische auto veilig en gemakkelijk op eigen locatie",
+      "heading_status": "present",
+      "type": "features"
+    },
+    {
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_number": 3,
+      "id": "laadpalenSectSlimVeiligEnGoedkoopLadenOpEigenLocatie",
+      "class": "laadpalenSectSlimVeiligEnGoedkoopLadenOpEigenLocatie",
+      "classes": [
+        "siteSectie",
+        "laadpalenSectSlimVeiligEnGoedkoopLadenOpEigenLocatie",
+        "layoutSplitCard"
+      ],
+      "layout_classes": [
+        "layoutSplitCard"
+      ],
+      "data_section_title": "Slim, veilig en goedkoop laden op eigen locatie",
+      "heading_id": "laadpalenSectSlimVeiligEnGoedkoopLadenOpEigenLocatieH2",
+      "heading_tag": "h2",
+      "heading": "Slim, veilig en goedkoop laden op eigen locatie",
+      "heading_status": "present",
+      "type": "split"
+    },
+    {
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_number": 4,
+      "id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficient",
+      "class": "laadpalenSectSlimLadenVeiligVoordeligEnEfficient",
+      "classes": [
+        "siteSectie",
+        "laadpalenSectSlimLadenVeiligVoordeligEnEfficient",
+        "layoutStickySplitCards"
+      ],
+      "layout_classes": [
+        "layoutStickySplitCards"
+      ],
+      "data_section_title": "Slim laden: veilig, voordelig en efficiënt",
+      "heading_id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficientH2",
+      "heading_tag": "h2",
+      "heading": "Slim laden: veilig, voordelig en efficiënt",
+      "heading_status": "present",
+      "type": "scroll_cards"
+    },
+    {
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_number": 5,
+      "id": "laadpalenSectSlimLadenVoorMedewerkersKlantenEnBedrijfswagens",
+      "class": "laadpalenSectSlimLadenVoorMedewerkersKlantenEnBedrijfswagens",
+      "classes": [
+        "siteSectie",
+        "laadpalenSectSlimLadenVoorMedewerkersKlantenEnBedrijfswagens",
+        "layoutSplitCard"
+      ],
+      "layout_classes": [
+        "layoutSplitCard"
+      ],
+      "data_section_title": "Slim laden voor medewerkers, klanten en bedrijfswagens",
+      "heading_id": "laadpalenSectSlimLadenVoorMedewerkersKlantenEnBedrijfswagensH2",
+      "heading_tag": "h2",
+      "heading": "Slim laden voor medewerkers, klanten en bedrijfswagens",
+      "heading_status": "present",
+      "type": "split_card"
+    },
+    {
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_number": 6,
+      "id": "laadpalenSectZoWerkenWij",
+      "class": "laadpalenSectZoWerkenWij",
+      "classes": [
+        "siteSectie",
+        "laadpalenSectZoWerkenWij",
+        "layoutProcessTimeline"
+      ],
+      "layout_classes": [
+        "layoutProcessTimeline"
+      ],
+      "data_section_title": "Sparky Energies helpt u met eerlijk advies, een veilige installatie en duidelijke uitleg. Wij kijken naar uw auto, aansluiting, laadwens en toekomstplannen, zodat u een laadpaal krijgt die echt bij uw situatie past.",
+      "heading_id": "laadpalenSectZoWerkenWijH2",
+      "heading_tag": "h2",
+      "heading": "Sparky Energies helpt u met eerlijk advies, een veilige installatie en duidelijke uitleg. Wij kijken naar uw auto, aansluiting, laadwens en toekomstplannen, zodat u een laadpaal krijgt die echt bij uw situatie past.",
+      "heading_status": "present",
+      "type": "process"
+    },
+    {
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_number": 7,
+      "id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalen",
+      "class": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalen",
+      "classes": [
+        "siteSectie",
+        "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalen",
+        "laadpalenFaq",
+        "siteFaq",
+        "layoutFaq"
+      ],
+      "layout_classes": [
+        "layoutFaq"
+      ],
+      "data_section_title": "Antwoorden op de meest gestelde vragen over laadpalen.",
+      "heading_id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalenH2",
+      "heading_tag": "h2",
+      "heading": "Veel gestelde vragen over laadpalen.",
+      "heading_status": "present",
+      "type": "faq"
+    },
+    {
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_number": 8,
+      "id": "laadpalenSectWelkeLaadpaalPastBijU",
+      "class": "laadpalenSectWelkeLaadpaalPastBijU",
+      "classes": [
+        "siteSectie",
+        "laadpalenSectWelkeLaadpaalPastBijU",
+        "layoutEmailCta"
+      ],
+      "layout_classes": [
+        "layoutEmailCta"
+      ],
+      "data_section_title": "Welke laadpaal past bij u?",
+      "heading_id": "laadpalenSectWelkeLaadpaalPastBijUH2",
+      "heading_tag": "h2",
+      "heading": "Welke laadpaal past bij u?",
+      "heading_status": "present",
+      "type": "cta"
+    },
+    {
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_number": 1,
+      "id": "elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovaties",
+      "class": "elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovaties",
+      "classes": [
+        "siteSectie",
+        "elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovaties",
+        "layoutSplitCard"
+      ],
+      "layout_classes": [
+        "layoutSplitCard"
+      ],
+      "data_section_title": "Groepenkast en elektrotechnische renovaties",
+      "heading_id": "elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovatiesH1",
+      "heading_tag": "h1",
+      "heading": "Groepenkast en elektrotechnische renovaties",
+      "heading_status": "present",
+      "type": "hero"
+    },
+    {
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_number": 2,
+      "id": "elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomst",
+      "class": "elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomst",
+      "classes": [
+        "siteSectie",
+        "elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomst",
+        "kenmerkKaartenSectie",
+        "layoutFeatures"
+      ],
+      "layout_classes": [
+        "kenmerkKaartenSectie",
+        "layoutFeatures"
+      ],
+      "data_section_title": "Zorgeloos voorbereid op een duurzame toekomst",
+      "heading_id": "elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomstH2",
+      "heading_tag": "h2",
+      "heading": "Zorgeloos voorbereid op een duurzame toekomst",
+      "heading_status": "present",
+      "type": "features"
+    },
+    {
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_number": 3,
+      "id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor",
+      "class": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor",
+      "classes": [
+        "siteSectie",
+        "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor",
+        "layoutStickySplitCards"
+      ],
+      "layout_classes": [
+        "layoutStickySplitCards"
+      ],
+      "data_section_title": "Van het gas af? Wij bereiden uw installatie voor",
+      "heading_id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoorH2",
+      "heading_tag": "h2",
+      "heading": "Van het gas af? Wij bereiden uw installatie voor",
+      "heading_status": "present",
+      "type": "scroll_cards"
+    },
+    {
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_number": 4,
+      "id": "elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoning",
+      "class": "elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoning",
+      "classes": [
+        "siteSectie",
+        "elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoning",
+        "kenmerkKaartenSectie",
+        "layoutSplitFeatures"
+      ],
+      "layout_classes": [
+        "kenmerkKaartenSectie",
+        "layoutSplitFeatures"
+      ],
+      "data_section_title": "Groepenkast: het hart van uw woning",
+      "heading_id": "elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoningH2",
+      "heading_tag": "h2",
+      "heading": "Groepenkast: het hart van uw woning",
+      "heading_status": "present",
+      "type": "split"
+    },
+    {
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_number": 5,
+      "id": "elektrotechnischeRenovatiesSectExtraElektraWaarUHetNodigHeeft",
+      "class": "elektrotechnischeRenovatiesSectExtraElektraWaarUHetNodigHeeft",
+      "classes": [
+        "siteSectie",
+        "elektrotechnischeRenovatiesSectExtraElektraWaarUHetNodigHeeft",
+        "kenmerkKaartenSectie",
+        "layoutSplitFeatures"
+      ],
+      "layout_classes": [
+        "kenmerkKaartenSectie",
+        "layoutSplitFeatures"
+      ],
+      "data_section_title": "Extra elektra waar u het nodig heeft",
+      "heading_id": "elektrotechnischeRenovatiesSectExtraElektraWaarUHetNodigHeeftH2",
+      "heading_tag": "h2",
+      "heading": "Extra elektra waar u het nodig heeft",
+      "heading_status": "present",
+      "type": "split"
+    },
+    {
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_number": 6,
+      "id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
+      "class": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
+      "classes": [
+        "siteSectie",
+        "elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
+        "kenmerkKaartenSectie",
+        "layoutFeatureColumnsTransparent"
+      ],
+      "layout_classes": [
+        "kenmerkKaartenSectie",
+        "layoutFeatureColumnsTransparent"
+      ],
+      "data_section_title": "Elektra voor bedrijfspanden",
+      "heading_id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenH2",
+      "heading_tag": "h2",
+      "heading": "Elektra voor bedrijfspanden",
+      "heading_status": "present",
+      "type": "features"
+    },
+    {
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_number": 7,
+      "id": "elektrotechnischeRenovatiesSectZoWerkenWij",
+      "class": "elektrotechnischeRenovatiesSectZoWerkenWij",
+      "classes": [
+        "siteSectie",
+        "elektrotechnischeRenovatiesSectZoWerkenWij",
+        "layoutProcessTimeline"
+      ],
+      "layout_classes": [
+        "layoutProcessTimeline"
+      ],
+      "data_section_title": "Zo werken wij",
+      "heading_id": "elektrotechnischeRenovatiesSectZoWerkenWijH2",
+      "heading_tag": "h2",
+      "heading": "Sparky Energies helpt u met eerlijk advies, een veilige installatie en duidelijke uitleg. Wij kijken naar uw groepenkast, aansluiting, wensen en toekomstplannen, zodat uw elektrotechnische renovatie echt bij uw situatie past.",
+      "heading_status": "present",
+      "type": "process"
+    },
+    {
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_number": 8,
+      "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
+      "class": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
+      "classes": [
+        "siteSectie",
+        "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
+        "elektrotechnischeRenovatiesFaq",
+        "siteFaq",
+        "layoutFaq"
+      ],
+      "layout_classes": [
+        "layoutFaq"
+      ],
+      "data_section_title": "Alles wat u weten moet over elektrotechnische aanpassingen",
+      "heading_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenH2",
+      "heading_tag": "h2",
+      "heading": "Veelgestelde vragen over elektrotechnische aanpassingen",
+      "heading_status": "present",
+      "type": "faq"
+    },
+    {
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_number": 9,
+      "id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassen",
+      "class": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassen",
+      "classes": [
+        "siteSectie",
+        "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassen",
+        "layoutEmailCta"
+      ],
+      "layout_classes": [
+        "layoutEmailCta"
+      ],
+      "data_section_title": "Wilt u uw elektra veilig laten aanpassen?",
+      "heading_id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassenH2",
+      "heading_tag": "h2",
+      "heading": "Wilt u uw elektra veilig laten aanpassen?",
+      "heading_status": "present",
+      "type": "email_cta"
+    },
+    {
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_number": 1,
+      "id": "overOnsSectJongGedrevenEnGebouwdOpVakmanschap",
+      "class": "overOnsSectJongGedrevenEnGebouwdOpVakmanschap",
+      "classes": [
+        "siteSectie",
+        "overOnsSectJongGedrevenEnGebouwdOpVakmanschap",
+        "overOnsHeroVolledigeBreedte"
+      ],
+      "layout_classes": [],
+      "data_section_title": "Jong, gedreven en gebouwd op vakmanschap",
+      "heading_id": "overOnsSectJongGedrevenEnGebouwdOpVakmanschapH1",
+      "heading_tag": "h1",
+      "heading": "Jong, gedreven en gebouwd op vakmanschap",
+      "heading_status": "present",
+      "type": "hero"
+    },
+    {
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_number": 2,
+      "id": "overOnsSectTweeVriendenEenDoel",
+      "class": "overOnsSectTweeVriendenEenDoel",
+      "classes": [
+        "siteSectie",
+        "overOnsSectTweeVriendenEenDoel",
+        "overOnsGecentreerdeTekst"
+      ],
+      "layout_classes": [],
+      "data_section_title": "Twee vrienden, één doel",
+      "heading_id": "overOnsSectTweeVriendenEenDoelH2",
+      "heading_tag": "h2",
+      "heading": "Twee vrienden, één doel",
+      "heading_status": "present",
+      "type": "centered_text"
+    },
+    {
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_number": 3,
+      "id": "overOnsSectRotterdamseMentaliteitLandelijkeService",
+      "class": "overOnsSectRotterdamseMentaliteitLandelijkeService",
+      "classes": [
+        "siteSectie",
+        "overOnsSectRotterdamseMentaliteitLandelijkeService",
+        "kenmerkKaartenSectie",
+        "layoutFeatureColumnsTransparent",
+        "overOnsAchtergrondSectieVolledigeBreedte"
+      ],
+      "layout_classes": [
+        "kenmerkKaartenSectie",
+        "layoutFeatureColumnsTransparent"
+      ],
+      "data_section_title": "Rotterdamse mentaliteit, landelijke service.",
+      "heading_id": "overOnsSectRotterdamseMentaliteitLandelijkeServiceH2",
+      "heading_tag": "h2",
+      "heading": "Rotterdamse mentaliteit, landelijke service.",
+      "heading_status": "present",
+      "type": "background_transparent_features"
+    },
+    {
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_number": 4,
+      "id": "overOnsSectPersoonlijkContactEnSnelleService",
+      "class": "overOnsSectPersoonlijkContactEnSnelleService",
+      "classes": [
+        "siteSectie",
+        "overOnsSectPersoonlijkContactEnSnelleService",
+        "overOnsGecentreerdeTekst"
+      ],
+      "layout_classes": [],
+      "data_section_title": "Persoonlijk contact en snelle service",
+      "heading_id": "overOnsSectPersoonlijkContactEnSnelleServiceH2",
+      "heading_tag": "h2",
+      "heading": "Persoonlijk contact en snelle service",
+      "heading_status": "present",
+      "type": "centered_text"
+    },
+    {
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_number": 5,
+      "id": "overOnsSectWatWijDoen",
+      "class": "overOnsSectWatWijDoen",
+      "classes": [
+        "siteSectie",
+        "overOnsSectWatWijDoen",
+        "layoutImageGrid"
+      ],
+      "layout_classes": [
+        "layoutImageGrid"
+      ],
+      "data_section_title": "Wat wij doen",
+      "heading_id": "overOnsSectWatWijDoenH2",
+      "heading_tag": "h2",
+      "heading": "Wat wij doen",
+      "heading_status": "present",
+      "type": "image_grid"
+    },
+    {
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_number": 6,
+      "id": "overOnsSectWerkenVolgensNormenEnFabrikantsrichtlijnen",
+      "class": "overOnsSectWerkenVolgensNormenEnFabrikantsrichtlijnen",
+      "classes": [
+        "siteSectie",
+        "overOnsSectWerkenVolgensNormenEnFabrikantsrichtlijnen",
+        "layoutCertificationLogos"
+      ],
+      "layout_classes": [
+        "layoutCertificationLogos"
+      ],
+      "data_section_title": "Werken volgens normen en fabrikantsrichtlijnen",
+      "heading_id": "overOnsSectWerkenVolgensNormenEnFabrikantsrichtlijnenH2",
+      "heading_tag": "h2",
+      "heading": "Wij werken volgens de geldende normen, voorschriften en fabrikantsrichtlijnen. Onze monteurs beschikken over de benodigde certificering, kennis en ervaring om installaties professioneel aan te leggen, te controleren en op te leveren.",
+      "heading_status": "present",
+      "type": "certification_logos"
+    },
+    {
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_number": 7,
+      "id": "overOnsSectSamenBouwenAanDeEnergieVanMorgen",
+      "class": "overOnsSectSamenBouwenAanDeEnergieVanMorgen",
+      "classes": [
+        "siteSectie",
+        "overOnsSectSamenBouwenAanDeEnergieVanMorgen",
+        "overOnsGecentreerdeTekst"
+      ],
+      "layout_classes": [],
+      "data_section_title": "Samen bouwen aan de energie van morgen",
+      "heading_id": "overOnsSectSamenBouwenAanDeEnergieVanMorgenH2",
+      "heading_tag": "h2",
+      "heading": "Samen bouwen aan de energie van morgen",
+      "heading_status": "present",
+      "type": "centered_text"
+    },
+    {
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_number": 8,
+      "id": "overOnsSectKlaarVoorDeVolgendeStap",
+      "class": "overOnsSectKlaarVoorDeVolgendeStap",
+      "classes": [
+        "siteSectie",
+        "overOnsSectKlaarVoorDeVolgendeStap",
+        "layoutEmailCta"
+      ],
+      "layout_classes": [
+        "layoutEmailCta"
+      ],
+      "data_section_title": "Klaar voor de volgende stap?",
+      "heading_id": "overOnsSectKlaarVoorDeVolgendeStapH2",
+      "heading_tag": "h2",
+      "heading": "Klaar voor de volgende stap?",
+      "heading_status": "present",
+      "type": "email_cta"
+    },
+    {
+      "page": "Contact",
+      "file": "contact.html",
+      "page_number": 7,
+      "section_number": 1,
+      "id": "contactSectLatenWeBeginnen",
+      "class": "contactSectLatenWeBeginnen",
+      "classes": [
+        "siteSectie",
+        "contactSectLatenWeBeginnen",
+        "layoutContactOfferte"
+      ],
+      "layout_classes": [
+        "layoutContactOfferte"
+      ],
+      "data_section_title": "Laten we beginnen",
+      "heading_id": "contactSectLatenWeBeginnenH1",
+      "heading_tag": "h1",
+      "heading": "Laten we beginnen",
+      "heading_status": "present",
+      "type": "contact_form"
+    }
+  ],
+  "supporting_sections": [
+    {
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "parent_section_id": "homeSectGecertificeerdeInstallateursMetVakmanschap",
+      "id": "homeSectGecertificeerdeInstallateursMetVakmanschapKaarten",
+      "classes": [
+        "siteSectie",
+        "homeSectGecertificeerdeInstallateursMetVakmanschapKaarten",
+        "kenmerkKaartenSectie",
+        "layoutFeatures"
+      ],
+      "heading_id": "homeSectGecertificeerdeInstallateursMetVakmanschapH2",
+      "heading_tag": "h2",
+      "heading": "Gecertificeerde installateurs met vakmanschap",
+      "heading_status": "present"
+    },
+    {
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "parent_section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
+      "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenVragen",
+      "classes": [
+        "faqLijst"
+      ],
+      "heading_id": "",
+      "heading_tag": "",
+      "heading": "",
+      "heading_status": "not_applicable"
+    },
+    {
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "parent_section_id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelen",
+      "id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelenVragen",
+      "classes": [
+        "faqLijst"
+      ],
+      "heading_id": "",
+      "heading_tag": "",
+      "heading": "",
+      "heading_status": "not_applicable"
+    },
+    {
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "parent_section_id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalen",
+      "id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalenVragen",
+      "classes": [
+        "faqLijst"
+      ],
+      "heading_id": "",
+      "heading_tag": "",
+      "heading": "",
+      "heading_status": "not_applicable"
+    },
+    {
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "parent_section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
+      "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenVragen",
+      "classes": [
+        "faqLijst"
+      ],
+      "heading_id": "",
+      "heading_tag": "",
+      "heading": "",
+      "heading_status": "not_applicable"
+    }
+  ],
+  "paragraphs": [
+    {
+      "id": "homeSectGecertificeerdeInstallateursMetVakmanschapP01",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectGecertificeerdeInstallateursMetVakmanschap",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Van zonnepanelen, thuisbatterijen en laadpalen tot groepenkasten en elektrotechnische renovaties. Sparky Energies helpt u met veilige, duurzame en toekomstbestendige installaties voor woning en bedrijf."
+    },
+    {
+      "id": "homeSectGecertificeerdeInstallateursMetVakmanschapArtikel01P01",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectGecertificeerdeInstallateursMetVakmanschap",
+      "type": "card-p",
+      "classes": [],
+      "text": "Veilig werken volgens alle geldende normen"
+    },
+    {
+      "id": "homeSectGecertificeerdeInstallateursMetVakmanschapArtikel02P01",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectGecertificeerdeInstallateursMetVakmanschap",
+      "type": "card-p",
+      "classes": [],
+      "text": "Alles wat u nodig heeft op één plek"
+    },
+    {
+      "id": "homeSectGecertificeerdeInstallateursMetVakmanschapArtikel03P01",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectGecertificeerdeInstallateursMetVakmanschap",
+      "type": "card-p",
+      "classes": [],
+      "text": "Persoonlijke aanpak en duidelijke communicatie"
+    },
+    {
+      "id": "homeSectGecertificeerdeInstallateursMetVakmanschapArtikel04P01",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectGecertificeerdeInstallateursMetVakmanschap",
+      "type": "card-p",
+      "classes": [],
+      "text": "Vanuit Rotterdam landelijk actief"
+    },
+    {
+      "id": "homeSectWatWijVoorUInstallerenEnOnderhoudenP01",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Wat wij voor u installeren en onderhouden."
+    },
+    {
+      "id": "homeSectWatWijVoorUInstallerenEnOnderhoudenArtikel01P01",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
+      "type": "service-p",
+      "classes": [],
+      "text": "Sla zonne-energie op voor later gebruik"
+    },
+    {
+      "id": "homeSectWatWijVoorUInstallerenEnOnderhoudenArtikel02P01",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
+      "type": "service-p",
+      "classes": [],
+      "text": "Wek duurzame stroom op en bespaar"
+    },
+    {
+      "id": "homeSectWatWijVoorUInstallerenEnOnderhoudenArtikel03P01",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
+      "type": "service-p",
+      "classes": [],
+      "text": "Laad uw elektrische auto veilig thuis of op werk"
+    },
+    {
+      "id": "homeSectWatWijVoorUInstallerenEnOnderhoudenArtikel04P01",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
+      "type": "service-p",
+      "classes": [],
+      "text": "Van groepenkast tot verlichting en stopcontacten"
+    },
+    {
+      "id": "homeSectTwijfeltUOfUwInstallatieGeschiktIsP01",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectTwijfeltUOfUwInstallatieGeschiktIs",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Veel woningen en bedrijfspanden zijn nog niet voorbereid op de groeiende vraag naar elektriciteit. Denk aan zonnepanelen, een thuisbatterij, laadpaal, warmtepomp of uitbreiding naar 3-fase. Sparky Energies helpt u inzicht te krijgen in uw situatie. Wij controleren wat er mogelijk is, welke aanpassingen nodig zijn en welke oplossing het beste past bij uw woning of bedrijf."
+    },
+    {
+      "id": "homeSectRecentWerkP01",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectRecentWerk",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Praktijkvoorbeelden van onze installaties"
+    },
+    {
+      "id": "homeSectRecentWerkArtikel01P01",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectRecentWerk",
+      "type": "portfolio-p",
+      "classes": [],
+      "text": "Dakinstallatie met 10 panelen en monitoring"
+    },
+    {
+      "id": "homeSectRecentWerkArtikel04P01",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectRecentWerk",
+      "type": "portfolio-p",
+      "classes": [],
+      "text": "Energieopslag met slimme sturing voor optimaal eigen verbruik"
+    },
+    {
+      "id": "homeSectRecentWerkArtikel02P01",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectRecentWerk",
+      "type": "portfolio-p",
+      "classes": [],
+      "text": "Uitbreiding met extra groepen en aardlekbeveiliging"
+    },
+    {
+      "id": "homeSectRecentWerkArtikel03P01",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectRecentWerk",
+      "type": "portfolio-p",
+      "classes": [],
+      "text": "Wallbox in garage met load balancing"
+    },
+    {
+      "id": "homeSectKlaarOmUwWoningToekomstbestendigTeMakenP01",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectKlaarOmUwWoningToekomstbestendigTeMaken",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Vraag vrijblijvend een offerte aan of plan een adviesgesprek in."
+    },
+    {
+      "id": "homeSectKlaarOmUwWoningToekomstbestendigTeMakenFormulierNotitie",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectKlaarOmUwWoningToekomstbestendigTeMaken",
+      "type": "form-note",
+      "classes": [
+        "formulierNotitie"
+      ],
+      "text": ""
+    },
+    {
+      "id": "homeSectKlaarOmUwWoningToekomstbestendigTeMakenP02",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectKlaarOmUwWoningToekomstbestendigTeMaken",
+      "type": "privacy-note",
+      "classes": [
+        "privacyNotitie"
+      ],
+      "text": "Wij verwerken uw gegevens conform onze Privacy verklaring. Op uw aanvraag zijn onze Algemene voorwaarden van toepassing."
+    },
+    {
+      "id": "thuisbatterijSectThuisbatterijLatenInstallerenP01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectThuisbatterijLatenInstalleren",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Wekt u overdag meer stroom op dan u direct gebruikt? Met een thuisbatterij slaat u uw eigen zonne-energie op en gebruikt u deze later. Sparky Energies helpt u met een veilige en slimme thuisbatterij-installatie die past bij uw woning, zonnepanelen, verbruik en toekomstplannen."
+    },
+    {
+      "id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparenP01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparen",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Zonnepanelen wekken vaak de meeste stroom op wanneer u niet thuis bent of weinig verbruikt. Zonder thuisbatterij levert u die overtollige stroom terug aan het net. Met een thuisbatterij slaat u deze energie op, zodat u die later op de dag of avond zelf kunt gebruiken."
+    },
+    {
+      "id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparenArtikel01P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparen",
+      "type": "card-p",
+      "classes": [],
+      "text": "Met een thuisbatterij gebruikt u meer van de stroom die u zelf opwekt. Dat maakt uw woning efficiënter en vermindert de hoeveelheid stroom die u moet inkopen."
+    },
+    {
+      "id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparenArtikel02P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparen",
+      "type": "card-p",
+      "classes": [],
+      "text": "Door energie op te slaan, bent u minder afhankelijk van piekmomenten, netcongestie en veranderende energieprijzen."
+    },
+    {
+      "id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparenArtikel03P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparen",
+      "type": "card-p",
+      "classes": [],
+      "text": "In combinatie met een dynamisch energiecontract kan een slimme thuisbatterij laden wanneer stroom goedkoop is en ontladen wanneer stroom duurder is."
+    },
+    {
+      "id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparenArtikel04P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparen",
+      "type": "card-p",
+      "classes": [],
+      "text": "Afhankelijk van het gekozen systeem kan een thuisbatterij bepaalde groepen blijven voeden bij stroomuitval. De omschakeling kan in milliseconden plaatsvinden, waardoor u hier in veel gevallen nauwelijks iets van merkt."
+    },
+    {
+      "id": "thuisbatterijSectVoorWoningEnBedrijfP01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectVoorWoningEnBedrijf",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Een thuisbatterij moet veilig samenwerken met zonnepanelen, omvormer, groepenkast, laadpaal, warmtepomp en netaansluiting."
+    },
+    {
+      "id": "thuisbatterijSectVoorWoningEnBedrijfP02",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectVoorWoningEnBedrijf",
+      "type": "content-p",
+      "classes": [
+        "contentParagraaf"
+      ],
+      "text": "Bij Sparky Energies krijgt u advies op basis van uw werkelijke situatie: verbruik, teruglevering, piekbelasting en toekomstplannen."
+    },
+    {
+      "id": "thuisbatterijSectVoorWoningEnBedrijfP03",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectVoorWoningEnBedrijf",
+      "type": "content-p",
+      "classes": [
+        "contentParagraaf"
+      ],
+      "text": "Onze installateurs zorgen voor een veilige en professionele installatie volgens geldende normen. Van beoordeling tot oplevering leggen wij duidelijk uit hoe het systeem werkt."
+    },
+    {
+      "id": "thuisbatterijSectVoorWoningEnBedrijfP04",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectVoorWoningEnBedrijf",
+      "type": "content-p",
+      "classes": [
+        "contentParagraaf"
+      ],
+      "text": "Bovendien helpen wij u kosteloos met de btw-declaratie."
+    },
+    {
+      "id": "thuisbatterijSectHoeWerktEenThuisbatterijP01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectHoeWerktEenThuisbatterij",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Een thuisbatterij slaat elektriciteit op die u op dat moment niet direct gebruikt. Heeft u zonnepanelen? Dan wekken deze overdag vaak meer stroom op dan uw woning op dat moment verbruikt."
+    },
+    {
+      "id": "thuisbatterijSectHoeWerktEenThuisbatterijP02",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectHoeWerktEenThuisbatterij",
+      "type": "content-p",
+      "classes": [
+        "contentParagraaf"
+      ],
+      "text": "Zonder thuisbatterij wordt dit overschot teruggeleverd aan het elektriciteitsnet. Met een thuisbatterij bewaart u deze energie voor een later moment, bijvoorbeeld in de avond, nacht of op bewolkte dagen."
+    },
+    {
+      "id": "thuisbatterijSectHoeWerktEenThuisbatterijP03",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectHoeWerktEenThuisbatterij",
+      "type": "content-p",
+      "classes": [
+        "contentParagraaf"
+      ],
+      "text": "Het systeem werkt volledig automatisch. Uw woning gebruikt eerst de stroom die direct door uw zonnepanelen wordt opgewekt."
+    },
+    {
+      "id": "thuisbatterijSectHoeWerktEenThuisbatterijP04",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectHoeWerktEenThuisbatterij",
+      "type": "content-p",
+      "classes": [
+        "contentParagraaf"
+      ],
+      "text": "Is er meer opbrengst dan verbruik? Dan wordt de thuisbatterij opgeladen. Wanneer uw zonnepanelen minder of geen stroom produceren, levert de batterij de opgeslagen energie terug aan uw woning. Pas wanneer de batterij leeg is, wordt er stroom van het net afgenomen."
+    },
+    {
+      "id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturingStap01P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturing",
+      "type": "card-p",
+      "classes": [],
+      "text": "Een thuisbatterij met EMS stemt zonnepanelen, batterij, laadpaal en warmtepomp automatisch op elkaar af."
+    },
+    {
+      "id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturingStap01P02",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturing",
+      "type": "card-p",
+      "classes": [],
+      "text": "Het systeem kijkt naar uw verbruik, zonne-opbrengst, batterijstatus en stroomprijzen. Met AI-sturing leert het van uw verbruik en bepaalt het wanneer laden, ontladen of terugleveren het meest gunstig is."
+    },
+    {
+      "id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturingStap01P03",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturing",
+      "type": "card-p",
+      "classes": [],
+      "text": "Zo gebruikt u meer eigen zonne-energie, verlaagt u dure netstroom en haalt u meer rendement uit uw energie-installatie."
+    },
+    {
+      "id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturingStap02P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturing",
+      "type": "card-p",
+      "classes": [],
+      "text": "Met een slimme thuisbatterij ziet u via één app uw volledige energiehuishouding: opgewekte zonnestroom, energieverbruik, batterijlading en gebruik van laadpaal of warmtepomp. U volgt ook uw eigen verbruik, teruglevering aan het net en besparingen, wat u volledige controle over uw energieverbruik geeft."
+    },
+    {
+      "id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturingStap02P02",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturing",
+      "type": "card-p",
+      "classes": [],
+      "text": "Een thuisbatterij is meer dan opslagruimte—het is essentieel voor een toekomstbestendig energiesysteem. Door opslag, slimme aansturing, noodstroom en volledig inzicht te combineren, haalt u meer rendement uit uw zonnepanelen en bent u beter voorbereid op morgen's energiemarkt."
+    },
+    {
+      "id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturingStap03P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturing",
+      "type": "card-p",
+      "classes": [],
+      "text": "Een thuisbatterij biedt zekerheid bij stroomuitval. Met een back-upfunctie schakelt het systeem automatisch over op de opgeslagen energie, binnen milliseconden. Zo blijven essentiële apparaten als verlichting, internet, koelkast en beveiligingssysteem werken."
+    },
+    {
+      "id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturingStap03P02",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturing",
+      "type": "card-p",
+      "classes": [],
+      "text": "Afhankelijk van het systeem en de batterijcapaciteit kan een deel of de hele woning van noodstroom worden voorzien. Let op: niet iedere thuisbatterij levert standaard noodstroom. Hiervoor zijn een geschikte omvormer en back-upvoorziening nodig. Wij adviseren u graag over de beste oplossing."
+    },
+    {
+      "id": "thuisbatterijSectZoWerkenWijStap01P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectZoWerkenWij",
+      "type": "process-p",
+      "classes": [],
+      "text": "U vult het formulier in en stuurt eventueel foto’s mee van uw groepenkast, omvormer en zonnepanelen."
+    },
+    {
+      "id": "thuisbatterijSectZoWerkenWijStap02P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectZoWerkenWij",
+      "type": "process-p",
+      "classes": [],
+      "text": "Wij kijken naar uw verbruik, zonnepanelen, aansluiting en wensen. Vaak kunnen wij al op afstand een goede eerste inschatting maken."
+    },
+    {
+      "id": "thuisbatterijSectZoWerkenWijStap03P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectZoWerkenWij",
+      "type": "process-p",
+      "classes": [],
+      "text": "U krijgt een passend voorstel met de aanbevolen batterijoplossing, werkzaamheden en kosten."
+    },
+    {
+      "id": "thuisbatterijSectZoWerkenWijStap04P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectZoWerkenWij",
+      "type": "process-p",
+      "classes": [],
+      "text": "Onze installateurs plaatsen en sluiten de thuisbatterij professioneel aan volgens de geldende NEN-normen."
+    },
+    {
+      "id": "thuisbatterijSectZoWerkenWijStap05P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectZoWerkenWij",
+      "type": "process-p",
+      "classes": [],
+      "text": "Na installatie controleren we het systeem en leggen we uit hoe de batterij en app werken."
+    },
+    {
+      "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenP01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": ""
+    },
+    {
+      "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenVraag01P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Ja, zeker als u zonnepanelen heeft. U profiteert meer van uw eigen opgewekte stroom en bent minder afhankelijk van het net. De terugverdientijd hangt af van uw verbruik en energiecontract."
+    },
+    {
+      "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenVraag02P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Een thuisbatterij werkt het best met zonnepanelen, maar kan ook stroom van het net opslaan bij dynamische tarieven. Voor maximaal voordeel adviseren wij zonnepanelen."
+    },
+    {
+      "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenVraag03P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Niet automatisch. Met een geschikt back-upsysteem kan de batterij geselecteerde groepen van stroom voorzien wanneer het net uitvalt. Dit moet wel worden ingebouwd."
+    },
+    {
+      "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenVraag04P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Dit hangt af van uw jaarlijks stroomverbruik, avondverbruik en aantal zonnepanelen. Wij berekenen dit op maat in een adviesgesprek."
+    },
+    {
+      "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenVraag05P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Onder bepaalde voorwaarden ja. Dit hangt af van uw energiecontract, de aansturing en fiscale regels. Wij informeren u graag over de mogelijkheden."
+    },
+    {
+      "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenVraag06P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Met zonnepanelen profiteert u maximaal. De batterij slaat overtollige energie op voor gebruik 's avonds, wat direct uw energierekening verlaagt en de terugverdientijd verkort."
+    },
+    {
+      "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenVraag07P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Een batterij kan ook stroom van het net opslaan bij dynamische tarieven, maar het voordeel is kleiner. Voor optimaal rendement adviseren wij zonnepanelen erbij."
+    },
+    {
+      "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenVraag08P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Niet standaard. Met een back-upsysteem kan de batterij essentiële groepen voorzien bij stroomuitval. Dit moet wel worden ingebouwd en geconfigureerd."
+    },
+    {
+      "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenVraag09P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Wij berekenen dit op basis van uw jaarlijks verbruik, avondgebruik en aantal zonnepanelen. Een adviesgesprek geeft duidelijkheid over de juiste grootte voor uw situatie."
+    },
+    {
+      "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenVraag10P01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Moderne batterijen gaan 10 tot 15 jaar mee en behouden 80 procent capaciteit. Dit is een solide investering voor de lange termijn."
+    },
+    {
+      "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenContactP01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
+      "type": "cta-p",
+      "classes": [],
+      "text": ""
+    },
+    {
+      "id": "thuisbatterijSectOntdekWelkeBatterijPastBijUP01",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectOntdekWelkeBatterijPastBijU",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Wij helpen u met een passend advies, veilige installatie en duidelijke uitleg. Wij kijken naar uw zonnepanelen, verbruik, groepenkast, aansluiting en toekomstplannen."
+    },
+    {
+      "id": "thuisbatterijSectOntdekWelkeBatterijPastBijUFormulierNotitie",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectOntdekWelkeBatterijPastBijU",
+      "type": "form-note",
+      "classes": [
+        "formulierNotitie"
+      ],
+      "text": ""
+    },
+    {
+      "id": "thuisbatterijSectOntdekWelkeBatterijPastBijUP02",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectOntdekWelkeBatterijPastBijU",
+      "type": "privacy-note",
+      "classes": [
+        "privacyNotitie"
+      ],
+      "text": "Wij verwerken uw gegevens conform onze Privacy verklaring. Op uw aanvraag zijn onze Algemene voorwaarden van toepassing."
+    },
+    {
+      "id": "zonnepanelenSectZonnepanelenLatenInstallerenP01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectZonnepanelenLatenInstalleren",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Door zelf duurzame elektriciteit op te wekken verlaagt u direct uw energiekosten, verhoogt u de waarde van uw woning en draagt u bij aan een duurzamere toekomst. Sparky Energies helpt u met een veilige, nette en toekomstbestendige installatie voor uw woning of bedrijfspand."
+    },
+    {
+      "id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDakP01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Veel daken worden nog niet benut, terwijl ze jarenlang duurzame stroom kunnen opwekken. Met een goed ontworpen zonnepaneleninstallatie gebruikt u uw dak om energie op te wekken voor uw woning, laadpaal, warmtepomp of bedrijf. Sparky Energies denkt met u mee over de juiste oplossing. We kijken niet alleen naar hoeveel panelen er passen, maar ook naar wat voor u praktisch, veilig en rendabel is."
+    },
+    {
+      "id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDakArtikel01P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak",
+      "type": "card-p",
+      "classes": [],
+      "text": "De stroom die u zelf opwekt en direct gebruikt, hoeft u niet in te kopen bij uw energieleverancier. Hierdoor kunt u uw maandelijkse energiekosten verlagen."
+    },
+    {
+      "id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDakArtikel02P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak",
+      "type": "card-p",
+      "classes": [],
+      "text": "Met zonnepanelen wekt u schone stroom op uit zonlicht. Dat draagt bij aan een duurzamere woning of bedrijfsvoering."
+    },
+    {
+      "id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDakArtikel03P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak",
+      "type": "card-p",
+      "classes": [],
+      "text": "Woningen met een energiezuinige installatie zijn aantrekkelijker voor kopers en beschikken vaak over een beter energielabel."
+    },
+    {
+      "id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDakArtikel04P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak",
+      "type": "card-p",
+      "classes": [],
+      "text": "Zonnepanelen sluiten goed aan op toekomstige uitbreidingen zoals een warmtepomp, inductiekoken, thuisbatterij en laadpaal."
+    },
+    {
+      "id": "zonnepanelenSectEenInstallatieDiePastBijUwSituatieP01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectEenInstallatieDiePastBijUwSituatie",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Met Sparky Energies kiest u voor een betrouwbare installateur die verder kijkt dan alleen de zonnepanelen."
+    },
+    {
+      "id": "zonnepanelenSectEenInstallatieDiePastBijUwSituatieP02",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectEenInstallatieDiePastBijUwSituatie",
+      "type": "content",
+      "classes": [
+        "contentParagraaf"
+      ],
+      "text": "Een goede zonnepaneleninstallatie draait niet alleen om het plaatsen van panelen. De installatie moet veilig worden aangesloten, netjes worden afgewerkt en passen bij uw huidige én toekomstige energieverbruik."
+    },
+    {
+      "id": "zonnepanelenSectEenInstallatieDiePastBijUwSituatieP03",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectEenInstallatieDiePastBijUwSituatie",
+      "type": "content",
+      "classes": [
+        "contentParagraaf"
+      ],
+      "text": "Sparky Energies helpt u met eerlijk advies, een veilige installatie en duidelijke uitleg. Wij kijken naar uw dak, verbruik en toekomstplannen, zodat u een zonnepaneleninstallatie krijgt die echt bij uw situatie past."
+    },
+    {
+      "id": "zonnepanelenSectHoeWerkenZonnepanelenP01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectHoeWerkenZonnepanelen",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Uw zonnepanelen vangen zonlicht op en zetten dit om in gelijkstroom. Een omvormer transformeert deze gelijkstroom naar wisselstroom die u direct kunt gebruiken in uw woning of bedrijf. De stroom die u niet direct verbruikt, gaat naar uw meterkast. Daar kunt u deze terugleveren aan het net of opslaan in een thuisbatterij voor later gebruik."
+    },
+    {
+      "id": "zonnepanelenSectHoeWerkenZonnepanelenP02",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectHoeWerkenZonnepanelen",
+      "type": "content-p",
+      "classes": [
+        "contentParagraaf"
+      ],
+      "text": "De zonnecellen in uw panelen werken zonder bewegende onderdelen. Ze vangen fotonen uit zonlicht op en zetten deze om in elektrische energie. Dit gebeurt stil en betrouwbaar, dag na dag. Hoe meer zon, hoe meer stroom. Maar ook op bewolkte dagen leveren uw panelen energie."
+    },
+    {
+      "id": "zonnepanelenSectHoeWerkenZonnepanelenP03",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectHoeWerkenZonnepanelen",
+      "type": "content-p",
+      "classes": [
+        "contentParagraaf"
+      ],
+      "text": "Uw omvormer is het hart van het systeem. Dit apparaat zet de gelijkstroom van uw panelen om naar wisselstroom. Dit is de stroom die uw apparaten nodig hebben. De omvormer communiceert ook met uw meterkast en zorgt voor veilige aansluiting op het elektriciteitsnet."
+    },
+    {
+      "id": "zonnepanelenSectSlaOvertolligeStroomOpStap01P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectSlaOvertolligeStroomOp",
+      "type": "scroll-card-p",
+      "classes": [],
+      "text": "Zonder thuisbatterij levert u overtollige stroom terug aan het net. Met een thuisbatterij kunt u deze stroom opslaan en later gebruiken, bijvoorbeeld in de avond of nacht."
+    },
+    {
+      "id": "zonnepanelenSectSlaOvertolligeStroomOpStap01P02",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectSlaOvertolligeStroomOp",
+      "type": "paragraph",
+      "classes": [],
+      "text": "Sparky Energies kan uw zonnepaneleninstallatie direct voorbereiden op batterijopslag of een bestaande installatie uitbreiden met een thuisbatterij."
+    },
+    {
+      "id": "zonnepanelenSectSlaOvertolligeStroomOpStap02P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectSlaOvertolligeStroomOp",
+      "type": "scroll-card-p",
+      "classes": [],
+      "text": "Heeft u een elektrische auto of wilt u binnenkort een laadpaal plaatsen? Dan kunnen zonnepanelen helpen om een deel van uw laadverbruik zelf op te wekken."
+    },
+    {
+      "id": "zonnepanelenSectSlaOvertolligeStroomOpStap02P02",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectSlaOvertolligeStroomOp",
+      "type": "paragraph",
+      "classes": [],
+      "text": "Zo zorgen we dat uw zonnepanelen, laadpaal en elektrische installatie goed op elkaar zijn afgestemd."
+    },
+    {
+      "id": "zonnepanelenSectSlaOvertolligeStroomOpStap03P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectSlaOvertolligeStroomOp",
+      "type": "scroll-card-p",
+      "classes": [],
+      "text": "Een warmtepomp gebruikt elektriciteit om uw woning te verwarmen. Met zonnepanelen kunt u een groot deel van dit extra stroomverbruik zelf opwekken. Dit maakt uw woning duurzamer en beter voorbereid op gasloos wonen."
+    },
+    {
+      "id": "zonnepanelenSectSlaOvertolligeStroomOpStap03P02",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectSlaOvertolligeStroomOp",
+      "type": "paragraph",
+      "classes": [],
+      "text": "Sparky Energies controleert of uw elektrische installatie geschikt is voor deze combinatie en denkt mee over toekomstige uitbreidingen."
+    },
+    {
+      "id": "zonnepanelenSectZoWerkenWijStap01P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectZoWerkenWij",
+      "type": "process-p",
+      "classes": [],
+      "text": "U vult het formulier in en stuurt eventueel foto’s mee van uw dak, meterkast of huidige installatie."
+    },
+    {
+      "id": "zonnepanelenSectZoWerkenWijStap02P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectZoWerkenWij",
+      "type": "process-p",
+      "classes": [],
+      "text": "Wij kijken naar uw dak, stroomverbruik, groepenkast en wensen. Vaak kunnen wij op afstand al een goede eerste inschatting maken."
+    },
+    {
+      "id": "zonnepanelenSectZoWerkenWijStap03P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectZoWerkenWij",
+      "type": "process-p",
+      "classes": [],
+      "text": "U krijgt een passend voorstel met duidelijke werkzaamheden, materialen en kosten."
+    },
+    {
+      "id": "zonnepanelenSectZoWerkenWijStap04P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectZoWerkenWij",
+      "type": "process-p",
+      "classes": [],
+      "text": "Onze installateurs plaatsen de zonnepanelen, sluiten het systeem veilig aan en zorgen voor een nette afwerking."
+    },
+    {
+      "id": "zonnepanelenSectZoWerkenWijStap05P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectZoWerkenWij",
+      "type": "process-p",
+      "classes": [],
+      "text": "Na installatie controleren wij het systeem en leggen wij uit hoe u uw opbrengst kunt volgen."
+    },
+    {
+      "id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelenVraag01P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Ja. Hoewel de regeling stopt, blijft zelf opgewekte stroom aanzienlijk goedkoper dan stroom afnemen van het net. Vooral in combinatie met een thuisbatterij blijft het rendement aantrekkelijk."
+    },
+    {
+      "id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelenVraag02P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Er zijn geen landelijke subsidies voor zonnepanelen. Wel zijn er verschillende financiële regelingen die het voor jou eenvoudiger maken om te gaan verduurzamen. Bovendien betaal je over een zonnepanelen installatie 0% btw."
+    },
+    {
+      "id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelenVraag03P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Zonnepanelen werken ook op bewolkte dagen, maar minder efficiënt. Ze leveren nog steeds stroom, alleen minder dan bij direct zonlicht. Nederland heeft genoeg licht voor goede opbrengsten."
+    },
+    {
+      "id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelenVraag04P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "In de meeste gevallen ja. We inspecteren jouw meterkast en voeren uitbreidingen door indien nodig. Dit waarborgt een veilige en toekomstvaste aansluiting van jouw panelen."
+    },
+    {
+      "id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelenVraag05P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Zeker. Zonnepanelen bieden de mogelijkheid om later bij uit te breiden. Dit is echter afhankelijk van de beschikbare dakruimte, de omvormer, de groepenkast en uw aansluiting."
+    },
+    {
+      "id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelenVraag06P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Een standaard zonnepaneleninstallatie schakelt meestal automatisch uit bij stroomuitval. Dit is voor de veiligheid van monteurs en het elektriciteitsnet. Wilt u stroom blijven gebruiken bij uitval, dan is een geschikte thuisbatterij met noodstroomfunctie nodig."
+    },
+    {
+      "id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelenVraag07P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Uw verbruik, dakoppervlak en toekomstplannen bepalen het aantal. Maak gebruik van onze calculator om te berekenen hoeveel zonnepanelen u nodig heeft."
+    },
+    {
+      "id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelenVraag08P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "De meeste zonnepanelen hebben een levensduur van 25 tot 35 jaar."
+    },
+    {
+      "id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelenVraag09P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Dat hangt af van de dakrichting, hellingshoek, beschikbare ruimte, schaduw en dakconstructie. Wij beoordelen dit vooraf."
+    },
+    {
+      "id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelenVraag10P01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Ja. Dit is juist een goede combinatie, omdat u overtollige zonne-energie kunt opslaan voor later gebruik."
+    },
+    {
+      "id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelenContactP01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelen",
+      "type": "paragraph",
+      "classes": [],
+      "text": "Nog meer vragen? Neem contact op."
+    },
+    {
+      "id": "zonnepanelenSectBenieuwdHoeveelUKuntBesparenP01",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectBenieuwdHoeveelUKuntBesparen",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Vraag een gratis berekening aan en ontdek wat zonnepanelen voor jou opbrengen."
+    },
+    {
+      "id": "zonnepanelenSectBenieuwdHoeveelUKuntBesparenFormulierNotitie",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectBenieuwdHoeveelUKuntBesparen",
+      "type": "form-note",
+      "classes": [
+        "formulierNotitie"
+      ],
+      "text": ""
+    },
+    {
+      "id": "zonnepanelenSectBenieuwdHoeveelUKuntBesparenP02",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectBenieuwdHoeveelUKuntBesparen",
+      "type": "privacy-note",
+      "classes": [
+        "privacyNotitie"
+      ],
+      "text": "Lees onze Privacy verklaring en Algemene voorwaarden."
+    },
+    {
+      "id": "laadpalenSectLaadpaalLatenInstallerenP01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectLaadpaalLatenInstalleren",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Wilt u thuis of op uw bedrijfslocatie zorgeloos uw elektrische auto opladen? Met een eigen laadpaal heeft u altijd een betrouwbare laadoplossing binnen handbereik. Of u nu één laadpunt nodig heeft voor thuis of meerdere laadpunten voor een bedrijfspand: wij zorgen voor een veilige, nette en toekomstbestendige installatie."
+    },
+    {
+      "id": "laadpalenSectLaadUwElektrischeAutoVeiligEnGemakkelijkOpEigenLocatieP01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectLaadUwElektrischeAutoVeiligEnGemakkelijkOpEigenLocatie",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Een elektrische auto laden via een gewoon stopcontact is niet ideaal. Het laden duurt langer, belast uw elektrische installatie zwaarder en biedt minder controle over uw energieverbruik. Een laadpaal op de oprit, in de garage of op de parkeerplaats is de ideale oplossing. U laadt uw elektrische auto op wanneer het u uitkomt, zonder afhankelijk te zijn van openbare laadstations."
+    },
+    {
+      "id": "laadpalenSectLaadUwElektrischeAutoVeiligEnGemakkelijkOpEigenLocatieArtikel01P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectLaadUwElektrischeAutoVeiligEnGemakkelijkOpEigenLocatie",
+      "type": "card-p",
+      "classes": [],
+      "text": "Een laadpaal is speciaal ontworpen voor het veilig opladen van elektrische voertuigen. In tegenstelling tot laden via een standaard stopcontact is een laadpaal geschikt voor langdurige belasting en hogere laadvermogens."
+    },
+    {
+      "id": "laadpalenSectLaadUwElektrischeAutoVeiligEnGemakkelijkOpEigenLocatieArtikel02P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectLaadUwElektrischeAutoVeiligEnGemakkelijkOpEigenLocatie",
+      "type": "card-p",
+      "classes": [],
+      "text": "Een laadpaal kan uw voertuig aanzienlijk sneller opladen dan een standaard wandcontactdoos."
+    },
+    {
+      "id": "laadpalenSectLaadUwElektrischeAutoVeiligEnGemakkelijkOpEigenLocatieArtikel03P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectLaadUwElektrischeAutoVeiligEnGemakkelijkOpEigenLocatie",
+      "type": "card-p",
+      "classes": [],
+      "text": "Een laadpaal geeft u de vrijheid om uw elektrische auto op te laden op momenten die voor u het beste uitkomen, zonder afhankelijk te zijn van drukke openbare laadstations."
+    },
+    {
+      "id": "laadpalenSectLaadUwElektrischeAutoVeiligEnGemakkelijkOpEigenLocatieArtikel04P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectLaadUwElektrischeAutoVeiligEnGemakkelijkOpEigenLocatie",
+      "type": "card-p",
+      "classes": [],
+      "text": "U bespaart geld door thuis op te laden in plaats van gebruik te maken van openbare laadpunten."
+    },
+    {
+      "id": "laadpalenSectSlimVeiligEnGoedkoopLadenOpEigenLocatieP01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectSlimVeiligEnGoedkoopLadenOpEigenLocatie",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Met Sparky Energies kiest u voor een betrouwbare installateur die zorgt voor een veilige, nette en toekomstbestendige laadoplossing."
+    },
+    {
+      "id": "laadpalenSectSlimVeiligEnGoedkoopLadenOpEigenLocatieP02",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectSlimVeiligEnGoedkoopLadenOpEigenLocatie",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Wij beoordelen uw meterkast, aansluiting, laadwens en toekomstplannen. Zo krijgt u een laadoplossing die past bij uw auto, woning of bedrijfspand."
+    },
+    {
+      "id": "laadpalenSectSlimVeiligEnGoedkoopLadenOpEigenLocatieP03",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectSlimVeiligEnGoedkoopLadenOpEigenLocatie",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Een laadpaal moet niet alleen goed geplaatst worden, maar ook veilig worden aangesloten op uw elektrische installatie. Daarom kijkt Sparky Energies verder dan alleen de laadpaal zelf."
+    },
+    {
+      "id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficientP01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficient",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Met slim laden wordt uw elektrische auto automatisch opgeladen op het meest gunstige moment. De laadpaal houdt rekening met het actuele stroomverbruik in uw woning of bedrijfspand, de opbrengst van zonnepanelen en eventueel dynamische energieprijzen."
+    },
+    {
+      "id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficientP02",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficient",
+      "type": "lead",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Wanneer andere apparaten veel stroom gebruiken, verlaagt de laadpaal tijdelijk het laadvermogen. Is er juist zonne-energie over of is stroom goedkoop? Dan kan de laadpaal de auto op dat moment sneller of voordeliger opladen."
+    },
+    {
+      "id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficientP03",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficient",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Zo voorkomt u overbelasting van uw aansluiting, gebruikt u meer van uw eigen opgewekte stroom en houdt u grip op uw laadkosten."
+    },
+    {
+      "id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficientStap01P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficient",
+      "type": "scroll-card-p",
+      "classes": [],
+      "text": "Heeft u zonnepanelen of wilt u deze laten plaatsen? Dan is een laadpaal een slimme aanvulling. Een deel van de opgewekte stroom kan gebruikt worden om uw elektrische auto op te laden."
+    },
+    {
+      "id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficientStap01P02",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficient",
+      "type": "paragraph",
+      "classes": [],
+      "text": "Met slimme laadinstellingen kan de laadpaal beter inspelen op de opbrengst van uw zonnepanelen. Zo gebruikt u meer van uw eigen stroom en hoeft u minder energie van het net af te nemen."
+    },
+    {
+      "id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficientStap01P03",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficient",
+      "type": "paragraph",
+      "classes": [],
+      "text": "Op deze wijze zorgen wij voor een optimale afstemming tussen zonnepanelen en laadpaal."
+    },
+    {
+      "id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficientStap02P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficient",
+      "type": "scroll-card-p",
+      "classes": [],
+      "text": "Een thuisbatterij kan overtollige zonne-energie opslaan, zodat u deze later kunt gebruiken. In combinatie met een laadpaal kan dit helpen om meer eigen stroom te benutten en minder afhankelijk te zijn van het net."
+    },
+    {
+      "id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficientStap02P02",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficient",
+      "type": "paragraph",
+      "classes": [],
+      "text": "Deze combinatie is interessant wanneer u meer eigen stroom wilt gebruiken, minder afhankelijk wilt zijn van het net en uw complete energie-installatie slimmer wilt laten samenwerken."
+    },
+    {
+      "id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficientStap02P03",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficient",
+      "type": "paragraph",
+      "classes": [],
+      "text": "Sparky Energies kijkt naar het complete systeem: zonnepanelen, thuisbatterij, laadpaal, groepenkast en aansluiting. Zo zorgen we ervoor dat alles veilig en efficiënt samenwerkt."
+    },
+    {
+      "id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficientStap03P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficient",
+      "type": "scroll-card-p",
+      "classes": [],
+      "text": "Bidirectioneel laden betekent dat een elektrische auto stroom kan opnemen én terugleveren. De batterij fungeert als tijdelijke energieopslag voor uw woning, bedrijfspand of elektriciteitsnet."
+    },
+    {
+      "id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficientStap03P02",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficient",
+      "type": "paragraph",
+      "classes": [],
+      "text": "Normaal gesproken gaat stroom één kant op: Laadpaal → auto Bij bidirectioneel laden: Laadpaal ↔ auto"
+    },
+    {
+      "id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficientStap03P03",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectSlimLadenVeiligVoordeligEnEfficient",
+      "type": "paragraph",
+      "classes": [],
+      "text": "Hierdoor wordt uw auto onderdeel van een slim energiesysteem met zonnepanelen, thuisbatterij, laadpaal en energiemanagementsysteem."
+    },
+    {
+      "id": "laadpalenSectSlimLadenVoorMedewerkersKlantenEnBedrijfswagensP01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectSlimLadenVoorMedewerkersKlantenEnBedrijfswagens",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Voor bedrijven kunnen laadpleinen een waardevolle toevoeging zijn. U biedt medewerkers en klanten de mogelijkheid om elektrisch te laden en maakt uw bedrijfslocatie klaar voor elektrisch rijden."
+    },
+    {
+      "id": "laadpalenSectSlimLadenVoorMedewerkersKlantenEnBedrijfswagensP02",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectSlimLadenVoorMedewerkersKlantenEnBedrijfswagens",
+      "type": "paragraph",
+      "classes": [
+        "contentParagraaf"
+      ],
+      "text": "Bij zakelijke installaties kijken we goed naar het totale beschikbare vermogen, piekbelasting en toekomstige groei."
+    },
+    {
+      "id": "laadpalenSectZoWerkenWijStap01P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectZoWerkenWij",
+      "type": "process-p",
+      "classes": [],
+      "text": "U vult het formulier in en stuurt eventueel foto’s mee van uw meterkast en de gewenste plek van de laadpaal."
+    },
+    {
+      "id": "laadpalenSectZoWerkenWijStap02P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectZoWerkenWij",
+      "type": "process-p",
+      "classes": [],
+      "text": "Wij kijken naar uw auto, laadwens, aansluiting, groepenkast en kabelroute. Vaak kunnen wij op afstand al een goede eerste inschatting maken."
+    },
+    {
+      "id": "laadpalenSectZoWerkenWijStap03P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectZoWerkenWij",
+      "type": "process-p",
+      "classes": [],
+      "text": "U krijgt een passend voorstel met duidelijke werkzaamheden, materialen en kosten."
+    },
+    {
+      "id": "laadpalenSectZoWerkenWijStap04P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectZoWerkenWij",
+      "type": "process-p",
+      "classes": [],
+      "text": "Onze installateurs plaatsen de laadpaal, leggen de kabel aan en sluiten alles professioneel aan."
+    },
+    {
+      "id": "laadpalenSectZoWerkenWijStap05P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectZoWerkenWij",
+      "type": "process-p",
+      "classes": [],
+      "text": "Na installatie testen wij de laadpaal en leggen wij uit hoe u veilig en slim kunt laden."
+    },
+    {
+      "id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalenVraag01P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Een 3-fase aansluiting is niet altijd nodig. Voor sneller laden en meer flexibiliteit is het wel aan te raden. Wij controleren uw meterkast en adviseren wat het beste past."
+    },
+    {
+      "id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalenVraag02P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Ja. Een slimme laadpaal laadt uw auto zoveel mogelijk met uw eigen zonnestroom. Dit verhoogt uw eigen verbruik en verlaagt de laadkosten aanzienlijk."
+    },
+    {
+      "id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalenVraag03P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Load balancing zorgt ervoor dat de laadpaal automatisch rekening houdt met het stroomverbruik in uw woning of bedrijfspand. Zo wordt overbelasting van de aansluiting voorkomen."
+    },
+    {
+      "id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalenVraag04P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Bij veel slimme laadpalen is het mogelijk om laadverbruik te registreren en zakelijk te verrekenen. Dit is vooral interessant bij een zakelijke auto of laadpaal op bedrijfslocatie."
+    },
+    {
+      "id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalenVraag05P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Ja. Voor bedrijven of woningen met meerdere elektrische voertuigen kunnen meerdere laadpunten worden geplaatst. Daarbij kijken we goed naar de beschikbare capaciteit en slimme verdeling van het laadvermogen."
+    },
+    {
+      "id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalenVraag06P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Ja. Laadpalen zijn ontworpen voor buitengebruik, mits ze correct geplaatst en aangesloten worden volgens de voorschriften van de fabrikant."
+    },
+    {
+      "id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalenVraag07P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Een laadpaal kan meestal aan de gevel, op een paal bij de oprit of op een parkeerplaats worden geplaatst. De beste locatie hangt af van de afstand tot de meterkast, het kabeltraject en uw parkeersituatie."
+    },
+    {
+      "id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalenVraag08P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Bij een eenvoudige installatie kan dit vaak binnen één dag. Wanneer er veel graafwerk, een lange kabelroute of aanpassing aan de groepenkast nodig is, kan het langer duren."
+    },
+    {
+      "id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalenVraag09P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Zonder slimme regeling kan dit zorgen voor hoge belasting. Met load balancing kan de laadpaal automatisch minder vermogen gebruiken wanneer andere apparaten veel stroom vragen."
+    },
+    {
+      "id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalenVraag10P01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Dat hangt af van uw huidige groepenkast, aansluiting en het laadvermogen. Vaak is een aparte groep met de juiste beveiliging nodig. Wij controleren dit vooraf."
+    },
+    {
+      "id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalenContactP01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalen",
+      "type": "paragraph",
+      "classes": [],
+      "text": "Neem contact met ons op voor persoonlijk advies over uw laadoplossing."
+    },
+    {
+      "id": "laadpalenSectWelkeLaadpaalPastBijUP01",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectWelkeLaadpaalPastBijU",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Laat ons weten wat u nodig hebt. Wij adviseren u vrijblijvend welke oplossing het beste aansluit."
+    },
+    {
+      "id": "laadpalenSectWelkeLaadpaalPastBijUFormulierNotitie",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectWelkeLaadpaalPastBijU",
+      "type": "form-note",
+      "classes": [
+        "formulierNotitie"
+      ],
+      "text": ""
+    },
+    {
+      "id": "laadpalenSectWelkeLaadpaalPastBijUP02",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectWelkeLaadpaalPastBijU",
+      "type": "privacy-note",
+      "classes": [
+        "privacyNotitie"
+      ],
+      "text": "Wij behandelen uw gegevens vertrouwelijk. Lees onze Privacy verklaring en Algemene voorwaarden."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovatiesP01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovaties",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Van groepenkast vervangingen en extra stopcontacten tot krachtstroom en voorbereiding op warmtepomp, airco en inductie kookplaat. Sparky Energies helpt woningen en bedrijven met veilige en toekomstbestendige installaties."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomstP01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomst",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Een groepenkast of elektrotechnische renovatie moet veilig, netjes en doordacht worden uitgevoerd. Bij Sparky Energies krijgt u persoonlijk advies en een installatie die past bij uw huidige situatie én toekomstplannen. Wij kijken niet alleen naar wat er nu nodig is, maar ook naar wat u later mogelijk wilt toevoegen."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomstArtikel01P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomst",
+      "type": "card-p",
+      "classes": [],
+      "text": "Vervanging, extra groepen, aardlekbeveiliging en voorbereiding voor toekomstige apparatuur."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomstArtikel02P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomst",
+      "type": "card-p",
+      "classes": [],
+      "text": "Wij denken mee over wat u straks nodig heeft en leggen het nu al aan."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomstArtikel03P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomst",
+      "type": "card-p",
+      "classes": [],
+      "text": "Inductie, Quooker, oven en vaatwasser krijgen hun eigen groep en aansluiting."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomstArtikel04P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomst",
+      "type": "card-p",
+      "classes": [],
+      "text": "Extra stopcontacten waar u ze nodig heeft, netjes aangelegd en toekomstbestendig."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoorP01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Steeds meer woningen en bedrijfspanden stappen over op elektrische oplossingen. Denk aan elektrisch verwarmen, elektrisch koken en warm water zonder traditionele gasaansluiting. Sparky Energies helpt u met de elektrotechnische voorbereiding om stap voor stap minder afhankelijk te worden van gas. Wij kijken naar uw huidige installatie, uw wensen en toekomstige uitbreidingen, zodat uw woning of bedrijfspand klaar is voor elektrisch gebruik."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoorStap01P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor",
+      "type": "scroll-card-p",
+      "classes": [],
+      "text": "Een all-electric warmtepomp vervangt de cv-ketel volledig. Het systeem gebruikt elektriciteit om warmte uit de buitenlucht te halen en deze om te zetten in bruikbare warmte."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoorStap01P02",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor",
+      "type": "scroll-card-p",
+      "classes": [],
+      "text": "Wij controleren en bereiden uw woning of bedrijfspand voor op een veilige aansluiting."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoorStap02P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor",
+      "type": "scroll-card-p",
+      "classes": [],
+      "text": "Wilt u overstappen van koken op gas naar inductie? Dan is vaak een aparte kookgroep of aanpassing in de groepenkast nodig."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoorStap02P02",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor",
+      "type": "scroll-card-p",
+      "classes": [],
+      "text": "Sparky Energies zorgt voor een veilige aansluiting van uw inductiekookplaat, inclusief de juiste voorbereiding in de keuken en groepenkast. Zo kunt u zorgeloos elektrisch koken."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoorStap03P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor",
+      "type": "scroll-card-p",
+      "classes": [],
+      "text": "Een Quooker of kokendwaterkraan vraagt om een geschikte elektrische aansluiting in de keuken. Vooral bij renovaties of nieuwe keukens is het verstandig om dit direct goed voor te bereiden."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoorStap03P02",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor",
+      "type": "scroll-card-p",
+      "classes": [],
+      "text": "Wij kunnen de benodigde groep, bekabeling of wandcontactdoos netjes aanleggen en aansluiten, zodat uw Quooker veilig en betrouwbaar gebruikt kan worden."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoningP01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoning",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "De groepenkast is het centrale punt van uw woning of bedrijfspand. Vanuit hier wordt alle stroom veilig verdeeld naar verlichting, stopcontacten en apparatuur. Sparky Energies helpt met het renoveren en uitbreiden van groepenkasten, zodat uw elektrische installatie veilig, overzichtelijk en klaar voor de toekomst is."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoningArtikel01P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoning",
+      "type": "card-p",
+      "classes": [],
+      "text": "Bij een groepenkast renovatie vernieuwen wij de bestaande installatie, zodat deze weer veilig, overzichtelijk en betrouwbaar werkt."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoningArtikel02P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoning",
+      "type": "card-p",
+      "classes": [],
+      "text": "Bij een groepenkast uitbreiding voegen wij de benodigde groepen, beveiligingen of aansluitingen toe, zodat nieuwe installaties veilig kunnen worden aangesloten."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectExtraElektraWaarUHetNodigHeeftP01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectExtraElektraWaarUHetNodigHeeft",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Bij een verbouwing, nieuwe keuken, kantoorinrichting of renovatie zitten stopcontacten vaak niet op de juiste plek. Soms zijn er ook simpelweg te weinig aansluitpunten. Sparky Energies kan extra stopcontacten plaatsen, bestaande stopcontacten verplaatsen of de elektra aanpassen aan de nieuwe indeling van uw woning of bedrijfspand."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectExtraElektraWaarUHetNodigHeeftArtikel01P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectExtraElektraWaarUHetNodigHeeft",
+      "type": "card-p",
+      "classes": [],
+      "text": "Stopcontacten bijplaatsen waar u ze echt nodig hebt."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectExtraElektraWaarUHetNodigHeeftArtikel02P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectExtraElektraWaarUHetNodigHeeft",
+      "type": "card-p",
+      "classes": [],
+      "text": "Weerbestendige stopcontacten voor tuin, oprit en werkplekken."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenP01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Een bedrijfspand vraagt om een elektrische installatie die veilig, praktisch en betrouwbaar is. Of het nu gaat om een kantoor, winkel, werkplaats, magazijn of bedrijfsruimte: Sparky Energies helpt met het aanleggen, uitbreiden en aanpassen van elektrotechnische voorzieningen."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenArtikel01P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
+      "type": "card-p",
+      "classes": [],
+      "text": "Voeding voor zware apparatuur en machines. Veilig en volgens voorschrift aangelegd."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenArtikel02P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
+      "type": "card-p",
+      "classes": [],
+      "text": "Wij plaatsen of verplaatsen elektra zodat iedere werkplek praktisch, veilig en netjes is ingericht."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenArtikel03P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
+      "type": "card-p",
+      "classes": [],
+      "text": "Wij kunnen datapunten voorbereiden of aanleggen voor netwerkapparatuur."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenArtikel04P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
+      "type": "card-p",
+      "classes": [],
+      "text": "Goede verlichting zorgt voor comfort, veiligheid en een professionele uitstraling. Wij helpen met binnen- en buitenverlichting."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectZoWerkenWijStap01P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectZoWerkenWij",
+      "type": "process-p",
+      "classes": [],
+      "text": "U vult het formulier in en stuurt eventueel foto’s mee van uw groepenkast, meterkast, keuken, technische ruimte of de plek waar de renovatie nodig is."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectZoWerkenWijStap02P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectZoWerkenWij",
+      "type": "process-p",
+      "classes": [],
+      "text": "Wij kijken naar uw huidige installatie, wensen, aansluitcapaciteit, groepenkast en toekomstige uitbreidingen."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectZoWerkenWijStap03P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectZoWerkenWij",
+      "type": "process-p",
+      "classes": [],
+      "text": "U krijgt een passend voorstel met duidelijke werkzaamheden, materialen, planning en kosten."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectZoWerkenWijStap04P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectZoWerkenWij",
+      "type": "process-p",
+      "classes": [],
+      "text": "Onze installateurs vervangen, breiden uit of renoveren de installatie met oog voor veiligheid, netheid en toekomstbestendigheid."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectZoWerkenWijStap05P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectZoWerkenWij",
+      "type": "process-p",
+      "classes": [],
+      "text": "Na afloop controleren wij de installatie en leggen wij duidelijk uit wat er is aangepast en hoe u het optimaal gebruikt."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenP01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": ""
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenVraag01P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Een verouderde groepenkast kan onvoldoende capaciteit hebben voor moderne apparatuur zoals inductie, warmtepomp of laadpaal. Wij controleren uw installatie en adviseren wanneer vervanging nodig is."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenVraag02P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Inductie, Quooker en andere krachtige apparaten vereisen vaak hun eigen groep. Wij bepalen wat uw woning nodig heeft en breiden uw groepenkast veilig uit."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenVraag03P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Ja, wij zoeken en verhelpen storingen. Van kortsluiting tot aardlekproblemen, overbelasting tot defecte componenten. Na diagnose stellen wij een plan op en voeren herstelwerkzaamheden direct uit."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenVraag04P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Zeker. Wij installeren tuinverlichting, gevelverlichting, opritverlichting en sensorlampen. Alles netjes afgewerkt en veilig aangesloten."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenVraag05P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Ja. Wij voeren werkzaamheden uit in bedrijfspanden, kantoren en winkels. Van werkplekvoorzieningen tot krachtstroom en noodverlichting."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenVraag06P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Ja, een all-electric warmtepomp vervangt uw cv-ketel volledig. U bent dan onafhankelijk van gastoevoer en profiteert van lagere energiekosten en minder CO₂-uitstoot."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenVraag07P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "De kosten hangen af van uw situatie. Een vervanging is anders dan een uitbreiding. Wij geven een duidelijke offerte zonder verrassingen."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenVraag08P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Een groepenkast vervangen duurt meestal één tot twee dagen. Uitbreidingen gaan sneller. Wij plannen het zo in dat u weinig last hebt."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenVraag09P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Elektrisch werk moet door een vakman gebeuren. Wij zorgen dat alles veilig en volgens voorschrift is aangelegd. Geen risico's nemen."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenVraag10P01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
+      "type": "faq-answer",
+      "classes": [],
+      "text": "Ja, wij werken in huizen, appartementen en bedrijfspanden. Voor appartementen coördineren wij met de VvE en volgen wij alle richtlijnen."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenContactP01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
+      "type": "paragraph",
+      "classes": [],
+      "text": "Meer vragen? Neem contact op."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassenP01",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassen",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Vraag een vrijblijvende offerte aan en laat ons uw situatie beoordelen."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassenFormulierNotitie",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassen",
+      "type": "form-note",
+      "classes": [
+        "formulierNotitie"
+      ],
+      "text": ""
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassenP02",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassen",
+      "type": "privacy-note",
+      "classes": [
+        "privacyNotitie"
+      ],
+      "text": "Wij behandelen uw gegevens vertrouwelijk. Lees onze Privacy verklaring en Algemene voorwaarden."
+    },
+    {
+      "id": "overOnsSectJongGedrevenEnGebouwdOpVakmanschapP01",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_id": "overOnsSectJongGedrevenEnGebouwdOpVakmanschap",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Sparky Energies groeide uit een eenvoudig idee: twee vrienden uit de bouw en elektrotechniek wilden samen iets opbouwen waar kwaliteit en eerlijkheid voorop staan. Die basis vormt nog steeds het hart van wat wij doen. Wij geloven dat goed werk begint met luisteren, doorgaat met vakmanschap en eindigt met een klant die tevreden is."
+    },
+    {
+      "id": "overOnsSectTweeVriendenEenDoelP01",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_id": "overOnsSectTweeVriendenEenDoel",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Sparky Energies is een jong en ambitieus elektrotechnisch installatiebedrijf, opgericht door twee vrienden met jarenlange ervaring in de bouw en elektrotechniek. Vanuit een gedeelde passie voor techniek, ondernemerschap en duurzaamheid hebben wij onze kennis gebundeld om klanten te helpen met veilige, nette en toekomstbestendige installaties."
+    },
+    {
+      "id": "overOnsSectTweeVriendenEenDoelP02",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_id": "overOnsSectTweeVriendenEenDoel",
+      "type": "content",
+      "classes": [
+        "contentParagraaf"
+      ],
+      "text": "Door onze achtergrond in zowel de bouw als elektrotechniek begrijpen wij hoe belangrijk vakmanschap, planning, duidelijke communicatie en betrouwbare uitvoering zijn. Wij kijken niet alleen naar de installatie zelf, maar ook naar de situatie eromheen. Zo zorgen wij voor oplossingen die praktisch uitvoerbaar zijn, veilig functioneren en klaar zijn voor de toekomst."
+    },
+    {
+      "id": "overOnsSectTweeVriendenEenDoelP03",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_id": "overOnsSectTweeVriendenEenDoel",
+      "type": "content",
+      "classes": [
+        "contentParagraaf"
+      ],
+      "text": "Bij Sparky Energies staan persoonlijke service, duurzame oplossingen en kwaliteit centraal. Of het nu gaat om een woning, bedrijfspand of industriële omgeving: wij denken met u mee en leveren installaties waar u jarenlang op kunt vertrouwen."
+    },
+    {
+      "id": "overOnsSectRotterdamseMentaliteitLandelijkeServiceP01",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_id": "overOnsSectRotterdamseMentaliteitLandelijkeService",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Bij Sparky Energies houden we van duidelijke afspraken, korte lijnen en vakwerk dat netjes wordt opgeleverd. Geen loze beloftes, maar veilige en toekomstbestendige installaties waar u op kunt vertrouwen."
+    },
+    {
+      "id": "overOnsSectRotterdamseMentaliteitLandelijkeServiceArtikel01P01",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_id": "overOnsSectRotterdamseMentaliteitLandelijkeService",
+      "type": "card-p",
+      "classes": [],
+      "text": "Wij leveren installaties af waar wij zelf volledig achter staan. Veiligheid, kwaliteit en nette afwerking staan bij ons altijd voorop."
+    },
+    {
+      "id": "overOnsSectRotterdamseMentaliteitLandelijkeServiceArtikel02P01",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_id": "overOnsSectRotterdamseMentaliteitLandelijkeService",
+      "type": "card-p",
+      "classes": [],
+      "text": "Wij geloven in slimme energieoplossingen die bijdragen aan lagere energiekosten en een duurzamere toekomst."
+    },
+    {
+      "id": "overOnsSectRotterdamseMentaliteitLandelijkeServiceArtikel03P01",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_id": "overOnsSectRotterdamseMentaliteitLandelijkeService",
+      "type": "card-p",
+      "classes": [],
+      "text": "Afspraak is afspraak. Wij communiceren duidelijk, werken zorgvuldig en zorgen voor een professionele oplevering."
+    },
+    {
+      "id": "overOnsSectRotterdamseMentaliteitLandelijkeServiceArtikel04P01",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_id": "overOnsSectRotterdamseMentaliteitLandelijkeService",
+      "type": "card-p",
+      "classes": [],
+      "text": "Bij ons bent u geen nummer. Wij luisteren naar uw wensen, denken mee en adviseren op basis van uw situatie."
+    },
+    {
+      "id": "overOnsSectPersoonlijkContactEnSnelleServiceP01",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_id": "overOnsSectPersoonlijkContactEnSnelleService",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Ondanks dat Sparky Energies snel groeit, blijven wij bewust dicht bij onze klanten staan. Wij vinden persoonlijk contact belangrijk en zorgen ervoor dat u weet waar u aan toe bent."
+    },
+    {
+      "id": "overOnsSectPersoonlijkContactEnSnelleServiceP02",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_id": "overOnsSectPersoonlijkContactEnSnelleService",
+      "type": "content",
+      "classes": [
+        "contentParagraaf"
+      ],
+      "text": "Vanaf het eerste adviesgesprek tot de oplevering van de installatie denken wij met u mee. U krijgt duidelijke uitleg, eerlijk advies en een oplossing die past bij uw situatie. Geen onnodig ingewikkelde verhalen, maar heldere communicatie en vakwerk waarop u kunt vertrouwen."
+    },
+    {
+      "id": "overOnsSectPersoonlijkContactEnSnelleServiceP03",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_id": "overOnsSectPersoonlijkContactEnSnelleService",
+      "type": "content",
+      "classes": [
+        "contentParagraaf"
+      ],
+      "text": "Ons groeiende team van monteurs en specialisten zorgt ervoor dat wij snel kunnen schakelen en klanten professioneel kunnen helpen bij zowel kleine werkzaamheden als grotere projecten."
+    },
+    {
+      "id": "overOnsSectWatWijDoenP01",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_id": "overOnsSectWatWijDoen",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Of het nu gaat om een nieuwe installatie, een uitbreiding van uw groepenkast of een complete verduurzaming van uw woning of bedrijfspand: wij zorgen voor een veilige en toekomstgerichte oplossing."
+    },
+    {
+      "id": "overOnsSectWerkenVolgensNormenEnFabrikantsrichtlijnenP01",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_id": "overOnsSectWerkenVolgensNormenEnFabrikantsrichtlijnen",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": ""
+    },
+    {
+      "id": "overOnsSectSamenBouwenAanDeEnergieVanMorgenP01",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_id": "overOnsSectSamenBouwenAanDeEnergieVanMorgen",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Bij Sparky Energies geloven wij dat de toekomst elektrisch, slim en duurzaam is. Wij helpen klanten graag om hun woning of bedrijfspand klaar te maken voor deze toekomst."
+    },
+    {
+      "id": "overOnsSectSamenBouwenAanDeEnergieVanMorgenP02",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_id": "overOnsSectSamenBouwenAanDeEnergieVanMorgen",
+      "type": "content",
+      "classes": [
+        "contentParagraaf"
+      ],
+      "text": "Of u nu wilt besparen op uw energiekosten, uw woning wilt verduurzamen, uw bedrijfspand wilt uitbreiden of uw elektrische installatie wilt laten moderniseren: wij staan voor u klaar met eerlijk advies, professionele installatie en betrouwbare service."
+    },
+    {
+      "id": "overOnsSectKlaarVoorDeVolgendeStapP01",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_id": "overOnsSectKlaarVoorDeVolgendeStap",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Wilt u weten wat Sparky Energies voor uw woning of bedrijf kan betekenen? Neem vrijblijvend contact met ons op of vraag direct een offerte aan. Wij denken graag met u mee."
+    },
+    {
+      "id": "overOnsSectKlaarVoorDeVolgendeStapFormulierNotitie",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_id": "overOnsSectKlaarVoorDeVolgendeStap",
+      "type": "form-note",
+      "classes": [
+        "formulierNotitie"
+      ],
+      "text": ""
+    },
+    {
+      "id": "overOnsSectKlaarVoorDeVolgendeStapP02",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_id": "overOnsSectKlaarVoorDeVolgendeStap",
+      "type": "privacy-note",
+      "classes": [
+        "privacyNotitie"
+      ],
+      "text": "Lees onze Privacy verklaring en Algemene voorwaarden."
+    },
+    {
+      "id": "contactSectLatenWeBeginnenP01",
+      "page": "Contact",
+      "file": "contact.html",
+      "page_number": 7,
+      "section_id": "contactSectLatenWeBeginnen",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Vul het formulier in en wij reageren binnen 24 uur."
+    },
+    {
+      "id": "contactSectLatenWeBeginnenFormulierNotitie",
+      "page": "Contact",
+      "file": "contact.html",
+      "page_number": 7,
+      "section_id": "contactSectLatenWeBeginnen",
+      "type": "form-note",
+      "classes": [
+        "formulierNotitie"
+      ],
+      "text": ""
+    }
+  ],
+  "buttons": [
+    {
+      "id": "homeSectGecertificeerdeInstallateursMetVakmanschapBtn01Offerte",
+      "element": "a",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 1,
+      "section_id": "homeSectGecertificeerdeInstallateursMetVakmanschap",
+      "section_heading": "Energie van nu, zekerheid voor morgen",
+      "label": "Offerte",
+      "href": "contact.html#contactSectLatenWeBeginnen",
+      "link_type": "interne-pagina-sectie",
+      "target_page": "Contact",
+      "target_section": "contactSectLatenWeBeginnen",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "homeSectWatWijVoorUInstallerenEnOnderhoudenBtn01LeesMeer",
+      "element": "a",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 2,
+      "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
+      "section_heading": "Wat wij voor u installeren en onderhouden",
+      "label": "Lees meer",
+      "href": "thuisbatterijen.html",
+      "link_type": "interne-pagina",
+      "target_page": "Thuisbatterijen",
+      "target_section": "",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "homeSectWatWijVoorUInstallerenEnOnderhoudenBtn02Ontdek",
+      "element": "a",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 2,
+      "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
+      "section_heading": "Wat wij voor u installeren en onderhouden",
+      "label": "Ontdek",
+      "href": "zonnepanelen.html",
+      "link_type": "interne-pagina",
+      "target_page": "Zonnepanelen",
+      "target_section": "",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "homeSectWatWijVoorUInstallerenEnOnderhoudenBtn03Meer",
+      "element": "a",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 2,
+      "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
+      "section_heading": "Wat wij voor u installeren en onderhouden",
+      "label": "Meer",
+      "href": "laadpalen.html",
+      "link_type": "interne-pagina",
+      "target_page": "Laadpalen",
+      "target_section": "",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "homeSectWatWijVoorUInstallerenEnOnderhoudenBtn04Meer",
+      "element": "a",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 2,
+      "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
+      "section_heading": "Wat wij voor u installeren en onderhouden",
+      "label": "Meer",
+      "href": "elektrotechnische-renovaties.html",
+      "link_type": "interne-pagina",
+      "target_page": "Elektrotechnische renovaties",
+      "target_section": "",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "homeSectVanIdeeTotInstallatieVanVonkTotVermogenBtn01OntdekSparky",
+      "element": "a",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 3,
+      "section_id": "homeSectVanIdeeTotInstallatieVanVonkTotVermogen",
+      "section_heading": "Van idee tot installatie, van vonk tot vermogen",
+      "label": "Ontdek Sparky",
+      "href": "over-ons.html",
+      "link_type": "interne-pagina",
+      "target_page": "Over ons",
+      "target_section": "",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "homeSectRecentWerkBtn01Bekijk",
+      "element": "a",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 5,
+      "section_id": "homeSectRecentWerk",
+      "section_heading": "Recent werk",
+      "label": "Bekijk",
+      "href": "#linkNogToevoegen",
+      "link_type": "todo",
+      "target_page": "",
+      "target_section": "",
+      "form_id": "",
+      "note": "TODO: koppel deze kaart later aan projecten.html#zonnepanelen."
+    },
+    {
+      "id": "homeSectRecentWerkBtn04Bekijk",
+      "element": "a",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 5,
+      "section_id": "homeSectRecentWerk",
+      "section_heading": "Recent werk",
+      "label": "Bekijk",
+      "href": "#linkNogToevoegen",
+      "link_type": "todo",
+      "target_page": "",
+      "target_section": "",
+      "form_id": "",
+      "note": "TODO: koppel deze kaart later aan projecten.html#thuisbatterijen."
+    },
+    {
+      "id": "homeSectRecentWerkBtn02Bekijk",
+      "element": "a",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 5,
+      "section_id": "homeSectRecentWerk",
+      "section_heading": "Recent werk",
+      "label": "Bekijk",
+      "href": "#linkNogToevoegen",
+      "link_type": "todo",
+      "target_page": "",
+      "target_section": "",
+      "form_id": "",
+      "note": "TODO: koppel deze kaart later aan projecten.html#groepenkast-renovaties."
+    },
+    {
+      "id": "homeSectRecentWerkBtn03Bekijk",
+      "element": "a",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 5,
+      "section_id": "homeSectRecentWerk",
+      "section_heading": "Recent werk",
+      "label": "Bekijk",
+      "href": "#linkNogToevoegen",
+      "link_type": "todo",
+      "target_page": "",
+      "target_section": "",
+      "form_id": "",
+      "note": "TODO: koppel deze kaart later aan projecten.html#laadpaal-installaties."
+    },
+    {
+      "id": "homeSectRecentWerkBtn01AlleProjecten",
+      "element": "a",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 5,
+      "section_id": "homeSectRecentWerk",
+      "section_heading": "Recent werk",
+      "label": "Alle projecten",
+      "href": "#linkNogToevoegen",
+      "link_type": "todo",
+      "target_page": "",
+      "target_section": "",
+      "form_id": "",
+      "note": "TODO: maak de toekomstige projectenpagina en koppel deze knop aan projecten.html."
+    },
+    {
+      "id": "homeSectKlaarOmUwWoningToekomstbestendigTeMakenBtn01Aanvragen",
+      "element": "button",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 7,
+      "section_id": "homeSectKlaarOmUwWoningToekomstbestendigTeMaken",
+      "section_heading": "Klaar om uw woning toekomstbestendig te maken?",
+      "label": "Aanvragen",
+      "href": "https://formspree.io/f/xnjenvqd",
+      "link_type": "formulier-versturen",
+      "target_page": "",
+      "target_section": "",
+      "form_id": "homeSectKlaarOmUwWoningToekomstbestendigTeMakenFormulier",
+      "note": "Verstuurt rechtstreeks via Formspree."
+    },
+    {
+      "id": "thuisbatterijSectThuisbatterijLatenInstallerenBtn01Offerte",
+      "element": "a",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_number": 1,
+      "section_id": "thuisbatterijSectThuisbatterijLatenInstalleren",
+      "section_heading": "Thuisbatterij laten installeren",
+      "label": "Offerte",
+      "href": "contact.html#contactSectLatenWeBeginnen",
+      "link_type": "interne-pagina-sectie",
+      "target_page": "Contact",
+      "target_section": "contactSectLatenWeBeginnen",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "thuisbatterijSectZoWerkenWijBtn01Meer",
+      "element": "a",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_number": 7,
+      "section_id": "thuisbatterijSectZoWerkenWij",
+      "section_heading": "Sparky Energies helpt u met een passend advies, veilige installatie en duidelijke uitleg. Wij kijken niet alleen naar de batterij, maar naar de volledige elektrische installatie.",
+      "label": "Meer",
+      "href": "#thuisbatterijSectOntdekWelkeBatterijPastBijU",
+      "link_type": "interne-sectie",
+      "target_page": "Thuisbatterijen",
+      "target_section": "thuisbatterijSectOntdekWelkeBatterijPastBijU",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenBtn01Contact",
+      "element": "a",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_number": 8,
+      "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
+      "section_heading": "Vragen",
+      "label": "Contact",
+      "href": "contact.html#contactSectLatenWeBeginnen",
+      "link_type": "interne-pagina-sectie",
+      "target_page": "Contact",
+      "target_section": "contactSectLatenWeBeginnen",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "thuisbatterijSectOntdekWelkeBatterijPastBijUBtn01Aanvragen",
+      "element": "button",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_number": 9,
+      "section_id": "thuisbatterijSectOntdekWelkeBatterijPastBijU",
+      "section_heading": "Ontdek welke batterij bij u past",
+      "label": "Aanvragen",
+      "href": "https://formspree.io/f/xnjenvqd",
+      "link_type": "formulier-versturen",
+      "target_page": "",
+      "target_section": "",
+      "form_id": "thuisbatterijSectOntdekWelkeBatterijPastBijUFormulier",
+      "note": "Verstuurt rechtstreeks via Formspree."
+    },
+    {
+      "id": "zonnepanelenSectZonnepanelenLatenInstallerenBtn01Offerte",
+      "element": "a",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_number": 1,
+      "section_id": "zonnepanelenSectZonnepanelenLatenInstalleren",
+      "section_heading": "Zonnepanelen laten installeren",
+      "label": "Offerte",
+      "href": "contact.html#contactSectLatenWeBeginnen",
+      "link_type": "interne-pagina-sectie",
+      "target_page": "Contact",
+      "target_section": "contactSectLatenWeBeginnen",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "zonnepanelenSectZoWerkenWijBtn01Meer",
+      "element": "a",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_number": 7,
+      "section_id": "zonnepanelenSectZoWerkenWij",
+      "section_heading": "Sparky Energies denkt met u mee over de juiste oplossing. Wij helpen met advies, installatie, onderhoud en uitbreiding van bestaande installaties.",
+      "label": "Meer",
+      "href": "#zonnepanelenSectBenieuwdHoeveelUKuntBesparen",
+      "link_type": "interne-sectie",
+      "target_page": "Zonnepanelen",
+      "target_section": "zonnepanelenSectBenieuwdHoeveelUKuntBesparen",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelenBtn01Contact",
+      "element": "a",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_number": 8,
+      "section_id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelen",
+      "section_heading": "Antwoorden op de meest gestelde vragen over zonnepanelen.",
+      "label": "Contact",
+      "href": "contact.html#contactSectLatenWeBeginnen",
+      "link_type": "interne-pagina-sectie",
+      "target_page": "Contact",
+      "target_section": "contactSectLatenWeBeginnen",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "zonnepanelenSectBenieuwdHoeveelUKuntBesparenBtn01Aanvragen",
+      "element": "button",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_number": 9,
+      "section_id": "zonnepanelenSectBenieuwdHoeveelUKuntBesparen",
+      "section_heading": "Benieuwd hoeveel u kunt besparen?",
+      "label": "Aanvragen",
+      "href": "https://formspree.io/f/xnjenvqd",
+      "link_type": "formulier-versturen",
+      "target_page": "",
+      "target_section": "",
+      "form_id": "zonnepanelenSectBenieuwdHoeveelUKuntBesparenFormulier",
+      "note": "Verstuurt rechtstreeks via Formspree."
+    },
+    {
+      "id": "laadpalenSectLaadpaalLatenInstallerenBtn01Offerte",
+      "element": "a",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_number": 1,
+      "section_id": "laadpalenSectLaadpaalLatenInstalleren",
+      "section_heading": "Laadpaal laten installeren",
+      "label": "Offerte",
+      "href": "contact.html#contactSectLatenWeBeginnen",
+      "link_type": "interne-pagina-sectie",
+      "target_page": "Contact",
+      "target_section": "contactSectLatenWeBeginnen",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "laadpalenSectSlimVeiligEnGoedkoopLadenOpEigenLocatieBtn02Meer",
+      "element": "a",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_number": 3,
+      "section_id": "laadpalenSectSlimVeiligEnGoedkoopLadenOpEigenLocatie",
+      "section_heading": "Slim, veilig en goedkoop laden op eigen locatie",
+      "label": "Meer",
+      "href": "#laadpalenSectWelkeLaadpaalPastBijU",
+      "link_type": "interne-sectie",
+      "target_page": "Laadpalen",
+      "target_section": "laadpalenSectWelkeLaadpaalPastBijU",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "laadpalenSectZoWerkenWijBtn01Meer",
+      "element": "a",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_number": 6,
+      "section_id": "laadpalenSectZoWerkenWij",
+      "section_heading": "Sparky Energies helpt u met eerlijk advies, een veilige installatie en duidelijke uitleg. Wij kijken naar uw auto, aansluiting, laadwens en toekomstplannen, zodat u een laadpaal krijgt die echt bij uw situatie past.",
+      "label": "Meer",
+      "href": "#laadpalenSectWelkeLaadpaalPastBijU",
+      "link_type": "interne-sectie",
+      "target_page": "Laadpalen",
+      "target_section": "laadpalenSectWelkeLaadpaalPastBijU",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalenBtn01Contact",
+      "element": "a",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_number": 7,
+      "section_id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalen",
+      "section_heading": "Antwoorden op de meest gestelde vragen over laadpalen.",
+      "label": "Contact",
+      "href": "contact.html#contactSectLatenWeBeginnen",
+      "link_type": "interne-pagina-sectie",
+      "target_page": "Contact",
+      "target_section": "contactSectLatenWeBeginnen",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "laadpalenSectWelkeLaadpaalPastBijUBtn01Aanvragen",
+      "element": "button",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_number": 8,
+      "section_id": "laadpalenSectWelkeLaadpaalPastBijU",
+      "section_heading": "Welke laadpaal past bij u?",
+      "label": "Aanvragen",
+      "href": "https://formspree.io/f/xnjenvqd",
+      "link_type": "formulier-versturen",
+      "target_page": "",
+      "target_section": "",
+      "form_id": "laadpalenSectWelkeLaadpaalPastBijUFormulier",
+      "note": "Verstuurt rechtstreeks via Formspree."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovatiesBtn01Offerte",
+      "element": "a",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_number": 1,
+      "section_id": "elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovaties",
+      "section_heading": "Groepenkast en elektrotechnische renovaties",
+      "label": "Offerte",
+      "href": "contact.html#contactSectLatenWeBeginnen",
+      "link_type": "interne-pagina-sectie",
+      "target_page": "Contact",
+      "target_section": "contactSectLatenWeBeginnen",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectZoWerkenWijBtn01Meer",
+      "element": "a",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_number": 7,
+      "section_id": "elektrotechnischeRenovatiesSectZoWerkenWij",
+      "section_heading": "Zo werken wij",
+      "label": "Meer",
+      "href": "#elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassen",
+      "link_type": "interne-sectie",
+      "target_page": "Elektrotechnische renovaties",
+      "target_section": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassen",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenBtn01Contact",
+      "element": "a",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_number": 8,
+      "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
+      "section_heading": "Alles wat u weten moet over elektrotechnische aanpassingen",
+      "label": "Contact",
+      "href": "contact.html#contactSectLatenWeBeginnen",
+      "link_type": "interne-pagina-sectie",
+      "target_page": "Contact",
+      "target_section": "contactSectLatenWeBeginnen",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassenBtn01Aanvragen",
+      "element": "button",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_number": 9,
+      "section_id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassen",
+      "section_heading": "Wilt u uw elektra veilig laten aanpassen?",
+      "label": "Aanvragen",
+      "href": "https://formspree.io/f/xnjenvqd",
+      "link_type": "formulier-versturen",
+      "target_page": "",
+      "target_section": "",
+      "form_id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassenFormulier",
+      "note": "Verstuurt rechtstreeks via Formspree."
+    },
+    {
+      "id": "overOnsSectPersoonlijkContactEnSnelleServiceBtn01Meer",
+      "element": "a",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_number": 4,
+      "section_id": "overOnsSectPersoonlijkContactEnSnelleService",
+      "section_heading": "Persoonlijk contact en snelle service",
+      "label": "Meer",
+      "href": "#overOnsSectKlaarVoorDeVolgendeStap",
+      "link_type": "interne-sectie",
+      "target_page": "Over ons",
+      "target_section": "overOnsSectKlaarVoorDeVolgendeStap",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "overOnsSectPersoonlijkContactEnSnelleServiceBtn02Contact",
+      "element": "a",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_number": 4,
+      "section_id": "overOnsSectPersoonlijkContactEnSnelleService",
+      "section_heading": "Persoonlijk contact en snelle service",
+      "label": "Contact",
+      "href": "contact.html#contactSectLatenWeBeginnen",
+      "link_type": "interne-pagina-sectie",
+      "target_page": "Contact",
+      "target_section": "contactSectLatenWeBeginnen",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "overOnsSectWatWijDoenLink01Thuisbatterijen",
+      "element": "a",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_number": 5,
+      "section_id": "overOnsSectWatWijDoen",
+      "section_heading": "Wat wij doen",
+      "label": "Thuisbatterijen",
+      "href": "thuisbatterijen.html",
+      "link_type": "interne-pagina",
+      "target_page": "Thuisbatterijen",
+      "target_section": "",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "overOnsSectWatWijDoenLink02Zonnepanelen",
+      "element": "a",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_number": 5,
+      "section_id": "overOnsSectWatWijDoen",
+      "section_heading": "Wat wij doen",
+      "label": "Zonnepanelen",
+      "href": "zonnepanelen.html",
+      "link_type": "interne-pagina",
+      "target_page": "Zonnepanelen",
+      "target_section": "",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "overOnsSectWatWijDoenLink03Laadpalen",
+      "element": "a",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_number": 5,
+      "section_id": "overOnsSectWatWijDoen",
+      "section_heading": "Wat wij doen",
+      "label": "Laadpalen",
+      "href": "laadpalen.html",
+      "link_type": "interne-pagina",
+      "target_page": "Laadpalen",
+      "target_section": "",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "overOnsSectWatWijDoenLink04Groepenkasten",
+      "element": "a",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_number": 5,
+      "section_id": "overOnsSectWatWijDoen",
+      "section_heading": "Wat wij doen",
+      "label": "Groepenkasten",
+      "href": "elektrotechnische-renovaties.html#elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoning",
+      "link_type": "interne-pagina-sectie",
+      "target_page": "Elektrotechnische renovaties",
+      "target_section": "elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoning",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "overOnsSectWatWijDoenLink05ElektrotechnischeRenovaties",
+      "element": "a",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_number": 5,
+      "section_id": "overOnsSectWatWijDoen",
+      "section_heading": "Wat wij doen",
+      "label": "Elektrotechnische renovaties",
+      "href": "elektrotechnische-renovaties.html",
+      "link_type": "interne-pagina",
+      "target_page": "Elektrotechnische renovaties",
+      "target_section": "",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "overOnsSectWatWijDoenLink06Krachtstroom",
+      "element": "a",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_number": 5,
+      "section_id": "overOnsSectWatWijDoen",
+      "section_heading": "Wat wij doen",
+      "label": "Krachtstroom",
+      "href": "elektrotechnische-renovaties.html#elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
+      "link_type": "interne-pagina-sectie",
+      "target_page": "Elektrotechnische renovaties",
+      "target_section": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "overOnsSectWatWijDoenLink07InspectieOnderhoudEnService",
+      "element": "a",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_number": 5,
+      "section_id": "overOnsSectWatWijDoen",
+      "section_heading": "Wat wij doen",
+      "label": "Inspectie, onderhoud en service",
+      "href": "#overOnsSectWerkenVolgensNormenEnFabrikantsrichtlijnen",
+      "link_type": "interne-sectie",
+      "target_page": "Over ons",
+      "target_section": "overOnsSectWerkenVolgensNormenEnFabrikantsrichtlijnen",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "overOnsSectWatWijDoenLink08IndustrieleOplossingen",
+      "element": "a",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_number": 5,
+      "section_id": "overOnsSectWatWijDoen",
+      "section_heading": "Wat wij doen",
+      "label": "Industriële oplossingen",
+      "href": "elektrotechnische-renovaties.html#elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
+      "link_type": "interne-pagina-sectie",
+      "target_page": "Elektrotechnische renovaties",
+      "target_section": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "overOnsSectKlaarVoorDeVolgendeStapBtn01Aanvragen",
+      "element": "button",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_number": 8,
+      "section_id": "overOnsSectKlaarVoorDeVolgendeStap",
+      "section_heading": "Klaar voor de volgende stap?",
+      "label": "Aanvragen",
+      "href": "https://formspree.io/f/xnjenvqd",
+      "link_type": "formulier-versturen",
+      "target_page": "",
+      "target_section": "",
+      "form_id": "overOnsSectKlaarVoorDeVolgendeStapFormulier",
+      "note": "Verstuurt rechtstreeks via Formspree."
+    },
+    {
+      "id": "contactSectLatenWeBeginnenBtn01Versturen",
+      "element": "button",
+      "page": "Contact",
+      "file": "contact.html",
+      "page_number": 7,
+      "section_number": 1,
+      "section_id": "contactSectLatenWeBeginnen",
+      "section_heading": "Laten we beginnen",
+      "label": "Versturen",
+      "href": "https://formspree.io/f/xnjenvqd",
+      "link_type": "formulier-versturen",
+      "target_page": "",
+      "target_section": "",
+      "form_id": "contactSectLatenWeBeginnenFormulier",
+      "note": "Verstuurt rechtstreeks via Formspree."
+    }
+  ],
+  "forms": [
+    {
+      "id": "homeSectKlaarOmUwWoningToekomstbestendigTeMakenFormulier",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectKlaarOmUwWoningToekomstbestendigTeMaken",
+      "action": "https://formspree.io/f/xnjenvqd",
+      "method": "post",
+      "provider": "Formspree",
+      "purpose": "Korte aanvraag voor woningverduurzaming."
+    },
+    {
+      "id": "thuisbatterijSectOntdekWelkeBatterijPastBijUFormulier",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterijen.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectOntdekWelkeBatterijPastBijU",
+      "action": "https://formspree.io/f/xnjenvqd",
+      "method": "post",
+      "provider": "Formspree",
+      "purpose": "Korte aanvraag voor persoonlijk thuisbatterijadvies."
+    },
+    {
+      "id": "zonnepanelenSectBenieuwdHoeveelUKuntBesparenFormulier",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectBenieuwdHoeveelUKuntBesparen",
+      "action": "https://formspree.io/f/xnjenvqd",
+      "method": "post",
+      "provider": "Formspree",
+      "purpose": "Korte aanvraag voor een zonnepanelenofferte."
+    },
+    {
+      "id": "laadpalenSectWelkeLaadpaalPastBijUFormulier",
+      "page": "Laadpalen",
+      "file": "laadpalen.html",
+      "page_number": 4,
+      "section_id": "laadpalenSectWelkeLaadpaalPastBijU",
+      "action": "https://formspree.io/f/xnjenvqd",
+      "method": "post",
+      "provider": "Formspree",
+      "purpose": "Korte aanvraag voor laadpaaladvies."
+    },
+    {
+      "id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassenFormulier",
+      "page": "Elektrotechnische renovaties",
+      "file": "elektrotechnische-renovaties.html",
+      "page_number": 5,
+      "section_id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassen",
+      "action": "https://formspree.io/f/xnjenvqd",
+      "method": "post",
+      "provider": "Formspree",
+      "purpose": "Korte aanvraag voor elektrotechnische aanpassingen."
+    },
+    {
+      "id": "overOnsSectKlaarVoorDeVolgendeStapFormulier",
+      "page": "Over ons",
+      "file": "over-ons.html",
+      "page_number": 6,
+      "section_id": "overOnsSectKlaarVoorDeVolgendeStap",
+      "action": "https://formspree.io/f/xnjenvqd",
+      "method": "post",
+      "provider": "Formspree",
+      "purpose": "Korte algemene aanvraag vanaf de pagina Over ons."
+    },
+    {
+      "id": "contactSectLatenWeBeginnenFormulier",
+      "page": "Contact",
+      "file": "contact.html",
+      "page_number": 7,
+      "section_id": "contactSectLatenWeBeginnen",
+      "action": "https://formspree.io/f/xnjenvqd",
+      "method": "post",
+      "provider": "Formspree",
+      "purpose": "Uitgebreide offerte- en contactaanvraag."
+    }
+  ],
+  "validation": {
+    "duplicate_ids": [],
+    "missing_primary_headings": [],
+    "missing_internal_targets": [],
+    "title_differences": [
+      {
+        "file": "index.html",
+        "section_id": "homeSectGecertificeerdeInstallateursMetVakmanschap",
+        "data_section_title": "Energie van nu, zekerheid voor morgen",
+        "visible_heading": "Energie van nu, zekerheid voor morgen."
+      },
+      {
+        "file": "index.html",
+        "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
+        "data_section_title": "Wat wij voor u installeren en onderhouden",
+        "visible_heading": "Onze diensten"
+      },
+      {
+        "file": "index.html",
+        "section_id": "homeSectVanIdeeTotInstallatieVanVonkTotVermogen",
+        "data_section_title": "Van idee tot installatie, van vonk tot vermogen",
+        "visible_heading": "Van idee tot installatie, van vonk tot vermogen."
+      },
+      {
+        "file": "thuisbatterijen.html",
+        "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
+        "data_section_title": "Vragen",
+        "visible_heading": "Veelgestelde vragen over thuisbatterijen, installatie en voordelen"
+      },
+      {
+        "file": "zonnepanelen.html",
+        "section_id": "zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelen",
+        "data_section_title": "Antwoorden op de meest gestelde vragen over zonnepanelen.",
+        "visible_heading": "Veel gestelde vragen over zonnepanelen."
+      },
+      {
+        "file": "laadpalen.html",
+        "section_id": "laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalen",
+        "data_section_title": "Antwoorden op de meest gestelde vragen over laadpalen.",
+        "visible_heading": "Veel gestelde vragen over laadpalen."
+      },
+      {
+        "file": "elektrotechnische-renovaties.html",
+        "section_id": "elektrotechnischeRenovatiesSectZoWerkenWij",
+        "data_section_title": "Zo werken wij",
+        "visible_heading": "Sparky Energies helpt u met eerlijk advies, een veilige installatie en duidelijke uitleg. Wij kijken naar uw groepenkast, aansluiting, wensen en toekomstplannen, zodat uw elektrotechnische renovatie echt bij uw situatie past."
+      },
+      {
+        "file": "elektrotechnische-renovaties.html",
+        "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
+        "data_section_title": "Alles wat u weten moet over elektrotechnische aanpassingen",
+        "visible_heading": "Veelgestelde vragen over elektrotechnische aanpassingen"
+      },
+      {
+        "file": "over-ons.html",
+        "section_id": "overOnsSectWerkenVolgensNormenEnFabrikantsrichtlijnen",
+        "data_section_title": "Werken volgens normen en fabrikantsrichtlijnen",
+        "visible_heading": "Wij werken volgens de geldende normen, voorschriften en fabrikantsrichtlijnen. Onze monteurs beschikken over de benodigde certificering, kennis en ervaring om installaties professioneel aan te leggen, te controleren en op te leveren."
+      }
+    ]
+  },
+  "notes": {
+    "primary_sections": "Secties met data-page en data-section-number. Gebruik het section-id als stabiele selector en ankerwaarde.",
+    "supporting_sections": "Geneste of aanvullende secties binnen main zonder eigen data-section-number, waaronder kaart- en FAQ-regio’s.",
+    "headings": "data_section_title is de technische sectienaam; heading is de actuele zichtbare tekst van aria-labelledby.",
+    "form_destinations": "Voor submit-buttons bevat href de action van het bovenliggende formulier.",
+    "maintenance": "Werk deze index bij na wijzigingen aan ids, headings, data-attributen, classes, formulier-actions of trackingcode."
+  }
+}

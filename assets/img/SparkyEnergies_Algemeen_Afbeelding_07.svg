@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="achtergrond" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b3c5d"/>
+      <stop offset="1" stop-color="#1e88e5"/>
+    </linearGradient>
+    <linearGradient id="paneel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#dbeaf3" stop-opacity=".9"/>
+    </linearGradient>
+    <pattern id="raster" width="70" height="70" patternUnits="userSpaceOnUse">
+      <path d="M70 0H0V70" fill="none" stroke="#ffffff" stroke-opacity=".08" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="900" fill="url(#achtergrond)"/>
+  <rect width="1200" height="900" fill="url(#raster)"/>
+  <circle cx="930" cy="185" r="105" fill="#f9a825"/>
+  <path d="M0 675 255 485l210 155 210-205 525 385v80H0Z" fill="#062a43" fill-opacity=".7"/>
+  <g transform="translate(145 515) skewX(-12)">
+    <rect width="470" height="245" rx="18" fill="url(#paneel)" stroke="#ffffff" stroke-width="10"/>
+    <path d="M118 0v245M235 0v245M352 0v245M0 82h470M0 164h470" stroke="#0b3c5d" stroke-opacity=".65" stroke-width="7"/>
+  </g>
+  <g transform="translate(730 390)">
+    <rect width="255" height="330" rx="34" fill="#ffffff" stroke="#062a43" stroke-width="12"/>
+    <rect x="54" y="54" width="147" height="58" rx="12" fill="#dbeaf3"/>
+    <path d="m143 145-58 95h54l-27 68 75-106h-54Z" fill="#f9a825" stroke="#0b3c5d" stroke-linejoin="round" stroke-width="8"/>
+  </g>
+</svg>
