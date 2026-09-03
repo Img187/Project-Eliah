@@ -2385,6 +2385,10 @@ body.tekstGroot .contactRouteLijst { grid-template-columns: minmax(0, 1fr); }
 .adviesUploadVak small { color: #52616b; font-size: .82rem; font-weight: 400; line-height: 1.5; }
 .adviesUploadVak input { width: 100%; padding: 10px; background: var(--kleurKaart); }
 .adviesUploadStatus { margin: 8px 0 0; color: #52616b; font-size: .82rem; text-align: center; }
+.adviesUploadStatus[data-status="error"] { color: #a1261d; font-weight: 700; }
+.adviesFotoVoorbereiding { display: grid; gap: 6px; padding: 16px 18px; border: 1px solid var(--kleurRand); border-radius: 10px; background: var(--sparkyLichtGrijs); text-align: center; }
+.adviesFotoVoorbereiding strong { color: var(--sparkyDonkerBlauw); }
+.adviesFotoVoorbereiding p { margin: 0; color: #52616b; font-size: .9rem; }
 .calculatorOverdrachtMelding { display: grid; gap: 6px; margin: 0; padding: 16px 18px; border-inline-start: 5px solid var(--sparkyOranje); border-radius: 10px; background: #fff7e0; color: #3d2a00; text-align: left; }
 .calculatorOverdrachtMelding strong { color: inherit; }
 .calculatorOverdrachtMelding p { margin: 0; }
@@ -2393,12 +2397,15 @@ body.hoogContrast .adviesCalculatorFormulier,
 body.hoogContrast .adviesCalculatorResultaat,
 body.hoogContrast .adviesCalculatorKeuze,
 body.hoogContrast .adviesUploadVak,
+body.hoogContrast .adviesFotoVoorbereiding,
 body.hoogContrast .calculatorOverdrachtMelding { border: 2px solid #fff; background: #000; color: #fff; box-shadow: none; }
 body.hoogContrast .adviesCalculatorEenheid span,
 body.hoogContrast .adviesCalculatorPrivacy,
 body.hoogContrast .adviesUploadVak span,
 body.hoogContrast .adviesUploadVak small,
-body.hoogContrast .adviesUploadStatus { color: #fff; }
+body.hoogContrast .adviesUploadStatus,
+body.hoogContrast .adviesFotoVoorbereiding strong,
+body.hoogContrast .adviesFotoVoorbereiding p { color: #fff; }
 
 @media (min-width: 720px) {
   .adviesCalculatorVelden { grid-template-columns: repeat(2, minmax(0, 1fr)); }

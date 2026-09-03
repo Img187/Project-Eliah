@@ -195,12 +195,12 @@
           <div class="contactFormulierVeld"><label for="groepenkastHuisnummer">Huisnummer en toevoeging</label><input id="groepenkastHuisnummer" name="huisnummer" type="text" autocomplete="address-line2" maxlength="12" placeholder="49B" required /></div>
           <div class="contactFormulierVeld"><label for="groepenkastZakelijk">Type locatie</label><select id="groepenkastZakelijk" name="typeLocatie" required><option value="">Kies een optie</option><option value="woning">Woning</option><option value="bedrijf">Bedrijf</option><option value="vve">VvE of gedeeld pand</option></select></div>
         </div>
-        <div class="contactFormulierVeld">
-          <label class="adviesUploadVak" for="groepenkastFotos"><span>Foto’s van de groepenkast (optioneel)</span><small>Maximaal 5 JPG-, PNG- of WebP-bestanden. Voor deze test tonen we alleen welke foto’s u heeft gekozen.</small><input id="groepenkastFotos" name="groepenkastFotos" type="file" accept="image/jpeg,image/png,image/webp" multiple data-calculator-upload /></label>
-          <p class="adviesUploadStatus" data-upload-status aria-live="polite">Nog geen foto’s gekozen.</p>
-        </div>
+        <aside class="adviesFotoVoorbereiding">
+          <strong>Foto’s helpen bij de beoordeling</strong>
+          <p>Na de voorcontrole kunt u foto’s van de groepenkast en installatielocatie rechtstreeks met het contactformulier meesturen.</p>
+        </aside>
         <button class="siteBtn siteBtnPrimary" type="submit">Beoordeel mijn aanvraag</button>
-        <p class="adviesCalculatorPrivacy">De foto’s worden in deze test niet opgeslagen of verzonden. Voor een definitieve beoordeling vraagt Sparky ze veilig bij u op.</p>
+        <p class="adviesCalculatorPrivacy">Deze voorcontrole wordt niet verzonden. Alleen wanneer u doorgaat naar Contact kiest u zelf welke gegevens en foto’s u naar Sparky stuurt.</p>
       </form>
       <output class="adviesCalculatorResultaat" data-calculation-output aria-live="polite">
         <p class="adviesCalculatorResultaatLabel">Uw voorcontrole</p>
@@ -500,7 +500,7 @@
   <p id="elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassenP01" class="sectieIntro">Vertel wat u wilt aanpassen. Wij beoordelen uw situatie en nemen contact op met gericht advies.</p>
 </header>
 <form id="elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassenFormulier" class="emailCtaFormulier" action="https://formspree.io/f/xnjenvqd" method="post" data-formspree-form aria-describedby="elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassenFormulierNotitie">
-  <input type="hidden" name="_subject" value="Nieuwe aanvraag voor elektrotechnische renovatie" />
+  <input type="hidden" name="subject" value="Nieuwe aanvraag voor elektrotechnische renovatie" />
   <input type="hidden" name="bron" value="Elektrotechnische renovaties – Wilt u uw elektra veilig laten aanpassen?" />
   <div class="formulierHoneypot" aria-hidden="true"><label for="elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassenWebsite">Laat dit veld leeg</label><input id="elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassenWebsite" name="_gotcha" type="text" tabindex="-1" autocomplete="off" /></div>
   <label for="elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassenEmailInput">E-mailadres</label>

@@ -153,7 +153,7 @@
             </header>
           </div>
           <form id="contactSnelAdviesFormulier" class="contactFormulier contactSnelAdviesFormulier" action="https://formspree.io/f/xnjenvqd" method="post" data-formspree-form aria-describedby="contactSnelAdviesNotitie">
-            <input type="hidden" name="_subject" value="Nieuwe aanvraag voor snel advies" />
+            <input type="hidden" name="subject" value="Nieuwe aanvraag voor snel advies" />
             <input type="hidden" name="bron" value="Contactpagina – Snel advies" />
             <input id="contactSnelAdviesOnderwerp" type="hidden" name="onderwerp" value="" />
             <div class="formulierHoneypot" aria-hidden="true"><label for="contactSnelAdviesWebsite">Laat dit veld leeg</label><input id="contactSnelAdviesWebsite" name="_gotcha" type="text" tabindex="-1" autocomplete="off" /></div>
@@ -189,8 +189,8 @@
               <p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6 7-12a7 7 0 1 0-14 0c0 6 7 12 7 12Zm0-9a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" /></svg><span>Anthonetta Kuijlstraat 49B, 3066 GS Rotterdam</span></p>
             </address>
           </div>
-          <form id="contactSectLatenWeBeginnenFormulier" class="contactFormulier contactOfferteFormulier" action="https://formspree.io/f/xnjenvqd" method="post" data-formspree-form aria-describedby="contactSectLatenWeBeginnenFormulierNotitie">
-            <input type="hidden" name="_subject" value="Nieuwe offerteaanvraag via het contactformulier" />
+          <form id="contactSectLatenWeBeginnenFormulier" class="contactFormulier contactOfferteFormulier" action="https://formspree.io/f/xnjenvqd" method="post" enctype="multipart/form-data" data-formspree-form aria-describedby="contactFotosStatus contactSectLatenWeBeginnenFormulierNotitie">
+            <input type="hidden" name="subject" value="Nieuwe offerteaanvraag via het contactformulier" />
             <input type="hidden" name="bron" value="Contactpagina – Uitgebreid offerteformulier" />
             <div class="formulierHoneypot" aria-hidden="true"><label for="contactSectLatenWeBeginnenWebsite">Laat dit veld leeg</label><input id="contactSectLatenWeBeginnenWebsite" name="_gotcha" type="text" tabindex="-1" autocomplete="off" /></div>
             <div class="contactFormulierRij">
@@ -214,6 +214,10 @@
                 <label class="contactKeuzeOptie"><input type="checkbox" name="situatie" value="anders" /><span>Anders</span></label>
               </div>
             </fieldset>
+            <div class="contactFormulierVeld">
+              <label class="adviesUploadVak" for="contactFotos"><span>Foto’s toevoegen (optioneel)</span><small>Voeg maximaal 5 JPG-, PNG- of WebP-foto’s toe van bijvoorbeeld uw groepenkast, technische installatie of gewenste installatielocatie. Maximaal 10 MB per foto.</small><input id="contactFotos" name="fotos" type="file" accept="image/jpeg,image/png,image/webp" multiple data-formspree-upload aria-describedby="contactFotosStatus" /></label>
+              <p id="contactFotosStatus" class="adviesUploadStatus" data-upload-status aria-live="polite">Nog geen foto’s gekozen.</p>
+            </div>
             <div class="contactFormulierVeld"><label for="contactSectLatenWeBeginnenOmschrijving">Omschrijving</label><textarea id="contactSectLatenWeBeginnenOmschrijving" name="omschrijving" rows="7" placeholder="Vertel ons meer over uw situatie" required></textarea></div>
             <label class="checkboxLabel contactVoorwaarden" for="contactSectLatenWeBeginnenAkkoord"><input id="contactSectLatenWeBeginnenAkkoord" name="akkoord" type="checkbox" required /><span>Ik heb de <a href="assets/documenten/privacy-en-cookieverklaring-sparky-energies.pdf" download="privacy-en-cookieverklaring-sparky-energies.pdf">Privacy verklaring</a> gelezen en ga akkoord met de <a href="assets/documenten/algemene-voorwaarden-sparky-energies-vof.pdf" download="algemene-voorwaarden-sparky-energies-vof.pdf">Algemene voorwaarden</a>.</span></label>
             <button id="contactSectLatenWeBeginnenBtn01Versturen" class="siteBtn siteBtnPrimary" type="submit" data-button-page="Contact" data-button-section="Direct een offerte aanvragen" data-link-type="formulier-versturen">Vraag offerte aan</button>

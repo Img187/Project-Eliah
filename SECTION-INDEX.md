@@ -14,7 +14,7 @@
 | 6 | [Over ons](over-ons.html) | `over-ons.html` | 8 | 0 | 11 | 1 |
 | 7 | [Contact](contact.html) | `contact.html` | 1 | 0 | 1 | 1 |
 
-**Totaal:** 48 primaire secties, 5 ondersteunende main-secties, 41 buttons/hyperlinks, 7 formulieren en 204 paragrafen met een ID.
+**Totaal:** 48 primaire secties, 5 ondersteunende main-secties, 41 buttons/hyperlinks, 8 formulieren en 204 paragrafen met een ID.
 
 ### Hoe deze index gelezen wordt
 
@@ -225,7 +225,8 @@ Deze secties zijn belangrijk voor styling en toegankelijkheid, maar tellen niet 
 | Laadpalen | `laadpalenSectWelkeLaadpaalPastBijUFormulier` | `laadpalenSectWelkeLaadpaalPastBijU` | `POST` | `https://formspree.io/f/xnjenvqd` | Formspree | Korte aanvraag voor laadpaaladvies. |
 | Elektrotechnische renovaties | `elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassenFormulier` | `elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassen` | `POST` | `https://formspree.io/f/xnjenvqd` | Formspree | Korte aanvraag voor elektrotechnische aanpassingen. |
 | Over ons | `overOnsSectKlaarVoorDeVolgendeStapFormulier` | `overOnsSectKlaarVoorDeVolgendeStap` | `POST` | `https://formspree.io/f/xnjenvqd` | Formspree | Korte algemene aanvraag vanaf de pagina Over ons. |
-| Contact | `contactSectLatenWeBeginnenFormulier` | `contactSectLatenWeBeginnen` | `POST` | `https://formspree.io/f/xnjenvqd` | Formspree | Uitgebreide offerte- en contactaanvraag. |
+| Contact | `contactSnelAdviesFormulier` | `contactSnelAdvies` | `POST` | `https://formspree.io/f/xnjenvqd` | Formspree | Korte route voor snel advies. |
+| Contact | `contactSectLatenWeBeginnenFormulier` | `contactSectLatenWeBeginnen` | `POST` | `https://formspree.io/f/xnjenvqd` | Formspree | Uitgebreide offerte- en contactaanvraag met optionele foto-upload. |
 
 ## Developer-aandachtspunten
 
@@ -233,7 +234,7 @@ Deze secties zijn belangrijk voor styling en toegankelijkheid, maar tellen niet 
 - Geen dubbele ID’s binnen een pagina gevonden.
 - Alle gedocumenteerde interne buttonbestemmingen bestaan.
 - 9 primaire secties gebruiken bewust of historisch een andere `data-section-title` dan de zichtbare heading. Beide waarden staan daarom apart in deze index.
-- Alle 7 formulieren posten momenteel via Formspree naar `https://formspree.io/f/xnjenvqd`.
+- Alle 8 formulieren posten momenteel via Formspree naar `https://formspree.io/f/xnjenvqd`.
 
 ## JSON-structuur
 

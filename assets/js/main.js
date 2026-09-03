@@ -988,9 +988,41 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
     });
   });
 
-  // Verstuur aanvragen via Formspree zonder de bezoeker van de website weg te sturen.
+  const formspreeImageTypes = new Set(['image/jpeg', 'image/png', 'image/webp']);
+  const formspreeMaxFiles = 5;
+  const formspreeMaxFileSize = 10 * 1024 * 1024;
+
+  function validateFormspreeUpload(upload) {
+    const files = Array.from(upload.files || []);
+    const status = upload.closest('.contactFormulierVeld') && upload.closest('.contactFormulierVeld').querySelector('[data-upload-status]');
+    const tooManyFiles = files.length > formspreeMaxFiles;
+    const oversizedFile = files.find((file) => file.size > formspreeMaxFileSize);
+    const unsupportedFile = files.find((file) => !formspreeImageTypes.has(file.type));
+    let validationMessage = '';
+
+    if (tooManyFiles) validationMessage = `Kies maximaal ${formspreeMaxFiles} foto’s.`;
+    else if (oversizedFile) validationMessage = `${oversizedFile.name} is groter dan 10 MB.`;
+    else if (unsupportedFile) validationMessage = `${unsupportedFile.name} is geen JPG-, PNG- of WebP-afbeelding.`;
+
+    upload.setCustomValidity(validationMessage);
+    if (!status) return !validationMessage;
+    status.dataset.status = validationMessage ? 'error' : '';
+    status.textContent = validationMessage || (files.length
+      ? `${files.length} foto${files.length === 1 ? '' : '’s'} klaar om met uw aanvraag mee te sturen.`
+      : 'Nog geen foto’s gekozen.');
+    return !validationMessage;
+  }
+
+  // Verstuur alle acht aanvragen via hetzelfde Formspree-formulier zonder de bezoeker weg te sturen.
   document.querySelectorAll('form[data-formspree-form]').forEach((form) => {
     const requiredCheckboxGroups = form.querySelectorAll('[data-required-checkbox-group]');
+    const fileUploads = form.querySelectorAll('[data-formspree-upload]');
+
+    const pageField = document.createElement('input');
+    pageField.type = 'hidden';
+    pageField.name = 'pagina';
+    pageField.value = window.location.pathname.split('/').pop() || 'index.html';
+    form.appendChild(pageField);
 
     const validateCheckboxGroup = (group) => {
       const checkboxes = Array.from(group.querySelectorAll('input[type="checkbox"]'));
@@ -1006,6 +1038,10 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
       });
     });
 
+    fileUploads.forEach((upload) => {
+      upload.addEventListener('change', () => validateFormspreeUpload(upload));
+    });
+
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
 
@@ -1013,6 +1049,7 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
       const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
 
       requiredCheckboxGroups.forEach(validateCheckboxGroup);
+      fileUploads.forEach(validateFormspreeUpload);
 
       if (!form.checkValidity()) {
         form.reportValidity();
@@ -1046,6 +1083,8 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
         const result = await response.json().catch(() => ({}));
 
         if (!response.ok) {
+          if (response.status === 429) throw new Error('Er zijn tijdelijk te veel aanvragen verstuurd. Wacht even en probeer het opnieuw.');
+          if (response.status === 413) throw new Error('De gekozen foto’s zijn samen te groot om te versturen. Kies minder of kleinere foto’s.');
           const formspreeMessage = Array.isArray(result.errors)
             ? result.errors.map((error) => error.message).filter(Boolean).join(' ')
             : '';
@@ -1053,6 +1092,14 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
         }
 
         form.reset();
+        fileUploads.forEach(validateFormspreeUpload);
+        if (form.id === 'contactSectLatenWeBeginnenFormulier') {
+          try {
+            window.sessionStorage.removeItem('sparkyCalculatorAanvraag');
+          } catch (error) {
+            // Een geslaagde aanvraag blijft geslaagd als sessieopslag niet beschikbaar is.
+          }
+        }
         if (note) {
           note.dataset.status = 'success';
           note.textContent = 'Bedankt voor uw inzending! We nemen zo spoedig mogelijk contact met u op.';
@@ -1222,7 +1269,7 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
     };
   }
 
-  function getElectricalAdvice(values, form) {
+  function getElectricalAdvice(values) {
     const workLabels = {
       vervangen: 'groepenkast vervangen',
       uitbreiden: 'groepenkast uitbreiden',
@@ -1237,8 +1284,6 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
     const postcode = String(values.get('postcode')).toUpperCase();
     const houseNumber = String(values.get('huisnummer'));
     const locationType = String(values.get('typeLocatie'));
-    const upload = form.querySelector('[data-calculator-upload]');
-    const photoCount = upload && upload.files ? Math.min(upload.files.length, 5) : 0;
     const hasHeavyNewLoad = selectedWork.some((item) => /inductie|warmtepomp|laadpaal/.test(item));
     const needsSurvey = cabinetAge === 'ouder-dan-25' || cabinetAge === 'onbekend' || selectedWork.length >= 3 || selectedWork.includes('groepenkast vervangen');
     const title = needsSurvey ? 'Technische opname aanbevolen' : 'Gerichte controle als eerste stap';
@@ -1254,15 +1299,14 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
       details: [
         `Werkzaamheden: ${selectedWork.join(', ')}.`,
         connection === '1-fase' && hasHeavyNewLoad ? 'Bij de gekozen zware verbruiker moet ook een mogelijke 3-faseaanpassing worden beoordeeld.' : `De opgegeven ${connection}-aansluiting wordt meegenomen in de controle.`,
-        photoCount ? `${photoCount} foto${photoCount === 1 ? '' : '’s'} gekozen voor de test; deze worden nog niet verzonden.` : 'Foto’s van groepenkast, hoofdschakelaar en meter versnellen de definitieve beoordeling.'
+        'In de volgende stap kunt u foto’s van de groepenkast en installatielocatie veilig met uw aanvraag meesturen.'
       ],
       fields: [
         ['Werkzaamheden', selectedWork.join(', ')],
         ['Netaansluiting', connection],
         ['Leeftijd groepenkast', cabinetAge],
         ['Locatie', `${postcode} ${houseNumber}`],
-        ['Type locatie', locationType],
-        ['Foto’s gekozen in test', String(photoCount)]
+        ['Type locatie', locationType]
       ]
     };
   }
@@ -1339,7 +1383,7 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
         thuisbatterij: () => getBatteryAdvice(values),
         zonnepanelen: () => getSolarAdvice(values),
         laadpaal: () => getChargerAdvice(values),
-        elektrotechniek: () => getElectricalAdvice(values, form)
+        elektrotechniek: () => getElectricalAdvice(values)
       };
       const advice = calculators[calculatorType] ? calculators[calculatorType]() : null;
       if (!advice) return;
@@ -1354,21 +1398,6 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
         trackCalculatorEvent('calculator_contact_clicked', form.dataset.calculatorType || 'onbekend');
       });
     }
-  });
-
-  document.querySelectorAll('[data-calculator-upload]').forEach((upload) => {
-    upload.addEventListener('change', () => {
-      const status = upload.closest('.contactFormulierVeld') && upload.closest('.contactFormulierVeld').querySelector('[data-upload-status]');
-      const fileCount = upload.files ? upload.files.length : 0;
-      const tooManyFiles = fileCount > 5;
-      upload.setCustomValidity(tooManyFiles ? 'Kies maximaal 5 foto’s.' : '');
-      if (!status) return;
-      status.textContent = tooManyFiles
-        ? 'U heeft meer dan 5 foto’s gekozen. Verwijder enkele bestanden.'
-        : fileCount
-          ? `${fileCount} foto${fileCount === 1 ? '' : '’s'} gekozen voor deze test.`
-          : 'Nog geen foto’s gekozen.';
-    });
   });
 
   function initializeCalculatorTransfer() {
