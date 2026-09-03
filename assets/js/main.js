@@ -155,10 +155,120 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
     window.addEventListener('hashchange', openRouteFromHash);
   }
 
+  function initializeSectionFlow() {
+    const root = document.documentElement;
+    const sections = Array.from(document.querySelectorAll('.mainContent > .siteSectie'));
+    if (!sections.length) return;
+
+    const header = document.querySelector('.siteHeader');
+    const footer = document.querySelector('.siteFooter');
+    const internalAnimationSections = sections.filter((section) => section.matches('.layoutStickySplitCards'));
+    let footerIsReleased = false;
+    let animationFrame = 0;
+
+    function setSectionVisibility(section, isVisible) {
+      section.classList.toggle('sectieFlowInBeeld', isVisible);
+      if (isVisible) section.classList.remove('sectieFlowVanBoven', 'sectieFlowVanOnder');
+    }
+
+    function classifyInactiveSections() {
+      const viewportMiddle = window.innerHeight / 2;
+      sections.forEach((section) => {
+        if (section.classList.contains('sectieFlowInBeeld')) return;
+        const sectionMiddle = section.getBoundingClientRect().top + section.offsetHeight / 2;
+        const isBelow = sectionMiddle >= viewportMiddle;
+        section.classList.toggle('sectieFlowVanOnder', isBelow);
+        section.classList.toggle('sectieFlowVanBoven', !isBelow);
+      });
+    }
+
+    function setInitialSectionVisibility() {
+      const viewportInset = window.innerHeight * .08;
+      sections.forEach((section) => {
+        const bounds = section.getBoundingClientRect();
+        const isVisible = bounds.bottom > viewportInset && bounds.top < window.innerHeight - viewportInset;
+        setSectionVisibility(section, isVisible);
+      });
+    }
+
+    function updateFooterRelease() {
+      if (!footer) return;
+      const footerTop = footer.getBoundingClientRect().top;
+      const releaseBoundary = window.innerHeight + 24;
+      const restoreBoundary = window.innerHeight + 160;
+
+      if (!footerIsReleased && footerTop <= releaseBoundary) footerIsReleased = true;
+      if (footerIsReleased && footerTop > restoreBoundary) footerIsReleased = false;
+      root.classList.toggle('sectieFlowFooterVrij', footerIsReleased);
+    }
+
+    function updateAccessibilityMode() {
+      root.classList.toggle('sectieFlowToegankelijk', body.classList.contains('tekstGroot'));
+    }
+
+    function updateInternalAnimationMode() {
+      const headerBottom = header ? header.getBoundingClientRect().bottom : 0;
+      const internalAnimationIsVisible = internalAnimationSections.some((section) => {
+        const bounds = section.getBoundingClientRect();
+        return bounds.top < window.innerHeight - 2 && bounds.bottom > headerBottom + 2;
+      });
+      root.classList.toggle('sectieFlowInterneAnimatieVrij', internalAnimationIsVisible);
+    }
+
+    function updateHeaderHeight() {
+      if (!header) return;
+      root.style.setProperty('--sectieFlowKophoogte', `${Math.ceil(header.getBoundingClientRect().height)}px`);
+    }
+
+    function updateSectionFlow() {
+      animationFrame = 0;
+      updateHeaderHeight();
+      classifyInactiveSections();
+      updateInternalAnimationMode();
+      updateFooterRelease();
+    }
+
+    function scheduleSectionFlowUpdate() {
+      if (animationFrame) return;
+      animationFrame = window.requestAnimationFrame(updateSectionFlow);
+    }
+
+    setInitialSectionVisibility();
+    updateHeaderHeight();
+    classifyInactiveSections();
+    updateInternalAnimationMode();
+    updateFooterRelease();
+    updateAccessibilityMode();
+    root.classList.add('sectieFlowActief');
+
+    if ('IntersectionObserver' in window) {
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => setSectionVisibility(entry.target, entry.isIntersecting));
+        classifyInactiveSections();
+      }, { rootMargin: '-8% 0px -8% 0px', threshold: 0 });
+
+      sections.forEach((section) => sectionObserver.observe(section));
+    } else {
+      sections.forEach((section) => section.classList.add('sectieFlowInBeeld'));
+    }
+
+    const accessibilityObserver = new MutationObserver(updateAccessibilityMode);
+    accessibilityObserver.observe(body, { attributes: true, attributeFilter: ['class'] });
+
+    if (header && 'ResizeObserver' in window) {
+      const headerObserver = new ResizeObserver(scheduleSectionFlowUpdate);
+      headerObserver.observe(header);
+    }
+
+    window.addEventListener('scroll', scheduleSectionFlowUpdate, { passive: true });
+    window.addEventListener('resize', scheduleSectionFlowUpdate, { passive: true });
+  }
+
   initializeLazyBackgrounds();
   initializePagePrefetch();
   initializeContactTopic();
   initializeContactRouteAccordion();
+  initializeSectionFlow();
 
   if (navButton && navList) {
     navButton.addEventListener('click', () => {
