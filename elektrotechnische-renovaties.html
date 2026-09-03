@@ -170,13 +170,46 @@
     <nav class="sectionActies" aria-label="Acties voor groepenkast"><a class="siteBtn siteBtnPrimary" href="contact.html?onderwerp=groepenkast#contactRouteKeuze">Laat mijn groepenkast beoordelen</a></nav>
   </div>
 </section>
-<section id="groepenkastCheck" class="siteSectie modulePlaceholderSectie" aria-labelledby="groepenkastCheckH2">
-  <div class="modulePlaceholderInhoud">
-    <p class="modulePlaceholderLabel">Plek voor groepenkastcheck</p>
-    <h2 id="groepenkastCheckH2" class="sectieTitel">Is uw groepenkast geschikt?</h2>
-    <p class="sectieIntro">Hier komt de groepenkastcheck. De interactieve module zelf is bewust nog niet ingebouwd.</p>
-    <p class="modulePlaceholderNotitie">De toekomstige check vraagt naar 1- of 3-fase, de leeftijd van de groepenkast, wat u wilt aansluiten en een foto van de huidige installatie.</p>
-    <a class="siteBtn siteBtnPrimary" href="contact.html?onderwerp=groepenkast#contactRouteKeuze">Ontvang beoordeling + prijsindicatie</a>
+<section id="groepenkastCheck" class="siteSectie adviesCalculatorSectie" aria-labelledby="groepenkastCheckH2">
+  <div class="adviesCalculatorKaart">
+    <header class="sectieKop adviesCalculatorKop">
+      <p class="sectieLabel">Technische intake</p>
+      <h2 id="groepenkastCheckH2" class="sectieTitel">Is uw groepenkast geschikt?</h2>
+      <p class="sectieIntro">Doe een korte voorcontrole voor uw uitbreiding of renovatie. U ziet direct welke technische controle als volgende stap nodig is.</p>
+    </header>
+    <div class="adviesCalculatorGrid">
+      <form class="adviesCalculatorFormulier" data-calculation-form="sparky-advies" data-calculator-type="elektrotechniek">
+        <fieldset class="adviesCalculatorKeuzes adviesCalculatorKeuzesBreed" data-calculator-required-group>
+          <legend>Wat wilt u laten uitvoeren? <span class="contactKeuzeUitleg">Kies één of meer opties.</span></legend>
+          <label class="adviesCalculatorKeuze"><input name="werkzaamheden" type="checkbox" value="vervangen" /><span>Groepenkast vervangen</span></label>
+          <label class="adviesCalculatorKeuze"><input name="werkzaamheden" type="checkbox" value="uitbreiden" /><span>Groepenkast uitbreiden</span></label>
+          <label class="adviesCalculatorKeuze"><input name="werkzaamheden" type="checkbox" value="inductie" /><span>Inductiekookplaat</span></label>
+          <label class="adviesCalculatorKeuze"><input name="werkzaamheden" type="checkbox" value="warmtepomp" /><span>Warmtepomp voorbereiden</span></label>
+          <label class="adviesCalculatorKeuze"><input name="werkzaamheden" type="checkbox" value="laadpaal" /><span>Laadpaal voorbereiden</span></label>
+          <label class="adviesCalculatorKeuze"><input name="werkzaamheden" type="checkbox" value="extra-elektra" /><span>Stopcontacten of verlichting</span></label>
+        </fieldset>
+        <div class="adviesCalculatorVelden">
+          <div class="contactFormulierVeld"><label for="groepenkastAansluiting">Netaansluiting</label><select id="groepenkastAansluiting" name="netaansluiting" required><option value="">Kies een optie</option><option value="1-fase">1-fase</option><option value="3-fase">3-fase</option><option value="onbekend">Weet ik niet</option></select></div>
+          <div class="contactFormulierVeld"><label for="groepenkastLeeftijd">Leeftijd groepenkast</label><select id="groepenkastLeeftijd" name="leeftijdGroepenkast" required><option value="">Kies een optie</option><option value="jonger-dan-10">Jonger dan 10 jaar</option><option value="10-tot-25">10 tot 25 jaar</option><option value="ouder-dan-25">Ouder dan 25 jaar</option><option value="onbekend">Weet ik niet</option></select></div>
+          <div class="contactFormulierVeld"><label for="groepenkastPostcode">Postcode</label><input id="groepenkastPostcode" name="postcode" type="text" inputmode="text" autocomplete="postal-code" pattern="[0-9]{4}\s?[A-Za-z]{2}" placeholder="3066 GS" required /></div>
+          <div class="contactFormulierVeld"><label for="groepenkastHuisnummer">Huisnummer en toevoeging</label><input id="groepenkastHuisnummer" name="huisnummer" type="text" autocomplete="address-line2" maxlength="12" placeholder="49B" required /></div>
+          <div class="contactFormulierVeld"><label for="groepenkastZakelijk">Type locatie</label><select id="groepenkastZakelijk" name="typeLocatie" required><option value="">Kies een optie</option><option value="woning">Woning</option><option value="bedrijf">Bedrijf</option><option value="vve">VvE of gedeeld pand</option></select></div>
+        </div>
+        <div class="contactFormulierVeld">
+          <label class="adviesUploadVak" for="groepenkastFotos"><span>Foto’s van de groepenkast (optioneel)</span><small>Maximaal 5 JPG-, PNG- of WebP-bestanden. Voor deze test tonen we alleen welke foto’s u heeft gekozen.</small><input id="groepenkastFotos" name="groepenkastFotos" type="file" accept="image/jpeg,image/png,image/webp" multiple data-calculator-upload /></label>
+          <p class="adviesUploadStatus" data-upload-status aria-live="polite">Nog geen foto’s gekozen.</p>
+        </div>
+        <button class="siteBtn siteBtnPrimary" type="submit">Beoordeel mijn aanvraag</button>
+        <p class="adviesCalculatorPrivacy">De foto’s worden in deze test niet opgeslagen of verzonden. Voor een definitieve beoordeling vraagt Sparky ze veilig bij u op.</p>
+      </form>
+      <output class="adviesCalculatorResultaat" data-calculation-output aria-live="polite">
+        <p class="adviesCalculatorResultaatLabel">Uw voorcontrole</p>
+        <h3 data-result-title>Vul uw situatie in</h3>
+        <p data-result-summary>Daarna ziet u of een gerichte controle of een uitgebreidere technische opname de beste vervolgstap is.</p>
+        <ul data-result-details role="list"><li>Benodigde inspectiediepte</li><li>Aandacht voor aansluiting en vrije ruimte</li><li>Uw werkzaamheden gebundeld in één aanvraag</li></ul>
+        <a class="siteBtn siteBtnPrimary adviesCalculatorContact" data-calculation-contact href="contact.html?onderwerp=groepenkast&amp;calculator=elektrotechniek#contactRouteKeuze" hidden>Neem deze voorcontrole mee</a>
+      </output>
+    </div>
   </div>
 </section>
 <section id="elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor" class="siteSectie elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor layoutStickySplitCards" data-page="Elektrotechnische renovaties" data-page-number="5" data-section-number="3" data-section-title="Van het gas af? Wij bereiden uw installatie voor" aria-labelledby="elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoorH2">

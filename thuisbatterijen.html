@@ -171,13 +171,59 @@
 <!--<a id="thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparenBtn01Meer" class="siteBtn siteBtnPrimary thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparenKnop" href="#thuisbatterijSectOntdekWelkeBatterijPastBijU" data-button-page="Thuisbatterijen" data-button-section="Slim opslaan, slim gebruiken en slim besparen" data-link-type="interne-sectie" data-target-page="Thuisbatterijen" data-target-section="thuisbatterijSectOntdekWelkeBatterijPastBijU">Meer</a> -->
 </nav>
 </section>
-<section id="thuisbatterijCalculator" class="siteSectie modulePlaceholderSectie" aria-labelledby="thuisbatterijCalculatorH2">
-  <div class="modulePlaceholderInhoud">
-    <p class="modulePlaceholderLabel">Plek voor keuzehulp</p>
-    <h2 id="thuisbatterijCalculatorH2" class="sectieTitel">Welke thuisbatterij past bij uw situatie?</h2>
-    <p class="sectieIntro">Hier komt de thuisbatterijcalculator. De rekenmodule zelf is bewust nog niet ingebouwd.</p>
-    <p class="modulePlaceholderNotitie">De toekomstige indicatie gebruikt onder meer stroomverbruik, zonne-opwek, teruglevering, elektrische auto, warmtepomp, energiecontract en gewenste noodstroom.</p>
-    <a class="siteBtn siteBtnPrimary" href="contact.html?onderwerp=thuisbatterij#contactRouteKeuze">Laat Sparky mijn situatie beoordelen</a>
+<section id="thuisbatterijCalculator" class="siteSectie adviesCalculatorSectie" aria-labelledby="thuisbatterijCalculatorH2">
+  <div class="adviesCalculatorKaart">
+    <header class="sectieKop adviesCalculatorKop">
+      <p class="sectieLabel">Persoonlijke indicatie</p>
+      <h2 id="thuisbatterijCalculatorH2" class="sectieTitel">Welke thuisbatterij past bij uw situatie?</h2>
+      <p class="sectieIntro">Beantwoord zes korte vragen. U ziet direct een indicatieve opslagcapaciteit en waarom die richting bij uw situatie past.</p>
+    </header>
+    <div class="adviesCalculatorGrid">
+      <form class="adviesCalculatorFormulier" data-calculation-form="sparky-advies" data-calculator-type="thuisbatterij">
+        <div class="adviesCalculatorVelden">
+          <div class="contactFormulierVeld">
+            <label for="thuisbatterijJaarverbruik">Jaarlijks stroomverbruik</label>
+            <div class="adviesCalculatorEenheid"><input id="thuisbatterijJaarverbruik" name="jaarverbruikKwh" type="number" min="1000" max="50000" step="100" inputmode="numeric" placeholder="Bijvoorbeeld 12000" required /><span>kWh</span></div>
+          </div>
+          <div class="contactFormulierVeld">
+            <label for="thuisbatterijZonneOpwek">Jaarlijkse zonne-opwek</label>
+            <div class="adviesCalculatorEenheid"><input id="thuisbatterijZonneOpwek" name="zonneOpwekKwh" type="number" min="0" max="50000" step="100" inputmode="numeric" placeholder="Bijvoorbeeld 10000" required /><span>kWh</span></div>
+          </div>
+          <div class="contactFormulierVeld">
+            <label for="thuisbatterijPanelen">Aantal zonnepanelen</label>
+            <input id="thuisbatterijPanelen" name="aantalZonnepanelen" type="number" min="0" max="100" step="1" inputmode="numeric" placeholder="Bijvoorbeeld 24" required />
+          </div>
+          <div class="contactFormulierVeld">
+            <label for="thuisbatterijContract">Energiecontract</label>
+            <select id="thuisbatterijContract" name="energiecontract" required>
+              <option value="">Kies een optie</option>
+              <option value="dynamisch">Dynamisch</option>
+              <option value="vast-variabel">Vast of variabel</option>
+              <option value="onbekend">Weet ik niet</option>
+            </select>
+          </div>
+        </div>
+        <fieldset class="adviesCalculatorKeuzes">
+          <legend>Wat speelt nu of binnenkort?</legend>
+          <label class="adviesCalculatorKeuze"><input name="elektrischeAuto" type="checkbox" value="ja" /><span>Elektrische auto</span></label>
+          <label class="adviesCalculatorKeuze"><input name="warmtepomp" type="checkbox" value="ja" /><span>Warmtepomp</span></label>
+          <label class="adviesCalculatorKeuze"><input name="noodstroom" type="checkbox" value="ja" /><span>Noodstroom gewenst</span></label>
+        </fieldset>
+        <button class="siteBtn siteBtnPrimary" type="submit">Bereken mijn indicatie</button>
+        <p class="adviesCalculatorPrivacy">Dit is een eerste technische indicatie, geen offerte. Uw invoer verlaat deze pagina pas wanneer u die zelf naar het contactformulier meeneemt.</p>
+      </form>
+      <output class="adviesCalculatorResultaat" data-calculation-output aria-live="polite">
+        <p class="adviesCalculatorResultaatLabel">Uw indicatie</p>
+        <h3 data-result-title>Vul uw gegevens in</h3>
+        <p data-result-summary>Daarna tonen we een passende capaciteitsbandbreedte en de belangrijkste aandachtspunten.</p>
+        <ul data-result-details role="list">
+          <li>Direct zichtbaar, zonder contactgegevens</li>
+          <li>Indicatie op basis van uw energieprofiel</li>
+          <li>Altijd nog technisch gecontroleerd door Sparky</li>
+        </ul>
+        <a class="siteBtn siteBtnPrimary adviesCalculatorContact" data-calculation-contact href="contact.html?onderwerp=thuisbatterij&amp;calculator=thuisbatterij#contactRouteKeuze" hidden>Neem deze indicatie mee</a>
+      </output>
+    </div>
   </div>
 </section>
 <section id="thuisbatterijSectVoorWoningEnBedrijf" class="siteSectie thuisbatterijSectVoorWoningEnBedrijf layoutSplitCard" data-page="Thuisbatterijen" data-page-number="2" data-section-number="3" data-section-title="Voor woning en bedrijf" aria-labelledby="thuisbatterijSectVoorWoningEnBedrijfH2">

@@ -1073,28 +1073,352 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
     });
   });
 
-  // Open rekenmodule: de HTML-velden staan klaar. Vul de definitieve formules hieronder later in.
+  const calculatorStorageKey = 'sparkyCalculatorAanvraag';
+
+  function trackCalculatorEvent(eventName, calculatorType) {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', eventName, {
+      calculator_type: calculatorType,
+      event_category: 'adviescalculator'
+    });
+  }
+
+  function roundToFive(value) {
+    return Math.max(5, Math.round(value / 5) * 5);
+  }
+
+  function getBatteryAdvice(values) {
+    const usage = Number(values.get('jaarverbruikKwh'));
+    const solarYield = Number(values.get('zonneOpwekKwh'));
+    const panels = Number(values.get('aantalZonnepanelen'));
+    const contract = String(values.get('energiecontract') || 'onbekend');
+    const hasEv = values.get('elektrischeAuto') === 'ja';
+    const hasHeatPump = values.get('warmtepomp') === 'ja';
+    const wantsBackup = values.get('noodstroom') === 'ja';
+    const dailyUse = usage / 365;
+    const dailySolar = solarYield / 365;
+    const profileAdjustment = (hasEv ? 2 : 0) + (hasHeatPump ? 2 : 0) + (wantsBackup ? 3 : 0);
+    const centerCapacity = Math.min(40, roundToFive(Math.min(dailyUse * .65, dailySolar * .8) + profileAdjustment));
+    const lowerCapacity = Math.max(5, centerCapacity - 5);
+    const upperCapacity = Math.min(45, centerCapacity + 5);
+    const suitability = solarYield >= usage * .35
+      ? 'Uw verbruik en zonne-opwek geven een goede uitgangspositie voor opslag.'
+      : solarYield > 0
+        ? 'Opslag kan interessant zijn, maar de verhouding tussen opwek en verbruik moet eerst worden gecontroleerd.'
+        : 'Zonder eigen opwek hangt de meerwaarde vooral af van uw energiecontract en verbruiksmomenten.';
+    const additions = [hasEv && 'elektrische auto', hasHeatPump && 'warmtepomp', wantsBackup && 'noodstroom'].filter(Boolean);
+    const details = [
+      `Uitgangspunt: ${usage.toLocaleString('nl-NL')} kWh verbruik en ${solarYield.toLocaleString('nl-NL')} kWh zonne-opwek per jaar.`,
+      additions.length ? `Extra rekening gehouden met: ${additions.join(', ')}.` : 'Er zijn geen extra grote stroomverbruikers geselecteerd.',
+      contract === 'dynamisch' ? 'Slimme sturing kan ook inspelen op uurprijzen.' : 'Het contracttype en uw dagprofiel bepalen mede de uiteindelijke businesscase.'
+    ];
+
+    return {
+      type: 'thuisbatterij',
+      topic: 'thuisbatterij',
+      title: `${lowerCapacity}–${upperCapacity} kWh opslag`,
+      summary: suitability,
+      details,
+      fields: [
+        ['Jaarverbruik', `${usage.toLocaleString('nl-NL')} kWh`],
+        ['Zonne-opwek', `${solarYield.toLocaleString('nl-NL')} kWh`],
+        ['Zonnepanelen', String(panels)],
+        ['Energiecontract', contract],
+        ['Elektrische auto', hasEv ? 'Ja' : 'Nee'],
+        ['Warmtepomp', hasHeatPump ? 'Ja' : 'Nee'],
+        ['Noodstroom gewenst', wantsBackup ? 'Ja' : 'Nee']
+      ]
+    };
+  }
+
+  function getSolarAdvice(values) {
+    const usage = Number(values.get('jaarverbruikKwh'));
+    const existingPanels = Number(values.get('bestaandePanelen'));
+    const roofType = String(values.get('daktype'));
+    const direction = String(values.get('dakrichting'));
+    const hasEv = values.get('elektrischeAuto') === 'ja';
+    const hasHeatPump = values.get('warmtepomp') === 'ja';
+    const futureDemand = usage + (hasEv ? 2500 : 0) + (hasHeatPump ? 3500 : 0);
+    const yieldPerPanelMap = { zuid: 380, 'oost-west': 340, plat: 360, noord: 270, onbekend: 330 };
+    const yieldPerPanel = yieldPerPanelMap[direction] || 330;
+    const existingYield = existingPanels * 340;
+    const remainingDemand = Math.max(0, futureDemand - existingYield);
+    const panelCount = Math.min(60, Math.ceil(remainingDemand / yieldPerPanel));
+    const lowerCount = panelCount > 0 ? Math.max(1, panelCount - 1) : 0;
+    const upperCount = Math.min(60, panelCount + 1);
+    const systemPower = panelCount * .435;
+    const estimatedYield = panelCount * yieldPerPanel;
+    const title = panelCount > 0
+      ? `${lowerCount}–${upperCount} ${existingPanels ? 'extra ' : ''}zonnepanelen`
+      : 'Uw bestaande set kan passend zijn';
+    const summary = panelCount > 0
+      ? `Richtpunt: ongeveer ${systemPower.toLocaleString('nl-NL', { minimumFractionDigits: 1, maximumFractionDigits: 1 })} kWp nieuw vermogen voor uw verwachte stroomvraag.`
+      : 'Op basis van deze jaarwaarden lijkt eerst een opbrengstcontrole van uw huidige installatie logischer dan direct uitbreiden.';
+    const additions = [hasEv && 'elektrische auto', hasHeatPump && 'warmtepomp'].filter(Boolean);
+
+    return {
+      type: 'zonnepanelen',
+      topic: 'zonnepanelen',
+      title,
+      summary,
+      details: [
+        panelCount > 0 ? `Geschatte opbrengst van de uitbreiding: circa ${estimatedYield.toLocaleString('nl-NL')} kWh per jaar.` : `Geschatte bestaande opwek: circa ${existingYield.toLocaleString('nl-NL')} kWh per jaar.`,
+        additions.length ? `Toekomstig verbruik meegenomen voor: ${additions.join(' en ')}.` : 'De indicatie is gebaseerd op uw huidige stroomverbruik.',
+        direction === 'noord' ? 'Een noordgericht dak vraagt extra aandacht voor rendement en alternatieve dakvlakken.' : `Daktype en richting (${roofType}, ${direction}) zijn verwerkt als eerste opbrengstfactor.`
+      ],
+      fields: [
+        ['Jaarverbruik', `${usage.toLocaleString('nl-NL')} kWh`],
+        ['Bestaande panelen', String(existingPanels)],
+        ['Daktype', roofType],
+        ['Dakrichting', direction],
+        ['Elektrische auto gepland', hasEv ? 'Ja' : 'Nee'],
+        ['Warmtepomp gepland', hasHeatPump ? 'Ja' : 'Nee']
+      ]
+    };
+  }
+
+  function getChargerAdvice(values) {
+    const location = String(values.get('gebruikslocatie'));
+    const connection = String(values.get('netaansluiting'));
+    const dailyKilometers = Number(values.get('kilometersPerDag'));
+    const cableDistance = Number(values.get('afstandMeterkastMeter'));
+    const solar = String(values.get('zonnepanelenAanwezig'));
+    const businessSettlement = values.get('zakelijkVerrekenen') === 'ja';
+    const smartCharging = values.get('slimLaden') === 'ja';
+    const dailyEnergy = Math.max(1, Math.round(dailyKilometers * .2));
+    const title = connection === '3-fase'
+      ? '11 kW slim laden'
+      : connection === '1-fase'
+        ? '3,7 kW of aansluiting beoordelen'
+        : 'Aansluiting eerst beoordelen';
+    const summary = connection === '3-fase'
+      ? `Dit laadvermogen past doorgaans goed bij circa ${dailyEnergy} kWh dagelijkse laadbehoefte, met dynamische load balancing.`
+      : 'De beschikbare fase-aansluiting en hoofdzekering moeten worden gecontroleerd voordat het laadvermogen wordt vastgelegd.';
+    const functions = [
+      businessSettlement && 'automatische zakelijke verrekening',
+      smartCharging && 'laden op zon of lage uurprijzen',
+      solar !== 'nee' && 'zonnestroomoptimalisatie'
+    ].filter(Boolean);
+
+    return {
+      type: 'laadpaal',
+      topic: 'laadpaal',
+      title,
+      summary,
+      details: [
+        'Dynamische load balancing wordt aanbevolen om overbelasting van de hoofdaansluiting te voorkomen.',
+        cableDistance > 20 ? `Bij ${cableDistance} meter kabelafstand is een aparte controle van tracé, spanningsverlies en graafwerk nodig.` : `De opgegeven kabelafstand van ${cableDistance} meter lijkt geschikt voor een gerichte tracécontrole.`,
+        functions.length ? `Gewenste functies: ${functions.join(', ')}.` : 'Een basisoplossing zonder aanvullende slimme functies is als uitgangspunt genomen.'
+      ],
+      fields: [
+        ['Gebruikslocatie', location],
+        ['Netaansluiting', connection],
+        ['Kilometers per dag', String(dailyKilometers)],
+        ['Afstand meterkast', `${cableDistance} meter`],
+        ['Zonnepanelen', solar],
+        ['Zakelijk verrekenen', businessSettlement ? 'Ja' : 'Nee'],
+        ['Slim laden', smartCharging ? 'Ja' : 'Nee']
+      ]
+    };
+  }
+
+  function getElectricalAdvice(values, form) {
+    const workLabels = {
+      vervangen: 'groepenkast vervangen',
+      uitbreiden: 'groepenkast uitbreiden',
+      inductie: 'inductiekookplaat',
+      warmtepomp: 'warmtepomp voorbereiden',
+      laadpaal: 'laadpaal voorbereiden',
+      'extra-elektra': 'stopcontacten of verlichting'
+    };
+    const selectedWork = values.getAll('werkzaamheden').map((value) => workLabels[value] || value);
+    const connection = String(values.get('netaansluiting'));
+    const cabinetAge = String(values.get('leeftijdGroepenkast'));
+    const postcode = String(values.get('postcode')).toUpperCase();
+    const houseNumber = String(values.get('huisnummer'));
+    const locationType = String(values.get('typeLocatie'));
+    const upload = form.querySelector('[data-calculator-upload]');
+    const photoCount = upload && upload.files ? Math.min(upload.files.length, 5) : 0;
+    const hasHeavyNewLoad = selectedWork.some((item) => /inductie|warmtepomp|laadpaal/.test(item));
+    const needsSurvey = cabinetAge === 'ouder-dan-25' || cabinetAge === 'onbekend' || selectedWork.length >= 3 || selectedWork.includes('groepenkast vervangen');
+    const title = needsSurvey ? 'Technische opname aanbevolen' : 'Gerichte controle als eerste stap';
+    const summary = needsSurvey
+      ? 'Meerdere onderdelen of de leeftijd van de installatie vragen om een bredere controle voordat een veilige uitvoering kan worden gecalculeerd.'
+      : 'Uw aanvraag lijkt voldoende afgebakend voor een eerste controle van foto’s, aansluiting en beschikbare ruimte.';
+
+    return {
+      type: 'elektrotechniek',
+      topic: 'groepenkast',
+      title,
+      summary,
+      details: [
+        `Werkzaamheden: ${selectedWork.join(', ')}.`,
+        connection === '1-fase' && hasHeavyNewLoad ? 'Bij de gekozen zware verbruiker moet ook een mogelijke 3-faseaanpassing worden beoordeeld.' : `De opgegeven ${connection}-aansluiting wordt meegenomen in de controle.`,
+        photoCount ? `${photoCount} foto${photoCount === 1 ? '' : '’s'} gekozen voor de test; deze worden nog niet verzonden.` : 'Foto’s van groepenkast, hoofdschakelaar en meter versnellen de definitieve beoordeling.'
+      ],
+      fields: [
+        ['Werkzaamheden', selectedWork.join(', ')],
+        ['Netaansluiting', connection],
+        ['Leeftijd groepenkast', cabinetAge],
+        ['Locatie', `${postcode} ${houseNumber}`],
+        ['Type locatie', locationType],
+        ['Foto’s gekozen in test', String(photoCount)]
+      ]
+    };
+  }
+
+  function calculatorGroupsAreValid(form) {
+    let valid = true;
+    form.querySelectorAll('[data-calculator-required-group]').forEach((group) => {
+      const checkboxes = Array.from(group.querySelectorAll('input[type="checkbox"]'));
+      const firstCheckbox = checkboxes[0];
+      const hasSelection = checkboxes.some((checkbox) => checkbox.checked);
+      if (firstCheckbox) firstCheckbox.setCustomValidity(hasSelection ? '' : 'Kies minimaal één werkzaamheid.');
+      if (!hasSelection) valid = false;
+    });
+    return valid;
+  }
+
+  function showCalculatorResult(form, advice) {
+    const section = form.closest('.adviesCalculatorSectie');
+    const output = section && section.querySelector('[data-calculation-output]');
+    if (!output) return;
+    const title = output.querySelector('[data-result-title]');
+    const summary = output.querySelector('[data-result-summary]');
+    const details = output.querySelector('[data-result-details]');
+    const contactLink = output.querySelector('[data-calculation-contact]');
+    if (title) title.textContent = advice.title;
+    if (summary) summary.textContent = advice.summary;
+    if (details) {
+      details.replaceChildren(...advice.details.map((detail) => {
+        const item = document.createElement('li');
+        item.textContent = detail;
+        return item;
+      }));
+    }
+    if (contactLink) {
+      contactLink.href = `contact.html?onderwerp=${encodeURIComponent(advice.topic)}&calculator=${encodeURIComponent(advice.type)}#contactRouteKeuze`;
+      contactLink.hidden = false;
+    }
+    output.classList.add('heeftResultaat');
+  }
+
+  function saveCalculatorAdvice(advice) {
+    try {
+      window.sessionStorage.setItem(calculatorStorageKey, JSON.stringify({
+        version: 1,
+        savedAt: Date.now(),
+        ...advice
+      }));
+    } catch (error) {
+      // De calculator blijft werken wanneer sessieopslag niet beschikbaar is.
+    }
+  }
+
   document.querySelectorAll('form[data-calculation-form="sparky-advies"]').forEach((form) => {
+    form.addEventListener('focusin', () => {
+      if (form.dataset.calculatorStarted === 'true') return;
+      form.dataset.calculatorStarted = 'true';
+      trackCalculatorEvent('calculator_started', form.dataset.calculatorType || 'onbekend');
+    });
+
+    form.querySelectorAll('[data-calculator-required-group] input[type="checkbox"]').forEach((checkbox) => {
+      checkbox.addEventListener('change', () => calculatorGroupsAreValid(form));
+    });
+
     form.addEventListener('submit', (event) => {
       event.preventDefault();
-      const output = form.querySelector('output');
-      if (!form.checkValidity()) {
+      const groupsValid = calculatorGroupsAreValid(form);
+      if (!groupsValid || !form.checkValidity()) {
         form.reportValidity();
         return;
       }
-      const waarden = new FormData(form);
-      const jaarverbruik = Number(waarden.get('jaarverbruikKwh') || 0);
-      const teruglevering = Number(waarden.get('terugleveringKwh') || 0);
-      const afstand = Number(waarden.get('afstandMeterkastMeter') || 0);
+      const values = new FormData(form);
+      const calculatorType = form.dataset.calculatorType;
+      const calculators = {
+        thuisbatterij: () => getBatteryAdvice(values),
+        zonnepanelen: () => getSolarAdvice(values),
+        laadpaal: () => getChargerAdvice(values),
+        elektrotechniek: () => getElectricalAdvice(values, form)
+      };
+      const advice = calculators[calculatorType] ? calculators[calculatorType]() : null;
+      if (!advice) return;
+      showCalculatorResult(form, advice);
+      saveCalculatorAdvice(advice);
+      trackCalculatorEvent('calculator_completed', calculatorType);
+    });
 
-      // TODO DEFINITIEVE REKENMODULE:
-      // 1. Voeg prijsdatabase of staffeltabel toe voor thuisbatterij, zonnepanelen, laadpaal en renovaties.
-      // 2. Voeg business rules toe voor hoofdzekering, kabelafstand, meterkastuitbreiding en btw/KOR.
-      // 3. Voeg besparingsformule toe voor dynamisch contract, salderen, zelfverbruik en teruglevering.
-      // 4. Vervang onderstaande tekst door echte output.
-      if (output) {
-        output.textContent = `Voorlopige invoer ontvangen: jaarverbruik ${jaarverbruik || 'onbekend'} kWh, teruglevering ${teruglevering || 'onbekend'} kWh, afstand meterkast ${afstand || 'onbekend'} meter. De definitieve besparings- en kostencalculatie moet nog worden gekoppeld.`;
-      }
+    const contactLink = form.closest('.adviesCalculatorSectie') && form.closest('.adviesCalculatorSectie').querySelector('[data-calculation-contact]');
+    if (contactLink) {
+      contactLink.addEventListener('click', () => {
+        trackCalculatorEvent('calculator_contact_clicked', form.dataset.calculatorType || 'onbekend');
+      });
+    }
+  });
+
+  document.querySelectorAll('[data-calculator-upload]').forEach((upload) => {
+    upload.addEventListener('change', () => {
+      const status = upload.closest('.contactFormulierVeld') && upload.closest('.contactFormulierVeld').querySelector('[data-upload-status]');
+      const fileCount = upload.files ? upload.files.length : 0;
+      const tooManyFiles = fileCount > 5;
+      upload.setCustomValidity(tooManyFiles ? 'Kies maximaal 5 foto’s.' : '');
+      if (!status) return;
+      status.textContent = tooManyFiles
+        ? 'U heeft meer dan 5 foto’s gekozen. Verwijder enkele bestanden.'
+        : fileCount
+          ? `${fileCount} foto${fileCount === 1 ? '' : '’s'} gekozen voor deze test.`
+          : 'Nog geen foto’s gekozen.';
     });
   });
+
+  function initializeCalculatorTransfer() {
+    const requestedCalculator = new URLSearchParams(window.location.search).get('calculator');
+    if (!requestedCalculator) return;
+    let advice;
+    try {
+      advice = JSON.parse(window.sessionStorage.getItem(calculatorStorageKey) || 'null');
+    } catch (error) {
+      return;
+    }
+    const isRecent = advice && Date.now() - Number(advice.savedAt) < 24 * 60 * 60 * 1000;
+    if (!isRecent || advice.type !== requestedCalculator || !Array.isArray(advice.fields)) return;
+
+    const detailedRoute = document.getElementById('contactSectLatenWeBeginnen');
+    const quickRoute = document.getElementById('contactSnelAdvies');
+    const form = document.getElementById('contactSectLatenWeBeginnenFormulier');
+    const description = document.getElementById('contactSectLatenWeBeginnenOmschrijving');
+    const requestType = document.getElementById('contactSectLatenWeBeginnenAanvraagtype');
+    if (!detailedRoute || !form || !description) return;
+
+    if (quickRoute) quickRoute.open = false;
+    detailedRoute.open = true;
+    if (requestType) requestType.value = 'advies';
+
+    const topicMap = { thuisbatterij: 'thuisbatterij', zonnepanelen: 'zonnepanelen', laadpaal: 'laadpaal', groepenkast: 'elektrotechniek' };
+    const topicCheckbox = document.querySelector(`input[name="situatie"][value="${topicMap[advice.topic] || ''}"]`);
+    if (topicCheckbox) topicCheckbox.checked = true;
+
+    const inputLines = advice.fields.map(([label, value]) => `- ${label}: ${value}`);
+    const transferText = `Calculatorindicatie: ${advice.title}\n${advice.summary}\n\nInvoer:\n${inputLines.join('\n')}`;
+    if (!description.value.trim()) description.value = `${transferText}\n\nIk wil deze indicatie graag laten controleren.`;
+
+    const hiddenSummary = document.createElement('input');
+    hiddenSummary.type = 'hidden';
+    hiddenSummary.name = 'calculator_samenvatting';
+    hiddenSummary.value = transferText;
+    form.prepend(hiddenSummary);
+
+    const notice = document.createElement('aside');
+    notice.className = 'calculatorOverdrachtMelding';
+    notice.setAttribute('role', 'status');
+    const noticeTitle = document.createElement('strong');
+    noticeTitle.textContent = 'Uw calculatorgegevens zijn overgenomen';
+    const noticeText = document.createElement('p');
+    noticeText.textContent = `${advice.title}. Controleer de samenvatting en vul alleen uw contactgegevens nog aan.`;
+    notice.append(noticeTitle, noticeText);
+    form.prepend(notice);
+    trackCalculatorEvent('calculator_transferred', requestedCalculator);
+  }
+
+  initializeCalculatorTransfer();
 }());

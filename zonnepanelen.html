@@ -168,13 +168,37 @@
   </li>
 </ul>
 </section>
-<section id="zonnepanelenCalculator" class="siteSectie modulePlaceholderSectie" aria-labelledby="zonnepanelenCalculatorH2">
-  <div class="modulePlaceholderInhoud">
-    <p class="modulePlaceholderLabel">Plek voor calculator</p>
-    <h2 id="zonnepanelenCalculatorH2" class="sectieTitel">Hoeveel zonnepanelen passen bij uw situatie?</h2>
-    <p class="sectieIntro">Hier komt de zonnepanelencalculator. De rekenmodule zelf is bewust nog niet ingebouwd.</p>
-    <p class="modulePlaceholderNotitie">De toekomstige indicatie gebruikt onder meer stroomverbruik, daktype, dakrichting, bestaande panelen en plannen voor een elektrische auto of warmtepomp.</p>
-    <a class="siteBtn siteBtnPrimary" href="contact.html?onderwerp=zonnepanelen#contactRouteKeuze">Ontvang mijn installatievoorstel</a>
+<section id="zonnepanelenCalculator" class="siteSectie adviesCalculatorSectie" aria-labelledby="zonnepanelenCalculatorH2">
+  <div class="adviesCalculatorKaart">
+    <header class="sectieKop adviesCalculatorKop">
+      <p class="sectieLabel">Opwekindicatie</p>
+      <h2 id="zonnepanelenCalculatorH2" class="sectieTitel">Hoeveel zonnepanelen passen bij uw situatie?</h2>
+      <p class="sectieIntro">Bereken een eerste indicatie van het aantal panelen, het systeemvermogen en de mogelijke jaaropbrengst.</p>
+    </header>
+    <div class="adviesCalculatorGrid">
+      <form class="adviesCalculatorFormulier" data-calculation-form="sparky-advies" data-calculator-type="zonnepanelen">
+        <div class="adviesCalculatorVelden">
+          <div class="contactFormulierVeld"><label for="zonnepanelenJaarverbruik">Jaarlijks stroomverbruik</label><div class="adviesCalculatorEenheid"><input id="zonnepanelenJaarverbruik" name="jaarverbruikKwh" type="number" min="500" max="50000" step="100" inputmode="numeric" placeholder="Bijvoorbeeld 4500" required /><span>kWh</span></div></div>
+          <div class="contactFormulierVeld"><label for="zonnepanelenBestaand">Bestaande zonnepanelen</label><input id="zonnepanelenBestaand" name="bestaandePanelen" type="number" min="0" max="100" step="1" inputmode="numeric" value="0" required /></div>
+          <div class="contactFormulierVeld"><label for="zonnepanelenDaktype">Daktype</label><select id="zonnepanelenDaktype" name="daktype" required><option value="">Kies een optie</option><option value="schuin">Schuin dak</option><option value="plat">Plat dak</option><option value="combinatie">Combinatie</option></select></div>
+          <div class="contactFormulierVeld"><label for="zonnepanelenDakrichting">Belangrijkste dakrichting</label><select id="zonnepanelenDakrichting" name="dakrichting" required><option value="">Kies een optie</option><option value="zuid">Zuid</option><option value="oost-west">Oost en/of west</option><option value="plat">Plat, vrije oriëntatie</option><option value="noord">Noord</option><option value="onbekend">Weet ik niet</option></select></div>
+        </div>
+        <fieldset class="adviesCalculatorKeuzes">
+          <legend>Verwacht extra stroomverbruik</legend>
+          <label class="adviesCalculatorKeuze"><input name="elektrischeAuto" type="checkbox" value="ja" /><span>Elektrische auto</span></label>
+          <label class="adviesCalculatorKeuze"><input name="warmtepomp" type="checkbox" value="ja" /><span>Warmtepomp</span></label>
+        </fieldset>
+        <button class="siteBtn siteBtnPrimary" type="submit">Bereken mijn opwekindicatie</button>
+        <p class="adviesCalculatorPrivacy">De werkelijke opbrengst hangt ook af van schaduw, hellingshoek, beschikbare dakmaat en lokale omstandigheden. Daarom volgt altijd een dakcontrole.</p>
+      </form>
+      <output class="adviesCalculatorResultaat" data-calculation-output aria-live="polite">
+        <p class="adviesCalculatorResultaatLabel">Uw indicatie</p>
+        <h3 data-result-title>Vul uw gegevens in</h3>
+        <p data-result-summary>Daarna ziet u hoeveel panelen ongeveer passen bij uw huidige en toekomstige stroomvraag.</p>
+        <ul data-result-details role="list"><li>Indicatief aantal panelen</li><li>Geschat systeemvermogen</li><li>Mogelijke jaaropbrengst</li></ul>
+        <a class="siteBtn siteBtnPrimary adviesCalculatorContact" data-calculation-contact href="contact.html?onderwerp=zonnepanelen&amp;calculator=zonnepanelen#contactRouteKeuze" hidden>Neem deze indicatie mee</a>
+      </output>
+    </div>
   </div>
 </section>
 <section id="zonnepanelenSectEenInstallatieDiePastBijUwSituatie" class="siteSectie zonnepanelenSectEenInstallatieDiePastBijUwSituatie layoutSplitCard" data-page="Zonnepanelen" data-page-number="3" data-section-number="3" data-section-title="Een installatie die past bij uw situatie" aria-labelledby="zonnepanelenSectEenInstallatieDiePastBijUwSituatieH2">

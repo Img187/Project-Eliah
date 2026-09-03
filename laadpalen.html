@@ -136,13 +136,38 @@
     <ul class="trustBarLijst" role="list"><li>NEN 1010</li><li>NEN 3140</li><li>VCA</li><li>Persoonlijk advies</li></ul>
   </div>
 </section>
-<section id="laadpalenKeuzehulp" class="siteSectie modulePlaceholderSectie" aria-labelledby="laadpalenKeuzehulpH2">
-  <div class="modulePlaceholderInhoud">
-    <p class="modulePlaceholderLabel">Plek voor keuzehulp</p>
-    <h2 id="laadpalenKeuzehulpH2" class="sectieTitel">Welke laadoplossing past bij u?</h2>
-    <p class="sectieIntro">Hier komt de laadpaalkeuzehulp. De interactieve module zelf is bewust nog niet ingebouwd.</p>
-    <p class="modulePlaceholderNotitie">De toekomstige keuzehulp vraagt naar woning of bedrijf, auto, 1- of 3-fase, zonnepanelen, dynamisch laden, zakelijke verrekening en de kabelafstand.</p>
-    <a class="siteBtn siteBtnPrimary" href="contact.html?onderwerp=laadpaal#contactRouteKeuze">Laat Sparky mijn laadoplossing controleren</a>
+<section id="laadpalenKeuzehulp" class="siteSectie adviesCalculatorSectie" aria-labelledby="laadpalenKeuzehulpH2">
+  <div class="adviesCalculatorKaart">
+    <header class="sectieKop adviesCalculatorKop">
+      <p class="sectieLabel">Laadadvies</p>
+      <h2 id="laadpalenKeuzehulpH2" class="sectieTitel">Welke laadoplossing past bij u?</h2>
+      <p class="sectieIntro">Ontvang advies over laadvermogen, load balancing en slimme functies. We geven bewust geen prijs zonder de kabelroute en groepenkast te beoordelen.</p>
+    </header>
+    <div class="adviesCalculatorGrid">
+      <form class="adviesCalculatorFormulier" data-calculation-form="sparky-advies" data-calculator-type="laadpaal">
+        <div class="adviesCalculatorVelden">
+          <div class="contactFormulierVeld"><label for="laadpaalLocatie">Gebruikslocatie</label><select id="laadpaalLocatie" name="gebruikslocatie" required><option value="">Kies een optie</option><option value="woning">Woning</option><option value="bedrijf">Bedrijf</option><option value="vve">VvE of gedeeld terrein</option></select></div>
+          <div class="contactFormulierVeld"><label for="laadpaalAansluiting">Netaansluiting</label><select id="laadpaalAansluiting" name="netaansluiting" required><option value="">Kies een optie</option><option value="1-fase">1-fase</option><option value="3-fase">3-fase</option><option value="onbekend">Weet ik niet</option></select></div>
+          <div class="contactFormulierVeld"><label for="laadpaalKilometers">Gemiddeld aantal kilometers per dag</label><div class="adviesCalculatorEenheid"><input id="laadpaalKilometers" name="kilometersPerDag" type="number" min="1" max="1000" step="1" inputmode="numeric" placeholder="Bijvoorbeeld 55" required /><span>km</span></div></div>
+          <div class="contactFormulierVeld"><label for="laadpaalAfstand">Afstand vanaf de meterkast</label><div class="adviesCalculatorEenheid"><input id="laadpaalAfstand" name="afstandMeterkastMeter" type="number" min="1" max="200" step="1" inputmode="numeric" placeholder="Bijvoorbeeld 12" required /><span>meter</span></div></div>
+          <div class="contactFormulierVeld"><label for="laadpaalZonnepanelen">Zonnepanelen aanwezig?</label><select id="laadpaalZonnepanelen" name="zonnepanelenAanwezig" required><option value="">Kies een optie</option><option value="ja">Ja</option><option value="nee">Nee</option><option value="gepland">Nog niet, wel gepland</option></select></div>
+        </div>
+        <fieldset class="adviesCalculatorKeuzes">
+          <legend>Gewenste slimme functies</legend>
+          <label class="adviesCalculatorKeuze"><input name="zakelijkVerrekenen" type="checkbox" value="ja" /><span>Zakelijk verrekenen</span></label>
+          <label class="adviesCalculatorKeuze"><input name="slimLaden" type="checkbox" value="ja" /><span>Laden op zon of dynamische tarieven</span></label>
+        </fieldset>
+        <button class="siteBtn siteBtnPrimary" type="submit">Toon mijn laadadvies</button>
+        <p class="adviesCalculatorPrivacy">Dit advies controleert de hoofdlijn. Kabeltracé, selectiviteit, hoofdzekering en vrije ruimte in de groepenkast bepalen de definitieve uitvoering.</p>
+      </form>
+      <output class="adviesCalculatorResultaat" data-calculation-output aria-live="polite">
+        <p class="adviesCalculatorResultaatLabel">Uw laadadvies</p>
+        <h3 data-result-title>Vul uw gegevens in</h3>
+        <p data-result-summary>Daarna ziet u welk laadvermogen en welke functies logisch zijn voor uw situatie.</p>
+        <ul data-result-details role="list"><li>Passend laadvermogen</li><li>Advies over load balancing</li><li>Benodigde slimme functies</li></ul>
+        <a class="siteBtn siteBtnPrimary adviesCalculatorContact" data-calculation-contact href="contact.html?onderwerp=laadpaal&amp;calculator=laadpaal#contactRouteKeuze" hidden>Neem dit laadadvies mee</a>
+      </output>
+    </div>
   </div>
 </section>
 <section id="laadpalenSectLaadUwElektrischeAutoVeiligEnGemakkelijkOpEigenLocatie" class="siteSectie laadpalenSectLaadUwElektrischeAutoVeiligEnGemakkelijkOpEigenLocatie kenmerkKaartenSectie layoutFeatures" data-page="Laadpalen" data-page-number="4" data-section-number="2" data-section-title="Laad uw elektrische auto veilig en gemakkelijk op eigen locatie" aria-labelledby="laadpalenSectLaadUwElektrischeAutoVeiligEnGemakkelijkOpEigenLocatieH2">

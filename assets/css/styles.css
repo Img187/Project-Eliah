@@ -2334,6 +2334,85 @@ body.tekstGroot .contactRouteLijst { grid-template-columns: minmax(0, 1fr); }
 .modulePlaceholderInhoud .modulePlaceholderNotitie { margin-inline: auto; }
 .modulePlaceholderInhoud .siteBtn { justify-self: center; }
 
+/* Herbruikbare adviescalculators: dezelfde kaartvorm en radius als de bestaande site. */
+.adviesCalculatorSectie { padding-block: clamp(32px, 6vw, 72px); }
+.adviesCalculatorKaart {
+  display: grid;
+  gap: clamp(28px, 5vw, 52px);
+  padding: clamp(22px, 4vw, 48px);
+  border: 0;
+  border-radius: 10px;
+  background: var(--kleurKaart);
+  box-shadow: var(--schaduwZacht);
+}
+.adviesCalculatorKop { width: min(920px, 100%); margin-inline: auto; text-align: center; }
+.adviesCalculatorKop .sectieLabel,
+.adviesCalculatorKop .sectieTitel,
+.adviesCalculatorKop .sectieIntro { margin-inline: auto; }
+.adviesCalculatorKop .sectieIntro { max-width: 72ch; }
+.adviesCalculatorGrid { display: grid; min-width: 0; gap: clamp(24px, 4vw, 40px); align-items: stretch; }
+.adviesCalculatorFormulier,
+.adviesCalculatorResultaat {
+  min-width: 0;
+  padding: clamp(20px, 3vw, 32px);
+  border: 1px solid var(--kleurRand);
+  border-radius: 10px;
+}
+.adviesCalculatorFormulier { align-content: start; background: var(--kleurKaart); }
+.adviesCalculatorVelden { display: grid; min-width: 0; gap: 18px; }
+.adviesCalculatorEenheid { position: relative; min-width: 0; }
+.adviesCalculatorEenheid input { padding-inline-end: 64px; }
+.adviesCalculatorEenheid span { position: absolute; inset: 50% 16px auto auto; color: #52616b; font-size: .86rem; font-weight: 700; pointer-events: none; transform: translateY(-50%); }
+.adviesCalculatorKeuzes { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; margin: 0; padding: 0; border: 0; }
+.adviesCalculatorKeuzes legend { margin-block-end: 10px; }
+.adviesCalculatorKeuzes legend .contactKeuzeUitleg { display: block; margin-block-start: 3px; font-family: var(--fontTekst); font-size: .82rem; font-weight: 400; }
+.adviesCalculatorKeuze { display: flex; min-height: 52px; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid var(--kleurRand); border-radius: 10px; background: var(--sparkyLichtGrijs); cursor: pointer; }
+.adviesCalculatorKeuze input { width: 20px; min-width: 20px; height: 20px; margin: 0; accent-color: var(--sparkyLichtBlauw); }
+.adviesCalculatorKeuze span { font-weight: 600; }
+.adviesCalculatorFormulier > .siteBtn { justify-self: center; }
+.adviesCalculatorPrivacy { max-width: 62ch; margin: 0 auto; color: #52616b; font-size: .84rem; line-height: 1.55; text-align: center; }
+.adviesCalculatorResultaat { display: flex; flex-direction: column; justify-content: center; gap: 16px; background: var(--sparkyDonkerBlauw); color: #fff; text-align: center; }
+.adviesCalculatorResultaatLabel { width: fit-content; margin: 0 auto; padding: 6px 10px; border-radius: 999px; background: var(--sparkyOranje); color: #111; font-size: .74rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.adviesCalculatorResultaat h3 { max-width: 18ch; margin: 0 auto; color: #fff; font-family: var(--fontKop); font-size: clamp(1.75rem, 3vw, 2.75rem); line-height: 1.1; text-wrap: balance; }
+.adviesCalculatorResultaat p:not(.adviesCalculatorResultaatLabel) { max-width: 54ch; margin: 0 auto; color: rgba(255, 255, 255, .9); }
+.adviesCalculatorResultaat ul { display: grid; gap: 10px; width: min(480px, 100%); margin: 4px auto 0; padding: 0; list-style: none; text-align: left; }
+.adviesCalculatorResultaat li { position: relative; padding-inline-start: 25px; }
+.adviesCalculatorResultaat li::before { position: absolute; inset: .7em auto auto 2px; width: 9px; height: 9px; border-radius: 50%; background: var(--sparkyOranje); content: ""; transform: translateY(-50%); }
+.adviesCalculatorContact { align-self: center; margin-block-start: 8px; }
+.adviesCalculatorContact[hidden] { display: none; }
+.adviesUploadVak { display: grid; gap: 8px; padding: 18px; border: 1px dashed var(--sparkyLichtBlauw); border-radius: 10px; background: var(--sparkyLichtGrijs); cursor: pointer; text-align: center; }
+.adviesUploadVak span { color: var(--sparkyDonkerBlauw); font-weight: 800; }
+.adviesUploadVak small { color: #52616b; font-size: .82rem; font-weight: 400; line-height: 1.5; }
+.adviesUploadVak input { width: 100%; padding: 10px; background: var(--kleurKaart); }
+.adviesUploadStatus { margin: 8px 0 0; color: #52616b; font-size: .82rem; text-align: center; }
+.calculatorOverdrachtMelding { display: grid; gap: 6px; margin: 0; padding: 16px 18px; border-inline-start: 5px solid var(--sparkyOranje); border-radius: 10px; background: #fff7e0; color: #3d2a00; text-align: left; }
+.calculatorOverdrachtMelding strong { color: inherit; }
+.calculatorOverdrachtMelding p { margin: 0; }
+body.hoogContrast .adviesCalculatorKaart,
+body.hoogContrast .adviesCalculatorFormulier,
+body.hoogContrast .adviesCalculatorResultaat,
+body.hoogContrast .adviesCalculatorKeuze,
+body.hoogContrast .adviesUploadVak,
+body.hoogContrast .calculatorOverdrachtMelding { border: 2px solid #fff; background: #000; color: #fff; box-shadow: none; }
+body.hoogContrast .adviesCalculatorEenheid span,
+body.hoogContrast .adviesCalculatorPrivacy,
+body.hoogContrast .adviesUploadVak span,
+body.hoogContrast .adviesUploadVak small,
+body.hoogContrast .adviesUploadStatus { color: #fff; }
+
+@media (min-width: 720px) {
+  .adviesCalculatorVelden { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .adviesCalculatorKeuzesBreed { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .adviesCalculatorKeuzesBreed legend { grid-column: 1 / -1; }
+}
+
+@media (min-width: 960px) {
+  .adviesCalculatorGrid { grid-template-columns: minmax(0, 1.08fr) minmax(340px, .92fr); }
+}
+
+body.tekstGroot .adviesCalculatorGrid,
+body.tekstGroot .adviesCalculatorVelden { grid-template-columns: minmax(0, 1fr); }
+
 @media (max-width: 599px) {
   .kenmerkKaartenSectie .kenmerkKaartLijstAutoHoogte,
   .gelijkeKaartLijst { grid-template-columns: minmax(0, 1fr); }
