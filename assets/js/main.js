@@ -1130,14 +1130,37 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
     });
   }
 
-  function roundToFive(value) {
-    return Math.max(5, Math.round(value / 5) * 5);
+  function roundToStep(value, step) {
+    return Math.round(value / step) * step;
+  }
+
+  function getAdaptiveEnergyStep(value) {
+    if (value < 100) return 5;
+    if (value < 1000) return 25;
+    if (value < 10000) return 100;
+    return 500;
+  }
+
+  function formatStorageRange(lowerCapacity, upperCapacity) {
+    if (upperCapacity >= 1000) {
+      const formatMwh = (value) => (value / 1000).toLocaleString('nl-NL', { maximumFractionDigits: 2 });
+      return `${formatMwh(lowerCapacity)}–${formatMwh(upperCapacity)} MWh opslag`;
+    }
+    return `${lowerCapacity.toLocaleString('nl-NL')}–${upperCapacity.toLocaleString('nl-NL')} kWh opslag`;
+  }
+
+  function formatSolarPower(systemPowerKwp) {
+    if (systemPowerKwp >= 1000) {
+      return `${(systemPowerKwp / 1000).toLocaleString('nl-NL', { minimumFractionDigits: 1, maximumFractionDigits: 2 })} MWp`;
+    }
+    return `${systemPowerKwp.toLocaleString('nl-NL', { minimumFractionDigits: 1, maximumFractionDigits: 1 })} kWp`;
   }
 
   function getBatteryAdvice(values) {
     const usage = Number(values.get('jaarverbruikKwh'));
     const solarYield = Number(values.get('zonneOpwekKwh'));
     const panels = Number(values.get('aantalZonnepanelen'));
+    const locationType = String(values.get('typeLocatie') || 'onbekend');
     const contract = String(values.get('energiecontract') || 'onbekend');
     const hasEv = values.get('elektrischeAuto') === 'ja';
     const hasHeatPump = values.get('warmtepomp') === 'ja';
@@ -1145,9 +1168,13 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
     const dailyUse = usage / 365;
     const dailySolar = solarYield / 365;
     const profileAdjustment = (hasEv ? 2 : 0) + (hasHeatPump ? 2 : 0) + (wantsBackup ? 3 : 0);
-    const centerCapacity = Math.min(40, roundToFive(Math.min(dailyUse * .65, dailySolar * .8) + profileAdjustment));
-    const lowerCapacity = Math.max(5, centerCapacity - 5);
-    const upperCapacity = Math.min(45, centerCapacity + 5);
+    const energyBasis = solarYield > 0 ? Math.min(dailyUse * .65, dailySolar * .8) : dailyUse * .2;
+    const unroundedCapacity = energyBasis + profileAdjustment;
+    const capacityStep = getAdaptiveEnergyStep(unroundedCapacity);
+    const centerCapacity = Math.max(5, roundToStep(unroundedCapacity, capacityStep));
+    const capacityBand = centerCapacity < 100 ? 5 : Math.max(capacityStep, roundToStep(centerCapacity * .15, capacityStep));
+    const lowerCapacity = Math.max(5, centerCapacity - capacityBand);
+    const upperCapacity = centerCapacity + capacityBand;
     const suitability = solarYield >= usage * .35
       ? 'Uw verbruik en zonne-opwek geven een goede uitgangspositie voor opslag.'
       : solarYield > 0
@@ -1157,19 +1184,21 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
     const details = [
       `Uitgangspunt: ${usage.toLocaleString('nl-NL')} kWh verbruik en ${solarYield.toLocaleString('nl-NL')} kWh zonne-opwek per jaar.`,
       additions.length ? `Extra rekening gehouden met: ${additions.join(', ')}.` : 'Er zijn geen extra grote stroomverbruikers geselecteerd.',
-      contract === 'dynamisch' ? 'Slimme sturing kan ook inspelen op uurprijzen.' : 'Het contracttype en uw dagprofiel bepalen mede de uiteindelijke businesscase.'
+      contract === 'dynamisch' ? 'Slimme sturing kan ook inspelen op uurprijzen.' : 'Het contracttype en uw dagprofiel bepalen mede de uiteindelijke businesscase.',
+      locationType === 'woning' ? 'Voor de definitieve maatvoering controleren we uw dag- en avondprofiel.' : 'Voor zakelijke en grootschalige opslag controleren we ook kwartierwaarden, piekvermogen, contractvermogen en netaansluiting.'
     ];
 
     return {
       type: 'thuisbatterij',
       topic: 'thuisbatterij',
-      title: `${lowerCapacity}–${upperCapacity} kWh opslag`,
+      title: formatStorageRange(lowerCapacity, upperCapacity),
       summary: suitability,
       details,
       fields: [
         ['Jaarverbruik', `${usage.toLocaleString('nl-NL')} kWh`],
         ['Zonne-opwek', `${solarYield.toLocaleString('nl-NL')} kWh`],
         ['Zonnepanelen', String(panels)],
+        ['Type locatie', locationType],
         ['Energiecontract', contract],
         ['Elektrische auto', hasEv ? 'Ja' : 'Nee'],
         ['Warmtepomp', hasHeatPump ? 'Ja' : 'Nee'],
@@ -1180,28 +1209,49 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
 
   function getSolarAdvice(values) {
     const usage = Number(values.get('jaarverbruikKwh'));
+    const extraUsage = Number(values.get('extraJaarverbruikKwh') || 0);
     const existingPanels = Number(values.get('bestaandePanelen'));
+    const locationType = String(values.get('typeLocatie') || 'onbekend');
     const roofType = String(values.get('daktype'));
     const direction = String(values.get('dakrichting'));
+    const roofAreaChoice = String(values.get('dakoppervlakteM2') || 'onbekend');
+    const customRoofArea = Number(values.get('dakoppervlakteExtraM2') || 0);
+    const roofArea = /^\d+$/.test(roofAreaChoice)
+      ? Number(roofAreaChoice)
+      : roofAreaChoice === 'meer-dan-1000' && customRoofArea > 0
+        ? customRoofArea
+        : null;
     const hasEv = values.get('elektrischeAuto') === 'ja';
     const hasHeatPump = values.get('warmtepomp') === 'ja';
-    const futureDemand = usage + (hasEv ? 2500 : 0) + (hasHeatPump ? 3500 : 0);
+    const futureDemand = usage + extraUsage;
     const yieldPerPanelMap = { zuid: 380, 'oost-west': 340, plat: 360, noord: 270, onbekend: 330 };
     const yieldPerPanel = yieldPerPanelMap[direction] || 330;
     const existingYield = existingPanels * 340;
     const remainingDemand = Math.max(0, futureDemand - existingYield);
-    const panelCount = Math.min(60, Math.ceil(remainingDemand / yieldPerPanel));
-    const lowerCount = panelCount > 0 ? Math.max(1, panelCount - 1) : 0;
-    const upperCount = Math.min(60, panelCount + 1);
+    const requiredPanelCount = Math.ceil(remainingDemand / yieldPerPanel);
+    const totalRoofCapacity = roofArea === null ? null : Math.max(0, Math.floor(roofArea / 2));
+    const availableRoofCapacity = totalRoofCapacity === null ? null : Math.max(0, totalRoofCapacity - existingPanels);
+    const panelCount = availableRoofCapacity === null ? requiredPanelCount : Math.min(requiredPanelCount, availableRoofCapacity);
+    const isRoofLimited = requiredPanelCount > panelCount;
+    const panelBand = panelCount > 50 ? Math.max(5, roundToStep(panelCount * .05, 5)) : 1;
+    const lowerCount = panelCount > 0 ? Math.max(1, panelCount - panelBand) : 0;
+    const upperCount = panelCount + panelBand;
     const systemPower = panelCount * .435;
     const estimatedYield = panelCount * yieldPerPanel;
-    const title = panelCount > 0
-      ? `${lowerCount}–${upperCount} ${existingPanels ? 'extra ' : ''}zonnepanelen`
-      : 'Uw bestaande set kan passend zijn';
-    const summary = panelCount > 0
-      ? `Richtpunt: ongeveer ${systemPower.toLocaleString('nl-NL', { minimumFractionDigits: 1, maximumFractionDigits: 1 })} kWp nieuw vermogen voor uw verwachte stroomvraag.`
-      : 'Op basis van deze jaarwaarden lijkt eerst een opbrengstcontrole van uw huidige installatie logischer dan direct uitbreiden.';
+    const title = requiredPanelCount === 0
+      ? 'Uw bestaande set kan passend zijn'
+      : panelCount === 0
+        ? 'Extra dakvlak of een alternatief is nodig'
+        : isRoofLimited
+          ? `Circa ${panelCount.toLocaleString('nl-NL')} extra zonnepanelen passen indicatief`
+          : `${lowerCount.toLocaleString('nl-NL')}–${upperCount.toLocaleString('nl-NL')} ${existingPanels ? 'extra ' : ''}zonnepanelen`;
+    const summary = requiredPanelCount === 0
+      ? 'Op basis van deze jaarwaarden lijkt eerst een opbrengstcontrole van uw huidige installatie logischer dan direct uitbreiden.'
+      : isRoofLimited
+        ? `De stroomvraag vraagt indicatief om ${requiredPanelCount.toLocaleString('nl-NL')} extra panelen. Op het opgegeven dak lijkt ruimte voor circa ${panelCount.toLocaleString('nl-NL')}; daarom bekijken we ook andere dakvlakken, opwek of opslag.`
+        : `Richtpunt: ongeveer ${formatSolarPower(systemPower)} nieuw vermogen voor uw verwachte stroomvraag.`;
     const additions = [hasEv && 'elektrische auto', hasHeatPump && 'warmtepomp'].filter(Boolean);
+    const roofAreaLabel = roofArea === null ? 'Weet ik niet' : `${roofArea.toLocaleString('nl-NL')} m²`;
 
     return {
       type: 'zonnepanelen',
@@ -1210,14 +1260,18 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
       summary,
       details: [
         panelCount > 0 ? `Geschatte opbrengst van de uitbreiding: circa ${estimatedYield.toLocaleString('nl-NL')} kWh per jaar.` : `Geschatte bestaande opwek: circa ${existingYield.toLocaleString('nl-NL')} kWh per jaar.`,
-        additions.length ? `Toekomstig verbruik meegenomen voor: ${additions.join(' en ')}.` : 'De indicatie is gebaseerd op uw huidige stroomverbruik.',
+        extraUsage > 0 ? `Extra verwachte stroomvraag meegenomen: ${extraUsage.toLocaleString('nl-NL')} kWh per jaar.` : additions.length ? `${additions.join(' en ')} geselecteerd; de exacte extra stroomvraag bepalen we met uw gebruiksprofiel.` : 'De indicatie is gebaseerd op het opgegeven stroomverbruik.',
+        roofArea === null ? 'De beschikbare dakmaat wordt tijdens de dakcontrole vastgesteld.' : `Dakruimte is indicatief berekend met circa 2 m² per paneel; obstakels, randen en schaduw kunnen de werkelijke capaciteit verlagen.`,
         direction === 'noord' ? 'Een noordgericht dak vraagt extra aandacht voor rendement en alternatieve dakvlakken.' : `Daktype en richting (${roofType}, ${direction}) zijn verwerkt als eerste opbrengstfactor.`
       ],
       fields: [
         ['Jaarverbruik', `${usage.toLocaleString('nl-NL')} kWh`],
+        ['Extra stroomvraag', `${extraUsage.toLocaleString('nl-NL')} kWh`],
         ['Bestaande panelen', String(existingPanels)],
+        ['Type locatie', locationType],
         ['Daktype', roofType],
         ['Dakrichting', direction],
+        ['Bruikbare dakoppervlakte', roofAreaLabel],
         ['Elektrische auto gepland', hasEv ? 'Ja' : 'Nee'],
         ['Warmtepomp gepland', hasHeatPump ? 'Ja' : 'Nee']
       ]
@@ -1227,20 +1281,29 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
   function getChargerAdvice(values) {
     const location = String(values.get('gebruikslocatie'));
     const connection = String(values.get('netaansluiting'));
+    const chargingPoints = Number(values.get('aantalLaadpunten') || 1);
     const dailyKilometers = Number(values.get('kilometersPerDag'));
     const cableDistance = Number(values.get('afstandMeterkastMeter'));
     const solar = String(values.get('zonnepanelenAanwezig'));
     const businessSettlement = values.get('zakelijkVerrekenen') === 'ja';
     const smartCharging = values.get('slimLaden') === 'ja';
     const dailyEnergy = Math.max(1, Math.round(dailyKilometers * .2));
-    const title = connection === '3-fase'
-      ? '11 kW slim laden'
-      : connection === '1-fase'
-        ? '3,7 kW of aansluiting beoordelen'
-        : 'Aansluiting eerst beoordelen';
-    const summary = connection === '3-fase'
-      ? `Dit laadvermogen past doorgaans goed bij circa ${dailyEnergy} kWh dagelijkse laadbehoefte, met dynamische load balancing.`
-      : 'De beschikbare fase-aansluiting en hoofdzekering moeten worden gecontroleerd voordat het laadvermogen wordt vastgelegd.';
+    const isChargingPlaza = chargingPoints > 1;
+    const isLargeConnection = connection === 'grootverbruik' || connection === 'middenspanning';
+    const title = isChargingPlaza
+      ? `Schaalbaar laadplein voor ${chargingPoints.toLocaleString('nl-NL')} laadpunten`
+      : isLargeConnection || location === 'industrie' || location === 'datacenter'
+        ? 'Zakelijke laadoplossing met vermogenssturing'
+        : connection === '3-fase'
+          ? '11 kW slim laden'
+          : connection === '1-fase'
+            ? '3,7 kW of aansluiting beoordelen'
+            : 'Aansluiting eerst beoordelen';
+    const summary = isChargingPlaza
+      ? `Voor circa ${dailyEnergy.toLocaleString('nl-NL')} kWh dagelijkse laadbehoefte verdelen we het beschikbare vermogen slim over alle laadpunten en voertuigen.`
+      : connection === '3-fase'
+        ? `Dit laadvermogen past doorgaans goed bij circa ${dailyEnergy.toLocaleString('nl-NL')} kWh dagelijkse laadbehoefte, met dynamische load balancing.`
+        : 'De beschikbare aansluiting en beveiliging moeten worden gecontroleerd voordat het laadvermogen wordt vastgelegd.';
     const functions = [
       businessSettlement && 'automatische zakelijke verrekening',
       smartCharging && 'laden op zon of lage uurprijzen',
@@ -1253,13 +1316,14 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
       title,
       summary,
       details: [
-        'Dynamische load balancing wordt aanbevolen om overbelasting van de hoofdaansluiting te voorkomen.',
+        isChargingPlaza || isLargeConnection ? 'Een vermogensanalyse en schaalbare load balancing zijn nodig om gelijktijdig laden en toekomstige uitbreiding te beheersen.' : 'Dynamische load balancing wordt aanbevolen om overbelasting van de hoofdaansluiting te voorkomen.',
         cableDistance > 20 ? `Bij ${cableDistance} meter kabelafstand is een aparte controle van tracé, spanningsverlies en graafwerk nodig.` : `De opgegeven kabelafstand van ${cableDistance} meter lijkt geschikt voor een gerichte tracécontrole.`,
         functions.length ? `Gewenste functies: ${functions.join(', ')}.` : 'Een basisoplossing zonder aanvullende slimme functies is als uitgangspunt genomen.'
       ],
       fields: [
         ['Gebruikslocatie', location],
         ['Netaansluiting', connection],
+        ['Aantal laadpunten', chargingPoints.toLocaleString('nl-NL')],
         ['Kilometers per dag', String(dailyKilometers)],
         ['Afstand meterkast', `${cableDistance} meter`],
         ['Zonnepanelen', solar],
@@ -1276,7 +1340,10 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
       inductie: 'inductiekookplaat',
       warmtepomp: 'warmtepomp voorbereiden',
       laadpaal: 'laadpaal voorbereiden',
-      'extra-elektra': 'stopcontacten of verlichting'
+      'extra-elektra': 'stopcontacten of verlichting',
+      hoofdverdeler: 'hoofd- of onderverdeler',
+      krachtstroom: 'krachtstroom of machinevoeding',
+      'noodstroom-ups': 'noodstroom of UPS'
     };
     const selectedWork = values.getAll('werkzaamheden').map((value) => workLabels[value] || value);
     const connection = String(values.get('netaansluiting'));
@@ -1284,10 +1351,14 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
     const postcode = String(values.get('postcode')).toUpperCase();
     const houseNumber = String(values.get('huisnummer'));
     const locationType = String(values.get('typeLocatie'));
-    const hasHeavyNewLoad = selectedWork.some((item) => /inductie|warmtepomp|laadpaal/.test(item));
-    const needsSurvey = cabinetAge === 'ouder-dan-25' || cabinetAge === 'onbekend' || selectedWork.length >= 3 || selectedWork.includes('groepenkast vervangen');
-    const title = needsSurvey ? 'Technische opname aanbevolen' : 'Gerichte controle als eerste stap';
-    const summary = needsSurvey
+    const requestedPower = Number(values.get('aansluitvermogenKw') || 0);
+    const hasHeavyNewLoad = selectedWork.some((item) => /inductie|warmtepomp|laadpaal|hoofd-|krachtstroom|noodstroom/.test(item));
+    const isIndustrialScope = ['industrie', 'datacenter'].includes(locationType) || ['grootverbruik', 'middenspanning'].includes(connection) || requestedPower >= 100 || selectedWork.some((item) => /hoofd-|krachtstroom|noodstroom/.test(item));
+    const needsSurvey = isIndustrialScope || cabinetAge === 'ouder-dan-25' || cabinetAge === 'onbekend' || selectedWork.length >= 3 || selectedWork.includes('groepenkast vervangen');
+    const title = isIndustrialScope ? 'Uitgebreide vermogensanalyse en technische opname' : needsSurvey ? 'Technische opname aanbevolen' : 'Gerichte controle als eerste stap';
+    const summary = isIndustrialScope
+      ? 'Deze aanvraag vraagt om een locatieopname, belastingprofiel en controle van netaansluiting, selectiviteit, verdelers en gewenste bedrijfszekerheid.'
+      : needsSurvey
       ? 'Meerdere onderdelen of de leeftijd van de installatie vragen om een bredere controle voordat een veilige uitvoering kan worden gecalculeerd.'
       : 'Uw aanvraag lijkt voldoende afgebakend voor een eerste controle van foto’s, aansluiting en beschikbare ruimte.';
 
@@ -1298,12 +1369,13 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
       summary,
       details: [
         `Werkzaamheden: ${selectedWork.join(', ')}.`,
-        connection === '1-fase' && hasHeavyNewLoad ? 'Bij de gekozen zware verbruiker moet ook een mogelijke 3-faseaanpassing worden beoordeeld.' : `De opgegeven ${connection}-aansluiting wordt meegenomen in de controle.`,
+        connection === '1-fase' && hasHeavyNewLoad ? 'Bij de gekozen zware verbruiker moet ook een mogelijke 3-faseaanpassing worden beoordeeld.' : isIndustrialScope ? 'Beschikbaar en gevraagd vermogen worden zonder vaste bovengrens beoordeeld aan de hand van uw netaansluiting en belastingprofiel.' : `De opgegeven ${connection}-aansluiting wordt meegenomen in de controle.`,
         'In de volgende stap kunt u foto’s van de groepenkast en installatielocatie veilig met uw aanvraag meesturen.'
       ],
       fields: [
         ['Werkzaamheden', selectedWork.join(', ')],
         ['Netaansluiting', connection],
+        ['Extra benodigd vermogen', requestedPower > 0 ? `${requestedPower.toLocaleString('nl-NL')} kW` : 'Nog onbekend'],
         ['Leeftijd groepenkast', cabinetAge],
         ['Locatie', `${postcode} ${houseNumber}`],
         ['Type locatie', locationType]
@@ -1322,6 +1394,29 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
     });
     return valid;
   }
+
+  document.querySelectorAll('[data-roof-area-select]').forEach((select) => {
+    const unknownOption = select.querySelector('option[value="onbekend"]');
+    for (let area = 10; area <= 1000; area += 5) {
+      const option = document.createElement('option');
+      option.value = String(area);
+      option.textContent = `${area.toLocaleString('nl-NL')} m²`;
+      select.insertBefore(option, unknownOption);
+    }
+
+    const form = select.closest('form');
+    const customField = form && form.querySelector('[data-roof-area-custom]');
+    const customInput = customField && customField.querySelector('input');
+    const updateCustomRoofArea = () => {
+      if (!customField || !customInput) return;
+      const needsCustomArea = select.value === 'meer-dan-1000';
+      customField.hidden = !needsCustomArea;
+      customInput.disabled = !needsCustomArea;
+      customInput.required = needsCustomArea;
+    };
+    select.addEventListener('change', updateCustomRoofArea);
+    updateCustomRoofArea();
+  });
 
   function showCalculatorResult(form, advice) {
     const section = form.closest('.adviesCalculatorSectie');

@@ -176,22 +176,26 @@
     <header class="sectieKop adviesCalculatorKop">
       <p class="sectieLabel">Persoonlijke indicatie</p>
       <h2 id="thuisbatterijCalculatorH2" class="sectieTitel">Welke thuisbatterij past bij uw situatie?</h2>
-      <p class="sectieIntro">Beantwoord zes korte vragen. U ziet direct een indicatieve opslagcapaciteit en waarom die richting bij uw situatie past.</p>
+      <p class="sectieIntro">Beantwoord enkele korte vragen. U ziet direct een indicatieve opslagcapaciteit voor uw woning, bedrijf of grootschalige energie-installatie.</p>
     </header>
     <div class="adviesCalculatorGrid">
       <form class="adviesCalculatorFormulier" data-calculation-form="sparky-advies" data-calculator-type="thuisbatterij">
         <div class="adviesCalculatorVelden">
           <div class="contactFormulierVeld">
-            <label for="thuisbatterijJaarverbruik">Jaarlijks stroomverbruik</label>
-            <div class="adviesCalculatorEenheid"><input id="thuisbatterijJaarverbruik" name="jaarverbruikKwh" type="number" min="1000" max="50000" step="100" inputmode="numeric" placeholder="Bijvoorbeeld 12000" required /><span>kWh</span></div>
+            <label for="thuisbatterijJaarverbruik">Jaarlijks of verwacht stroomverbruik</label>
+            <div class="adviesCalculatorEenheid"><input id="thuisbatterijJaarverbruik" name="jaarverbruikKwh" type="number" min="1" step="1" inputmode="numeric" placeholder="Bijvoorbeeld 12000" required /><span>kWh</span></div>
           </div>
           <div class="contactFormulierVeld">
             <label for="thuisbatterijZonneOpwek">Jaarlijkse zonne-opwek</label>
-            <div class="adviesCalculatorEenheid"><input id="thuisbatterijZonneOpwek" name="zonneOpwekKwh" type="number" min="0" max="50000" step="100" inputmode="numeric" placeholder="Bijvoorbeeld 10000" required /><span>kWh</span></div>
+            <div class="adviesCalculatorEenheid"><input id="thuisbatterijZonneOpwek" name="zonneOpwekKwh" type="number" min="0" step="100" inputmode="numeric" placeholder="Bijvoorbeeld 10000" required /><span>kWh</span></div>
           </div>
           <div class="contactFormulierVeld">
             <label for="thuisbatterijPanelen">Aantal zonnepanelen</label>
-            <input id="thuisbatterijPanelen" name="aantalZonnepanelen" type="number" min="0" max="100" step="1" inputmode="numeric" placeholder="Bijvoorbeeld 24" required />
+            <input id="thuisbatterijPanelen" name="aantalZonnepanelen" type="number" min="0" step="1" inputmode="numeric" placeholder="Bijvoorbeeld 24" required />
+          </div>
+          <div class="contactFormulierVeld">
+            <label for="thuisbatterijLocatie">Type locatie</label>
+            <select id="thuisbatterijLocatie" name="typeLocatie" required><option value="">Kies een optie</option><option value="woning">Woning</option><option value="bedrijf">Bedrijf</option><option value="industrie">Industrie of grootschalige installatie</option><option value="datacenter">Datacenter</option></select>
           </div>
           <div class="contactFormulierVeld">
             <label for="thuisbatterijContract">Energiecontract</label>

@@ -173,15 +173,19 @@
     <header class="sectieKop adviesCalculatorKop">
       <p class="sectieLabel">Opwekindicatie</p>
       <h2 id="zonnepanelenCalculatorH2" class="sectieTitel">Hoeveel zonnepanelen passen bij uw situatie?</h2>
-      <p class="sectieIntro">Bereken een eerste indicatie van het aantal panelen, het systeemvermogen en de mogelijke jaaropbrengst.</p>
+      <p class="sectieIntro">Bereken voor een woning, bedrijf of groot dak een eerste indicatie van het aantal panelen, het systeemvermogen en de mogelijke jaaropbrengst.</p>
     </header>
     <div class="adviesCalculatorGrid">
       <form class="adviesCalculatorFormulier" data-calculation-form="sparky-advies" data-calculator-type="zonnepanelen">
         <div class="adviesCalculatorVelden">
-          <div class="contactFormulierVeld"><label for="zonnepanelenJaarverbruik">Jaarlijks stroomverbruik</label><div class="adviesCalculatorEenheid"><input id="zonnepanelenJaarverbruik" name="jaarverbruikKwh" type="number" min="500" max="50000" step="100" inputmode="numeric" placeholder="Bijvoorbeeld 4500" required /><span>kWh</span></div></div>
-          <div class="contactFormulierVeld"><label for="zonnepanelenBestaand">Bestaande zonnepanelen</label><input id="zonnepanelenBestaand" name="bestaandePanelen" type="number" min="0" max="100" step="1" inputmode="numeric" value="0" required /></div>
+          <div class="contactFormulierVeld"><label for="zonnepanelenJaarverbruik">Jaarlijks of verwacht stroomverbruik</label><div class="adviesCalculatorEenheid"><input id="zonnepanelenJaarverbruik" name="jaarverbruikKwh" type="number" min="1" step="1" inputmode="numeric" placeholder="Bijvoorbeeld 4500" required /><span>kWh</span></div></div>
+          <div class="contactFormulierVeld"><label for="zonnepanelenExtraVerbruik">Verwachte extra stroomvraag <span class="contactKeuzeUitleg">(optioneel)</span></label><div class="adviesCalculatorEenheid"><input id="zonnepanelenExtraVerbruik" name="extraJaarverbruikKwh" type="number" min="0" step="100" inputmode="numeric" placeholder="Bijvoorbeeld 25000" /><span>kWh/jaar</span></div></div>
+          <div class="contactFormulierVeld"><label for="zonnepanelenBestaand">Bestaande zonnepanelen</label><input id="zonnepanelenBestaand" name="bestaandePanelen" type="number" min="0" step="1" inputmode="numeric" value="0" required /></div>
+          <div class="contactFormulierVeld"><label for="zonnepanelenLocatie">Type locatie</label><select id="zonnepanelenLocatie" name="typeLocatie" required><option value="">Kies een optie</option><option value="woning">Woning</option><option value="bedrijf">Bedrijf</option><option value="industrie">Industrie of grootzakelijk</option><option value="datacenter">Datacenter</option></select></div>
           <div class="contactFormulierVeld"><label for="zonnepanelenDaktype">Daktype</label><select id="zonnepanelenDaktype" name="daktype" required><option value="">Kies een optie</option><option value="schuin">Schuin dak</option><option value="plat">Plat dak</option><option value="combinatie">Combinatie</option></select></div>
           <div class="contactFormulierVeld"><label for="zonnepanelenDakrichting">Belangrijkste dakrichting</label><select id="zonnepanelenDakrichting" name="dakrichting" required><option value="">Kies een optie</option><option value="zuid">Zuid</option><option value="oost-west">Oost en/of west</option><option value="plat">Plat, vrije oriëntatie</option><option value="noord">Noord</option><option value="onbekend">Weet ik niet</option></select></div>
+          <div class="contactFormulierVeld"><label for="zonnepanelenDakoppervlakte">Totale bruikbare dakoppervlakte</label><select id="zonnepanelenDakoppervlakte" name="dakoppervlakteM2" data-roof-area-select required><option value="">Kies een optie</option><option value="5">5 m²</option><option value="onbekend">Weet ik niet</option><option value="meer-dan-1000">Meer dan 1.000 m²</option></select></div>
+          <div class="contactFormulierVeld" data-roof-area-custom hidden><label for="zonnepanelenDakoppervlakteExtra">Dakoppervlakte boven 1.000 m²</label><div class="adviesCalculatorEenheid"><input id="zonnepanelenDakoppervlakteExtra" name="dakoppervlakteExtraM2" type="number" min="1005" step="5" inputmode="numeric" placeholder="Bijvoorbeeld 5000" disabled /><span>m²</span></div></div>
         </div>
         <fieldset class="adviesCalculatorKeuzes">
           <legend>Verwacht extra stroomverbruik</legend>

@@ -2360,6 +2360,7 @@ body.tekstGroot .contactRouteLijst { grid-template-columns: minmax(0, 1fr); }
 }
 .adviesCalculatorFormulier { align-content: start; background: var(--kleurKaart); }
 .adviesCalculatorVelden { display: grid; min-width: 0; gap: 18px; }
+[data-roof-area-custom][hidden] { display: none; }
 .adviesCalculatorEenheid { position: relative; min-width: 0; }
 .adviesCalculatorEenheid input { padding-inline-end: 64px; }
 .adviesCalculatorEenheid span { position: absolute; inset: 50% 16px auto auto; color: #52616b; font-size: .86rem; font-weight: 700; pointer-events: none; transform: translateY(-50%); }

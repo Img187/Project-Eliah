@@ -175,7 +175,7 @@
     <header class="sectieKop adviesCalculatorKop">
       <p class="sectieLabel">Technische intake</p>
       <h2 id="groepenkastCheckH2" class="sectieTitel">Is uw groepenkast geschikt?</h2>
-      <p class="sectieIntro">Doe een korte voorcontrole voor uw uitbreiding of renovatie. U ziet direct welke technische controle als volgende stap nodig is.</p>
+      <p class="sectieIntro">Doe een korte voorcontrole voor een woning, bedrijf of grootschalige elektrische installatie. U ziet direct welke technische controle als volgende stap nodig is.</p>
     </header>
     <div class="adviesCalculatorGrid">
       <form class="adviesCalculatorFormulier" data-calculation-form="sparky-advies" data-calculator-type="elektrotechniek">
@@ -187,13 +187,17 @@
           <label class="adviesCalculatorKeuze"><input name="werkzaamheden" type="checkbox" value="warmtepomp" /><span>Warmtepomp voorbereiden</span></label>
           <label class="adviesCalculatorKeuze"><input name="werkzaamheden" type="checkbox" value="laadpaal" /><span>Laadpaal voorbereiden</span></label>
           <label class="adviesCalculatorKeuze"><input name="werkzaamheden" type="checkbox" value="extra-elektra" /><span>Stopcontacten of verlichting</span></label>
+          <label class="adviesCalculatorKeuze"><input name="werkzaamheden" type="checkbox" value="hoofdverdeler" /><span>Hoofd- of onderverdeler</span></label>
+          <label class="adviesCalculatorKeuze"><input name="werkzaamheden" type="checkbox" value="krachtstroom" /><span>Krachtstroom of machinevoeding</span></label>
+          <label class="adviesCalculatorKeuze"><input name="werkzaamheden" type="checkbox" value="noodstroom-ups" /><span>Noodstroom of UPS</span></label>
         </fieldset>
         <div class="adviesCalculatorVelden">
-          <div class="contactFormulierVeld"><label for="groepenkastAansluiting">Netaansluiting</label><select id="groepenkastAansluiting" name="netaansluiting" required><option value="">Kies een optie</option><option value="1-fase">1-fase</option><option value="3-fase">3-fase</option><option value="onbekend">Weet ik niet</option></select></div>
+          <div class="contactFormulierVeld"><label for="groepenkastAansluiting">Netaansluiting</label><select id="groepenkastAansluiting" name="netaansluiting" required><option value="">Kies een optie</option><option value="1-fase">1-fase</option><option value="3-fase">3-fase kleinverbruik</option><option value="grootverbruik">Grootverbruikaansluiting</option><option value="middenspanning">Middenspanning</option><option value="onbekend">Weet ik niet</option></select></div>
+          <div class="contactFormulierVeld"><label for="groepenkastVermogen">Verwacht extra benodigd vermogen <span class="contactKeuzeUitleg">(optioneel)</span></label><div class="adviesCalculatorEenheid"><input id="groepenkastVermogen" name="aansluitvermogenKw" type="number" min="0" step="1" inputmode="numeric" placeholder="Bijvoorbeeld 250" /><span>kW</span></div></div>
           <div class="contactFormulierVeld"><label for="groepenkastLeeftijd">Leeftijd groepenkast</label><select id="groepenkastLeeftijd" name="leeftijdGroepenkast" required><option value="">Kies een optie</option><option value="jonger-dan-10">Jonger dan 10 jaar</option><option value="10-tot-25">10 tot 25 jaar</option><option value="ouder-dan-25">Ouder dan 25 jaar</option><option value="onbekend">Weet ik niet</option></select></div>
           <div class="contactFormulierVeld"><label for="groepenkastPostcode">Postcode</label><input id="groepenkastPostcode" name="postcode" type="text" inputmode="text" autocomplete="postal-code" pattern="[0-9]{4}\s?[A-Za-z]{2}" placeholder="3066 GS" required /></div>
           <div class="contactFormulierVeld"><label for="groepenkastHuisnummer">Huisnummer en toevoeging</label><input id="groepenkastHuisnummer" name="huisnummer" type="text" autocomplete="address-line2" maxlength="12" placeholder="49B" required /></div>
-          <div class="contactFormulierVeld"><label for="groepenkastZakelijk">Type locatie</label><select id="groepenkastZakelijk" name="typeLocatie" required><option value="">Kies een optie</option><option value="woning">Woning</option><option value="bedrijf">Bedrijf</option><option value="vve">VvE of gedeeld pand</option></select></div>
+          <div class="contactFormulierVeld"><label for="groepenkastZakelijk">Type locatie</label><select id="groepenkastZakelijk" name="typeLocatie" required><option value="">Kies een optie</option><option value="woning">Woning</option><option value="bedrijf">Bedrijf</option><option value="vve">VvE of gedeeld pand</option><option value="industrie">Industrie of grootzakelijk</option><option value="datacenter">Datacenter</option></select></div>
         </div>
         <aside class="adviesFotoVoorbereiding">
           <strong>Foto’s helpen bij de beoordeling</strong>
