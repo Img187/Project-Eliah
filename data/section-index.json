@@ -15,9 +15,9 @@
     "scope": "Publieke pagina’s; primaire secties, ondersteunende main-secties, headings, paragrafen, buttons, formulieren en Google-tagconfiguratie.",
     "counts": {
       "pages": 7,
-      "primary_sections": 48,
+      "primary_sections": 47,
       "supporting_sections": 5,
-      "paragraphs": 204,
+      "paragraphs": 202,
       "buttons": 41,
       "forms": 7
     }
@@ -449,10 +449,10 @@
         "kenmerkKaartenSectie",
         "layoutFeatures"
       ],
-      "data_section_title": "Profiteer van duurzame energie uit eigen dak",
+      "data_section_title": "Van zonlicht naar eigen stroom",
       "heading_id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDakH2",
       "heading_tag": "h2",
-      "heading": "Profiteer van duurzame energie uit eigen dak",
+      "heading": "Van zonlicht naar eigen stroom",
       "heading_status": "present",
       "type": "features"
     },
@@ -475,28 +475,6 @@
       "heading_id": "zonnepanelenSectEenInstallatieDiePastBijUwSituatieH2",
       "heading_tag": "h2",
       "heading": "Een installatie die past bij uw situatie",
-      "heading_status": "present",
-      "type": "split"
-    },
-    {
-      "page": "Zonnepanelen",
-      "file": "zonnepanelen.html",
-      "page_number": 3,
-      "section_number": 4,
-      "id": "zonnepanelenSectHoeWerkenZonnepanelen",
-      "class": "zonnepanelenSectHoeWerkenZonnepanelen",
-      "classes": [
-        "siteSectie",
-        "zonnepanelenSectHoeWerkenZonnepanelen",
-        "layoutSplitCard"
-      ],
-      "layout_classes": [
-        "layoutSplitCard"
-      ],
-      "data_section_title": "Hoe werken zonnepanelen?",
-      "heading_id": "zonnepanelenSectHoeWerkenZonnepanelenH2",
-      "heading_tag": "h2",
-      "heading": "Hoe werken zonnepanelen?",
       "heading_status": "present",
       "type": "split"
     },
@@ -1912,7 +1890,19 @@
       "classes": [
         "sectieIntro"
       ],
-      "text": "Veel daken worden nog niet benut, terwijl ze jarenlang duurzame stroom kunnen opwekken. Met een goed ontworpen zonnepaneleninstallatie gebruikt u uw dak om energie op te wekken voor uw woning, laadpaal, warmtepomp of bedrijf. Sparky Energies denkt met u mee over de juiste oplossing. We kijken niet alleen naar hoeveel panelen er passen, maar ook naar wat voor u praktisch, veilig en rendabel is."
+      "text": "Zonnepanelen zetten zonlicht om in gelijkstroom. De omvormer maakt daar wisselstroom van voor uw woning of bedrijf. Wat u op dat moment niet verbruikt, kunt u terugleveren aan het net of bewaren in een geschikte thuisbatterij."
+    },
+    {
+      "id": "zonnepanelenSectHoeWerkenZonnepanelenP01Nieuw",
+      "page": "Zonnepanelen",
+      "file": "zonnepanelen.html",
+      "page_number": 3,
+      "section_id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak",
+      "type": "content-p",
+      "classes": [
+        "contentParagraaf"
+      ],
+      "text": "Wij stemmen de panelen, omvormer en elektrische aansluiting af op uw verbruik en toekomstplannen. Zo benut u uw dak voor de energie die u vandaag én morgen nodig heeft."
     },
     {
       "id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDakArtikel01P01",
@@ -1922,7 +1912,7 @@
       "section_id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak",
       "type": "card-p",
       "classes": [],
-      "text": "De stroom die u zelf opwekt en direct gebruikt, hoeft u niet in te kopen bij uw energieleverancier. Hierdoor kunt u uw maandelijkse energiekosten verlagen."
+      "text": "Met zonnestroom die u direct gebruikt, neemt u minder elektriciteit af bij uw energieleverancier."
     },
     {
       "id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDakArtikel02P01",
@@ -1932,7 +1922,7 @@
       "section_id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak",
       "type": "card-p",
       "classes": [],
-      "text": "Met zonnepanelen wekt u schone stroom op uit zonlicht. Dat draagt bij aan een duurzamere woning of bedrijfsvoering."
+      "text": "Gebruik zonlicht als hernieuwbare energiebron voor uw woning of bedrijf."
     },
     {
       "id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDakArtikel03P01",
@@ -1942,7 +1932,7 @@
       "section_id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak",
       "type": "card-p",
       "classes": [],
-      "text": "Woningen met een energiezuinige installatie zijn aantrekkelijker voor kopers en beschikken vaak over een beter energielabel."
+      "text": "Stem het gebruik van uw apparaten af op de momenten waarop uw panelen stroom leveren."
     },
     {
       "id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDakArtikel04P01",
@@ -1952,7 +1942,7 @@
       "section_id": "zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak",
       "type": "card-p",
       "classes": [],
-      "text": "Zonnepanelen sluiten goed aan op toekomstige uitbreidingen zoals een warmtepomp, inductiekoken, thuisbatterij en laadpaal."
+      "text": "Laat uw installatie aansluiten op plannen voor een warmtepomp, laadpaal of thuisbatterij."
     },
     {
       "id": "zonnepanelenSectEenInstallatieDiePastBijUwSituatieP01",
@@ -1989,42 +1979,6 @@
         "contentParagraaf"
       ],
       "text": "Sparky Energies helpt u met eerlijk advies, een veilige installatie en duidelijke uitleg. Wij kijken naar uw dak, verbruik en toekomstplannen, zodat u een zonnepaneleninstallatie krijgt die echt bij uw situatie past."
-    },
-    {
-      "id": "zonnepanelenSectHoeWerkenZonnepanelenP01",
-      "page": "Zonnepanelen",
-      "file": "zonnepanelen.html",
-      "page_number": 3,
-      "section_id": "zonnepanelenSectHoeWerkenZonnepanelen",
-      "type": "intro",
-      "classes": [
-        "sectieIntro"
-      ],
-      "text": "Uw zonnepanelen vangen zonlicht op en zetten dit om in gelijkstroom. Een omvormer transformeert deze gelijkstroom naar wisselstroom die u direct kunt gebruiken in uw woning of bedrijf. De stroom die u niet direct verbruikt, gaat naar uw meterkast. Daar kunt u deze terugleveren aan het net of opslaan in een thuisbatterij voor later gebruik."
-    },
-    {
-      "id": "zonnepanelenSectHoeWerkenZonnepanelenP02",
-      "page": "Zonnepanelen",
-      "file": "zonnepanelen.html",
-      "page_number": 3,
-      "section_id": "zonnepanelenSectHoeWerkenZonnepanelen",
-      "type": "content-p",
-      "classes": [
-        "contentParagraaf"
-      ],
-      "text": "De zonnecellen in uw panelen werken zonder bewegende onderdelen. Ze vangen fotonen uit zonlicht op en zetten deze om in elektrische energie. Dit gebeurt stil en betrouwbaar, dag na dag. Hoe meer zon, hoe meer stroom. Maar ook op bewolkte dagen leveren uw panelen energie."
-    },
-    {
-      "id": "zonnepanelenSectHoeWerkenZonnepanelenP03",
-      "page": "Zonnepanelen",
-      "file": "zonnepanelen.html",
-      "page_number": 3,
-      "section_id": "zonnepanelenSectHoeWerkenZonnepanelen",
-      "type": "content-p",
-      "classes": [
-        "contentParagraaf"
-      ],
-      "text": "Uw omvormer is het hart van het systeem. Dit apparaat zet de gelijkstroom van uw panelen om naar wisselstroom. Dit is de stroom die uw apparaten nodig hebben. De omvormer communiceert ook met uw meterkast en zorgt voor veilige aansluiting op het elektriciteitsnet."
     },
     {
       "id": "zonnepanelenSectSlaOvertolligeStroomOpStap01P01",
@@ -3460,7 +3414,7 @@
       "section_number": 2,
       "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
       "section_heading": "Wat wij voor u installeren en onderhouden",
-      "label": "Lees meer",
+      "label": "Thuisbatterijen",
       "href": "thuisbatterijen.html",
       "link_type": "interne-pagina",
       "target_page": "Thuisbatterijen",
@@ -3477,7 +3431,7 @@
       "section_number": 2,
       "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
       "section_heading": "Wat wij voor u installeren en onderhouden",
-      "label": "Ontdek",
+      "label": "Zonnepanelen",
       "href": "zonnepanelen.html",
       "link_type": "interne-pagina",
       "target_page": "Zonnepanelen",
@@ -3494,7 +3448,7 @@
       "section_number": 2,
       "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
       "section_heading": "Wat wij voor u installeren en onderhouden",
-      "label": "Meer",
+      "label": "Laadpalen",
       "href": "laadpalen.html",
       "link_type": "interne-pagina",
       "target_page": "Laadpalen",
@@ -3511,7 +3465,7 @@
       "section_number": 2,
       "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
       "section_heading": "Wat wij voor u installeren en onderhouden",
-      "label": "Meer",
+      "label": "Elektrotechniek",
       "href": "elektrotechnische-renovaties.html",
       "link_type": "interne-pagina",
       "target_page": "Elektrotechnische renovaties",

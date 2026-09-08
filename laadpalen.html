@@ -100,10 +100,10 @@
       <span class="srOnly">Menu openen of sluiten</span>
       <span aria-hidden="true">☰</span>
     </button>
-    <ul id="primaireNavigatieLijst" class="primaireNavigatieLijst" role="list"><li><a href="index.html">Home</a></li><li><a href="thuisbatterijen.html">Thuisbatterijen</a></li><li><a href="zonnepanelen.html">Zonnepanelen</a></li><li><a aria-current="page" href="laadpalen.html">Laadpalen</a></li><li><a href="elektrotechnische-renovaties.html">Elektrotechniek</a></li><li><a href="over-ons.html">Over ons</a></li><li><a href="contact.html">Contact</a></li></ul>
+    <ul id="primaireNavigatieLijst" class="primaireNavigatieLijst" role="list"><li><a href="index.html">Home</a></li><li><a href="thuisbatterijen.html">Thuisbatterijen</a></li><li><a href="zonnepanelen.html">Zonnepanelen</a></li><li><a aria-current="page" href="laadpalen.html">Laadpalen</a></li><li><a href="elektrotechnische-renovaties.html">Elektrotechniek</a></li><li><a href="over-ons.html">Over ons</a></li></ul>
     <div class="hoofdNavigatieActies">
       <a class="hoofdNavigatieTelefoon" href="tel:+31107934002">010 - 793 4002</a>
-      <a id="hoofdNavigatieContact" class="hoofdNavigatieContact hoofdNavigatieAdvies" href="contact.html#contactRouteKeuze">Advies &amp; prijsindicatie</a>
+      <a id="hoofdNavigatieContact" class="hoofdNavigatieContact" href="contact.html">Contact</a>
       <nav id="toegankelijkheidPaneel" class="toegankelijkheidPaneel" aria-label="Toegankelijkheidsopties">
       <button id="knopGrotereTekst" class="toegankelijkheidKnop" type="button" data-accessibility-action="toggle-text-size" aria-pressed="false">Grotere tekst</button>
       <button id="knopHoogContrast" class="toegankelijkheidKnop" type="button" data-accessibility-action="toggle-contrast" aria-pressed="false">Hoog contrast</button>
@@ -146,20 +146,37 @@
     <div class="adviesCalculatorGrid">
       <form class="adviesCalculatorFormulier" data-calculation-form="sparky-advies" data-calculator-type="laadpaal">
         <div class="adviesCalculatorVelden">
-          <div class="contactFormulierVeld"><label for="laadpaalLocatie">Gebruikslocatie</label><select id="laadpaalLocatie" name="gebruikslocatie" required><option value="">Kies een optie</option><option value="woning">Woning</option><option value="bedrijf">Bedrijf</option><option value="vve">VvE of gedeeld terrein</option><option value="industrie">Industrie of wagenpark</option><option value="datacenter">Datacenter</option></select></div>
-          <div class="contactFormulierVeld"><label for="laadpaalAansluiting">Netaansluiting</label><select id="laadpaalAansluiting" name="netaansluiting" required><option value="">Kies een optie</option><option value="1-fase">1-fase</option><option value="3-fase">3-fase kleinverbruik</option><option value="grootverbruik">Grootverbruikaansluiting</option><option value="middenspanning">Middenspanning</option><option value="onbekend">Weet ik niet</option></select></div>
+          <div class="contactFormulierVeld"><label for="laadpaalLocatie">Gebruikslocatie</label><select id="laadpaalLocatie" name="gebruikslocatie" required><option value="">Kies een optie</option><option value="woning">Woning</option><option value="bedrijf">Bedrijf</option><option value="vve">VvE / gedeeld</option><option value="industrie">Industrie / wagenpark</option><option value="datacenter">Datacenter</option></select></div>
+          <div class="contactFormulierVeld"><label for="laadpaalAansluiting">Netaansluiting</label><select id="laadpaalAansluiting" name="netaansluiting" required><option value="">Kies een optie</option><option value="1-fase">1-fase</option><option value="3-fase">3-fase</option><option value="grootverbruik">Grootverbruik</option><option value="middenspanning">Middenspanning</option><option value="onbekend">Weet ik niet</option></select></div>
           <div class="contactFormulierVeld"><label for="laadpaalAantal">Gewenst aantal laadpunten</label><input id="laadpaalAantal" name="aantalLaadpunten" type="number" min="1" step="1" inputmode="numeric" value="1" required /></div>
-          <div class="contactFormulierVeld"><label for="laadpaalKilometers">Totaal aantal kilometers per dag</label><div class="adviesCalculatorEenheid"><input id="laadpaalKilometers" name="kilometersPerDag" type="number" min="1" step="1" inputmode="numeric" placeholder="Bijvoorbeeld 55" required /><span>km</span></div></div>
+          <div class="contactFormulierVeld"><label for="laadpaalKilometers">Totaal aantal kilometers per dag</label><div class="adviesCalculatorEenheid"><input id="laadpaalKilometers" name="kilometersPerDag" type="number" min="0" step="any" inputmode="decimal" placeholder="Bijvoorbeeld 55" required /><span>km</span></div></div>
           <div class="contactFormulierVeld"><label for="laadpaalAfstand">Afstand vanaf de elektrische verdeler</label><div class="adviesCalculatorEenheid"><input id="laadpaalAfstand" name="afstandMeterkastMeter" type="number" min="1" step="1" inputmode="numeric" placeholder="Bijvoorbeeld 12" required /><span>meter</span></div></div>
           <div class="contactFormulierVeld"><label for="laadpaalZonnepanelen">Zonnepanelen aanwezig?</label><select id="laadpaalZonnepanelen" name="zonnepanelenAanwezig" required><option value="">Kies een optie</option><option value="ja">Ja</option><option value="nee">Nee</option><option value="gepland">Nog niet, wel gepland</option></select></div>
+
+          <div class="contactFormulierVeld"><label for="evhoofdzekeringA">Hoofdzekering per fase (indien bekend)</label><div class="adviesCalculatorEenheid"><input id="evhoofdzekeringA" name="hoofdzekeringA" type="number" min="1" step="any" inputmode="decimal" placeholder="Bijvoorbeeld 25" /><span>A</span></div></div>
+          <div class="contactFormulierVeld"><label for="evoverigeBelastingKw">Overige gelijktijdige belasting (indien bekend)</label><div class="adviesCalculatorEenheid"><input id="evoverigeBelastingKw" name="overigeBelastingKw" type="number" min="0" step="any" inputmode="decimal" placeholder="0 alleen als er geen is" /><span>kW</span></div></div>
+          <div class="contactFormulierVeld"><label for="evlaadUren">Dagelijks beschikbare laaduren</label><div class="adviesCalculatorEenheid"><input id="evlaadUren" name="laadUren" type="number" min=".1" step="any" inputmode="decimal" max="24" value="8" required /><span>uur</span></div></div>
+          <div class="contactFormulierVeld"><label for="evbidirectioneel">Bidirectioneel laden</label><select id="evbidirectioneel" name="bidirectioneel"><option value="geen">Alleen laden</option><option value="v2h">V2H: naar de woning</option><option value="v2g">V2G: naar het net</option><option value="beide">V2H én V2G</option></select></div>
+
+          <div class="contactFormulierVeld" data-calculator-condition="bidirectioneel" data-calculator-values="v2h v2g beide" hidden><label for="evautoAccuKwh">Bruikbare autoaccu (volgens fabrikant)</label><div class="adviesCalculatorEenheid"><input id="evautoAccuKwh" name="autoAccuKwh" type="number" min="1" step="any" inputmode="decimal" value="60" required /><span>kWh</span></div></div>
+          <div class="contactFormulierVeld" data-calculator-condition="bidirectioneel" data-calculator-values="v2h v2g beide" hidden><label for="evaankomstSocPct">Acculading bij aankomst</label><div class="adviesCalculatorEenheid"><input id="evaankomstSocPct" name="aankomstSocPct" type="number" min="0" step="any" inputmode="decimal" max="100" value="80" required /><span>%</span></div></div>
+          <div class="contactFormulierVeld" data-calculator-condition="bidirectioneel" data-calculator-values="v2h v2g beide" hidden><label for="evreserveSocPct">Minimumaccu inclusief rijreserve</label><div class="adviesCalculatorEenheid"><input id="evreserveSocPct" name="reserveSocPct" type="number" min="0" step="any" inputmode="decimal" max="100" value="30" required /><span>%</span></div></div>
+          <div class="contactFormulierVeld" data-calculator-condition="bidirectioneel" data-calculator-values="v2h v2g beide" hidden><label for="evontlaadVermogenKw">Ondersteund ontlaadvermogen aan AC-zijde</label><div class="adviesCalculatorEenheid"><input id="evontlaadVermogenKw" name="ontlaadVermogenKw" type="number" min=".1" step="any" inputmode="decimal" value="3.6" required /><span>kW</span></div></div>
+          <div class="contactFormulierVeld" data-calculator-condition="bidirectioneel" data-calculator-values="v2h v2g beide" hidden><label for="evontlaadFasen">Fasen van de bidirectionele omvormer</label><select id="evontlaadFasen" name="ontlaadFasen"><option value="3">3 fasen</option><option value="1">1 fase</option></select></div>
+          <div class="contactFormulierVeld" data-calculator-condition="bidirectioneel" data-calculator-values="v2h v2g beide" hidden><label for="evontlaadUren">Apart beschikbare ontlaaduren</label><div class="adviesCalculatorEenheid"><input id="evontlaadUren" name="ontlaadUren" type="number" min=".1" step="any" inputmode="decimal" max="24" value="4" required /><span>uur</span></div></div>
+          <div class="contactFormulierVeld" data-calculator-condition="bidirectioneel" data-calculator-values="v2h beide" hidden><label for="evwoningVraagKwh">Woningvraag in deze ontlaaduren</label><div class="adviesCalculatorEenheid"><input id="evwoningVraagKwh" name="woningVraagKwh" type="number" min="0" step="any" inputmode="decimal" value="8" required /><span>kWh</span></div></div>
+          <div class="contactFormulierVeld" data-calculator-condition="bidirectioneel" data-calculator-values="v2g beide" hidden><label for="evterugleverLimietKw">Beschikbare toegestane terugleverruimte</label><div class="adviesCalculatorEenheid"><input id="evterugleverLimietKw" name="terugleverLimietKw" type="number" min="0" step="any" inputmode="decimal" placeholder="Bevestigen met installateur" /><span>kW</span></div></div>
         </div>
         <fieldset class="adviesCalculatorKeuzes">
           <legend>Gewenste slimme functies</legend>
           <label class="adviesCalculatorKeuze"><input name="zakelijkVerrekenen" type="checkbox" value="ja" /><span>Zakelijk verrekenen</span></label>
           <label class="adviesCalculatorKeuze"><input name="slimLaden" type="checkbox" value="ja" /><span>Laden op zon of dynamische tarieven</span></label>
         </fieldset>
+
         <button class="siteBtn siteBtnPrimary" type="submit">Toon mijn laadadvies</button>
         <p class="adviesCalculatorPrivacy">Dit advies controleert de hoofdlijn. Kabeltracé, selectiviteit, hoofdzekering en vrije ruimte in de groepenkast bepalen de definitieve uitvoering.</p>
+        <p class="adviesCalculatorPrivacy">Een indicatie voor uw gesprek met de installateur. Ontwerp en verificatie vragen <a href="https://www.nen.nl/elektrotechniek/installatievoorschriften/nen-1010-laagspanningsinstallaties" target="_blank" rel="noopener">NEN 1010</a>; veilige bedrijfsvoering vraagt <a href="https://www.nen.nl/elektrotechniek/werkvoorschriften/laagspanninginstallaties" target="_blank" rel="noopener">NEN 3140</a>. Deze calculator geeft geen keuringsverklaring.</p>
+        <p class="adviesCalculatorPrivacy">V2H/V2G vraagt een geschikte combinatie van auto, lader en netkoppeling. Zie de <a href="https://www.government.nl/documents/2026/06/22/national-roadmap-for-bidirectional-charging" target="_blank" rel="noopener">Nationale Routekaart Bidirectioneel Laden</a>.</p>
       </form>
       <output class="adviesCalculatorResultaat" data-calculation-output aria-live="polite">
         <p class="adviesCalculatorResultaatLabel">Uw laadadvies</p>
@@ -478,6 +495,7 @@
     <p class="footerCopyright">© 2026 Sparky Energies. Alle rechten voorbehouden.</p>
   </section>
 </footer>
+<script src="assets/js/calculator-models.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>

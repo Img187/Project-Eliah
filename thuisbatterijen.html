@@ -100,10 +100,10 @@
       <span class="srOnly">Menu openen of sluiten</span>
       <span aria-hidden="true">☰</span>
     </button>
-    <ul id="primaireNavigatieLijst" class="primaireNavigatieLijst" role="list"><li><a href="index.html">Home</a></li><li><a aria-current="page" href="thuisbatterijen.html">Thuisbatterijen</a></li><li><a href="zonnepanelen.html">Zonnepanelen</a></li><li><a href="laadpalen.html">Laadpalen</a></li><li><a href="elektrotechnische-renovaties.html">Elektrotechniek</a></li><li><a href="over-ons.html">Over ons</a></li><li><a href="contact.html">Contact</a></li></ul>
+    <ul id="primaireNavigatieLijst" class="primaireNavigatieLijst" role="list"><li><a href="index.html">Home</a></li><li><a aria-current="page" href="thuisbatterijen.html">Thuisbatterijen</a></li><li><a href="zonnepanelen.html">Zonnepanelen</a></li><li><a href="laadpalen.html">Laadpalen</a></li><li><a href="elektrotechnische-renovaties.html">Elektrotechniek</a></li><li><a href="over-ons.html">Over ons</a></li></ul>
     <div class="hoofdNavigatieActies">
       <a class="hoofdNavigatieTelefoon" href="tel:+31107934002">010 - 793 4002</a>
-      <a id="hoofdNavigatieContact" class="hoofdNavigatieContact hoofdNavigatieAdvies" href="contact.html#contactRouteKeuze">Advies &amp; prijsindicatie</a>
+      <a id="hoofdNavigatieContact" class="hoofdNavigatieContact" href="contact.html">Contact</a>
       <nav id="toegankelijkheidPaneel" class="toegankelijkheidPaneel" aria-label="Toegankelijkheidsopties">
       <button id="knopGrotereTekst" class="toegankelijkheidKnop" type="button" data-accessibility-action="toggle-text-size" aria-pressed="false">Grotere tekst</button>
       <button id="knopHoogContrast" class="toegankelijkheidKnop" type="button" data-accessibility-action="toggle-contrast" aria-pressed="false">Hoog contrast</button>
@@ -171,6 +171,12 @@
 <!--<a id="thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparenBtn01Meer" class="siteBtn siteBtnPrimary thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparenKnop" href="#thuisbatterijSectOntdekWelkeBatterijPastBijU" data-button-page="Thuisbatterijen" data-button-section="Slim opslaan, slim gebruiken en slim besparen" data-link-type="interne-sectie" data-target-page="Thuisbatterijen" data-target-section="thuisbatterijSectOntdekWelkeBatterijPastBijU">Meer</a> -->
 </nav>
 </section>
+<section id="thuisbatterijSectWanneerWachten" class="siteSectie layoutText" aria-labelledby="thuisbatterijSectWanneerWachtenH2">
+  <header class="sectieKop">
+    <h2 id="thuisbatterijSectWanneerWachtenH2" class="sectieTitel">Wanneer zouden wij nog wachten?</h2>
+    <p class="sectieIntro">Een batterij is niet in elke situatie de eerste logische stap. Als verbruiksgegevens ontbreken, de zonnepaneleninstallatie eerst moet worden aangepast of uw groepenkast niet geschikt is, brengen we eerst de basis op orde. Zo voorkomt u een systeem dat niet goed aansluit op uw werkelijke gebruik.</p>
+  </header>
+</section>
 <section id="thuisbatterijCalculator" class="siteSectie adviesCalculatorSectie" aria-labelledby="thuisbatterijCalculatorH2">
   <div class="adviesCalculatorKaart">
     <header class="sectieKop adviesCalculatorKop">
@@ -182,12 +188,12 @@
       <form class="adviesCalculatorFormulier" data-calculation-form="sparky-advies" data-calculator-type="thuisbatterij">
         <div class="adviesCalculatorVelden">
           <div class="contactFormulierVeld">
-            <label for="thuisbatterijJaarverbruik">Jaarlijks of verwacht stroomverbruik</label>
-            <div class="adviesCalculatorEenheid"><input id="thuisbatterijJaarverbruik" name="jaarverbruikKwh" type="number" min="1" step="1" inputmode="numeric" placeholder="Bijvoorbeeld 12000" required /><span>kWh</span></div>
+            <label for="thuisbatterijJaarverbruik">Jaarlijkse afname uit het net</label>
+            <div class="adviesCalculatorEenheid"><input id="thuisbatterijJaarverbruik" name="jaarverbruikKwh" type="number" min="0" step="any" inputmode="decimal" placeholder="Bijvoorbeeld 12000" required /><span>kWh</span></div>
           </div>
           <div class="contactFormulierVeld">
             <label for="thuisbatterijZonneOpwek">Jaarlijkse zonne-opwek</label>
-            <div class="adviesCalculatorEenheid"><input id="thuisbatterijZonneOpwek" name="zonneOpwekKwh" type="number" min="0" step="100" inputmode="numeric" placeholder="Bijvoorbeeld 10000" required /><span>kWh</span></div>
+            <div class="adviesCalculatorEenheid"><input id="thuisbatterijZonneOpwek" name="zonneOpwekKwh" type="number" min="0" step="any" inputmode="numeric" placeholder="Bijvoorbeeld 10000" required /><span>kWh</span></div>
           </div>
           <div class="contactFormulierVeld">
             <label for="thuisbatterijPanelen">Aantal zonnepanelen</label>
@@ -195,7 +201,7 @@
           </div>
           <div class="contactFormulierVeld">
             <label for="thuisbatterijLocatie">Type locatie</label>
-            <select id="thuisbatterijLocatie" name="typeLocatie" required><option value="">Kies een optie</option><option value="woning">Woning</option><option value="bedrijf">Bedrijf</option><option value="industrie">Industrie of grootschalige installatie</option><option value="datacenter">Datacenter</option></select>
+            <select id="thuisbatterijLocatie" name="typeLocatie" required><option value="">Kies een optie</option><option value="woning">Woning</option><option value="bedrijf">Bedrijf</option><option value="industrie">Industrie</option><option value="datacenter">Datacenter</option></select>
           </div>
           <div class="contactFormulierVeld">
             <label for="thuisbatterijContract">Energiecontract</label>
@@ -206,20 +212,31 @@
               <option value="onbekend">Weet ik niet</option>
             </select>
           </div>
+
+          <div class="contactFormulierVeld"><label for="accuterugleveringKwh">Jaarlijks teruggeleverde zonnestroom</label><div class="adviesCalculatorEenheid"><input id="accuterugleveringKwh" name="terugleveringKwh" type="number" min="0" step="any" inputmode="decimal" required placeholder="Bijvoorbeeld 9000" /><span>kWh</span></div></div>
+          <div class="contactFormulierVeld"><label for="accuextraJaarverbruikKwh">Alleen nieuwe extra netafname per jaar</label><div class="adviesCalculatorEenheid"><input id="accuextraJaarverbruikKwh" name="extraJaarverbruikKwh" type="number" min="0" step="any" inputmode="decimal" value="0" required /><span>kWh</span></div></div>
+
         </div>
+        <p class="adviesCalculatorToelichting">Gebruik de afname en teruglevering op uw jaaroverzicht, vóór salderen. Tel alleen verbruik op dat daar nog niet in zit. Auto en warmtepomp krijgen geen vaste toeslag.</p>
         <fieldset class="adviesCalculatorKeuzes">
           <legend>Wat speelt nu of binnenkort?</legend>
           <label class="adviesCalculatorKeuze"><input name="elektrischeAuto" type="checkbox" value="ja" /><span>Elektrische auto</span></label>
           <label class="adviesCalculatorKeuze"><input name="warmtepomp" type="checkbox" value="ja" /><span>Warmtepomp</span></label>
           <label class="adviesCalculatorKeuze"><input name="noodstroom" type="checkbox" value="ja" /><span>Noodstroom gewenst</span></label>
         </fieldset>
+        <div class="adviesCalculatorVelden" data-calculator-condition="noodstroom" data-calculator-values="ja" hidden>
+          <div class="contactFormulierVeld"><label for="accunoodstroomKw">Vermogen dat u wilt blijven voeden</label><div class="adviesCalculatorEenheid"><input id="accunoodstroomKw" name="noodstroomKw" type="number" min=".1" step="any" inputmode="decimal" value="1" required /><span>kW</span></div></div>
+          <div class="contactFormulierVeld"><label for="accunoodstroomUren">Gewenste overbrugging</label><div class="adviesCalculatorEenheid"><input id="accunoodstroomUren" name="noodstroomUren" type="number" min=".1" step="any" inputmode="decimal" value="4" required /><span>uur</span></div></div>
+        </div>
+
         <button class="siteBtn siteBtnPrimary" type="submit">Bereken mijn indicatie</button>
         <p class="adviesCalculatorPrivacy">Dit is een eerste technische indicatie, geen offerte. Uw invoer verlaat deze pagina pas wanneer u die zelf naar het contactformulier meeneemt.</p>
+        <p class="adviesCalculatorPrivacy">Een indicatie voor uw gesprek met de installateur. Ontwerp en verificatie vragen <a href="https://www.nen.nl/elektrotechniek/installatievoorschriften/nen-1010-laagspanningsinstallaties" target="_blank" rel="noopener">NEN 1010</a>; veilige bedrijfsvoering vraagt <a href="https://www.nen.nl/elektrotechniek/werkvoorschriften/laagspanninginstallaties" target="_blank" rel="noopener">NEN 3140</a>. Deze calculator geeft geen keuringsverklaring.</p>
       </form>
       <output class="adviesCalculatorResultaat" data-calculation-output aria-live="polite">
         <p class="adviesCalculatorResultaatLabel">Uw indicatie</p>
         <h3 data-result-title>Vul uw gegevens in</h3>
-        <p data-result-summary>Daarna tonen we een passende capaciteitsbandbreedte en de belangrijkste aandachtspunten.</p>
+        <p data-result-summary>Daarna tonen we een opslagindicatie en de belangrijkste aandachtspunten.</p>
         <ul data-result-details role="list">
           <li>Direct zichtbaar, zonder contactgegevens</li>
           <li>Indicatie op basis van uw energieprofiel</li>
@@ -243,12 +260,6 @@
       <img class="thuisbatterijMediaPlaceholderAfbeelding" src="assets/img/SparkyEnergies_Thuisbatterijen_Afbeelding_02.webp" alt="" width="1200" height="900" loading="lazy" decoding="async" />
     </figure>
   </article>
-</section>
-<section id="thuisbatterijSectWanneerWachten" class="siteSectie layoutText" aria-labelledby="thuisbatterijSectWanneerWachtenH2">
-  <header class="sectieKop">
-    <h2 id="thuisbatterijSectWanneerWachtenH2" class="sectieTitel">Wanneer zouden wij nog wachten?</h2>
-    <p class="sectieIntro">Een batterij is niet in elke situatie de eerste logische stap. Als verbruiksgegevens ontbreken, de zonnepaneleninstallatie eerst moet worden aangepast of uw groepenkast niet geschikt is, brengen we eerst de basis op orde. Zo voorkomt u een systeem dat niet goed aansluit op uw werkelijke gebruik.</p>
-  </header>
 </section>
 <section id="thuisbatterijSectHoeWerktEenThuisbatterij" class="siteSectie thuisbatterijSectHoeWerktEenThuisbatterij layoutSplitCard" data-page="Thuisbatterijen" data-page-number="2" data-section-number="4" data-section-title="Hoe werkt een thuisbatterij?" aria-labelledby="thuisbatterijSectHoeWerktEenThuisbatterijH2">
   <article class="thuisbatterijSplitKaart thuisbatterijSplitKaartMediaLinks hoogContrastTransparantVlak">
@@ -510,6 +521,7 @@
     <p class="footerCopyright">© 2026 Sparky Energies. Alle rechten voorbehouden.</p>
   </section>
 </footer>
+<script src="assets/js/calculator-models.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>

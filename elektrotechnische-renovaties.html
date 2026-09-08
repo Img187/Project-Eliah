@@ -100,10 +100,10 @@
       <span class="srOnly">Menu openen of sluiten</span>
       <span aria-hidden="true">☰</span>
     </button>
-    <ul id="primaireNavigatieLijst" class="primaireNavigatieLijst" role="list"><li><a href="index.html">Home</a></li><li><a href="thuisbatterijen.html">Thuisbatterijen</a></li><li><a href="zonnepanelen.html">Zonnepanelen</a></li><li><a href="laadpalen.html">Laadpalen</a></li><li><a aria-current="page" href="elektrotechnische-renovaties.html">Elektrotechniek</a></li><li><a href="over-ons.html">Over ons</a></li><li><a href="contact.html">Contact</a></li></ul>
+    <ul id="primaireNavigatieLijst" class="primaireNavigatieLijst" role="list"><li><a href="index.html">Home</a></li><li><a href="thuisbatterijen.html">Thuisbatterijen</a></li><li><a href="zonnepanelen.html">Zonnepanelen</a></li><li><a href="laadpalen.html">Laadpalen</a></li><li><a aria-current="page" href="elektrotechnische-renovaties.html">Elektrotechniek</a></li><li><a href="over-ons.html">Over ons</a></li></ul>
     <div class="hoofdNavigatieActies">
       <a class="hoofdNavigatieTelefoon" href="tel:+31107934002">010 - 793 4002</a>
-      <a id="hoofdNavigatieContact" class="hoofdNavigatieContact hoofdNavigatieAdvies" href="contact.html#contactRouteKeuze">Advies &amp; prijsindicatie</a>
+      <a id="hoofdNavigatieContact" class="hoofdNavigatieContact" href="contact.html">Contact</a>
       <nav id="toegankelijkheidPaneel" class="toegankelijkheidPaneel" aria-label="Toegankelijkheidsopties">
       <button id="knopGrotereTekst" class="toegankelijkheidKnop" type="button" data-accessibility-action="toggle-text-size" aria-pressed="false">Grotere tekst</button>
       <button id="knopHoogContrast" class="toegankelijkheidKnop" type="button" data-accessibility-action="toggle-contrast" aria-pressed="false">Hoog contrast</button>
@@ -192,12 +192,15 @@
           <label class="adviesCalculatorKeuze"><input name="werkzaamheden" type="checkbox" value="noodstroom-ups" /><span>Noodstroom of UPS</span></label>
         </fieldset>
         <div class="adviesCalculatorVelden">
-          <div class="contactFormulierVeld"><label for="groepenkastAansluiting">Netaansluiting</label><select id="groepenkastAansluiting" name="netaansluiting" required><option value="">Kies een optie</option><option value="1-fase">1-fase</option><option value="3-fase">3-fase kleinverbruik</option><option value="grootverbruik">Grootverbruikaansluiting</option><option value="middenspanning">Middenspanning</option><option value="onbekend">Weet ik niet</option></select></div>
-          <div class="contactFormulierVeld"><label for="groepenkastVermogen">Verwacht extra benodigd vermogen <span class="contactKeuzeUitleg">(optioneel)</span></label><div class="adviesCalculatorEenheid"><input id="groepenkastVermogen" name="aansluitvermogenKw" type="number" min="0" step="1" inputmode="numeric" placeholder="Bijvoorbeeld 250" /><span>kW</span></div></div>
+          <div class="contactFormulierVeld"><label for="groepenkastAansluiting">Netaansluiting</label><select id="groepenkastAansluiting" name="netaansluiting" required><option value="">Kies een optie</option><option value="1-fase">1-fase</option><option value="3-fase">3-fase</option><option value="grootverbruik">Grootverbruik</option><option value="middenspanning">Middenspanning</option><option value="onbekend">Weet ik niet</option></select></div>
+          <div class="contactFormulierVeld"><label for="groepenkastVermogen">Nieuw geïnstalleerd elektrisch vermogen <span class="contactKeuzeUitleg">(optioneel)</span></label><div class="adviesCalculatorEenheid"><input id="groepenkastVermogen" name="aansluitvermogenKw" type="number" min="0" step="any" inputmode="decimal" placeholder="Bijvoorbeeld 11" /><span>kW</span></div></div>
           <div class="contactFormulierVeld"><label for="groepenkastLeeftijd">Leeftijd groepenkast</label><select id="groepenkastLeeftijd" name="leeftijdGroepenkast" required><option value="">Kies een optie</option><option value="jonger-dan-10">Jonger dan 10 jaar</option><option value="10-tot-25">10 tot 25 jaar</option><option value="ouder-dan-25">Ouder dan 25 jaar</option><option value="onbekend">Weet ik niet</option></select></div>
           <div class="contactFormulierVeld"><label for="groepenkastPostcode">Postcode</label><input id="groepenkastPostcode" name="postcode" type="text" inputmode="text" autocomplete="postal-code" pattern="[0-9]{4}\s?[A-Za-z]{2}" placeholder="3066 GS" required /></div>
           <div class="contactFormulierVeld"><label for="groepenkastHuisnummer">Huisnummer en toevoeging</label><input id="groepenkastHuisnummer" name="huisnummer" type="text" autocomplete="address-line2" maxlength="12" placeholder="49B" required /></div>
-          <div class="contactFormulierVeld"><label for="groepenkastZakelijk">Type locatie</label><select id="groepenkastZakelijk" name="typeLocatie" required><option value="">Kies een optie</option><option value="woning">Woning</option><option value="bedrijf">Bedrijf</option><option value="vve">VvE of gedeeld pand</option><option value="industrie">Industrie of grootzakelijk</option><option value="datacenter">Datacenter</option></select></div>
+          <div class="contactFormulierVeld"><label for="groepenkastZakelijk">Type locatie</label><select id="groepenkastZakelijk" name="typeLocatie" required><option value="">Kies een optie</option><option value="woning">Woning</option><option value="bedrijf">Bedrijf</option><option value="vve">VvE / gedeeld</option><option value="industrie">Industrie</option><option value="datacenter">Datacenter</option></select></div>
+
+          <div class="contactFormulierVeld"><label for="elektrahoofdzekeringA">Hoofdzekering per fase (indien bekend)</label><div class="adviesCalculatorEenheid"><input id="elektrahoofdzekeringA" name="hoofdzekeringA" type="number" min="1" step="any" inputmode="decimal" placeholder="Bijvoorbeeld 25" /><span>A</span></div></div>
+          <div class="contactFormulierVeld"><label for="elektraoverigeBelastingKw">Bestaande gelijktijdige belasting (indien bekend)</label><div class="adviesCalculatorEenheid"><input id="elektraoverigeBelastingKw" name="overigeBelastingKw" type="number" min="0" step="any" inputmode="decimal" placeholder="0 alleen als er geen is" /><span>kW</span></div></div>
         </div>
         <aside class="adviesFotoVoorbereiding">
           <strong>Foto’s helpen bij de beoordeling</strong>
@@ -205,6 +208,7 @@
         </aside>
         <button class="siteBtn siteBtnPrimary" type="submit">Beoordeel mijn aanvraag</button>
         <p class="adviesCalculatorPrivacy">Deze voorcontrole wordt niet verzonden. Alleen wanneer u doorgaat naar Contact kiest u zelf welke gegevens en foto’s u naar Sparky stuurt.</p>
+        <p class="adviesCalculatorPrivacy">Een indicatie voor uw gesprek met de installateur. Ontwerp en verificatie vragen <a href="https://www.nen.nl/elektrotechniek/installatievoorschriften/nen-1010-laagspanningsinstallaties" target="_blank" rel="noopener">NEN 1010</a>; veilige bedrijfsvoering vraagt <a href="https://www.nen.nl/elektrotechniek/werkvoorschriften/laagspanninginstallaties" target="_blank" rel="noopener">NEN 3140</a>. Deze calculator geeft geen keuringsverklaring.</p>
       </form>
       <output class="adviesCalculatorResultaat" data-calculation-output aria-live="polite">
         <p class="adviesCalculatorResultaatLabel">Uw voorcontrole</p>
@@ -543,6 +547,7 @@
     <p class="footerCopyright">© 2026 Sparky Energies. Alle rechten voorbehouden.</p>
   </section>
 </footer>
+<script src="assets/js/calculator-models.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>

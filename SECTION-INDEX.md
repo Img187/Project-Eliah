@@ -8,13 +8,13 @@
 |---:|---|---|---:|---:|---:|---:|
 | 1 | [Home](index.html) | `index.html` | 6 | 1 | 12 | 1 |
 | 2 | [Thuisbatterijen](thuisbatterijen.html) | `thuisbatterijen.html` | 8 | 1 | 4 | 1 |
-| 3 | [Zonnepanelen](zonnepanelen.html) | `zonnepanelen.html` | 8 | 1 | 4 | 1 |
+| 3 | [Zonnepanelen](zonnepanelen.html) | `zonnepanelen.html` | 7 | 1 | 4 | 1 |
 | 4 | [Laadpalen](laadpalen.html) | `laadpalen.html` | 8 | 1 | 5 | 1 |
 | 5 | [Elektrotechnische renovaties](elektrotechnische-renovaties.html) | `elektrotechnische-renovaties.html` | 9 | 1 | 4 | 1 |
 | 6 | [Over ons](over-ons.html) | `over-ons.html` | 8 | 0 | 11 | 1 |
 | 7 | [Contact](contact.html) | `contact.html` | 1 | 0 | 1 | 1 |
 
-**Totaal:** 48 primaire secties, 5 ondersteunende main-secties, 41 buttons/hyperlinks, 8 formulieren en 204 paragrafen met een ID.
+**Totaal:** 47 primaire secties, 5 ondersteunende main-secties, 41 buttons/hyperlinks, 8 formulieren en 202 paragrafen met een ID.
 
 ### Hoe deze index gelezen wordt
 
@@ -71,9 +71,8 @@
 | Nr. | Data-titel | Zichtbare heading | Section ID | Heading ID | Layout/shared classes |
 |---:|---|---|---|---|---|
 | 1 | Zonnepanelen laten installeren | H1: Zonnepanelen laten installeren | `zonnepanelenSectZonnepanelenLatenInstalleren` | `zonnepanelenSectZonnepanelenLatenInstallerenH1` | `layoutSplitCard` |
-| 2 | Profiteer van duurzame energie uit eigen dak | H2: Profiteer van duurzame energie uit eigen dak | `zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak` | `zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDakH2` | `kenmerkKaartenSectie`<br>`layoutFeatures` |
+| 2 | Van zonlicht naar eigen stroom | H2: Van zonlicht naar eigen stroom | `zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak` | `zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDakH2` | `kenmerkKaartenSectie`<br>`layoutFeatures` |
 | 3 | Een installatie die past bij uw situatie | H2: Een installatie die past bij uw situatie | `zonnepanelenSectEenInstallatieDiePastBijUwSituatie` | `zonnepanelenSectEenInstallatieDiePastBijUwSituatieH2` | `layoutSplitCard` |
-| 4 | Hoe werken zonnepanelen? | H2: Hoe werken zonnepanelen? | `zonnepanelenSectHoeWerkenZonnepanelen` | `zonnepanelenSectHoeWerkenZonnepanelenH2` | `layoutSplitCard` |
 | 5 | Sla overtollige stroom op | H2: Sla overtollige stroom op | `zonnepanelenSectSlaOvertolligeStroomOp` | `zonnepanelenSectSlaOvertolligeStroomOpH2` | `layoutStickySplitCards` |
 | 7 | Sparky Energies denkt met u mee over de juiste oplossing. Wij helpen met advies, installatie, onderhoud en uitbreiding van bestaande installaties. | H2: Sparky Energies denkt met u mee over de juiste oplossing. Wij helpen met advies, installatie, onderhoud en uitbreiding van bestaande installaties. | `zonnepanelenSectZoWerkenWij` | `zonnepanelenSectZoWerkenWijH2` | `layoutProcessTimeline` |
 | 8 | Antwoorden op de meest gestelde vragen over zonnepanelen. | H2: Veel gestelde vragen over zonnepanelen. | `zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelen` | `zonnepanelenSectAntwoordenOpDeMeestGesteldeVragenOverZonnepanelenH2` | `layoutFaq` |
@@ -144,10 +143,10 @@ Deze secties zijn belangrijk voor styling en toegankelijkheid, maar tellen niet 
 | Label | Element | Element ID | Section ID | Bestemming | Linktype |
 |---|---|---|---|---|---|
 | Offerte | `a` | `homeSectGecertificeerdeInstallateursMetVakmanschapBtn01Offerte` | `homeSectGecertificeerdeInstallateursMetVakmanschap` | `contact.html#contactSectLatenWeBeginnen` | `interne-pagina-sectie` |
-| Lees meer | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn01LeesMeer` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `thuisbatterijen.html` | `interne-pagina` |
-| Ontdek | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn02Ontdek` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `zonnepanelen.html` | `interne-pagina` |
-| Meer | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn03Meer` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `laadpalen.html` | `interne-pagina` |
-| Meer | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn04Meer` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `elektrotechnische-renovaties.html` | `interne-pagina` |
+| Thuisbatterijen | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn01LeesMeer` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `thuisbatterijen.html` | `interne-pagina` |
+| Zonnepanelen | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn02Ontdek` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `zonnepanelen.html` | `interne-pagina` |
+| Laadpalen | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn03Meer` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `laadpalen.html` | `interne-pagina` |
+| Elektrotechniek | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn04Meer` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `elektrotechnische-renovaties.html` | `interne-pagina` |
 | Ontdek Sparky | `a` | `homeSectVanIdeeTotInstallatieVanVonkTotVermogenBtn01OntdekSparky` | `homeSectVanIdeeTotInstallatieVanVonkTotVermogen` | `over-ons.html` | `interne-pagina` |
 | Bekijk | `a` | `homeSectRecentWerkBtn01Bekijk` | `homeSectRecentWerk` | `#linkNogToevoegen` | `todo` |
 | Bekijk | `a` | `homeSectRecentWerkBtn04Bekijk` | `homeSectRecentWerk` | `#linkNogToevoegen` | `todo` |

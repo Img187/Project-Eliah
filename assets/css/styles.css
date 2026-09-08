@@ -285,8 +285,7 @@ body.hoogContrast .hoofdNavigatieContact { border-color: #000; background: var(-
 body.hoogContrast .hoofdNavigatieContact:hover,
 body.hoogContrast .hoofdNavigatieContact:focus-visible { background: var(--sparkyOranje); color: #000; filter: brightness(1.08); }
 @media (max-width: 1023px), (hover: none) and (pointer: coarse) {
-  .hoofdNavigatieTelefoon,
-  .hoofdNavigatieAdvies { display: none; }
+  .hoofdNavigatieTelefoon { display: none; }
   .toegankelijkheidSubmenu { position: absolute; inset-inline-end: 0; width: min(220px, calc(100vw - 32px)); }
 }
 @media (max-width: 380px) {
@@ -537,11 +536,23 @@ body.hoogContrast .homeHeroScrollMediaLabel { border: 2px solid #000; background
 .homeSectWatWijVoorUInstallerenEnOnderhoudenKop .sectieIntro { margin-inline: auto; }
 .homeSectWatWijVoorUInstallerenEnOnderhouden .dienstLijst { grid-template-columns: minmax(0, 1fr); grid-auto-rows: 1fr; align-items: stretch; gap: clamp(24px, 3vw, 32px); margin-block-start: clamp(36px, 5vw, 64px); }
 .homeSectWatWijVoorUInstallerenEnOnderhouden .dienstLijstItem { min-width: 0; height: 100%; }
+.dienstKaartLink { position: relative; display: block; height: 100%; border-radius: 10px; color: inherit; text-decoration: none; transition: transform .2s ease; }
+.dienstKaartLink:hover { color: inherit; }
+.dienstKaartLink:focus-visible { outline: 4px solid var(--sparkyOranje); outline-offset: 4px; }
+@media (hover: hover) and (pointer: fine) {
+  .dienstKaartLink:hover { z-index: 1; transform: scale(1.1); }
+}
+@media (width < 1024px) and (hover: hover) and (pointer: fine) {
+  .homeSectWatWijVoorUInstallerenEnOnderhouden .dienstLijst { width: calc(100% / 1.1); margin-inline: auto; }
+}
+@media (min-width: 1024px) and (width < 1280px) and (hover: hover) and (pointer: fine) {
+  .dienstLijstItem:nth-child(odd) .dienstKaartLink { transform-origin: left center; }
+  .dienstLijstItem:nth-child(even) .dienstKaartLink { transform-origin: right center; }
+}
 .homeSectWatWijVoorUInstallerenEnOnderhouden .homeSectWatWijVoorUInstallerenEnOnderhoudenDienstKaart { display: grid; grid-template-columns: minmax(0, 1fr); height: 100%; min-width: 0; padding: 0; overflow: hidden; border: 0; border-radius: 10px; }
 .homeSectWatWijVoorUInstallerenEnOnderhoudenDienstInhoud { display: flex; min-width: 0; flex-direction: column; align-items: flex-start; justify-content: center; padding: clamp(24px, 3vw, 38px); background: var(--kleurKaart); }
 .homeSectWatWijVoorUInstallerenEnOnderhoudenDienstInhoud h3 { max-width: 18ch; }
 .homeSectWatWijVoorUInstallerenEnOnderhoudenDienstInhoud p { margin-block-start: 12px; }
-.homeSectWatWijVoorUInstallerenEnOnderhoudenKnop { margin-block-start: clamp(20px, 3vw, 28px); }
 .homeSectWatWijVoorUInstallerenEnOnderhoudenMedia { min-width: 0; min-height: 220px; margin: 0; overflow: hidden; border-radius: 0 0 10px 10px; background: var(--sparkyLichtGrijs); }
 .homeSectWatWijVoorUInstallerenEnOnderhoudenAfbeelding { display: block; width: 100%; height: 100%; min-height: 220px; object-fit: cover; }
 @media (max-width: 767px) {
@@ -550,7 +561,6 @@ body.hoogContrast .homeHeroScrollMediaLabel { border: 2px solid #000; background
   .homeSectWatWijVoorUInstallerenEnOnderhoudenDienstInhoud h3,
   .homeSectWatWijVoorUInstallerenEnOnderhoudenDienstInhoud p { margin-inline: auto; }
   .homeSectWatWijVoorUInstallerenEnOnderhoudenMedia { grid-area: media; border-radius: 10px 10px 0 0; }
-  .homeSectWatWijVoorUInstallerenEnOnderhoudenKnop { align-self: center; margin-inline: auto; text-align: center; }
 }
 body.hoogContrast .homeSectWatWijVoorUInstallerenEnOnderhoudenMedia { background: #fff; }
 body.hoogContrast .homeSectWatWijVoorUInstallerenEnOnderhoudenAfbeelding { filter: grayscale(1) contrast(1.35); }
@@ -722,7 +732,7 @@ body.hoogContrast .thuisbatterijSectHoeWerktEenThuisbatterij .thuisbatterijSectH
 .trustBarLijst li + li::before { position: absolute; inset-block: 22%; inset-inline-start: 0; width: 1px; background: var(--kleurRand); content: ""; }
 .homeSectWatWijVoorUInstallerenEnOnderhoudenDienstInhoud p { display: grid; gap: 8px; }
 .homeSectWatWijVoorUInstallerenEnOnderhoudenDienstInhoud p strong { color: var(--sparkyDonkerBlauw); font-family: var(--fontKop); font-size: 1.08em; line-height: 1.25; }
-.systeemSamenGrid { display: grid; gap: clamp(36px, 6vw, 80px); align-items: stretch; }
+.systeemSamenGrid { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(36px, 6vw, 80px); align-items: stretch; }
 .systeemSamenMedia { min-height: clamp(300px, 60vw, 460px); margin: 0; overflow: hidden; border-radius: 10px; background: var(--kleurKaart); box-shadow: var(--schaduwZacht); }
 .systeemSamenMedia img { display: block; width: 100%; height: 100%; min-height: inherit; object-fit: cover; }
 .keuzehulpSectie { border-radius: 10px; background: var(--sparkyDonkerBlauw); padding-inline: clamp(20px, 5vw, 64px); }
@@ -733,7 +743,6 @@ body.hoogContrast .thuisbatterijSectHoeWerktEenThuisbatterij .thuisbatterijSectH
 .keuzeKaartLijst a:hover { color: var(--sparkyDonkerBlauw); filter: brightness(.96); }
 .layoutImageCta .sectieLabel { color: var(--sparkyOranje); }
 @media (min-width: 768px) {
-  .systeemSamenGrid { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); }
   .systeemSamenMedia { min-height: clamp(420px, 45vw, 620px); }
   .keuzeKaartLijst { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -1461,7 +1470,7 @@ body.tekstGroot .contactKeuzeRaster { grid-template-columns: minmax(0, 1fr); }
 .siteFooter { margin-block-start: 48px; background: var(--sparkyDonker); color: #fff; }
 .footerSectie { width: var(--containerBreedte); margin-inline: auto; padding-block: clamp(48px, 7vw, 80px) 28px; }
 .footerKolommen { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(36px, 6vw, 72px); align-items: center; }
-.footerKolom { min-width: 0; }
+.footerKolom { min-width: 0; overflow-wrap: anywhere; }
 .footerLogoLink { display: inline-flex; width: min(164px, 100%); align-items: center; text-decoration: none; }
 .footerLogoAfbeelding { display: block; width: 100%; height: auto; object-fit: contain; }
 .footerBedrijfsgegevens { display: grid; gap: 3px; margin-block-start: 24px; color: #fff; font-style: normal; line-height: 1.55; }
@@ -1492,36 +1501,20 @@ body.hoogContrast .footerNavigatieLijst a,
 body.hoogContrast .footerCopyright { color: #fff; }
 body.hoogContrast .footerBedrijfsgegevens a:hover,
 body.hoogContrast .footerNavigatieLijst a:hover { color: var(--sparkyOranje); text-decoration: underline; }
-@media (min-width: 768px) {
-  .footerKolommen { grid-template-columns: minmax(0, .9fr) minmax(280px, 1.1fr); }
-  .footerBedrijf { grid-column: 1; grid-row: 1 / span 2; }
-  .footerCertificeringen { grid-column: 1 / -1; grid-row: 3; }
-  .footerLocatie { grid-column: 2; grid-row: 1; }
-  .footerSitemap { grid-column: 2; grid-row: 2; }
-}
-@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+/* De footer schakelt op breedte tussen vier kolommen en vier rijen. */
+@media (min-width: 1024px) {
   .footerKolommen { grid-template-columns: minmax(220px, 1.05fr) minmax(132px, .55fr) minmax(280px, 1.25fr) minmax(180px, .8fr); gap: clamp(24px, 3vw, 48px); }
   .footerBedrijf { grid-column: 1; grid-row: 1; }
   .footerCertificeringen { grid-column: 2; grid-row: 1; }
   .footerLocatie { grid-column: 3; grid-row: 1; }
   .footerSitemap { grid-column: 4; grid-row: 1; }
 }
-body.tekstGroot .footerKolommen { grid-template-columns: minmax(0, 1fr) minmax(280px, 1fr); }
-body.tekstGroot .footerBedrijf { grid-column: 1; grid-row: 1 / span 2; }
-body.tekstGroot .footerCertificeringen { grid-column: 1 / -1; grid-row: 3; }
-body.tekstGroot .footerLocatie { grid-column: 2; grid-row: 1; }
-body.tekstGroot .footerSitemap { grid-column: 2; grid-row: 2; }
-@media (max-width: 1023px), (hover: none) and (pointer: coarse) {
-  .footerKolommen,
-  body.tekstGroot .footerKolommen { grid-template-columns: minmax(0, 1fr); gap: clamp(36px, 10vw, 52px); text-align: center; }
-  .footerSitemap,
-  body.tekstGroot .footerSitemap { grid-column: 1; grid-row: 1; }
-  .footerBedrijf,
-  body.tekstGroot .footerBedrijf { grid-column: 1; grid-row: 2; }
-  .footerCertificeringen,
-  body.tekstGroot .footerCertificeringen { grid-column: 1; grid-row: 3; }
-  .footerLocatie,
-  body.tekstGroot .footerLocatie { grid-column: 1; grid-row: 4; }
+@media (width < 1024px) {
+  .footerKolommen { grid-template-columns: minmax(0, 1fr); gap: clamp(36px, 10vw, 52px); text-align: center; }
+  .footerSitemap { grid-column: 1; grid-row: 1; }
+  .footerBedrijf { grid-column: 1; grid-row: 2; }
+  .footerCertificeringen { grid-column: 1; grid-row: 3; }
+  .footerLocatie { grid-column: 1; grid-row: 4; }
   .footerSitemap h2,
   .footerLogoLink { margin-inline: auto; }
   .footerNavigatieLijst,
@@ -1533,16 +1526,6 @@ body.tekstGroot .footerSitemap { grid-column: 2; grid-row: 2; }
   .footerCertificeringLogo { width: min(96px, 100%); height: 64px; }
   .footerLocatie { width: 100%; aspect-ratio: 16 / 9; }
   .footerKaart { width: 100%; height: 100%; aspect-ratio: auto; }
-}
-
-@media (orientation: landscape) and (min-width: 768px) and (max-width: 1279px),
-       (orientation: landscape) and (min-width: 1024px) and (hover: none) and (pointer: coarse) {
-  .footerKolommen { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 4vw, 40px); align-items: start; }
-  .footerSitemap { grid-column: 1; grid-row: 1; }
-  .footerBedrijf { grid-column: 1; grid-row: 2; }
-  .footerLocatie { grid-column: 2; grid-row: 1 / span 2; width: 100%; aspect-ratio: 16 / 9; }
-  .footerCertificeringen { grid-column: 1 / -1; grid-row: 3; width: 100%; }
-  .footerCertificeringLijst { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(8px, 2vw, 16px); }
 }
 
 @media (max-width: 767px) {
@@ -1622,7 +1605,6 @@ body.tekstGroot .footerSitemap { grid-column: 2; grid-row: 2; }
   .siteLogoAfbeelding { height: 126.96px; }
   .hoofdNavigatieActies { grid-column: 3; grid-row: 1; justify-self: end; }
   .hoofdNavigatieTelefoon { display: inline-flex; }
-  .hoofdNavigatieAdvies { max-width: 172px; padding-inline: 14px; font-size: .82rem; text-align: center; }
   .toegankelijkheidPaneel { justify-content: end; }
   .siteSectie { scroll-margin-top: 156px; }
   .layoutHero, .layoutSplit { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); }
@@ -2277,6 +2259,7 @@ body.tekstGroot .contactRouteLijst { grid-template-columns: minmax(0, 1fr); }
 .keuzehulpSectie > .sectieKop,
 #homeSectWaaromSparky > .sectieKop,
 .elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomstKop { width: 100%; max-width: 900px; margin-inline: auto; text-align: center; }
+.systeemSamenInhoud .sectieLabel,
 .systeemSamenInhoud .sectieTitel,
 .systeemSamenInhoud .sectieIntro,
 .systeemSamenInhoud .contentParagraaf,
@@ -2294,6 +2277,13 @@ body.tekstGroot .contactRouteLijst { grid-template-columns: minmax(0, 1fr); }
 .kenmerkKaartenSectie.layoutFeatures > .sectieKop .sectieIntro,
 .kenmerkKaartenSectie.layoutFeatures > .sectieKop .sectieLabel { margin-inline: auto; }
 .kenmerkKaartenSectie.layoutFeatures > .sectieKop .sectieIntro { margin-block-start: clamp(18px, 3vw, 26px); }
+.zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDakKop,
+#zonnepanelenSectHoeWerkenZonnepanelenH2 { scroll-margin-block-start: calc(var(--sectieFlowKophoogte, 148px) + 24px); }
+.zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDakKop .contentParagraaf { max-width: 66ch; margin: clamp(18px, 3vw, 26px) auto 0; }
+@media (max-width: 767px) {
+  .zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak .kenmerkKaart h3 { font-size: 1.125rem; line-height: 1.3; }
+  .zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak .kenmerkKaart p { font-size: 1rem; line-height: 1.6; }
+}
 .kenmerkKaartenSectie.layoutFeatures > .sectionActies { justify-content: center; }
 
 /* Alle gelijksoortige kenmerkkaarten volgen de grootste kaart in de lijst. */
@@ -2358,21 +2348,31 @@ body.tekstGroot .contactRouteLijst { grid-template-columns: minmax(0, 1fr); }
   border: 1px solid var(--kleurRand);
   border-radius: 10px;
 }
-.adviesCalculatorFormulier { align-content: start; background: var(--kleurKaart); }
-.adviesCalculatorVelden { display: grid; min-width: 0; gap: 18px; }
-[data-roof-area-custom][hidden] { display: none; }
+.adviesCalculatorFormulier { margin: 0; align-content: start; container-type: inline-size; background: var(--kleurKaart); }
+.adviesCalculatorVelden { display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; gap: 22px 18px; align-items: stretch; }
+/* Een gedeelde labelruimte per rij houdt de invoervelden op gelijke hoogte. */
+.adviesCalculatorVelden > .contactFormulierVeld { grid-template-rows: minmax(min-content, 1fr) auto; align-content: stretch; }
+.adviesCalculatorVelden > .contactFormulierVeld > label { display: flex; min-width: 0; flex-direction: column; align-items: center; justify-content: center; margin: 0; text-align: center; line-height: 1.45; overflow-wrap: anywhere; }
+.adviesCalculatorVelden > .contactFormulierVeld > input,
+.adviesCalculatorVelden > .contactFormulierVeld > select,
+.adviesCalculatorEenheid input { display: block; width: 100%; min-width: 0; height: max(56px, calc(1.4em + 28px)); min-height: 56px; margin: 0; padding-block: 12px; line-height: 1.4; text-align: center; }
+.adviesCalculatorVelden select { padding-inline: 30px; text-align-last: center; }
+.adviesCalculatorVelden select option { text-align: center; }
+.adviesCalculatorFormulier [hidden] { display: none !important; }
 .adviesCalculatorEenheid { position: relative; min-width: 0; }
-.adviesCalculatorEenheid input { padding-inline-end: 64px; }
-.adviesCalculatorEenheid span { position: absolute; inset: 50% 16px auto auto; color: #52616b; font-size: .86rem; font-weight: 700; pointer-events: none; transform: translateY(-50%); }
+.adviesCalculatorEenheid input { padding-inline: min(30%, 80px); }
+.adviesCalculatorEenheid span { position: absolute; inset: 50% 12px auto auto; max-width: calc(30% - 12px); color: #52616b; font-size: .78rem; font-weight: 700; line-height: 1.25; text-align: center; overflow-wrap: anywhere; pointer-events: none; transform: translateY(-50%); }
+.adviesCalculatorToelichting { max-width: 65ch; margin: 0 auto 18px; color: #52616b; font-size: .9rem; line-height: 1.6; text-align: center; }
 .adviesCalculatorKeuzes { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; margin: 0; padding: 0; border: 0; }
 .adviesCalculatorKeuzes legend { margin-block-end: 10px; }
+.adviesCalculatorFormulier .adviesCalculatorKeuzes legend { width: 100%; padding: 0; text-align: center; }
 .adviesCalculatorKeuzes legend .contactKeuzeUitleg { display: block; margin-block-start: 3px; font-family: var(--fontTekst); font-size: .82rem; font-weight: 400; }
 .adviesCalculatorKeuze { display: flex; min-height: 52px; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid var(--kleurRand); border-radius: 10px; background: var(--sparkyLichtGrijs); cursor: pointer; }
 .adviesCalculatorKeuze input { width: 20px; min-width: 20px; height: 20px; margin: 0; accent-color: var(--sparkyLichtBlauw); }
 .adviesCalculatorKeuze span { font-weight: 600; }
 .adviesCalculatorFormulier > .siteBtn { justify-self: center; }
 .adviesCalculatorPrivacy { max-width: 62ch; margin: 0 auto; color: #52616b; font-size: .84rem; line-height: 1.55; text-align: center; }
-.adviesCalculatorResultaat { display: flex; flex-direction: column; justify-content: center; gap: 16px; background: var(--sparkyDonkerBlauw); color: #fff; text-align: center; }
+.adviesCalculatorResultaat { display: flex; align-self: start; flex-direction: column; justify-content: center; gap: 16px; background: var(--sparkyDonkerBlauw); color: #fff; text-align: center; scroll-margin-block-start: calc(var(--sectieFlowKophoogte, 148px) + 24px); }
 .adviesCalculatorResultaatLabel { width: fit-content; margin: 0 auto; padding: 6px 10px; border-radius: 999px; background: var(--sparkyOranje); color: #111; font-size: .74rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .adviesCalculatorResultaat h3 { max-width: 18ch; margin: 0 auto; color: #fff; font-family: var(--fontKop); font-size: clamp(1.75rem, 3vw, 2.75rem); line-height: 1.1; text-wrap: balance; }
 .adviesCalculatorResultaat p:not(.adviesCalculatorResultaatLabel) { max-width: 54ch; margin: 0 auto; color: rgba(255, 255, 255, .9); }
@@ -2400,7 +2400,8 @@ body.hoogContrast .adviesCalculatorKeuze,
 body.hoogContrast .adviesUploadVak,
 body.hoogContrast .adviesFotoVoorbereiding,
 body.hoogContrast .calculatorOverdrachtMelding { border: 2px solid #fff; background: #000; color: #fff; box-shadow: none; }
-body.hoogContrast .adviesCalculatorEenheid span,
+body.hoogContrast .adviesCalculatorEenheid span { color: #111; }
+body.hoogContrast .adviesCalculatorToelichting,
 body.hoogContrast .adviesCalculatorPrivacy,
 body.hoogContrast .adviesUploadVak span,
 body.hoogContrast .adviesUploadVak small,
@@ -2408,7 +2409,7 @@ body.hoogContrast .adviesUploadStatus,
 body.hoogContrast .adviesFotoVoorbereiding strong,
 body.hoogContrast .adviesFotoVoorbereiding p { color: #fff; }
 
-@media (min-width: 720px) {
+@container (min-width: 520px) {
   .adviesCalculatorVelden { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .adviesCalculatorKeuzesBreed { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .adviesCalculatorKeuzesBreed legend { grid-column: 1 / -1; }
@@ -2419,7 +2420,8 @@ body.hoogContrast .adviesFotoVoorbereiding p { color: #fff; }
 }
 
 body.tekstGroot .adviesCalculatorGrid,
-body.tekstGroot .adviesCalculatorVelden { grid-template-columns: minmax(0, 1fr); }
+body.tekstGroot .adviesCalculatorVelden,
+body.tekstGroot .adviesCalculatorKeuzesBreed { grid-template-columns: minmax(0, 1fr); }
 
 @media (max-width: 599px) {
   .kenmerkKaartenSectie .kenmerkKaartLijstAutoHoogte,
