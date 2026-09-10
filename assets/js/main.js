@@ -161,9 +161,6 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
     if (!sections.length) return;
 
     const header = document.querySelector('.siteHeader');
-    const footer = document.querySelector('.siteFooter');
-    const internalAnimationSections = sections.filter((section) => section.matches('.layoutStickySplitCards'));
-    let footerIsReleased = false;
     let animationFrame = 0;
 
     function setSectionVisibility(section, isVisible) {
@@ -191,30 +188,6 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
       });
     }
 
-    function updateFooterRelease() {
-      if (!footer) return;
-      const footerTop = footer.getBoundingClientRect().top;
-      const releaseBoundary = window.innerHeight + 24;
-      const restoreBoundary = window.innerHeight + 160;
-
-      if (!footerIsReleased && footerTop <= releaseBoundary) footerIsReleased = true;
-      if (footerIsReleased && footerTop > restoreBoundary) footerIsReleased = false;
-      root.classList.toggle('sectieFlowFooterVrij', footerIsReleased);
-    }
-
-    function updateAccessibilityMode() {
-      root.classList.toggle('sectieFlowToegankelijk', body.classList.contains('tekstGroot'));
-    }
-
-    function updateInternalAnimationMode() {
-      const headerBottom = header ? header.getBoundingClientRect().bottom : 0;
-      const internalAnimationIsVisible = internalAnimationSections.some((section) => {
-        const bounds = section.getBoundingClientRect();
-        return bounds.top < window.innerHeight - 2 && bounds.bottom > headerBottom + 2;
-      });
-      root.classList.toggle('sectieFlowInterneAnimatieVrij', internalAnimationIsVisible);
-    }
-
     function updateHeaderHeight() {
       if (!header) return;
       root.style.setProperty('--sectieFlowKophoogte', `${Math.ceil(header.getBoundingClientRect().height)}px`);
@@ -222,10 +195,7 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
 
     function updateSectionFlow() {
       animationFrame = 0;
-      updateHeaderHeight();
       classifyInactiveSections();
-      updateInternalAnimationMode();
-      updateFooterRelease();
     }
 
     function scheduleSectionFlowUpdate() {
@@ -236,9 +206,6 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
     setInitialSectionVisibility();
     updateHeaderHeight();
     classifyInactiveSections();
-    updateInternalAnimationMode();
-    updateFooterRelease();
-    updateAccessibilityMode();
     root.classList.add('sectieFlowActief');
 
     if ('IntersectionObserver' in window) {
@@ -252,16 +219,18 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
       sections.forEach((section) => section.classList.add('sectieFlowInBeeld'));
     }
 
-    const accessibilityObserver = new MutationObserver(updateAccessibilityMode);
-    accessibilityObserver.observe(body, { attributes: true, attributeFilter: ['class'] });
+    function handleSectionFlowResize() {
+      updateHeaderHeight();
+      scheduleSectionFlowUpdate();
+    }
 
     if (header && 'ResizeObserver' in window) {
-      const headerObserver = new ResizeObserver(scheduleSectionFlowUpdate);
+      const headerObserver = new ResizeObserver(handleSectionFlowResize);
       headerObserver.observe(header);
     }
 
     window.addEventListener('scroll', scheduleSectionFlowUpdate, { passive: true });
-    window.addEventListener('resize', scheduleSectionFlowUpdate, { passive: true });
+    window.addEventListener('resize', handleSectionFlowResize, { passive: true });
   }
 
   initializeLazyBackgrounds();
@@ -321,13 +290,17 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
   whatsappButton.setAttribute('aria-label', 'Chat met Sparky Energies via WhatsApp');
   whatsappButton.title = 'Chat met ons via WhatsApp';
   whatsappButton.innerHTML = '<img class="whatsAppKnopLogo" src="assets/img/SparkyEnergies_Algemeen_Afbeelding_08.svg" alt="" width="36" height="36" aria-hidden="true">';
+  const whatsappLinks = [whatsappButton, ...document.querySelectorAll('.hoofdNavigatieWhatsApp')];
 
   function updateWhatsAppDestination(mediaQuery) {
     const isDesktop = mediaQuery.matches;
-    whatsappButton.href = isDesktop
+    const destination = isDesktop
       ? `https://web.whatsapp.com/send?phone=${whatsappPhoneNumber}`
       : `https://wa.me/${whatsappPhoneNumber}`;
-    whatsappButton.dataset.whatsappBestemming = isDesktop ? 'web' : 'app';
+    whatsappLinks.forEach((link) => {
+      link.href = destination;
+      link.dataset.whatsappBestemming = isDesktop ? 'web' : 'app';
+    });
   }
 
   if ('addEventListener' in whatsappDesktopQuery) {
@@ -1094,6 +1067,7 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
         form.reset();
         fileUploads.forEach(validateFormspreeUpload);
         if (form.id === 'contactSectLatenWeBeginnenFormulier') {
+          form.querySelectorAll('input[name="calculator_samenvatting"], .calculatorOverdrachtMelding').forEach((element) => element.remove());
           try {
             window.sessionStorage.removeItem('sparkyCalculatorAanvraag');
           } catch (error) {

@@ -123,6 +123,8 @@ De lokale fontbestanden staan in /assets/fonts/.
 html { color-scheme: light; scroll-behavior: smooth; }
 *, *::before, *::after { box-sizing: border-box; }
 body { margin: 0; font-family: var(--fontTekst); font-size: var(--basisTekst); font-weight: 300; line-height: var(--regelHoogte); color: var(--kleurTekst); background: var(--kleurAchtergrond); text-rendering: optimizeLegibility; }
+/* Breek lopende tekst tussen woorden af, zonder automatische afbreekstreepjes. */
+.siteBody { hyphens: none; word-break: normal; overflow-wrap: normal; }
 body.tekstGroot { --basisTekst: clamp(1.15rem, 1rem + 0.65vw, 1.42rem); --regelHoogte: 1.85; }
 body.hoogContrast { color-scheme: dark; --kleurTekst: var(--sparkyLichtGrijs); --kleurAchtergrond: #000; --kleurKaart: #090b0d; --kleurVlak: #090b0d; --kleurRand: rgba(243, 246, 248, .72); --kleurFocus: var(--sparkyOranje); --sparkyDonkerBlauw: var(--sparkyLichtGrijs); --sparkyLichtBlauw: #1E88E5; --sparkyLichtGrijs: #F3F6F8; --sparkyOranje: #F9A825; --sparkyDonker: var(--sparkyLichtGrijs); --schaduwZacht: none; }
 img, svg { max-width: 100%; height: auto; }
@@ -165,7 +167,8 @@ body.hoogContrast :focus-visible { outline: 3px solid #000; outline-offset: 3px;
   font: inherit;
 }
 .primaireNavigatieLijst button { text-align: left; }
-.primaireNavigatieLijst a[aria-current="page"], .primaireNavigatieLijst a:hover, .primaireNavigatieLijst button:hover, .primaireNavigatieLijst button:focus-visible {
+.primaireNavigatieLijst a[aria-current="page"], .primaireNavigatieLijst a:hover, .primaireNavigatieLijst button:hover, .primaireNavigatieLijst button:focus-visible,
+.hoofdNavigatieIcoon:hover, .hoofdNavigatieIcoon:focus-visible {
   background: var(--sparkyLichtGrijs);
   color: var(--sparkyDonkerBlauw);
 }
@@ -243,11 +246,12 @@ body.hoogContrast :focus-visible { outline: 3px solid #000; outline-offset: 3px;
   .siteLogoLink { max-width: 84px; }
 }
 .hoofdNavigatieActies { display: flex; grid-column: 3; grid-row: 1; gap: clamp(6px, 1.2vw, 12px); align-items: center; justify-self: end; }
-.hoofdNavigatieTelefoon { display: none; color: var(--sparkyDonkerBlauw); font-size: .9rem; font-weight: 800; line-height: 1.2; text-decoration: none; white-space: nowrap; }
-.hoofdNavigatieTelefoon:hover { color: var(--sparkyLichtBlauw); }
-.hoofdNavigatieContact { display: inline-flex; height: 56px; min-height: 56px; align-items: center; justify-content: center; padding: 10px 16px; border: 2px solid transparent; border-radius: var(--radiusKnop); background: var(--sparkyOranje); color: #111; font-family: inherit; font-size: inherit; font-weight: 800; line-height: 1; text-decoration: none; transition: filter .18s ease, font-size .18s ease; }
+.hoofdNavigatieContactIconen { display: none; align-items: center; gap: 6px; }
+.hoofdNavigatieIcoon { display: inline-flex; flex: 0 0 auto; min-width: 44px; align-items: center; justify-content: center; padding: 10px 16px; border: 0; border-radius: var(--radiusKnop); background: transparent; color: inherit; text-decoration: none; }
+.hoofdNavigatieIcoonAfbeelding { display: block; width: 24px; height: 24px; object-fit: contain; }
+.hoofdNavigatieContact { display: inline-flex; height: 56px; min-height: 56px; align-items: center; justify-content: center; padding: 10px 16px; border: 2px solid transparent; border-radius: var(--radiusKnop); background: var(--sparkyOranje); color: #111; font-family: inherit; font-size: inherit; font-weight: 800; line-height: 1; text-decoration: none; transition: filter .18s ease; }
 .hoofdNavigatieContact:hover,
-.hoofdNavigatieContact:focus-visible { background: var(--sparkyOranje); color: #111; filter: brightness(1.12) saturate(1.08); font-size: 1.05em; }
+.hoofdNavigatieContact:focus-visible { background: var(--sparkyOranje); color: #111; filter: brightness(1.12) saturate(1.08); }
 .hoofdNavigatieContact[aria-current="page"] { background: var(--sparkyOranje); color: #111; }
 .toegankelijkheidPaneel { position: relative; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .toegankelijkheidDetails { position: relative; }
@@ -285,7 +289,6 @@ body.hoogContrast .hoofdNavigatieContact { border-color: #000; background: var(-
 body.hoogContrast .hoofdNavigatieContact:hover,
 body.hoogContrast .hoofdNavigatieContact:focus-visible { background: var(--sparkyOranje); color: #000; filter: brightness(1.08); }
 @media (max-width: 1023px), (hover: none) and (pointer: coarse) {
-  .hoofdNavigatieTelefoon { display: none; }
   .toegankelijkheidSubmenu { position: absolute; inset-inline-end: 0; width: min(220px, calc(100vw - 32px)); }
 }
 @media (max-width: 380px) {
@@ -294,24 +297,18 @@ body.hoogContrast .hoofdNavigatieContact:focus-visible { background: var(--spark
   .siteLogoAfbeelding { height: 70px; }
   .hoofdNavigatieActies { gap: 4px; }
   .hoofdNavigatieContact { height: 50px; min-height: 50px; padding-inline: 8px; }
-  .hoofdNavigatieContact:hover,
-  .hoofdNavigatieContact:focus-visible { font-size: 1.05em; }
   .toegankelijkheidToggle { width: 50px; height: 50px; min-width: 50px; min-height: 50px; }
 }
 
 .mainContent { width: 100%; }
 .siteSectie { width: var(--containerBreedte); margin-inline: auto; padding-block: var(--sectieRuimte); scroll-margin-top: 104px; }
-html.sectieFlowActief { scroll-snap-type: y proximity; scroll-padding-block-start: var(--sectieFlowKophoogte); }
-html.sectieFlowActief.sectieFlowFooterVrij,
-html.sectieFlowActief.sectieFlowToegankelijk,
-html.sectieFlowActief.sectieFlowInterneAnimatieVrij { scroll-snap-type: none; }
+/* De pagina volgt de natuurlijke scrollbeweging; sectie-animaties sturen alleen de presentatie. */
+html.sectieFlowActief { scroll-padding-block-start: var(--sectieFlowKophoogte); }
 .sectieFlowActief .mainContent > .siteSectie {
   min-block-size: calc(100svh - var(--sectieFlowKophoogte));
   align-content: center;
   padding-block: var(--sectieFlowRuimte);
   scroll-margin-block-start: 0;
-  scroll-snap-align: start;
-  scroll-snap-stop: normal;
 }
 .sectieFlowActief .mainContent > .siteSectie > * {
   opacity: 1;
@@ -321,7 +318,8 @@ html.sectieFlowActief.sectieFlowInterneAnimatieVrij { scroll-snap-type: none; }
 .sectieFlowActief .mainContent > .siteSectie:not(.sectieFlowInBeeld) > * { opacity: .18; }
 .sectieFlowActief .mainContent > .siteSectie.sectieFlowVanBoven > * { transform: translateY(-32px) scale(.985); }
 .sectieFlowActief .mainContent > .siteSectie.sectieFlowVanOnder > * { transform: translateY(32px) scale(.985); }
-.sectieFlowActief .mainContent > .siteSectie.layoutStickySplitCards { scroll-snap-align: none; }
+/* Interne kaartanimaties krijgen dezelfde bovenruimte als de overige inhoudssecties. */
+.mainContent > .siteSectie.layoutStickySplitCards { padding-block-start: var(--sectieRuimte); }
 .sectieFlowActief .mainContent > .siteSectie.layoutStickySplitCards > * {
   opacity: 1;
   transform: none;
@@ -402,6 +400,10 @@ body.tekstGroot .backNaarBovenKnop { min-height: 58px; padding: 12px 18px; white
 .overOnsSectJongGedrevenEnGebouwdOpVakmanschapKop .sectieIntro { margin-inline: auto; }
 .overOnsSectJongGedrevenEnGebouwdOpVakmanschapKop .sectieTitel { max-width: 16ch; text-wrap: balance; }
 .overOnsSectJongGedrevenEnGebouwdOpVakmanschapKop .sectieIntro { max-width: 64ch; margin-block-start: clamp(18px, 3vw, 28px); }
+.overOnsIntroGecentreerd { display: grid; justify-items: center; gap: clamp(24px, 4vw, 40px); text-align: center; }
+.overOnsIntroGecentreerd .sectieTitel { font-size: clamp(2rem, 4.8vw, 4.6rem); }
+.overOnsIntroGecentreerd .sectionActies { justify-content: center; margin-block-start: 0; }
+.overOnsIntroGecentreerd .siteBtn { margin-block-start: 0; }
 .overOnsGecentreerdeTekst { border: 0; background: var(--sparkyLichtGrijs); box-shadow: none; }
 .overOnsGecentreerdeTekst > .sectieKop { width: min(940px, 100%); max-width: none; margin-inline: auto; text-align: center; }
 .overOnsGecentreerdeTekst > .sectieKop .sectieTitel { max-width: none; margin-inline: auto; text-wrap: balance; }
@@ -421,7 +423,7 @@ body.tekstGroot .overOnsHeroVolledigeBreedte { min-height: auto; }
 .overOnsAchtergrondSectieVolledigeBreedte { position: relative; isolation: isolate; width: 100%; overflow: hidden; padding-inline: max(5vw, calc((100vw - 1320px) / 2)); }
 .overOnsAchtergrondSectieVolledigeBreedte::after { display: none; }
 .overOnsAchtergrondSectieVolledigeBreedte > :not(.overOnsHeroAchtergrond) { position: relative; z-index: 2; }
-.overOnsSectRotterdamseMentaliteitLandelijkeServiceKop { display: grid; width: 100%; max-width: none; grid-template-columns: minmax(0, 1fr); gap: clamp(20px, 4vw, 40px); align-items: start; }
+.overOnsSectRotterdamseMentaliteitLandelijkeServiceKop { display: grid; width: 100%; max-width: 900px; grid-template-columns: minmax(0, 1fr); gap: clamp(20px, 4vw, 40px); justify-items: center; margin-inline: auto; text-align: center; }
 .overOnsSectRotterdamseMentaliteitLandelijkeServiceKop .sectieTitel,
 .overOnsSectRotterdamseMentaliteitLandelijkeServiceKop .sectieIntro { max-width: none; margin: 0; }
 .overOnsSectRotterdamseMentaliteitLandelijkeServiceKop .sectieTitel { text-wrap: balance; }
@@ -432,9 +434,6 @@ body.hoogContrast .overOnsAchtergrondSectieVolledigeBreedte .overOnsHeroAchtergr
 body.hoogContrast .overOnsAchtergrondSectieVolledigeBreedte .overOnsHeroAchtergrondAfbeelding { filter: grayscale(1) contrast(1.35) brightness(.5); }
 body.hoogContrast .overOnsAchtergrondSectieVolledigeBreedte .sectieTitel,
 body.hoogContrast .overOnsAchtergrondSectieVolledigeBreedte .sectieIntro { color: #fff; text-shadow: 0 2px 8px rgba(0, 0, 0, .9); }
-@media (min-width: 768px) {
-  .overOnsSectRotterdamseMentaliteitLandelijkeServiceKop { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(48px, 8vw, 96px); }
-}
 body.tekstGroot .overOnsSectRotterdamseMentaliteitLandelijkeServiceKop { grid-template-columns: minmax(0, 1fr); }
 .overOnsSectWatWijDoenKop { width: min(720px, 100%); max-width: none; margin-inline: auto; text-align: center; }
 .overOnsSectWatWijDoenKop .sectieTitel,
@@ -518,9 +517,9 @@ body.hoogContrast .homeHeroScrollMediaLabel { border: 2px solid #000; background
 @media (max-width: 767px) {
   .kenmerkKaartenSectie .kenmerkKaartLijst { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: auto; gap: clamp(10px, 3vw, 16px); margin-block-start: 24px; }
   .kenmerkKaartLijst > .kaartLijstItem { height: auto; min-height: 0; aspect-ratio: 1; overflow: hidden; }
-  .kenmerkKaart { display: flex; min-width: 0; flex-direction: column; align-items: center; justify-content: center; padding: clamp(9px, 3.2vw, 16px); }
-  .kenmerkKaart h3 { font-size: clamp(.8rem, 3.6vw, 1.05rem); line-height: 1.14; overflow-wrap: anywhere; text-wrap: balance; }
-  .kenmerkKaart p { margin-block-start: clamp(6px, 1.8vw, 9px); font-size: clamp(.67rem, 2.75vw, .84rem); line-height: 1.28; overflow-wrap: anywhere; }
+  .kenmerkKaart { --kenmerkKopGrootte: clamp(.8rem, 3.6vw, 1.05rem); display: flex; min-width: 0; flex-direction: column; align-items: center; justify-content: center; padding: clamp(9px, 3.2vw, 16px); }
+  .kenmerkKaart h3 { font-size: clamp(.8rem, 3.6vw, 1.05rem); line-height: 1.14; overflow-wrap: normal; text-wrap: balance; }
+  .kenmerkKaart p { margin-block-start: clamp(6px, 1.8vw, 9px); font-size: clamp(.67rem, 2.75vw, .84rem); line-height: 1.28; overflow-wrap: normal; }
   .kenmerkKaartenSectie .kenmerkKaartLijstAutoHoogte > .kaartLijstItem { min-height: calc((100vw - 58px) / 2); aspect-ratio: auto; overflow: visible; }
   .kenmerkKaartenSectie .kenmerkKaartLijstAutoHoogte > .kaartLijstItem > .kenmerkKaart { height: auto; min-height: 100%; }
   body.tekstGroot .kenmerkKaartLijst > .kaartLijstItem { aspect-ratio: auto; min-height: calc((100vw - 58px) / 2); }
@@ -1293,7 +1292,7 @@ body.tekstGroot .elektrotechnischeRenovatiesGasKaartMedia { order: initial; }
 .elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovatiesKop { width: 100%; max-width: 900px; margin-inline: auto; text-align: center; }
 .elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovatiesKop .sectieTitel,
 .elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovatiesKop .sectieIntro { margin-inline: auto; }
-.elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovatiesKop .sectieTitel { max-width: 20ch; overflow-wrap: anywhere; font-size: clamp(2rem, 3.4vw, 3.8rem); hyphens: auto; text-wrap: balance; }
+.elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovatiesKop .sectieTitel { max-width: 20ch; overflow-wrap: normal; font-size: min(clamp(2rem, 3.4vw, 3.8rem), 11.5cqi); hyphens: none; text-wrap: balance; }
 .elektrotechnischeRenovatiesHeroSplitKaart .sectionActies { justify-content: center; }
 body.hoogContrast .elektrotechnischeRenovatiesHeroSplitKaart { border: 2px solid #000; background: #fff; box-shadow: none; }
 body.hoogContrast .elektrotechnischeRenovatiesHeroSplitKaart .elektrotechnischeRenovatiesSectieMedia { border: 0; }
@@ -1360,16 +1359,13 @@ body.tekstGroot .elektrotechnischeRenovatiesExtraElektraGrid { grid-template-col
 body.tekstGroot .elektrotechnischeRenovatiesExtraElektraInhoud { display: block; grid-column: 1; grid-row: 1; }
 body.tekstGroot .elektrotechnischeRenovatiesExtraElektraMedia { grid-column: 1; grid-row: 2; min-height: clamp(300px, 72vw, 440px); aspect-ratio: 4 / 3; }
 .elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden { border: 0; background: transparent; box-shadow: none; }
-.elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenKop { display: grid; width: 100%; max-width: none; grid-template-columns: minmax(0, 1fr); gap: clamp(20px, 4vw, 40px); align-items: start; }
+.elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenKop { display: grid; width: 100%; max-width: 900px; grid-template-columns: minmax(0, 1fr); gap: clamp(20px, 4vw, 40px); justify-items: center; margin-inline: auto; text-align: center; }
 .elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenKop .sectieTitel,
 .elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenKop .sectieIntro { max-width: none; margin: 0; }
 .elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenKop .sectieTitel { text-wrap: balance; }
 .elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenKop .sectieIntro { max-width: 62ch; }
 .elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenActies { margin-block-start: clamp(44px, 7vw, 80px); }
 body.hoogContrast .elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden { border: 0; background: transparent; box-shadow: none; }
-@media (min-width: 768px) {
-  .elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenKop { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(48px, 8vw, 96px); }
-}
 body.tekstGroot .elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenKop { grid-template-columns: minmax(0, 1fr); }
 .elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomst { border: 0; background: transparent; box-shadow: none; }
 .elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomstKop { display: grid; width: 100%; max-width: none; gap: clamp(20px, 4vw, 40px); align-items: start; }
@@ -1470,7 +1466,8 @@ body.tekstGroot .contactKeuzeRaster { grid-template-columns: minmax(0, 1fr); }
 .siteFooter { margin-block-start: 48px; background: var(--sparkyDonker); color: #fff; }
 .footerSectie { width: var(--containerBreedte); margin-inline: auto; padding-block: clamp(48px, 7vw, 80px) 28px; }
 .footerKolommen { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(36px, 6vw, 72px); align-items: center; }
-.footerKolom { min-width: 0; overflow-wrap: anywhere; }
+.footerKolom { min-width: 0; overflow-wrap: normal; }
+.footerKolom a[href^="mailto:"] { overflow-wrap: anywhere; }
 .footerLogoLink { display: inline-flex; width: min(164px, 100%); align-items: center; text-decoration: none; }
 .footerLogoAfbeelding { display: block; width: 100%; height: auto; object-fit: contain; }
 .footerBedrijfsgegevens { display: grid; gap: 3px; margin-block-start: 24px; color: #fff; font-style: normal; line-height: 1.55; }
@@ -1597,14 +1594,20 @@ body.hoogContrast .footerNavigatieLijst a:hover { color: var(--sparkyOranje); te
 }
 @media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
   :root { --sectieFlowKophoogte: 118px; }
-  .hoofdNavigatie { min-height: 118px; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
+  .hoofdNavigatie { --navigatieItemHoogte: calc(var(--basisTekst) * var(--regelHoogte) + 20px); min-height: 118px; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
   .navigatieMenuKnop { display: none; }
   .primaireNavigatieLijst { display: flex; grid-column: 1; grid-row: 1; align-items: center; justify-content: flex-start; justify-self: start; flex-wrap: wrap; }
   .primaireNavigatieLijst.isOpen { display: flex; }
   .siteLogoLink { grid-column: 2; grid-row: 1; max-width: 140.76px; }
   .siteLogoAfbeelding { height: 126.96px; }
   .hoofdNavigatieActies { grid-column: 3; grid-row: 1; justify-self: end; }
-  .hoofdNavigatieTelefoon { display: inline-flex; }
+  .hoofdNavigatieContactIconen { display: flex; }
+  .primaireNavigatieLijst > li > a,
+  .primaireNavigatieLijst > li > button,
+  .hoofdNavigatieIcoon,
+  .hoofdNavigatieContact,
+  .toegankelijkheidToggle { height: var(--navigatieItemHoogte); min-height: var(--navigatieItemHoogte); }
+  .vasteActieKnoppen > .whatsAppKnop { display: none; }
   .toegankelijkheidPaneel { justify-content: end; }
   .siteSectie { scroll-margin-top: 156px; }
   .layoutHero, .layoutSplit { grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr); }
@@ -1629,7 +1632,6 @@ body.hoogContrast .footerNavigatieLijst a:hover { color: var(--sparkyOranje); te
   :root { --containerBreedte: min(1320px, calc(100vw - 80px)); }
 }
 @media (prefers-reduced-motion: reduce) {
-  html.sectieFlowActief { scroll-snap-type: none; }
   .sectieFlowActief .mainContent > .siteSectie > * { opacity: 1 !important; transform: none !important; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .001ms !important; }
 }
@@ -1698,6 +1700,7 @@ body.hoogContrast .footerKaart {
 
 body.hoogContrast .primaireNavigatieLijst a,
 body.hoogContrast .primaireNavigatieLijst button,
+body.hoogContrast .hoofdNavigatieIcoon,
 body.hoogContrast .toegankelijkheidToggle,
 body.hoogContrast .toegankelijkheidKnop {
   border-color: var(--kleurRand);
@@ -1709,6 +1712,8 @@ body.hoogContrast .primaireNavigatieLijst a[aria-current="page"],
 body.hoogContrast .primaireNavigatieLijst a:hover,
 body.hoogContrast .primaireNavigatieLijst button:hover,
 body.hoogContrast .primaireNavigatieLijst button:focus-visible,
+body.hoogContrast .hoofdNavigatieIcoon:hover,
+body.hoogContrast .hoofdNavigatieIcoon:focus-visible,
 body.hoogContrast .toegankelijkheidToggle:hover,
 body.hoogContrast .toegankelijkheidToggle:focus-visible {
   background: #151b20;
@@ -1745,8 +1750,6 @@ body.hoogContrast .toegankelijkheidKnop {
 
 body.hoogContrast .siteBtn:hover,
 body.hoogContrast .siteBtn:focus-visible,
-body.hoogContrast .hoofdNavigatieContact:hover,
-body.hoogContrast .hoofdNavigatieContact:focus-visible,
 body.hoogContrast .backNaarBovenKnop:hover,
 body.hoogContrast .backNaarBovenKnop:focus-visible,
 body.hoogContrast .navigatieMenuKnop:hover,
@@ -2270,6 +2273,12 @@ body.tekstGroot .contactRouteLijst { grid-template-columns: minmax(0, 1fr); }
 .elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomstKop .sectieTitel,
 .elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomstKop .sectieIntro { margin-inline: auto; }
 .systeemSamenInhoud > .siteBtn { align-self: center; }
+.systeemSamenInhoud .sectieKop { max-width: 1100px; }
+.systeemSamenInhoud .sectieTitel,
+.systeemSamenInhoud .systeemSamenKopTekst { max-width: none; font-family: var(--fontKop); font-size: clamp(2rem, 3.2vw, 3.8rem); font-weight: 700; line-height: 1.12; color: var(--sparkyDonkerBlauw); text-wrap: balance; }
+.systeemSamenTitelRegel { display: block; margin-block-end: clamp(20px, 3vw, 36px); }
+.systeemSamenInhoud .systeemSamenKopTekst { margin-block-start: clamp(24px, 4vw, 48px); }
+.systeemSamenInhoud .contentParagraaf { margin-block-start: clamp(24px, 4vw, 40px); }
 .keuzehulpSectie > .sectionActies { justify-content: center; }
 .elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomstKop { display: block; }
 .kenmerkKaartenSectie.layoutFeatures > .sectieKop { display: block; width: 100%; max-width: 900px; margin-inline: auto; text-align: center; }
@@ -2281,7 +2290,7 @@ body.tekstGroot .contactRouteLijst { grid-template-columns: minmax(0, 1fr); }
 #zonnepanelenSectHoeWerkenZonnepanelenH2 { scroll-margin-block-start: calc(var(--sectieFlowKophoogte, 148px) + 24px); }
 .zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDakKop .contentParagraaf { max-width: 66ch; margin: clamp(18px, 3vw, 26px) auto 0; }
 @media (max-width: 767px) {
-  .zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak .kenmerkKaart h3 { font-size: 1.125rem; line-height: 1.3; }
+  .zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak .kenmerkKaart h3 { --kenmerkKopGrootte: 1.125rem; font-size: 1.125rem; line-height: 1.3; }
   .zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak .kenmerkKaart p { font-size: 1rem; line-height: 1.6; }
 }
 .kenmerkKaartenSectie.layoutFeatures > .sectionActies { justify-content: center; }
@@ -2294,18 +2303,24 @@ body.tekstGroot .contactRouteLijst { grid-template-columns: minmax(0, 1fr); }
 .kenmerkKaartLijstAutoHoogte > .kaartLijstItem,
 .gelijkeKaartLijst > .kaartLijstItem { display: flex; min-width: 0; height: 100%; min-height: 0; overflow: visible; }
 .kenmerkKaartLijstAutoHoogte > .kaartLijstItem > .kenmerkKaart,
-.gelijkeKaartLijst > .kaartLijstItem > .kenmerkKaart { display: flex; width: 100%; height: 100%; min-height: clamp(190px, 18vw, 230px); flex-direction: column; align-items: center; justify-content: center; padding: clamp(18px, 3vw, 30px); overflow: hidden; text-align: center; }
+.gelijkeKaartLijst > .kaartLijstItem > .kenmerkKaart { display: flex; width: 100%; height: 100%; min-height: clamp(190px, 18vw, 230px); flex-direction: column; align-items: center; justify-content: flex-start; padding: clamp(18px, 3vw, 30px); overflow: hidden; text-align: center; }
 .kenmerkKaartLijstAutoHoogte .kenmerkKaart h3,
 .kenmerkKaartLijstAutoHoogte .kenmerkKaart p,
 .gelijkeKaartLijst .kenmerkKaart h3,
-.gelijkeKaartLijst .kenmerkKaart p { max-width: 100%; margin-inline: auto; overflow-wrap: anywhere; hyphens: auto; }
+.gelijkeKaartLijst .kenmerkKaart p { max-width: 100%; margin-inline: auto; overflow-wrap: normal; hyphens: none; }
+/* Laat lange kaartkoppen passen op de beschikbare breedte zonder woorden te splitsen. */
+.kenmerkKaartLijstAutoHoogte .kenmerkKaart,
+.gelijkeKaartLijst .kenmerkKaart { container-type: inline-size; }
+.kenmerkKaartLijstAutoHoogte .kenmerkKaart h3,
+.gelijkeKaartLijst .kenmerkKaart h3 { font-size: min(var(--kenmerkKopGrootte, clamp(1.2rem, 2vw, 1.7rem)), 8.5cqi); }
+body.tekstGroot .kenmerkKaart h3 { font-size: inherit; }
 
 .ankerKaartLijst > li,
 .keuzeKaartLijst > li { display: flex; min-width: 0; height: 100%; }
-.ankerKaart { width: 100%; height: 100%; min-height: 172px; align-items: center; justify-content: center; text-align: center; }
+.ankerKaart { width: 100%; height: 100%; min-height: 172px; align-items: center; justify-content: flex-start; text-align: center; }
 .ankerKaart strong,
-.ankerKaart span { max-width: 100%; overflow-wrap: anywhere; hyphens: auto; }
-.keuzeKaartLijst a { width: 100%; height: 100%; min-height: 88px; justify-content: center; overflow-wrap: anywhere; text-align: center; }
+.ankerKaart span { max-width: 100%; overflow-wrap: normal; hyphens: none; }
+.keuzeKaartLijst a { width: 100%; height: 100%; min-height: 88px; justify-content: center; overflow-wrap: normal; text-align: center; }
 
 /* De groepenkastkaarten krijgen de volle sectiebreedte in plaats van een halve kolom. */
 .elektrotechnischeRenovatiesGroepenkastGrid { grid-template-areas: "content" "media" "cards" "actions"; align-items: start; }
@@ -2316,7 +2331,9 @@ body.tekstGroot .contactRouteLijst { grid-template-columns: minmax(0, 1fr); }
 .elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoningKop .sectieTitel,
 .elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoningKop .sectieIntro,
 .elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoningKop .contentParagraaf { margin-inline: auto; }
-.elektrotechnischeRenovatiesGasKaartInhoud h3 { max-width: 100%; overflow-wrap: normal; hyphens: auto; }
+.elektrotechnischeRenovatiesHeroSplitKaart .elektrotechnischeRenovatiesSplitKaartInhoud,
+.elektrotechnischeRenovatiesGasKaartInhoud { container-type: inline-size; }
+.elektrotechnischeRenovatiesGasKaartInhoud h3 { max-width: 100%; overflow-wrap: normal; hyphens: none; font-size: min(clamp(1.8rem, 3.4vw, 3.25rem), 10.5cqi); }
 
 .modulePlaceholderInhoud { justify-items: center; text-align: center; }
 .modulePlaceholderInhoud .sectieTitel,
@@ -2352,7 +2369,7 @@ body.tekstGroot .contactRouteLijst { grid-template-columns: minmax(0, 1fr); }
 .adviesCalculatorVelden { display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; gap: 22px 18px; align-items: stretch; }
 /* Een gedeelde labelruimte per rij houdt de invoervelden op gelijke hoogte. */
 .adviesCalculatorVelden > .contactFormulierVeld { grid-template-rows: minmax(min-content, 1fr) auto; align-content: stretch; }
-.adviesCalculatorVelden > .contactFormulierVeld > label { display: flex; min-width: 0; flex-direction: column; align-items: center; justify-content: center; margin: 0; text-align: center; line-height: 1.45; overflow-wrap: anywhere; }
+.adviesCalculatorVelden > .contactFormulierVeld > label { display: flex; min-width: 0; flex-direction: column; align-items: center; justify-content: center; margin: 0; text-align: center; line-height: 1.45; overflow-wrap: normal; }
 .adviesCalculatorVelden > .contactFormulierVeld > input,
 .adviesCalculatorVelden > .contactFormulierVeld > select,
 .adviesCalculatorEenheid input { display: block; width: 100%; min-width: 0; height: max(56px, calc(1.4em + 28px)); min-height: 56px; margin: 0; padding-block: 12px; line-height: 1.4; text-align: center; }
@@ -2361,7 +2378,7 @@ body.tekstGroot .contactRouteLijst { grid-template-columns: minmax(0, 1fr); }
 .adviesCalculatorFormulier [hidden] { display: none !important; }
 .adviesCalculatorEenheid { position: relative; min-width: 0; }
 .adviesCalculatorEenheid input { padding-inline: min(30%, 80px); }
-.adviesCalculatorEenheid span { position: absolute; inset: 50% 12px auto auto; max-width: calc(30% - 12px); color: #52616b; font-size: .78rem; font-weight: 700; line-height: 1.25; text-align: center; overflow-wrap: anywhere; pointer-events: none; transform: translateY(-50%); }
+.adviesCalculatorEenheid span { position: absolute; inset: 50% 12px auto auto; max-width: calc(30% - 12px); color: #52616b; font-size: .78rem; font-weight: 700; line-height: 1.25; text-align: center; overflow-wrap: normal; pointer-events: none; transform: translateY(-50%); }
 .adviesCalculatorToelichting { max-width: 65ch; margin: 0 auto 18px; color: #52616b; font-size: .9rem; line-height: 1.6; text-align: center; }
 .adviesCalculatorKeuzes { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; margin: 0; padding: 0; border: 0; }
 .adviesCalculatorKeuzes legend { margin-block-end: 10px; }
