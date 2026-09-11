@@ -67,6 +67,10 @@ De website gebruikt altijd de lichte weergave als standaard: witte achtergronden
 ### Afspraken voor hoog contrast
 
 - Hoog contrast verandert kleuren, randen en schaduwen, maar schakelt animaties niet uit. Bewegingsreductie blijft gekoppeld aan `prefers-reduced-motion`.
+- Alle hoogcontrastregels staan bij elkaar onderaan `assets/css/styles.css`. Voeg uitzonderingen daar toe om tegenstrijdige kleurregels te voorkomen.
+- Sectiehoogtes, witruimte, afbeeldingsafmetingen en borderbreedtes blijven gelijk aan de normale weergave, ook met grotere tekst. Gebruik een outline wanneer een extra omtrek nodig is.
+- Donkere vlakken krijgen witte tekst; oranje knoppen en labels krijgen zwarte tekst. Invoervelden blijven wit met donkere waarden, placeholders en eenheden. Controleer ook hover, focus, geopende formulieren en meldingen.
+- Tekst boven foto's blijft leesbaar door een donkere beeldlaag; de achtergrond blijft donker terwijl een foto nog wordt geladen.
 - Geef open split-card- en mediavlakken die vanaf tabletbreedte de pagina-achtergrond moeten tonen de class `hoogContrastTransparantVlak`. Plaats de class zowel op de kaart als op het mediavlak; de mobiele weergave blijft daardoor ongewijzigd.
 
 ## Rekenformulier
