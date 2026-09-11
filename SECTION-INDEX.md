@@ -26,9 +26,9 @@
 
 ## Google-tagconfiguratie
 
-- Measurement ID: `G-B8QNYQR8CY`
-- Google Tag ID: `GT-PL9T2DJM`
-- Stream ID: `15270728473`
+- Measurement ID: `G-87KMB19788`
+
+Alle zeven publieke pagina's laden deze tag via `assets/js/cookie-consent.js` na volledige toestemming. De tabel hieronder controleert uitsluitend directe Google-tags in de HTML-head.
 
 | Pagina | Script in `head` | Config-ID | Consent-default in `head` |
 |---|---|---|---|

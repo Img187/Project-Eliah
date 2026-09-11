@@ -5,7 +5,7 @@
   const STORAGE_KEY = 'sparky-cookie-toestemming';
   const CHOICE_FULL = 'volledig';
   const CHOICE_FUNCTIONAL = 'functioneel';
-  const MEASUREMENT_ID = 'G-B8QNYQR8CY';
+  const MEASUREMENT_ID = 'G-87KMB19788';
   const GOOGLE_ANALYTICS_SCRIPT_ID = 'googleAnalyticsTag';
 
   let currentChoice = readChoice();

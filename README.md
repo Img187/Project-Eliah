@@ -81,9 +81,7 @@ De contactpagina bevat sectie `contactSectVragenformulierVoorBesparingEnInstalla
 
 De zeven openbare pagina's gebruiken de Google-tag voor de GA4-webstream van Sparky Energies:
 
-- Stream-ID: `15270728473`
-- Google tag ID: `GT-PL9T2DJM`
-- Measurement ID: `G-B8QNYQR8CY`
+- Measurement ID: `G-87KMB19788`
 
 De Google-tag staat niet in de HTML-head en wordt dus niet standaard gedownload. `assets/js/cookie-consent.js` injecteert het Analytics-script eenmalig tijdens een vrij browsermoment, uitsluitend nadat de bezoeker volledige toestemming heeft gegeven:
 
