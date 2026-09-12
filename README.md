@@ -64,6 +64,12 @@ De header bevat knoppen voor grotere tekst, hoog contrast, voorlezen en stoppen 
 
 De website gebruikt altijd de lichte weergave als standaard: witte achtergronden, donkerblauwe koppen en donkere lopende tekst. Hoog contrast wordt uitsluitend geactiveerd via de toegankelijkheidsknop en wordt in `localStorage` bewaard.
 
+Kenmerk- en ankerkaarten delen één typografische basis: lopende tekst volgt `--basisTekst` (minimaal `1rem`), met gewicht 400 en de algemene regelhoogte. Kaartkoppen zijn 1,25 keer zo groot en groeien ook mee met de grotere-tekststand. De gedeelde `--kaart*`-variabelen regelen de kopverhouding, regelhoogte, witruimte en minimale kolombreedte. Het raster past het aantal kolommen aan de beschikbare ruimte aan; kaarten groeien met hun inhoud en verkleinen hun tekst niet om deze passend te maken.
+
+De klikbare kaarten bij Onze diensten, Wat wilt u laten uitvoeren? en Onze installaties en diensten delen dezelfde hoveranimatie: de volledige kaart vergroot 10% in 0,2 seconde en verschijnt boven aangrenzende kaarten. De focusrand omvat de hele link. Touchscreens gebruiken geen hoverzoom; bij `prefers-reduced-motion` vervalt de vergroting.
+
+Mobiel en tablet delen dezelfde vaste contactbalk (Bel ons / Advies aanvragen). WhatsApp sluit direct aan op de bovenkant van deze balk zolang Terug naar boven verborgen is. Zodra de terugknop na 360 px scrollen verschijnt, schuift WhatsApp erboven; bij terugscrollen sluit hij weer aan op de contactbalk. De balk gebruikt dezelfde breekpunten als de compacte navigatie: onder 1024 px of bij touchbediening zonder hover. De zwevende knoppen en de onderruimte volgen de gemeten balk- en knophoogte, ook bij grotere tekst. Het navigatielogo staat tussen twee even brede kolommen; onder 600 px neemt de onderbalk de extra Contact-knop in de header over.
+
 ### Afspraken voor hoog contrast
 
 - Hoog contrast verandert kleuren, randen en schaduwen, maar schakelt animaties niet uit. Bewegingsreductie blijft gekoppeld aan `prefers-reduced-motion`.

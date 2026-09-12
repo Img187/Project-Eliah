@@ -311,7 +311,7 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
   updateWhatsAppDestination(whatsappDesktopQuery);
   floatingActionButtons.appendChild(whatsappButton);
 
-  // Eén vaste mobiele contactroute op elke pagina.
+  // Eén vaste contactroute voor mobiel en tablet op elke pagina.
   const mobileContactBar = document.createElement('nav');
   mobileContactBar.className = 'mobieleContactBalk';
   mobileContactBar.setAttribute('aria-label', 'Snel contact');
@@ -329,6 +329,23 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
   backToTopButton.innerHTML = '<span class="backNaarBovenIcoon" aria-hidden="true">&uarr;</span><span class="backNaarBovenTekst">Terug naar boven</span>';
   floatingActionButtons.appendChild(backToTopButton);
   body.appendChild(floatingActionButtons);
+
+  // Meet ook de verborgen terugknop: WhatsApp sluit eerst aan op de contactbalk
+  // en schuift bij verschijnen van de terugknop over precies de benodigde afstand omhoog.
+  function updateFixedActionHeights() {
+    const barHeight = Math.ceil(mobileContactBar.getBoundingClientRect().height);
+    const backButtonHeight = backToTopButton.getBoundingClientRect().height;
+    document.documentElement.style.setProperty('--contactBalkHoogte', `${barHeight}px`);
+    floatingActionButtons.style.setProperty('--backNaarBovenHoogte', `${backButtonHeight}px`);
+  }
+  if ('ResizeObserver' in window) {
+    const fixedActionResizeObserver = new ResizeObserver(updateFixedActionHeights);
+    fixedActionResizeObserver.observe(mobileContactBar);
+    fixedActionResizeObserver.observe(backToTopButton);
+  } else {
+    window.addEventListener('resize', updateFixedActionHeights, { passive: true });
+  }
+  updateFixedActionHeights();
 
   let backToTopFrame = 0;
 

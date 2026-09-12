@@ -116,6 +116,12 @@ De lokale fontbestanden staan in /assets/fonts/.
   --schaduwZacht: 0 22px 70px rgba(11, 60, 93, 0.12);
   --basisTekst: clamp(1rem, 0.92rem + 0.35vw, 1.18rem);
   --regelHoogte: 1.7;
+  --kaartKopVerhouding: 1.25;
+  --kaartKopRegelhoogte: 1.3;
+  --kaartTekstRuimte: .75em;
+  --kaartBinnenruimte: clamp(1.125rem, 3vw, 1.875rem);
+  --kaartMinBreedte: 16rem;
+  --contactBalkHoogte: calc(72px + env(safe-area-inset-bottom));
   --sectieFlowKophoogte: 104px;
   --sectieFlowRuimte: clamp(24px, 3svh, 36px);
 }
@@ -139,7 +145,7 @@ button, a, input, select, textarea, summary { touch-action: manipulation; }
 
 /* HTML: alle pagina's > header#siteHeader */
 .siteHeader { position: sticky; top: 0; z-index: 900; background: rgba(255,255,255,.94); border-bottom: 1px solid var(--kleurRand); backdrop-filter: blur(14px); }
-.hoofdNavigatie { position: relative; display: grid; width: var(--containerBreedte); min-height: 104px; grid-template-columns: auto minmax(0, 1fr) auto; gap: clamp(8px, 2vw, 16px); align-items: center; margin-inline: auto; padding-block: 10px; }
+.hoofdNavigatie { position: relative; display: grid; width: var(--containerBreedte); min-height: 104px; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: clamp(8px, 2vw, 16px); align-items: center; margin-inline: auto; padding-block: 10px; }
 .siteLogoLink { display: inline-flex; grid-column: 2; grid-row: 1; max-width: 94px; min-height: 72px; align-items: center; justify-self: center; color: var(--sparkyDonkerBlauw); font-family: var(--fontKop); font-size: clamp(1.15rem, 1rem + .6vw, 1.6rem); font-weight: 700; text-decoration: none; }
 .siteLogoAfbeelding { display: block; width: auto; max-width: 100%; height: clamp(68px, 14vw, 84px); object-fit: contain; }
 .siteLogoTekst { padding-block: 6px; }
@@ -285,6 +291,10 @@ button, a, input, select, textarea, summary { touch-action: manipulation; }
 @media (max-width: 1023px), (hover: none) and (pointer: coarse) {
   .toegankelijkheidSubmenu { position: absolute; inset-inline-end: 0; width: min(220px, calc(100vw - 32px)); }
 }
+/* Houd het logo in het schermmidden; de vaste contactbalk neemt op smalle telefoons de contactactie over. */
+@media (max-width: 599px) {
+  .hoofdNavigatieContact { display: none; }
+}
 @media (max-width: 380px) {
   .hoofdNavigatie { gap: 6px; }
   .siteLogoLink { max-width: 72px; }
@@ -414,18 +424,10 @@ body.tekstGroot .overOnsSectRotterdamseMentaliteitLandelijkeServiceKop { grid-te
 .overOnsSectWatWijDoenLijst { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(42px, 6vw, 64px) clamp(24px, 3vw, 36px); margin: clamp(48px, 7vw, 80px) 0 0; padding: 0; list-style: none; }
 .overOnsSectWatWijDoenLijst > li { min-width: 0; }
 .overOnsSectWatWijDoenItem { height: 100%; border: 0; background: transparent; box-shadow: none; text-align: center; }
-.overOnsSectWatWijDoenLink { display: block; height: 100%; border-radius: 10px; color: inherit; text-decoration: none; }
-.overOnsSectWatWijDoenMedia { aspect-ratio: 16 / 9; margin: 0 0 clamp(20px, 3vw, 24px); overflow: hidden; border-radius: 10px; background: #fff; }
-.overOnsSectWatWijDoenMedia img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
-.overOnsSectWatWijDoenItem h3 { max-width: 24ch; margin-inline: auto; font-size: clamp(1.25rem, 1.1rem + .6vw, 1.65rem); line-height: 1.25; text-wrap: balance; transition: color .16s ease; }
-.overOnsSectWatWijDoenLink:hover h3 { color: var(--sparkyOranje); }
-.overOnsSectWatWijDoenLink:hover .overOnsSectWatWijDoenMedia img { transform: scale(1.025); }
-.overOnsSectWatWijDoenLink:focus-visible { outline: 3px solid var(--sparkyOranje); outline-offset: 6px; }
-@media (prefers-reduced-motion: reduce) {
-  .overOnsSectWatWijDoenMedia img,
-  .overOnsSectWatWijDoenItem h3 { transition: none; }
-  .overOnsSectWatWijDoenLink:hover .overOnsSectWatWijDoenMedia img { transform: none; }
-}
+.overOnsSectWatWijDoenLink { display: block; color: inherit; background: var(--kleurKaart); box-shadow: var(--schaduwZacht); font-size: var(--basisTekst); }
+.overOnsSectWatWijDoenMedia { aspect-ratio: 16 / 9; margin: 0; overflow: hidden; border-radius: 10px 10px 0 0; background: #fff; }
+.overOnsSectWatWijDoenMedia img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.overOnsSectWatWijDoenItem h3 { max-width: 100%; margin: 0; padding: var(--kaartBinnenruimte); font-size: calc(1em * var(--kaartKopVerhouding)); line-height: var(--kaartKopRegelhoogte); overflow-wrap: anywhere; text-wrap: balance; }
 @media (min-width: 600px) {
   .overOnsSectWatWijDoenLijst { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -474,18 +476,8 @@ body.tekstGroot .overOnsNormenIcoonLijst { flex-direction: column; align-items: 
   }
 }
 .kenmerkKaartenSectie.layoutFeatures { padding-block-start: var(--sectieRuimte); }
-.kenmerkKaartenSectie .kenmerkKaartLijstTweeKolommen { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 767px) {
-  .kenmerkKaartenSectie .kenmerkKaartLijst { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: auto; gap: clamp(10px, 3vw, 16px); margin-block-start: 24px; }
-  .kenmerkKaartLijst > .kaartLijstItem { height: auto; min-height: 0; aspect-ratio: 1; overflow: hidden; }
-  .kenmerkKaart { --kenmerkKopGrootte: clamp(.8rem, 3.6vw, 1.05rem); display: flex; min-width: 0; flex-direction: column; align-items: center; justify-content: center; padding: clamp(9px, 3.2vw, 16px); }
-  .kenmerkKaart h3 { font-size: clamp(.8rem, 3.6vw, 1.05rem); line-height: 1.14; overflow-wrap: normal; text-wrap: balance; }
-  .kenmerkKaart p { margin-block-start: clamp(6px, 1.8vw, 9px); font-size: clamp(.67rem, 2.75vw, .84rem); line-height: 1.28; overflow-wrap: normal; }
-  .kenmerkKaartenSectie .kenmerkKaartLijstAutoHoogte > .kaartLijstItem { min-height: calc((100vw - 58px) / 2); aspect-ratio: auto; overflow: visible; }
-  .kenmerkKaartenSectie .kenmerkKaartLijstAutoHoogte > .kaartLijstItem > .kenmerkKaart { height: auto; min-height: 100%; }
-  body.tekstGroot .kenmerkKaartLijst > .kaartLijstItem { aspect-ratio: auto; min-height: calc((100vw - 58px) / 2); }
-  body.tekstGroot .kenmerkKaart h3,
-  body.tekstGroot .kenmerkKaart p { font-size: inherit; }
+  .kenmerkKaartenSectie .kenmerkKaartLijst { gap: 1rem; margin-block-start: 24px; }
 }
 .kaartLijst, .dienstLijst, .procesLijst, .testimonialLijst, .contactKaarten { list-style: none; padding: 0; margin: 32px 0 0; display: grid; gap: 18px; }
 .kaartLijst { grid-auto-rows: 1fr; align-items: stretch; }
@@ -496,11 +488,22 @@ body.tekstGroot .overOnsNormenIcoonLijst { flex-direction: column; align-items: 
 .homeSectWatWijVoorUInstallerenEnOnderhoudenKop .sectieIntro { margin-inline: auto; }
 .homeSectWatWijVoorUInstallerenEnOnderhouden .dienstLijst { grid-template-columns: minmax(0, 1fr); grid-auto-rows: 1fr; align-items: stretch; gap: clamp(24px, 3vw, 32px); margin-block-start: clamp(36px, 5vw, 64px); }
 .homeSectWatWijVoorUInstallerenEnOnderhouden .dienstLijstItem { min-width: 0; height: 100%; }
-.dienstKaartLink { position: relative; display: block; height: 100%; border-radius: 10px; color: inherit; text-decoration: none; transition: transform .2s ease; }
-.dienstKaartLink:hover { color: inherit; }
-.dienstKaartLink:focus-visible { outline: 4px solid var(--sparkyOranje); outline-offset: 4px; }
+.dienstKaartLink { display: block; color: inherit; }
+/* Klikbare kaarten delen de volledige-kaartzoom en focusrand van Onze diensten. */
+.dienstKaartLink,
+.ankerKaart,
+.overOnsSectWatWijDoenLink { position: relative; height: 100%; border-radius: 10px; text-decoration: none; transition: transform .2s ease; }
+.dienstKaartLink:hover,
+.overOnsSectWatWijDoenLink:hover { color: inherit; }
+.dienstKaartLink:focus-visible,
+.ankerKaart:focus-visible,
+.overOnsSectWatWijDoenLink:focus-visible { z-index: 1; outline: 4px solid var(--sparkyOranje); outline-offset: 4px; }
 @media (hover: hover) and (pointer: fine) {
-  .dienstKaartLink:hover { z-index: 1; transform: scale(1.1); }
+  .dienstKaartLink:hover,
+  .ankerKaart:hover,
+  .overOnsSectWatWijDoenLink:hover { z-index: 1; transform: scale(1.1); }
+  /* Reserveer ook bij brede kaarten voldoende ruimte voor de vergroting. */
+  .siteSectie > :is(.ankerKaartLijst, .overOnsSectWatWijDoenLijst) { width: calc(100% / 1.1); margin-inline: auto; }
 }
 @media (width < 1024px) and (hover: hover) and (pointer: fine) {
   .homeSectWatWijVoorUInstallerenEnOnderhouden .dienstLijst { width: calc(100% / 1.1); margin-inline: auto; }
@@ -508,6 +511,14 @@ body.tekstGroot .overOnsNormenIcoonLijst { flex-direction: column; align-items: 
 @media (min-width: 1024px) and (width < 1280px) and (hover: hover) and (pointer: fine) {
   .dienstLijstItem:nth-child(odd) .dienstKaartLink { transform-origin: left center; }
   .dienstLijstItem:nth-child(even) .dienstKaartLink { transform-origin: right center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dienstKaartLink,
+  .ankerKaart,
+  .overOnsSectWatWijDoenLink { transition: none; }
+  .dienstKaartLink:hover,
+  .ankerKaart:hover,
+  .overOnsSectWatWijDoenLink:hover { transform: none; }
 }
 .homeSectWatWijVoorUInstallerenEnOnderhouden .homeSectWatWijVoorUInstallerenEnOnderhoudenDienstKaart { display: grid; grid-template-columns: minmax(0, 1fr); height: 100%; min-width: 0; padding: 0; overflow: hidden; border: 0; border-radius: 10px; }
 .homeSectWatWijVoorUInstallerenEnOnderhoudenDienstInhoud { display: flex; min-width: 0; flex-direction: column; align-items: flex-start; justify-content: center; padding: clamp(24px, 3vw, 38px); background: var(--kleurKaart); }
@@ -582,9 +593,9 @@ body.tekstGroot .zonnepanelenSectWiltUWetenWatZonnepanelenVoorUKunnenOpleverenRe
 .scrollPagineringBolletje { position: relative; width: 44px; height: 44px; flex: none; padding: 0; border: 0; background: transparent; cursor: pointer; }
 .scrollPagineringBolletje::before { position: absolute; inset: 50% auto auto 50%; width: 10px; height: 10px; border: 1px solid var(--sparkyDonkerBlauw); border-radius: 50%; background: #c5d0d7; content: ""; transform: translate(-50%, -50%); transition: width .2s ease, height .2s ease, background-color .2s ease; }
 .scrollPagineringBolletje.isActief::before { width: 14px; height: 14px; background: var(--sparkyOranje); }
-.layoutEmailCta { display: grid; gap: clamp(28px, 5vw, 64px); align-items: center; }
+.layoutEmailCta { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: center; overflow-wrap: anywhere; }
 .layoutEmailCta > .sectieKop { max-width: 640px; text-align: left; }
-.layoutEmailCta .emailCtaFormulier { margin-block-start: 0; }
+.layoutEmailCta .emailCtaFormulier { grid-template-columns: minmax(0, 1fr); margin-block-start: 0; }
 .layoutEmailCta .emailCtaFormulier .siteBtn { justify-self: start; margin-block-start: 0; }
 .layoutEmailCta > .privacyNotitie { margin-block-start: 0; }
 #laadpalenSectWelkeLaadpaalPastBijUEmailInput,
@@ -722,7 +733,7 @@ body.tekstGroot .thuisbatterijSplitKaart .sectionActies { justify-content: cente
 .thuisbatterijSectZoWerkenWijTijdlijnSpoor { position: absolute; z-index: 0; inset-block: 60px; inset-inline-start: 27px; width: 3px; overflow: hidden; border-radius: 999px; background: rgba(11, 60, 93, .18); }
 .thuisbatterijSectZoWerkenWijTijdlijnVoortgang { display: block; width: 100%; height: 0; border-radius: inherit; background: var(--sparkyDonkerBlauw); will-change: height; }
 .thuisbatterijSectZoWerkenWijStappen { display: grid; margin: 0; padding: 0; list-style: none; }
-.thuisbatterijSectZoWerkenWijStap { display: grid; grid-template-columns: 56px minmax(0, 1fr); column-gap: clamp(22px, 4vw, 40px); align-items: start; padding-block: 32px; }
+.thuisbatterijSectZoWerkenWijStap { display: grid; grid-template-columns: 56px minmax(0, 1fr); column-gap: clamp(22px, 4vw, 40px); align-items: start; padding-block: 32px; overflow-wrap: anywhere; }
 .thuisbatterijSectZoWerkenWijStapIcoon { position: relative; z-index: 1; display: inline-grid; width: 56px; height: 56px; place-items: center; border: 2px solid var(--sparkyOranje); border-radius: 10px; background: var(--sparkyOranje); box-shadow: 0 0 0 10px var(--kleurAchtergrond); color: #111; line-height: 1; }
 .thuisbatterijSectZoWerkenWijStapIcoon svg { display: block; width: 29px; height: 29px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .thuisbatterijSectZoWerkenWijStapInhoud { min-width: 0; padding-block-start: 4px; }
@@ -1481,14 +1492,17 @@ th, td { border: 1px solid var(--kleurRand); padding: 10px; text-align: left; ve
 caption { font-family: var(--fontKop); font-size: 1.4rem; font-weight: 700; text-align: left; margin-block-end: 10px; }
 code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .92em; }
 
-@media (max-width: 767px) {
-  body { padding-block-end: calc(72px + env(safe-area-inset-bottom)); }
+/* Dezelfde contactbediening zolang de mobiele/tabletnavigatie actief is. */
+@media (max-width: 1023px), (hover: none) and (pointer: coarse) {
+  body { padding-block-end: calc(var(--contactBalkHoogte) + 12px); }
   body.cookieKeuzeOpen .mobieleContactBalk { visibility: hidden; }
   .mobieleContactBalk { position: fixed; z-index: 940; inset: auto 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 10px 12px max(10px, env(safe-area-inset-bottom)); background: rgba(255,255,255,.97); border-block-start: 1px solid var(--kleurRand); box-shadow: 0 -10px 30px rgba(11,60,93,.12); backdrop-filter: blur(14px); }
-  .mobieleContactBalk a { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 10px 12px; color: #fff; background: var(--sparkyDonkerBlauw); font-weight: 800; line-height: 1.15; text-align: center; text-decoration: none; }
+  .mobieleContactBalk a { display: inline-flex; min-width: 0; min-height: 48px; align-items: center; justify-content: center; padding: 10px 12px; color: #fff; background: var(--sparkyDonkerBlauw); font-weight: 800; line-height: 1.15; overflow-wrap: anywhere; text-align: center; text-decoration: none; }
   .mobieleContactBalk a:first-child { border-radius: var(--radiusKnop) 0 0 var(--radiusKnop); }
   .mobieleContactBalk a:last-child { border-radius: 0 var(--radiusKnop) var(--radiusKnop) 0; color: #111; background: var(--sparkyOranje); }
-  .vasteActieKnoppen { inset-block-end: calc(84px + env(safe-area-inset-bottom)); }
+  .vasteActieKnoppen { inset-block-end: calc(var(--contactBalkHoogte) - var(--backNaarBovenHoogte, 52px) - 12px); max-width: calc(100vw - 2 * clamp(16px, 3vw, 40px)); transition: inset-block-end .18s ease; }
+  .vasteActieKnoppen:has(.backNaarBovenKnop.isZichtbaar) { inset-block-end: calc(var(--contactBalkHoogte) + 16px); }
+  .backNaarBovenKnop { max-width: 100%; white-space: normal; text-align: center; }
 }
 
 /* Eenvoudige tweekeuze-laag voor functionele of volledige toestemming. */
@@ -1615,10 +1629,10 @@ body.cookieKeuzeOpen > :not(.cookieToestemmingLaag):not(script) { pointer-events
 .modulePlaceholderInhoud .siteBtn { justify-self: start; }
 
 .ankerKaartLijst { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; margin: 32px 0 0; padding: 0; list-style: none; }
-.ankerKaart { display: flex; min-height: 128px; flex-direction: column; justify-content: space-between; gap: 14px; padding: clamp(18px, 3vw, 30px); border: 0; border-radius: 10px; background: var(--kleurKaart); color: var(--sparkyDonker); text-decoration: none; box-shadow: var(--schaduwZacht); transition: filter .18s ease; }
-.ankerKaart strong { color: var(--sparkyDonkerBlauw); font-family: var(--fontKop); font-size: 1.25rem; }
+.ankerKaart { border: 0; border-radius: 10px; background: var(--kleurKaart); color: var(--sparkyDonker); text-decoration: none; box-shadow: var(--schaduwZacht); }
+.ankerKaart strong { color: var(--sparkyDonkerBlauw); font-family: var(--fontKop); }
 .ankerKaart span { color: #52616b; }
-.ankerKaart:hover { color: var(--sparkyDonker); filter: brightness(.96); }
+.ankerKaart:hover { color: var(--sparkyDonker); }
 .drieKolommenLijst { grid-template-columns: minmax(0, 1fr); }
 
 .overOnsVerhaalInhoud { min-width: 0; }
@@ -1673,7 +1687,6 @@ body.cookieKeuzeOpen > :not(.cookieToestemmingLaag):not(script) { pointer-events
 .homeSectVanIdeeTotInstallatieVanVonkTotVermogen.layoutImageCta.isAchtergrondGeladen { background-image: linear-gradient(135deg, rgba(5, 28, 45, .74), rgba(11, 60, 93, .58)), url("../img/SparkyEnergies_OverOns_Afbeelding_03.webp"); }
 
 @media (min-width: 600px) {
-  .ankerKaartLijst,
   .overOnsBewijsLijst { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -1686,7 +1699,6 @@ body.cookieKeuzeOpen > :not(.cookieToestemmingLaag):not(script) { pointer-events
 }
 
 @media (min-width: 1024px) {
-  .ankerKaartLijst { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .overOnsBewijsLijst { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 }
 
@@ -1716,7 +1728,7 @@ body.tekstGroot .contactRouteLijst { grid-template-columns: minmax(0, 1fr); }
 .systeemSamenInhoud > .siteBtn { align-self: center; }
 .systeemSamenInhoud .sectieKop { max-width: 1100px; }
 .systeemSamenInhoud .sectieTitel,
-.systeemSamenInhoud .systeemSamenKopTekst { max-width: none; font-family: var(--fontKop); font-size: clamp(2rem, 3.2vw, 3.8rem); font-weight: 700; line-height: 1.12; color: var(--sparkyDonkerBlauw); text-wrap: balance; }
+.systeemSamenInhoud .systeemSamenKopTekst { max-width: none; font-family: var(--fontKop); font-size: clamp(2rem, 3.2vw, 3.8rem); font-weight: 700; line-height: 1.12; color: var(--sparkyDonkerBlauw); overflow-wrap: anywhere; text-wrap: balance; }
 .systeemSamenTitelRegel { display: block; margin-block-end: clamp(20px, 3vw, 36px); }
 .systeemSamenInhoud .systeemSamenKopTekst { margin-block-start: clamp(24px, 4vw, 48px); }
 .systeemSamenInhoud .contentParagraaf { margin-block-start: clamp(24px, 4vw, 40px); }
@@ -1730,37 +1742,30 @@ body.tekstGroot .contactRouteLijst { grid-template-columns: minmax(0, 1fr); }
 .zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDakKop,
 #zonnepanelenSectHoeWerkenZonnepanelenH2 { scroll-margin-block-start: calc(var(--sectieFlowKophoogte, 148px) + 24px); }
 .zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDakKop .contentParagraaf { max-width: 66ch; margin: clamp(18px, 3vw, 26px) auto 0; }
-@media (max-width: 767px) {
-  .zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak .kenmerkKaart h3 { --kenmerkKopGrootte: 1.125rem; font-size: 1.125rem; line-height: 1.3; }
-  .zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDak .kenmerkKaart p { font-size: 1rem; line-height: 1.6; }
-}
 .kenmerkKaartenSectie.layoutFeatures > .sectionActies { justify-content: center; }
 
-/* Alle gelijksoortige kenmerkkaarten volgen de grootste kaart in de lijst. */
-.kenmerkKaartLijstAutoHoogte,
+/* De beschikbare kaartbreedte bepaalt het aantal kolommen, nooit de leesbare tekstgrootte. */
+.kenmerkKaartLijst,
+.gelijkeKaartLijst,
+.ankerKaartLijst { grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--kaartMinBreedte)), 1fr)); }
+.kenmerkKaartLijst,
 .gelijkeKaartLijst,
 .ankerKaartLijst,
 .keuzeKaartLijst { grid-auto-rows: 1fr; align-items: stretch; }
-.kenmerkKaartLijstAutoHoogte > .kaartLijstItem,
+.kenmerkKaartLijst > .kaartLijstItem,
 .gelijkeKaartLijst > .kaartLijstItem { display: flex; min-width: 0; height: 100%; min-height: 0; overflow: visible; }
-.kenmerkKaartLijstAutoHoogte > .kaartLijstItem > .kenmerkKaart,
-.gelijkeKaartLijst > .kaartLijstItem > .kenmerkKaart { display: flex; width: 100%; height: 100%; min-height: clamp(190px, 18vw, 230px); flex-direction: column; align-items: center; justify-content: flex-start; padding: clamp(18px, 3vw, 30px); overflow: hidden; text-align: center; }
-.kenmerkKaartLijstAutoHoogte .kenmerkKaart h3,
-.kenmerkKaartLijstAutoHoogte .kenmerkKaart p,
-.gelijkeKaartLijst .kenmerkKaart h3,
-.gelijkeKaartLijst .kenmerkKaart p { max-width: 100%; margin-inline: auto; overflow-wrap: normal; hyphens: none; }
-/* Laat lange kaartkoppen passen op de beschikbare breedte zonder woorden te splitsen. */
-.kenmerkKaartLijstAutoHoogte .kenmerkKaart,
-.gelijkeKaartLijst .kenmerkKaart { container-type: inline-size; }
-.kenmerkKaartLijstAutoHoogte .kenmerkKaart h3,
-.gelijkeKaartLijst .kenmerkKaart h3 { font-size: min(var(--kenmerkKopGrootte, clamp(1.2rem, 2vw, 1.7rem)), 8.5cqi); }
-body.tekstGroot .kenmerkKaart h3 { font-size: inherit; }
+
+/* Eén typografische basis voor kenmerk- en ankerkaarten, inclusief de grotere-tekststand.
+   Kaarten groeien met hun inhoud; lange woorden mogen alleen bij ruimtegebrek afbreken. */
+.kenmerkKaart,
+.ankerKaart { display: flex; width: 100%; height: 100%; min-width: 0; min-height: 11rem; flex-direction: column; align-items: center; justify-content: flex-start; gap: var(--kaartTekstRuimte); padding: var(--kaartBinnenruimte); overflow: visible; font-size: var(--basisTekst); font-weight: 400; line-height: var(--regelHoogte); text-align: center; }
+.kenmerkKaart h3,
+.ankerKaart strong { max-width: 100%; margin: 0; font-size: calc(1em * var(--kaartKopVerhouding)); line-height: var(--kaartKopRegelhoogte); overflow-wrap: anywhere; hyphens: none; text-wrap: balance; }
+.kenmerkKaart p,
+.ankerKaart span { max-width: 100%; margin: 0; font-size: inherit; line-height: inherit; overflow-wrap: anywhere; hyphens: none; }
 
 .ankerKaartLijst > li,
 .keuzeKaartLijst > li { display: flex; min-width: 0; height: 100%; }
-.ankerKaart { width: 100%; height: 100%; min-height: 172px; align-items: center; justify-content: flex-start; text-align: center; }
-.ankerKaart strong,
-.ankerKaart span { max-width: 100%; overflow-wrap: normal; hyphens: none; }
 .keuzeKaartLijst a { width: 100%; height: 100%; min-height: 88px; justify-content: center; overflow-wrap: normal; text-align: center; }
 
 /* De groepenkastkaarten krijgen de volle sectiebreedte in plaats van een halve kolom. */
@@ -1865,11 +1870,6 @@ body.tekstGroot .kenmerkKaart h3 { font-size: inherit; }
 body.tekstGroot .adviesCalculatorGrid,
 body.tekstGroot .adviesCalculatorVelden,
 body.tekstGroot .adviesCalculatorKeuzesBreed { grid-template-columns: minmax(0, 1fr); }
-
-@media (max-width: 599px) {
-  .kenmerkKaartenSectie .kenmerkKaartLijstAutoHoogte,
-  .gelijkeKaartLijst { grid-template-columns: minmax(0, 1fr); }
-}
 
 @media (min-width: 768px) {
   .elektrotechnischeRenovatiesGroepenkastGrid {
@@ -2035,7 +2035,6 @@ body.hoogContrast :is(.primaireNavigatieLijst a, .primaireNavigatieLijst button,
 }
 body.hoogContrast .hoofdNavigatieContact[aria-current="page"] { background: var(--sparkyOranje); color: #000; }
 body.hoogContrast a:not(:is(.siteBtn, .hoofdNavigatieContact, .whatsAppKnop, .mobieleContactBalk a)):is(:hover, :focus-visible),
-body.hoogContrast .overOnsSectWatWijDoenLink:is(:hover, :focus-visible) h3,
 body.hoogContrast .cookiePrivacyLink { color: var(--sparkyOranje) !important; }
 
 body.hoogContrast :focus-visible {
