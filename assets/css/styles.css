@@ -150,11 +150,12 @@ button, a, input, select, textarea, summary { touch-action: manipulation; }
 .siteLogoAfbeelding { display: block; width: auto; max-width: 100%; height: clamp(68px, 14vw, 84px); object-fit: contain; }
 .siteLogoTekst { padding-block: 6px; }
 .navigatieMenuKnop, .toegankelijkheidKnop { min-width: 44px; min-height: 44px; border: 2px solid transparent; border-radius: var(--radiusKnop); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 800; text-decoration: none; }
-.siteBtn { min-width: 44px; min-height: 44px; border: 2px solid transparent; border-radius: var(--radiusKnop); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 800; text-decoration: none; }
+.siteBtn { max-width: 100%; overflow-wrap: anywhere; text-align: center; min-width: 44px; min-height: 44px; border: 2px solid transparent; border-radius: var(--radiusKnop); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 800; text-decoration: none; }
 .navigatieMenuKnop { grid-column: 1; grid-row: 1; justify-self: start; background: var(--sparkyDonkerBlauw); color: #fff; padding-inline: 16px; }
 .primaireNavigatieLijst { display: none; grid-column: 1 / -1; grid-row: 2; gap: 6px; margin: 0; padding: 0; list-style: none; }
 .primaireNavigatieLijst.isOpen { display: grid; }
 .primaireNavigatieLijst li { position: relative; }
+.primaireNavigatieLijst .primaireNavigatieContactItem { display: none; }
 .primaireNavigatieLijst a,
 .primaireNavigatieLijst button {
   display: block;
@@ -290,10 +291,9 @@ button, a, input, select, textarea, summary { touch-action: manipulation; }
 .toegankelijkheidKnop[aria-pressed="true"] { background: var(--sparkyDonkerBlauw); color: #fff; }
 @media (max-width: 1023px), (hover: none) and (pointer: coarse) {
   .toegankelijkheidSubmenu { position: absolute; inset-inline-end: 0; width: min(220px, calc(100vw - 32px)); }
-}
-/* Houd het logo in het schermmidden; de vaste contactbalk neemt op smalle telefoons de contactactie over. */
-@media (max-width: 599px) {
   .hoofdNavigatieContact { display: none; }
+  .primaireNavigatieLijst .primaireNavigatieContactItem { display: block; margin-block-start: 8px; padding-block-start: 12px; border-block-start: 1px solid var(--kleurRand); }
+  .primaireNavigatieLijst .primaireNavigatieContactLink { background: var(--sparkyOranje); color: #111; font-weight: 800; }
 }
 @media (max-width: 380px) {
   .hoofdNavigatie { gap: 6px; }
@@ -305,7 +305,7 @@ button, a, input, select, textarea, summary { touch-action: manipulation; }
 }
 
 .mainContent { width: 100%; }
-.siteSectie { width: var(--containerBreedte); margin-inline: auto; padding-block: var(--sectieRuimte); scroll-margin-top: 104px; }
+.siteSectie { overflow-wrap: anywhere; width: var(--containerBreedte); margin-inline: auto; padding-block: var(--sectieRuimte); scroll-margin-top: 104px; }
 /* De pagina volgt de natuurlijke scrollbeweging; sectie-animaties sturen alleen de presentatie. */
 html.sectieFlowActief { scroll-padding-block-start: var(--sectieFlowKophoogte); }
 .sectieFlowActief .mainContent > .siteSectie {
@@ -384,7 +384,7 @@ body.tekstGroot .backNaarBovenKnop { min-height: 58px; padding: 12px 18px; white
   .whatsAppKnop { transition: none; }
   .whatsAppKnop:hover { transform: none; }
 }
-.layoutHero, .layoutSplit { display: grid; gap: 32px; align-items: center; }
+.layoutHero, .layoutSplit { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; align-items: center; }
 .layoutHero { min-height: min(760px, calc(100svh - 76px)); }
 .overOnsHeroVolledigeBreedte { position: relative; isolation: isolate; display: grid; width: 100%; min-height: min(760px, calc(100svh - 76px)); place-items: center; overflow: hidden; padding-inline: max(5vw, calc((100vw - 1320px) / 2)); }
 .overOnsHeroVolledigeBreedte::after { display: none; }
@@ -456,7 +456,7 @@ body.tekstGroot .overOnsNormenIcoonLijst { flex-direction: column; align-items: 
 .homeHeroReferentieGrid .sectionActies { justify-content: center; }
 .heroZekerheden { max-width: 62ch; margin-block-start: clamp(18px, 3vw, 28px); color: var(--sparkyDonkerBlauw); font-size: .88em; font-weight: 700; }
 .heroZekerheden span { margin-inline: .35em; color: var(--sparkyOranje); }
-.homeHeroScrollMedia { position: relative; min-width: 0; min-height: clamp(260px, 62vw, 380px); margin: 0; overflow: hidden; border: 0; border-radius: 0; aspect-ratio: 4 / 3; background: var(--sparkyLichtGrijs); box-shadow: none; }
+.homeHeroScrollMedia { position: relative; width: 100%; min-width: 0; min-height: clamp(260px, 62vw, 380px); margin: 0; overflow: hidden; border: 0; border-radius: 0; aspect-ratio: 4 / 3; background: var(--sparkyLichtGrijs); box-shadow: none; }
 .homeHeroScrollMediaAfbeelding { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
 .homeHeroScrollMediaLabel { position: absolute; z-index: 1; inset: auto 16px 16px auto; margin: 0; padding: 8px 12px; border-radius: 10px; background: var(--sparkyOranje); color: #111; font-family: var(--fontKop); font-size: .9rem; font-weight: 700; line-height: 1; box-shadow: 0 6px 20px rgba(5, 28, 45, .2); }
 @media (min-width: 768px) {
@@ -673,6 +673,35 @@ body.tekstGroot .zonnepanelenSectWiltUWetenWatZonnepanelenVoorUKunnenOpleverenRe
 }
 .trustBarSectie { padding-block: clamp(18px, 3vw, 28px); }
 .heroTrustBar { margin-block-start: clamp(18px, 2.5svh, 28px); }
+.logoStrook { min-width: 0; }
+.logoStrookKop { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 20px; margin-block-end: 12px; }
+.logoStrookKop p { margin: 0; color: var(--kleurTekst); font-size: 1rem; font-weight: 600; }
+.logoStrookVenster { overflow: hidden; }
+.logoStrookGroep { display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.logoStrookGroep li { box-sizing: border-box; display: flex; flex: 1 1 10rem; min-width: 0; min-height: 92px; align-items: center; justify-content: center; gap: 12px; padding: 16px; border: 1px solid var(--kleurRand); border-radius: 10px; text-align: center; }
+.logoStrookMerk { background: #fff; color: #0b3c5d; }
+.logoStrookMerk img { display: block; width: 8rem; max-width: 100%; height: 44px; object-fit: contain; }
+.logoStrookGroep .logoStrookMerkUitgelicht { border: 2px solid var(--sparkyOranje); }
+.logoStrookSolis img { width: 48px; height: 48px; }
+.logoStrookSolis strong { font-size: 1.25rem; font-weight: 600; }
+.logoStrookAeg img { width: 6rem; }
+.logoStrookDyness { background: #0b3c5d; }
+.logoStrook.isGeanimeerd .logoStrookSpoor { display: flex; width: max-content; animation: logoStrookSchuiven 65s linear infinite; }
+.logoStrook.isGeanimeerd .logoStrookGroep { flex: none; flex-wrap: nowrap; padding-inline-end: 12px; }
+.logoStrook.isGeanimeerd .logoStrookGroep li { flex: 0 0 10rem; width: 10rem; }
+.logoStrook.isGeanimeerd .logoStrookGroep .logoStrookMerkUitgelicht { flex-basis: 12rem; width: 12rem; }
+.logoStrookVenster:focus-within .logoStrookSpoor { animation-play-state: paused; }
+@media (hover: hover) {
+  .logoStrookVenster:hover .logoStrookSpoor { animation-play-state: paused; }
+}
+@keyframes logoStrookSchuiven { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .logoStrook.isGeanimeerd .logoStrookSpoor { display: block; width: auto; animation: none; }
+  .logoStrook.isGeanimeerd .logoStrookGroep { flex-wrap: wrap; padding: 0; }
+  .logoStrook.isGeanimeerd .logoStrookGroep li,
+  .logoStrook.isGeanimeerd .logoStrookGroep .logoStrookMerkUitgelicht { flex: 1 1 10rem; width: auto; }
+  .logoStrook .logoStrookGroep[aria-hidden="true"] { display: none; }
+}
 .trustBarLijst { display: flex; flex-wrap: wrap; justify-content: center; gap: 0; margin: 0; padding: 0; overflow: hidden; border: 1px solid var(--kleurRand); border-radius: 10px; background: var(--kleurKaart); box-shadow: var(--schaduwZacht); list-style: none; }
 .trustBarLijst li { position: relative; display: inline-flex; min-height: 68px; flex: 1 1 160px; align-items: center; justify-content: center; padding: 14px 20px; color: var(--sparkyDonkerBlauw); font-family: var(--fontKop); font-weight: 700; line-height: 1.2; text-align: center; }
 .trustBarLijst li + li::before { position: absolute; inset-block: 22%; inset-inline-start: 0; width: 1px; background: var(--kleurRand); content: ""; }
@@ -1026,9 +1055,9 @@ body.tekstGroot .zonnepanelenSectSlaOvertolligeStroomOp .zonnepanelenOpslagKaart
 .laadpalenSectieMedia { position: relative; min-width: 0; min-height: clamp(260px, 62vw, 380px); margin: 0; overflow: hidden; border: 0; border-radius: 10px; background: var(--sparkyLichtGrijs); box-shadow: none; }
 .laadpalenSectieMediaAfbeelding { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
 .laadpalenSectieMediaLabel { position: absolute; z-index: 1; inset: auto 16px 16px auto; margin: 0; padding: 8px 12px; border-radius: 10px; background: var(--sparkyOranje); color: #111; font-family: var(--fontKop); font-size: .9rem; font-weight: 700; line-height: 1; box-shadow: 0 6px 20px rgba(5, 28, 45, .2); }
-.laadpalenStandardSplitKaart { display: grid; min-width: 0; padding: 0; overflow: hidden; border: 0; border-radius: 10px; background: var(--kleurKaart); box-shadow: var(--schaduwZacht); }
+.laadpalenStandardSplitKaart { display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; padding: 0; overflow: hidden; border: 0; border-radius: 10px; background: var(--kleurKaart); box-shadow: var(--schaduwZacht); }
 .laadpalenStandardSplitKaart .laadpalenSplitKaartInhoud { display: flex; min-width: 0; flex-direction: column; justify-content: center; padding: clamp(28px, 4vw, 56px); background: var(--kleurKaart); }
-.laadpalenStandardSplitKaart .laadpalenSectieMedia { border-radius: 0; aspect-ratio: 4 / 3; box-shadow: none; }
+.laadpalenStandardSplitKaart .laadpalenSectieMedia { width: 100%; min-width: 0; border-radius: 0; aspect-ratio: 4 / 3; box-shadow: none; }
 .laadpalenSectLaadpaalLatenInstallerenKop { width: 100%; max-width: 900px; margin-inline: auto; text-align: center; }
 .laadpalenSectLaadpaalLatenInstallerenKop .sectieTitel,
 .laadpalenSectLaadpaalLatenInstallerenKop .sectieIntro { margin-inline: auto; }
@@ -1165,7 +1194,7 @@ body.tekstGroot .elektrotechnischeRenovatiesGasKaartMedia { order: initial; }
   .elektrotechnischeRenovatiesGasScrollKaart { position: static; margin-block-end: 0; }
   .elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor .elektrotechnischeRenovatiesGasKaart { --ems-kaart-schaal: 1 !important; transform: none; will-change: auto; }
 }
-.elektrotechnischeRenovatiesSplitKaart { display: grid; min-width: 0; padding: 0; overflow: hidden; border: 0; border-radius: 10px; background: var(--kleurKaart); box-shadow: none; }
+.elektrotechnischeRenovatiesSplitKaart { display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; padding: 0; overflow: hidden; border: 0; border-radius: 10px; background: var(--kleurKaart); box-shadow: none; }
 .elektrotechnischeRenovatiesSplitKaartInhoud { display: flex; min-width: 0; flex-direction: column; justify-content: center; padding: clamp(28px, 4vw, 56px); background: var(--kleurKaart); }
 .elektrotechnischeRenovatiesSectieMedia { position: relative; min-width: 0; min-height: clamp(260px, 62vw, 380px); margin: 0; overflow: hidden; border: 0; border-radius: 10px; background: var(--sparkyLichtGrijs); box-shadow: none; }
 .elektrotechnischeRenovatiesSectieMediaAfbeelding { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
@@ -1345,8 +1374,8 @@ body.tekstGroot .contactKeuzeRaster { grid-template-columns: minmax(0, 1fr); }
 .footerLocatie { position: relative; isolation: isolate; width: min(260px, 100%); aspect-ratio: 3 / 4; justify-self: center; overflow: hidden; border-radius: 10px; background: #fff; }
 .footerKaart { position: absolute; inset: 0; display: block; width: 100%; height: 100%; border: 0; border-radius: 10px; aspect-ratio: auto; background: #fff; }
 .footerSitemap h2 { color: #fff; font-size: clamp(1.35rem, 2vw, 1.8rem); }
-.footerNavigatieLijst { display: grid; gap: 7px; margin: 20px 0 0; padding: 0; list-style: none; }
-.footerNavigatieLijst a { display: inline-flex; width: fit-content; color: #fff; text-decoration: none; transition: color .18s ease; }
+.footerNavigatieLijst { display: grid; grid-template-columns: minmax(0, 1fr); overflow-wrap: anywhere; gap: 7px; margin: 20px 0 0; padding: 0; list-style: none; }
+.footerNavigatieLijst a { display: inline-flex; width: fit-content; max-width: 100%; color: #fff; text-decoration: none; transition: color .18s ease; }
 .footerNavigatieLijst a:hover { color: var(--sparkyOranje); }
 .footerCopyright { width: min(760px, 100%); margin: clamp(40px, 6vw, 64px) auto 0; padding-block-start: 24px; border-block-start: 1px solid rgba(255, 255, 255, .28); color: #fff; font-size: .92em; text-align: center; }
 /* De footer schakelt op breedte tussen vier kolommen en vier rijen. */
@@ -1470,11 +1499,11 @@ body.tekstGroot .contactKeuzeRaster { grid-template-columns: minmax(0, 1fr); }
   .homeSectRecentWerk .homeSectRecentWerkLijst { grid-auto-columns: calc((100% - 48px) / 3); }
   .layoutEmailCta { grid-template-columns: minmax(0, .9fr) minmax(440px, 1.1fr); column-gap: clamp(72px, 9vw, 128px); row-gap: 16px; }
   .layoutEmailCta > .sectieKop { grid-column: 1; grid-row: 1 / span 2; align-self: center; }
-  .layoutEmailCta .emailCtaFormulier { grid-column: 2; grid-row: 1; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; row-gap: 12px; align-items: end; }
+  .layoutEmailCta .emailCtaFormulier { grid-column: 2; grid-row: 1; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); column-gap: 12px; row-gap: 12px; align-items: end; }
   .layoutEmailCta .emailCtaFormulier label,
   .layoutEmailCta .emailCtaFormulier .formulierNotitie { grid-column: 1 / -1; }
-  .layoutEmailCta .emailCtaFormulier input { grid-column: 1; }
-  .layoutEmailCta .emailCtaFormulier .siteBtn { grid-column: 2; align-self: end; white-space: nowrap; }
+  .layoutEmailCta .emailCtaFormulier input { grid-column: auto; }
+  .layoutEmailCta .emailCtaFormulier .siteBtn { grid-column: auto; align-self: end; white-space: normal; }
   .layoutEmailCta > .privacyNotitie { grid-column: 2; grid-row: 2; }
   .procesLijst { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .elektrotechnischeRenovatiesSectZoWerkenWij .procesLijst { grid-template-columns: repeat(5, minmax(0, 1fr)); }
@@ -1791,6 +1820,7 @@ body.tekstGroot .contactRouteLijst { grid-template-columns: minmax(0, 1fr); }
 .adviesCalculatorSectie { padding-block: clamp(32px, 6vw, 72px); }
 .adviesCalculatorKaart {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(28px, 5vw, 52px);
   padding: clamp(22px, 4vw, 48px);
   border: 0;
@@ -1803,7 +1833,7 @@ body.tekstGroot .contactRouteLijst { grid-template-columns: minmax(0, 1fr); }
 .adviesCalculatorKop .sectieTitel,
 .adviesCalculatorKop .sectieIntro { margin-inline: auto; }
 .adviesCalculatorKop .sectieIntro { max-width: 72ch; }
-.adviesCalculatorGrid { display: grid; min-width: 0; gap: clamp(24px, 4vw, 40px); align-items: stretch; }
+.adviesCalculatorGrid { display: grid; grid-template-columns: minmax(0, 1fr); min-width: 0; gap: clamp(24px, 4vw, 40px); align-items: stretch; }
 .adviesCalculatorFormulier,
 .adviesCalculatorResultaat {
   min-width: 0;
@@ -1850,6 +1880,22 @@ body.tekstGroot .contactRouteLijst { grid-template-columns: minmax(0, 1fr); }
 .adviesUploadVak input { width: 100%; padding: 10px; background: var(--kleurKaart); }
 .adviesUploadStatus { margin: 8px 0 0; color: #52616b; font-size: .82rem; text-align: center; }
 .adviesUploadStatus[data-status="error"] { color: #a1261d; font-weight: 700; }
+.adviesBestandenLijst { display: grid; gap: 10px; margin: 12px 0 0; padding: 0; list-style: none; }
+.adviesBestandenLijst:empty { display: none; }
+.adviesBestand { display: flex; min-width: 0; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 16px; border: 1px solid var(--kleurRand); border-radius: 10px; background: var(--kleurKaart); text-align: left; }
+.adviesBestand > div { display: grid; min-width: 0; gap: 4px; }
+.adviesBestand strong { overflow-wrap: anywhere; font-size: 1rem; font-weight: 600; }
+.adviesBestand small { font-size: .875rem; }
+.adviesBestandVerwijder { display: grid; width: 44px; height: 44px; flex: none; place-items: center; padding: 0; border: 1px solid var(--kleurRand); border-radius: 8px; background: var(--kleurVlak); color: var(--sparkyDonkerBlauw); font: 400 1.75rem/1 Arial, sans-serif; cursor: pointer; }
+.adviesBestandVerwijder:hover { border-color: var(--sparkyDonkerBlauw); }
+.adviesBestandVerwijder:disabled { opacity: .5; cursor: wait; }
+.bestandVerwijderDialoog { width: min(32rem, calc(100% - 32px)); max-height: calc(100dvh - 32px); padding: clamp(20px, 4vw, 32px); overflow: auto; border: 1px solid var(--kleurRand); border-radius: 16px; background: var(--kleurKaart); color: var(--kleurTekst); box-shadow: var(--schaduwZacht); }
+.bestandVerwijderDialoog::backdrop { background: rgba(5, 28, 45, .65); }
+.bestandVerwijderDialoog form { display: block; margin: 0; }
+.bestandVerwijderDialoog h2 { max-width: none; font-size: 1.6rem; line-height: 1.2; overflow-wrap: anywhere; }
+.bestandVerwijderDialoog p { margin-block: 16px 24px; overflow-wrap: anywhere; }
+.bestandVerwijderActies { display: flex; flex-wrap: wrap; gap: 12px; }
+.bestandVerwijderActies .siteBtn { flex: 1 1 8rem; margin: 0; overflow-wrap: anywhere; }
 .adviesFotoVoorbereiding { display: grid; gap: 6px; padding: 16px 18px; border: 1px solid var(--kleurRand); border-radius: 10px; background: var(--sparkyLichtGrijs); text-align: center; }
 .adviesFotoVoorbereiding strong { color: var(--sparkyDonkerBlauw); }
 .adviesFotoVoorbereiding p { margin: 0; color: #52616b; font-size: .9rem; }

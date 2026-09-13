@@ -9,6 +9,15 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
   const accessPanel = document.getElementById('toegankelijkheidPaneel');
   const desktopNavigationQuery = window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)');
 
+  document.querySelectorAll('.logoStrook').forEach((strip) => {
+    const group = strip.querySelector('.logoStrookGroep');
+    const copy = group.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    copy.inert = true;
+    strip.querySelector('.logoStrookSpoor').appendChild(copy);
+    strip.classList.add('isGeanimeerd');
+  });
+
   function initializeLazyBackgrounds() {
     const lazyBackgrounds = Array.from(document.querySelectorAll('.layoutImageCta'));
     if (!lazyBackgrounds.length) return;
@@ -240,6 +249,16 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
   initializeSectionFlow();
 
   if (navButton && navList) {
+    const headerContact = document.getElementById('hoofdNavigatieContact');
+    if (headerContact) {
+      const contactItem = document.createElement('li');
+      contactItem.className = 'primaireNavigatieContactItem';
+      const contactLink = headerContact.cloneNode(true);
+      contactLink.id = 'hoofdNavigatieContactMenu';
+      contactLink.className = 'primaireNavigatieContactLink';
+      contactItem.appendChild(contactLink);
+      navList.appendChild(contactItem);
+    }
     navButton.addEventListener('click', () => {
       const isOpen = navButton.getAttribute('aria-expanded') === 'true';
       navButton.setAttribute('aria-expanded', String(!isOpen));
@@ -1003,6 +1022,97 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
     return !validationMessage;
   }
 
+  function initializeUploadList(upload) {
+    let selectedFiles = Array.from(upload.files || []);
+    let pendingFile = null;
+    let removeTrigger = null;
+    const field = upload.closest('.contactFormulierVeld');
+    const list = document.createElement('ul');
+    list.className = 'adviesBestandenLijst';
+    list.setAttribute('aria-label', 'Gekozen foto’s');
+    list.setAttribute('role', 'list');
+    field.insertBefore(list, field.querySelector('[data-upload-status]'));
+
+    const dialog = document.createElement('dialog');
+    dialog.className = 'bestandVerwijderDialoog';
+    dialog.setAttribute('aria-labelledby', `${upload.id}VerwijderTitel`);
+    dialog.setAttribute('aria-describedby', `${upload.id}VerwijderUitleg`);
+    dialog.innerHTML = `<form method="dialog"><h2 id="${upload.id}VerwijderTitel">Foto verwijderen?</h2><p id="${upload.id}VerwijderUitleg">Wilt u <strong data-bestandsnaam></strong> uit uw aanvraag verwijderen?</p><div class="bestandVerwijderActies"><button class="siteBtn siteBtnPrimary" value="verwijderen">Verwijderen</button><button class="siteBtn siteBtnSecondary" value="terug">Terug</button></div></form>`;
+    body.appendChild(dialog);
+
+    const syncFiles = () => {
+      const transfer = new DataTransfer();
+      selectedFiles.forEach((file) => transfer.items.add(file));
+      upload.files = transfer.files;
+    };
+    const renderFiles = () => {
+      list.replaceChildren();
+      selectedFiles.forEach((file, index) => {
+        const item = document.createElement('li');
+        item.className = 'adviesBestand';
+        const details = document.createElement('div');
+        const name = document.createElement('strong');
+        name.textContent = file.name;
+        const size = document.createElement('small');
+        const megabytes = file.size >= 1024 * 1024;
+        const amount = file.size / (megabytes ? 1024 * 1024 : 1024);
+        size.textContent = `Foto ${index + 1} · ${new Intl.NumberFormat('nl-NL', { maximumFractionDigits: 1 }).format(amount)} ${megabytes ? 'MB' : 'KB'}`;
+        details.append(name, size);
+        const remove = document.createElement('button');
+        remove.type = 'button';
+        remove.className = 'adviesBestandVerwijder';
+        remove.textContent = '×';
+        remove.setAttribute('aria-label', `${file.name} verwijderen`);
+        remove.addEventListener('click', () => {
+          pendingFile = file;
+          removeTrigger = remove;
+          dialog.querySelector('[data-bestandsnaam]').textContent = file.name;
+          dialog.returnValue = '';
+          dialog.showModal();
+          dialog.querySelector('[value="terug"]').focus();
+        });
+        item.append(details, remove);
+        list.appendChild(item);
+      });
+    };
+
+    upload.addEventListener('change', () => {
+      // Een nieuwe keuze voegt toe; de bestaande selectie blijft behouden.
+      for (const file of Array.from(upload.files || [])) {
+        const duplicate = selectedFiles.some((existing) => existing.name === file.name
+          && existing.size === file.size && existing.lastModified === file.lastModified && existing.type === file.type);
+        if (!duplicate) selectedFiles.push(file);
+      }
+      syncFiles();
+      renderFiles();
+      validateFormspreeUpload(upload);
+    });
+    dialog.addEventListener('close', () => {
+      const index = selectedFiles.indexOf(pendingFile);
+      if (dialog.returnValue === 'verwijderen' && index !== -1) {
+        selectedFiles.splice(index, 1);
+        syncFiles();
+        renderFiles();
+        validateFormspreeUpload(upload);
+        const nextRemove = list.querySelectorAll('button')[Math.min(index, selectedFiles.length - 1)];
+        (nextRemove || upload).focus();
+      } else if (removeTrigger && removeTrigger.isConnected) {
+        removeTrigger.focus();
+      }
+      pendingFile = null;
+      removeTrigger = null;
+    });
+    upload.form.addEventListener('reset', () => {
+      selectedFiles = [];
+      if (dialog.open) dialog.close('terug');
+      queueMicrotask(() => {
+        renderFiles();
+        validateFormspreeUpload(upload);
+      });
+    });
+    renderFiles();
+  }
+
   // Verstuur alle acht aanvragen via hetzelfde Formspree-formulier zonder de bezoeker weg te sturen.
   document.querySelectorAll('form[data-formspree-form]').forEach((form) => {
     const requiredCheckboxGroups = form.querySelectorAll('[data-required-checkbox-group]');
@@ -1028,9 +1138,7 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
       });
     });
 
-    fileUploads.forEach((upload) => {
-      upload.addEventListener('change', () => validateFormspreeUpload(upload));
-    });
+    fileUploads.forEach(initializeUploadList);
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -1065,9 +1173,12 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
       }
 
       try {
+        const payload = new FormData(form);
+        const uploadControls = form.querySelectorAll('[data-formspree-upload], .adviesBestandVerwijder');
+        uploadControls.forEach((control) => { control.disabled = true; });
         const response = await fetch(form.action, {
           method: 'POST',
-          body: new FormData(form),
+          body: payload,
           headers: { Accept: 'application/json' }
         });
         const result = await response.json().catch(() => ({}));
@@ -1101,6 +1212,7 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
           note.textContent = `${error.message || 'Er ging iets mis bij het versturen.'} Probeer het opnieuw of mail naar info@sparkyenergies.com.`;
         }
       } finally {
+        form.querySelectorAll('[data-formspree-upload], .adviesBestandVerwijder').forEach((control) => { control.disabled = false; });
         if (submitButton) {
           submitButton.disabled = false;
           submitButton.removeAttribute('aria-busy');
