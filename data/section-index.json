@@ -1,7 +1,7 @@
 {
   "metadata": {
     "schema_version": 2,
-    "generated_on": "2026-09-11",
+    "generated_on": "2026-09-13",
     "language": "nl",
     "source_files": [
       "index.html",
@@ -15,10 +15,10 @@
     "scope": "Publieke pagina’s; primaire secties, ondersteunende main-secties, headings, paragrafen, buttons, formulieren en Google-tagconfiguratie.",
     "counts": {
       "pages": 7,
-      "primary_sections": 42,
+      "primary_sections": 43,
       "supporting_sections": 14,
-      "paragraphs": 174,
-      "buttons": 37,
+      "paragraphs": 176,
+      "buttons": 38,
       "forms": 8
     }
   },
@@ -156,6 +156,29 @@
       "heading": "Alles werkt samen Uw woning wordt steeds elektrischer",
       "heading_status": "present",
       "type": "text"
+    },
+    {
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 6,
+      "id": "homeSectWatKlantenOverOnsZeggen",
+      "class": "homeSectWatKlantenOverOnsZeggen",
+      "classes": [
+        "siteSectie",
+        "homeSectWatKlantenOverOnsZeggen",
+        "layoutTestimonials",
+        "googleReviewsSectie"
+      ],
+      "layout_classes": [
+        "layoutTestimonials"
+      ],
+      "data_section_title": "Wat klanten over ons zeggen",
+      "heading_id": "homeSectWatKlantenOverOnsZeggenH2",
+      "heading_tag": "h2",
+      "heading": "Wat klanten over ons zeggen",
+      "heading_status": "present",
+      "type": "testimonials"
     },
     {
       "page": "Home",
@@ -1072,7 +1095,7 @@
       "page": "Home",
       "file": "index.html",
       "page_number": 1,
-      "parent_section_id": "homeSectTwijfeltUOfUwInstallatieGeschiktIs",
+      "parent_section_id": "homeSectWatKlantenOverOnsZeggen",
       "id": "homeSectZoWerkenWij",
       "classes": [
         "siteSectie",
@@ -1339,11 +1362,33 @@
       "text": "Daarom kijkt Sparky Energies verder dan het product dat u wilt laten installeren. We beoordelen uw complete elektrische situatie en houden rekening met toekomstige uitbreidingen."
     },
     {
+      "id": "homeSectWatKlantenOverOnsZeggenP01",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectWatKlantenOverOnsZeggen",
+      "type": "intro",
+      "classes": [
+        "sectieIntro"
+      ],
+      "text": "Van het eerste advies tot de installatie. Dit is hoe onze klanten het ervaren."
+    },
+    {
+      "id": "homeSectWatKlantenOverOnsZeggenArtikel01P01",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectWatKlantenOverOnsZeggen",
+      "type": "paragraph",
+      "classes": [],
+      "text": "“Zeer tevreden over de service van Sparky energies. Wij zijn erg blij met de installatie van een thuisbatterij en nieuwe groepenkast.”"
+    },
+    {
       "id": "homeSectZoWerkenWijStap01P01",
       "page": "Home",
       "file": "index.html",
       "page_number": 1,
-      "section_id": "homeSectTwijfeltUOfUwInstallatieGeschiktIs",
+      "section_id": "homeSectWatKlantenOverOnsZeggen",
       "type": "paragraph",
       "classes": [],
       "text": "We bespreken uw wens en toekomstplannen."
@@ -1353,7 +1398,7 @@
       "page": "Home",
       "file": "index.html",
       "page_number": 1,
-      "section_id": "homeSectTwijfeltUOfUwInstallatieGeschiktIs",
+      "section_id": "homeSectWatKlantenOverOnsZeggen",
       "type": "paragraph",
       "classes": [],
       "text": "We controleren de elektrische situatie."
@@ -1363,7 +1408,7 @@
       "page": "Home",
       "file": "index.html",
       "page_number": 1,
-      "section_id": "homeSectTwijfeltUOfUwInstallatieGeschiktIs",
+      "section_id": "homeSectWatKlantenOverOnsZeggen",
       "type": "paragraph",
       "classes": [],
       "text": "U ontvangt een duidelijk voorstel."
@@ -1373,7 +1418,7 @@
       "page": "Home",
       "file": "index.html",
       "page_number": 1,
-      "section_id": "homeSectTwijfeltUOfUwInstallatieGeschiktIs",
+      "section_id": "homeSectWatKlantenOverOnsZeggen",
       "type": "paragraph",
       "classes": [],
       "text": "We voeren het werk veilig en netjes uit."
@@ -1383,7 +1428,7 @@
       "page": "Home",
       "file": "index.html",
       "page_number": 1,
-      "section_id": "homeSectTwijfeltUOfUwInstallatieGeschiktIs",
+      "section_id": "homeSectWatKlantenOverOnsZeggen",
       "type": "paragraph",
       "classes": [],
       "text": "We testen de installatie en geven uitleg."
@@ -3199,6 +3244,23 @@
       "href": "elektrotechnische-renovaties.html",
       "link_type": "interne-pagina",
       "target_page": "Elektrotechnische renovaties",
+      "target_section": "",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "homeSectWatKlantenOverOnsZeggenBtn01Google",
+      "element": "a",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 6,
+      "section_id": "homeSectWatKlantenOverOnsZeggen",
+      "section_heading": "Wat klanten over ons zeggen",
+      "label": "Google ↗: bekijk reviews (opent in een nieuw tabblad)",
+      "href": "https://www.google.com/search?q=Sparky+Energies+V.O.F.%2C+Anthonetta+Kuijlstraat%2C+%2C+ROTTERDAM#lrd=0x47c433950f503f1d:0x4caacae818dda9f3,1,,,",
+      "link_type": "extern",
+      "target_page": "",
       "target_section": "",
       "form_id": "",
       "note": ""

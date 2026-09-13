@@ -927,6 +927,29 @@ body.tekstGroot .zonnepanelenSectProfiteerVanDuurzameEnergieUitEigenDakKop .sect
 .faqItem summary h3 { display: inline; font-size: 1.12rem; }
 blockquote { margin: 0; }
 .testimonialKaart footer { margin-block-start: 18px; display: grid; color: #4a555c; }
+
+/* Ontwerp voor Google-reviews; de proefgegevens staan in index.html. */
+.sectieFlowActief .mainContent > .siteSectie.googleReviewsSectie { min-block-size: 0; padding-block: clamp(40px, 5vw, 72px); }
+.googleReviewsSectie > .sectieKop { max-width: 960px; margin-inline: auto; text-align: center; }
+.googleReviewsSectie > .sectieKop :is(.sectieTitel, .sectieIntro) { margin-inline: auto; text-align: center; }
+.googleReviewsSectie > .sectieKop > .sectieIntro { max-width: 60ch; margin-block-start: clamp(28px, 3vw, 38px); }
+.googleReviewsSectie .googleReviewLijst { display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch; gap: 20px; margin-block-start: 32px; }
+.googleReviewLijst > li { flex: 1 1 calc((100% - 40px) / 3); min-width: min(100%, 18rem); max-width: 26rem; }
+.googleReviewKaart { display: flex; min-width: 0; height: 100%; flex-direction: column; padding: 24px; overflow: visible; border-radius: var(--radiusMiddel); background: #0b3c5d; color: #fff; box-shadow: none; font-size: var(--basisTekst); font-weight: 400; text-align: left; }
+.googleReviewKop { display: flex; align-items: center; gap: 12px; }
+.googleReviewAvatar { display: grid; width: 2.75em; height: 2.75em; flex: 0 0 2.75em; place-items: center; overflow: hidden; border-radius: 50%; background: #fff1d6; color: #764900; font-size: 1em; font-weight: 700; }
+.googleReviewAvatar img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.googleReviewAuteur { flex: 1; min-width: 0; }
+.googleReviewKaart .googleReviewAuteur h3 { color: #fff; font-family: var(--fontTekst); font-size: 1em; font-weight: 700; line-height: 1.4; text-align: left; }
+.googleReviewAuteur .googleReviewWaardering { margin: 4px 0 0; text-align: left; }
+.googleReviewSterren { display: block; color: var(--sparkyOranje); font-family: Arial, sans-serif; font-size: 1.05em; line-height: 1.3; letter-spacing: .1em; }
+.googleReviewKaart blockquote { margin-block: 20px 16px; }
+.googleReviewKaart blockquote p { margin: 0; color: #fff; font-size: 1em; line-height: 1.7; text-align: left; }
+.googleReviewKaart .googleReviewVoet { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 12px; margin-block-start: auto; padding-block-start: 8px; border-block-start: 1px solid rgba(255, 255, 255, .22); color: #d5e4ee; font-size: .8em; }
+.googleReviewBron { display: inline-flex; min-height: 44px; align-items: center; gap: 6px; color: inherit; font-weight: 600; text-decoration: none; }
+.googleReviewBron:is(:hover, :focus-visible) { color: var(--sparkyOranje); text-decoration: underline; }
+.googleReviewsProef { width: fit-content; margin: 16px auto 0; color: #52616b; font-size: .75em; }
+
 form { margin-block-start: 32px; display: grid; gap: 18px; }
 fieldset { border: 1px solid var(--kleurRand); border-radius: var(--radiusMiddel); padding: clamp(18px, 3vw, 28px); display: grid; gap: 12px; margin: 0; }
 legend { font-family: var(--fontKop); font-weight: 700; color: var(--sparkyDonkerBlauw); padding-inline: 8px; }
@@ -1948,6 +1971,10 @@ body.hoogContrast {
   --schaduwZacht: none;
 }
 body.hoogContrast .siteLogoAfbeelding { filter: brightness(0) invert(1); }
+body.hoogContrast :is(.googleReviewBron, .googleReviewKaart .googleReviewVoet, .googleReviewsProef) { color: #fff; }
+body.hoogContrast .googleReviewAvatar { background: var(--sparkyOranje); color: #000; }
+body.hoogContrast .googleReviewKaart { background: #090b0d; outline: 1px solid var(--kleurRand); outline-offset: -1px; }
+body.hoogContrast .googleReviewKaart .googleReviewVoet { border-color: var(--kleurRand); }
 
 /* De merkkleur wordt ook voor tekst gebruikt. Geef gekleurde vlakken daarom
    expliciet hun eigen donkere achtergrond, inclusief keuzehulpen en formulieren. */

@@ -1,12 +1,12 @@
 # Sparky Energies – developer section index
 
-> Gegenereerd op **2026-09-11** uit de zeven actuele publieke HTML-pagina’s. De JSON-bron is [`data/section-index.json`](data/section-index.json); de visuele versie staat in [`section-index.html`](section-index.html).
+> Gegenereerd op **2026-09-13** uit de zeven actuele publieke HTML-pagina’s. De JSON-bron is [`data/section-index.json`](data/section-index.json); de visuele versie staat in [`section-index.html`](section-index.html).
 
 ## Snelle samenvatting
 
 | Nr. | Pagina | Bestand | Primaire secties | Ondersteunend | Buttons | Formulieren |
 |---:|---|---|---:|---:|---:|---:|
-| 1 | [Home](index.html) | `index.html` | 5 | 3 | 7 | 1 |
+| 1 | [Home](index.html) | `index.html` | 6 | 3 | 8 | 1 |
 | 2 | [Thuisbatterijen](thuisbatterijen.html) | `thuisbatterijen.html` | 8 | 3 | 4 | 1 |
 | 3 | [Zonnepanelen](zonnepanelen.html) | `zonnepanelen.html` | 7 | 2 | 4 | 1 |
 | 4 | [Laadpalen](laadpalen.html) | `laadpalen.html` | 8 | 2 | 6 | 1 |
@@ -14,7 +14,7 @@
 | 6 | [Over ons](over-ons.html) | `over-ons.html` | 5 | 1 | 9 | 1 |
 | 7 | [Contact](contact.html) | `contact.html` | 0 | 1 | 1 | 2 |
 
-**Totaal:** 42 primaire secties, 14 ondersteunende main-secties, 37 buttons/hyperlinks, 8 formulieren en 174 paragrafen met een ID.
+**Totaal:** 43 primaire secties, 14 ondersteunende main-secties, 38 buttons/hyperlinks, 8 formulieren en 176 paragrafen met een ID.
 
 ### Hoe deze index gelezen wordt
 
@@ -49,6 +49,7 @@ Alle zeven publieke pagina's laden deze tag via `assets/js/cookie-consent.js` na
 | 1 | Eén installateur voor uw complete elektrische installatie | H1: Eén installateur voor uw complete elektrische installatie. | `homeSectGecertificeerdeInstallateursMetVakmanschap` | `homeSectGecertificeerdeInstallateursMetVakmanschapH1` | — |
 | 2 | Wat wij voor u installeren en onderhouden | H2: Onze diensten | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `homeSectWatWijVoorUInstallerenEnOnderhoudenH2` | `layoutServices` |
 | 4 | Alles werkt samen | H2: Alles werkt samen Uw woning wordt steeds elektrischer | `homeSectTwijfeltUOfUwInstallatieGeschiktIs` | `homeSectTwijfeltUOfUwInstallatieGeschiktIsH2` | `layoutText` |
+| 6 | Wat klanten over ons zeggen | H2: Wat klanten over ons zeggen | `homeSectWatKlantenOverOnsZeggen` | `homeSectWatKlantenOverOnsZeggenH2` | `layoutTestimonials` |
 | 8 | Over Sparky Energies | H2: Energie van nu, zekerheid voor morgen. | `homeSectVanIdeeTotInstallatieVanVonkTotVermogen` | `homeSectVanIdeeTotInstallatieVanVonkTotVermogenH2` | `layoutImageCta` |
 | 7 | Klaar om uw woning toekomstbestendig te maken? | H2: Klaar om uw woning toekomstbestendig te maken? | `homeSectKlaarOmUwWoningToekomstbestendigTeMaken` | `homeSectKlaarOmUwWoningToekomstbestendigTeMakenH2` | `layoutEmailCta` |
 
@@ -128,7 +129,7 @@ Deze secties zijn belangrijk voor styling en toegankelijkheid, maar tellen niet 
 |---|---|---|---|---|
 | Home | `homeSectTwijfeltUOfUwInstallatieGeschiktIs` | `homeSectKeuzehulp` | H2: Waar kunnen we u bij helpen? | `siteSectie`<br>`keuzehulpSectie` |
 | Home | `homeSectTwijfeltUOfUwInstallatieGeschiktIs` | `homeSectWaaromSparky` | H2: Eén partij die het complete systeem overziet | `siteSectie`<br>`kenmerkKaartenSectie`<br>`layoutFeatures` |
-| Home | `homeSectTwijfeltUOfUwInstallatieGeschiktIs` | `homeSectZoWerkenWij` | H2: Zo werken wij | `siteSectie`<br>`homeSectZoWerkenWij`<br>`thuisbatterijSectZoWerkenWij`<br>`layoutProcessTimeline` |
+| Home | `homeSectWatKlantenOverOnsZeggen` | `homeSectZoWerkenWij` | H2: Zo werken wij | `siteSectie`<br>`homeSectZoWerkenWij`<br>`thuisbatterijSectZoWerkenWij`<br>`layoutProcessTimeline` |
 | Thuisbatterijen | `thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparen` | `thuisbatterijSectWanneerWachten` | H2: Wanneer zouden wij nog wachten? | `siteSectie`<br>`layoutText` |
 | Thuisbatterijen | `thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparen` | `thuisbatterijCalculator` | H2: Welke thuisbatterij past bij uw situatie? | `siteSectie`<br>`adviesCalculatorSectie` |
 | Thuisbatterijen | `thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen` | `thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenVragen` | — | `faqLijst` |
@@ -152,6 +153,7 @@ Deze secties zijn belangrijk voor styling en toegankelijkheid, maar tellen niet 
 | Zonnepanelen Maak meer gebruik van energie van uw eigen dakEen zonnepaneleninstallatie afgestemd op uw verbruik, dak en toekomstige elektrische apparatuur. | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn02Ontdek` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `zonnepanelen.html` | `interne-pagina` |
 | Laadpalen Laad thuis veilig en slimVan laadpunt en load balancing tot laden met eigen zonnestroom. | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn03Meer` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `laadpalen.html` | `interne-pagina` |
 | Elektrotechniek Maak uw elektrische installatie toekomstbestendigGroepenkast, inductie, Quooker, voorbereiding voor een warmtepomp, extra elektra en zakelijke installaties. | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn04Meer` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `elektrotechnische-renovaties.html` | `interne-pagina` |
+| Google ↗: bekijk reviews (opent in een nieuw tabblad) | `a` | `homeSectWatKlantenOverOnsZeggenBtn01Google` | `homeSectWatKlantenOverOnsZeggen` | `https://www.google.com/search?q=Sparky+Energies+V.O.F.%2C+Anthonetta+Kuijlstraat%2C+%2C+ROTTERDAM#lrd=0x47c433950f503f1d:0x4caacae818dda9f3,1,,,` | `extern` |
 | Bekijk hoe wij werken | `a` | `homeSectVanIdeeTotInstallatieVanVonkTotVermogenBtn01OntdekSparkyNieuw` | `homeSectVanIdeeTotInstallatieVanVonkTotVermogen` | `over-ons.html` | `interne-pagina` |
 | Ontvang advies + prijsindicatie | `button` | `homeSectKlaarOmUwWoningToekomstbestendigTeMakenBtn01Aanvragen` | `homeSectKlaarOmUwWoningToekomstbestendigTeMaken` | `https://formspree.io/f/xnjenvqd` | `formulier-versturen` |
 
