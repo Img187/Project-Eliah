@@ -1,12 +1,12 @@
 # Sparky Energies – developer section index
 
-> Gegenereerd op **2026-09-13** uit de zeven actuele publieke HTML-pagina’s. De JSON-bron is [`data/section-index.json`](data/section-index.json); de visuele versie staat in [`section-index.html`](section-index.html).
+> Gegenereerd op **2026-09-14** uit de zeven actuele publieke HTML-pagina’s. De JSON-bron is [`data/section-index.json`](data/section-index.json); de visuele versie staat in [`section-index.html`](section-index.html).
 
 ## Snelle samenvatting
 
 | Nr. | Pagina | Bestand | Primaire secties | Ondersteunend | Buttons | Formulieren |
 |---:|---|---|---:|---:|---:|---:|
-| 1 | [Home](index.html) | `index.html` | 6 | 3 | 8 | 1 |
+| 1 | [Home](index.html) | `index.html` | 6 | 3 | 9 | 1 |
 | 2 | [Thuisbatterijen](thuisbatterijen.html) | `thuisbatterijen.html` | 8 | 3 | 4 | 1 |
 | 3 | [Zonnepanelen](zonnepanelen.html) | `zonnepanelen.html` | 7 | 2 | 4 | 1 |
 | 4 | [Laadpalen](laadpalen.html) | `laadpalen.html` | 8 | 2 | 6 | 1 |
@@ -14,7 +14,7 @@
 | 6 | [Over ons](over-ons.html) | `over-ons.html` | 5 | 1 | 9 | 1 |
 | 7 | [Contact](contact.html) | `contact.html` | 0 | 1 | 1 | 2 |
 
-**Totaal:** 43 primaire secties, 14 ondersteunende main-secties, 38 buttons/hyperlinks, 8 formulieren en 176 paragrafen met een ID.
+**Totaal:** 43 primaire secties, 14 ondersteunende main-secties, 39 buttons/hyperlinks, 8 formulieren en 177 paragrafen met een ID.
 
 ### Hoe deze index gelezen wordt
 
@@ -154,6 +154,7 @@ Deze secties zijn belangrijk voor styling en toegankelijkheid, maar tellen niet 
 | Laadpalen Laad thuis veilig en slimVan laadpunt en load balancing tot laden met eigen zonnestroom. | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn03Meer` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `laadpalen.html` | `interne-pagina` |
 | Elektrotechniek Maak uw elektrische installatie toekomstbestendigGroepenkast, inductie, Quooker, voorbereiding voor een warmtepomp, extra elektra en zakelijke installaties. | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn04Meer` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `elektrotechnische-renovaties.html` | `interne-pagina` |
 | Google ↗: bekijk reviews (opent in een nieuw tabblad) | `a` | `homeSectWatKlantenOverOnsZeggenBtn01Google` | `homeSectWatKlantenOverOnsZeggen` | `https://www.google.com/search?q=Sparky+Energies+V.O.F.%2C+Anthonetta+Kuijlstraat%2C+%2C+ROTTERDAM#lrd=0x47c433950f503f1d:0x4caacae818dda9f3,1,,,` | `extern` |
+| Google ↗: bekijk deze review (opent in een nieuw tabblad) | `a` | `homeSectWatKlantenOverOnsZeggenBtn02Google` | `homeSectWatKlantenOverOnsZeggen` | `https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tOTk5HZEhXVkZOWjFOdU0xZHFObU5GZGxrdGFsRRAB!2m1!1s0x0:0x4caacae818dda9f3!3m1!1s2@1:CAIQACodChtycF9oOkNNNGdHWVFNZ1NuM1dqNmNFdlktalE%7C%7C?hl=nl` | `extern` |
 | Bekijk hoe wij werken | `a` | `homeSectVanIdeeTotInstallatieVanVonkTotVermogenBtn01OntdekSparkyNieuw` | `homeSectVanIdeeTotInstallatieVanVonkTotVermogen` | `over-ons.html` | `interne-pagina` |
 | Ontvang advies + prijsindicatie | `button` | `homeSectKlaarOmUwWoningToekomstbestendigTeMakenBtn01Aanvragen` | `homeSectKlaarOmUwWoningToekomstbestendigTeMaken` | `https://formspree.io/f/xnjenvqd` | `formulier-versturen` |
 

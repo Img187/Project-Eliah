@@ -1,3 +1,7 @@
 /.codex/
 /tools/
 /AGENTS.md
+.env
+.env.*
+!.env.example
+/tests/node_modules/

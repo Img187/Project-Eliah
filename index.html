@@ -376,16 +376,16 @@
   </ul>
 </section>
 
-<!-- Lokale ontwerpversie op verzoek. Gegevens via Trustoo, 13-09-2026;
-     nog niet rechtstreeks op Google gecontroleerd of via de API gekoppeld.
-     Vervang deze proefgegevens bij aansluiting van de Business Profile API.
-     Zie docs/voortgang-2026-09-13.md voordat deze sectie wordt gepubliceerd. -->
+<!-- Tijdelijke statische fallback zolang de Business Profile API nog niet beschikbaar is.
+     De nieuwste kaart is gecontroleerd via de rechtstreekse openbare Google-reviewlink.
+     Vervang deze fallback bij aansluiting van de Business Profile API. -->
 <section id="homeSectWatKlantenOverOnsZeggen" class="siteSectie homeSectWatKlantenOverOnsZeggen layoutTestimonials googleReviewsSectie" data-page="Home" data-page-number="1" data-section-number="6" data-section-title="Wat klanten over ons zeggen" data-review-mode="preview" aria-labelledby="homeSectWatKlantenOverOnsZeggenH2">
   <header class="sectieKop">
     <h2 id="homeSectWatKlantenOverOnsZeggenH2" class="sectieTitel">Wat klanten over ons zeggen</h2>
     <p id="homeSectWatKlantenOverOnsZeggenP01" class="sectieIntro">Van het eerste advies tot de installatie. Dit is hoe onze klanten het ervaren.</p>
   </header>
 
+  <p class="googleReviewSamenvatting" data-review-summary hidden></p>
   <ul id="homeSectWatKlantenOverOnsZeggenLijst" class="testimonialLijst googleReviewLijst" role="list">
       <li>
         <article id="homeSectWatKlantenOverOnsZeggenArtikel01" class="testimonialKaart kaart googleReviewKaart" aria-labelledby="homeReviewRobertoNaam">
@@ -405,7 +405,31 @@
           </footer>
         </article>
       </li>
+      <li>
+        <article id="homeSectWatKlantenOverOnsZeggenArtikel02" class="testimonialKaart kaart googleReviewKaart" aria-labelledby="homeReviewInfoBruidsatelierNaam">
+          <header class="googleReviewKop">
+            <span class="googleReviewAvatar" aria-hidden="true"><img src="https://lh3.googleusercontent.com/a-/ALV-UjXI_WOsa6qyXUumdfPv6jgFVcQP2l4bKzTXM5uFvStoHMOvl7Rw=s120-c-rp-mo-ba12-br100" alt="" width="44" height="44" loading="lazy" decoding="async" referrerpolicy="no-referrer"></span>
+            <div class="googleReviewAuteur">
+              <h3 id="homeReviewInfoBruidsatelierNaam">Info Bruidsatelier</h3>
+              <p class="googleReviewWaardering"><span class="googleReviewSterren" aria-hidden="true">★★★★★</span><span class="srOnly">5 uit 5 sterren</span></p>
+            </div>
+          </header>
+          <blockquote>
+            <p id="homeSectWatKlantenOverOnsZeggenArtikel02P01">“Zeer tevreden! De zonnepanelen op ons terras, inclusief thuisbatterij, zijn snel en vakkundig geïnstalleerd. Alles werd netjes geregeld, ook de benodigde bekabeling hebben ze zelf verzorgd.<br><br>Alles werkt perfect en de communicatie en uitvoering waren snel en duidelijk. Wij zijn heel tevreden met het resultaat.<br><br>Zeker een aanrader! 5*”</p>
+          </blockquote>
+          <footer class="googleReviewVoet">
+            <time datetime="2026-09-13">13 september 2026</time>
+            <a id="homeSectWatKlantenOverOnsZeggenBtn02Google" class="googleReviewBron" href="https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tOTk5HZEhXVkZOWjFOdU0xZHFObU5GZGxrdGFsRRAB!2m1!1s0x0:0x4caacae818dda9f3!3m1!1s2@1:CAIQACodChtycF9oOkNNNGdHWVFNZ1NuM1dqNmNFdlktalE%7C%7C?hl=nl" target="_blank" rel="noopener noreferrer" data-button-page="Home" data-button-section="Wat klanten over ons zeggen" data-link-type="extern">Google <span aria-hidden="true">↗</span><span class="srOnly">: bekijk deze review (opent in een nieuw tabblad)</span></a>
+          </footer>
+        </article>
+      </li>
   </ul>
+  <p class="googleReviewStatus" data-review-status role="status" hidden></p>
+  <div class="overzichtBediening" data-review-controls hidden>
+    <button class="overzichtKnop" type="button" data-review-pause aria-pressed="false">Reviews pauzeren</button>
+    <button class="overzichtKnop" type="button" data-review-next>Andere reviews →</button>
+  </div>
+  <div class="overzichtBediening"><a class="googleReviewsAlle" href="https://www.google.com/search?q=Sparky+Energies+V.O.F.%2C+Anthonetta+Kuijlstraat%2C+%2C+ROTTERDAM#lrd=0x47c433950f503f1d:0x4caacae818dda9f3,1,,," target="_blank" rel="noopener noreferrer">Alle reviews op Google ↗<span class="srOnly"> (opent in een nieuw tabblad)</span></a></div>
 </section>
 
     <section id="homeSectZoWerkenWij" class="siteSectie homeSectZoWerkenWij thuisbatterijSectZoWerkenWij layoutProcessTimeline" aria-labelledby="homeSectZoWerkenWijH2">
@@ -554,5 +578,6 @@
   </section>
 </footer>
 <script src="assets/js/main.js" defer></script>
+<script src="assets/js/google-reviews.js" defer></script>
 </body>
 </html>

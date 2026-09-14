@@ -1,7 +1,7 @@
 {
   "metadata": {
     "schema_version": 2,
-    "generated_on": "2026-09-13",
+    "generated_on": "2026-09-14",
     "language": "nl",
     "source_files": [
       "index.html",
@@ -17,8 +17,8 @@
       "pages": 7,
       "primary_sections": 43,
       "supporting_sections": 14,
-      "paragraphs": 176,
-      "buttons": 38,
+      "paragraphs": 177,
+      "buttons": 39,
       "forms": 8
     }
   },
@@ -1382,6 +1382,16 @@
       "type": "paragraph",
       "classes": [],
       "text": "“Zeer tevreden over de service van Sparky energies. Wij zijn erg blij met de installatie van een thuisbatterij en nieuwe groepenkast.”"
+    },
+    {
+      "id": "homeSectWatKlantenOverOnsZeggenArtikel02P01",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_id": "homeSectWatKlantenOverOnsZeggen",
+      "type": "paragraph",
+      "classes": [],
+      "text": "“Zeer tevreden! De zonnepanelen op ons terras, inclusief thuisbatterij, zijn snel en vakkundig geïnstalleerd. Alles werd netjes geregeld, ook de benodigde bekabeling hebben ze zelf verzorgd. Alles werkt perfect en de communicatie en uitvoering waren snel en duidelijk. Wij zijn heel tevreden met het resultaat. Zeker een aanrader! 5*”"
     },
     {
       "id": "homeSectZoWerkenWijStap01P01",
@@ -3259,6 +3269,23 @@
       "section_heading": "Wat klanten over ons zeggen",
       "label": "Google ↗: bekijk reviews (opent in een nieuw tabblad)",
       "href": "https://www.google.com/search?q=Sparky+Energies+V.O.F.%2C+Anthonetta+Kuijlstraat%2C+%2C+ROTTERDAM#lrd=0x47c433950f503f1d:0x4caacae818dda9f3,1,,,",
+      "link_type": "extern",
+      "target_page": "",
+      "target_section": "",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "homeSectWatKlantenOverOnsZeggenBtn02Google",
+      "element": "a",
+      "page": "Home",
+      "file": "index.html",
+      "page_number": 1,
+      "section_number": 6,
+      "section_id": "homeSectWatKlantenOverOnsZeggen",
+      "section_heading": "Wat klanten over ons zeggen",
+      "label": "Google ↗: bekijk deze review (opent in een nieuw tabblad)",
+      "href": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tOTk5HZEhXVkZOWjFOdU0xZHFObU5GZGxrdGFsRRAB!2m1!1s0x0:0x4caacae818dda9f3!3m1!1s2@1:CAIQACodChtycF9oOkNNNGdHWVFNZ1NuM1dqNmNFdlktalE%7C%7C?hl=nl",
       "link_type": "extern",
       "target_page": "",
       "target_section": "",

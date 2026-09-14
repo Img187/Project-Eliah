@@ -949,6 +949,16 @@ blockquote { margin: 0; }
 .googleReviewBron { display: inline-flex; min-height: 44px; align-items: center; gap: 6px; color: inherit; font-weight: 600; text-decoration: none; }
 .googleReviewBron:is(:hover, :focus-visible) { color: var(--sparkyOranje); text-decoration: underline; }
 .googleReviewsProef { width: fit-content; margin: 16px auto 0; color: #52616b; font-size: .75em; }
+.googleReviewKaart :is(h3, blockquote p) { overflow-wrap: anywhere; }
+.googleReviewsSectie .googleReviewLijst { max-width: calc(78rem + 40px); margin-inline: auto; }
+.googleReviewKaart blockquote p { white-space: pre-line; }
+.googleReviewStatus { margin: 24px auto 0; text-align: center; }
+.googleReviewSamenvatting { margin: 24px auto 0; font-weight: 600; text-align: center; }
+.overzichtBediening { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; margin-top: 24px; }
+.overzichtBediening[hidden] { display: none; }
+.overzichtKnop { min-height: 44px; padding: 9px 16px; border: 1px solid currentColor; border-radius: 8px; background: transparent; color: inherit; font: inherit; font-size: .9em; line-height: 1.4; cursor: pointer; }
+.overzichtKnop:disabled { opacity: .65; cursor: default; }
+.overzichtKnop:focus-visible { outline: 3px solid var(--sparkyOranje); outline-offset: 3px; }
 
 form { margin-block-start: 32px; display: grid; gap: 18px; }
 fieldset { border: 1px solid var(--kleurRand); border-radius: var(--radiusMiddel); padding: clamp(18px, 3vw, 28px); display: grid; gap: 12px; margin: 0; }
