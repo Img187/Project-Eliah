@@ -14,12 +14,12 @@ De codewijzigingen richten zich op de publieke website. GitHub Pages serveert HT
 - De onafgemaakte projectsectie in `index.html` en de bijbehorende projectbestanden blijven lokaal. Deze veiligheidsupdate publiceert de bestaande homepage met alleen de nieuwe beveiligingsinstellingen. De publicatiebuilder neemt optionele projectcode pas mee wanneer de homepage die inschakelt.
 - De nieuwe GitHub Actions-workflow test, controleert herkenbare tokenpatronen, voert een dependency-audit uit en bouwt het websitepakket. Alleen een geslaagde controle op `main` kan publiceren. Pull requests publiceren nooit. Actions zijn aan volledige commit-SHA's vastgezet; Dependabot volgt updates.
 
-## Eenmalige overstap voor de publicatie
+## Publicatie-inrichting
 
-Op 20 september 2026 meldde de GitHub API dat `Img187/Project-Eliah` openbaar is, Pages gebruikt en `main` als standaardbranch heeft. De laatste publicatierun was de automatisch gegenereerde `dynamic/pages/pages-build-deployment`. De Pages-instellingen zelf zijn niet gewijzigd.
+Op 20 september 2026 is de veiligheidscommit `c1bd4e9` naar `main` gepusht. De [controle- en publicatieworkflow](https://github.com/Img187/Project-Eliah/actions/runs/35521976078) slaagde. Vervolgens is de Pages-bron via de GitHub API omgezet van `legacy` naar `workflow` (GitHub Actions), zodat toekomstige pushes uitsluitend via de gecontroleerde publicatieroute lopen. De API bevestigde daarna `build_type: workflow`, het bestaande custom domain `www.sparkyenergies.com` en `https_enforced: true`. De repository is openbaar.
 
-1. Publiceer de veiligheidscommit op `main`, inclusief `scripts/`, `.github/`, `assets/js/network.js` en de beveiligingstests. Houd de lokale projectsectie en bijbehorende bestanden buiten deze commit.
-2. Zet in [Settings → Pages](https://github.com/Img187/Project-Eliah/settings/pages) bij **Build and deployment → Source** de bron op **GitHub Actions**. De oude branchpublicatie moet daarmee worden vervangen. Zolang die overstap niet is gemaakt, begrenst `build/pages` niet wat de oude publicatiemethode serveert en kunnen die oude deploys de tests omzeilen.
+1. Houd de lokale projectsectie en bijbehorende bestanden bij volgende commits buiten de publicatie totdat die gereed zijn.
+2. Behoud in [Settings → Pages](https://github.com/Img187/Project-Eliah/settings/pages) bij **Build and deployment → Source** de bron **GitHub Actions**. Terugschakelen naar branchpublicatie zou `build/pages` omzeilen en bestanden zonder de nieuwe controles publiceren.
 3. Controleer dezelfde pagina op het bestaande custom domain `www.sparkyenergies.com` en **Enforce HTTPS**. Behoud de bestaande DNS-inrichting; `CNAME` wordt in het nieuwe websitepakket meegenomen.
 4. Start zo nodig de workflow **Website controleren en publiceren** handmatig op `main`. Controleer dat zowel **Beveiliging en tests** als deployment slagen. De bestaande site blijft de laatste geslaagde publicatie gebruiken wanneer de nieuwe workflow niet kan publiceren.
 5. Controleer na uitrollen de zeven pagina's, een echte normale formulierinzending en de externe Google-integraties met toestemming. Tests gebruiken synthetische responses en bewijzen geen Formspree-accountconfiguratie.
@@ -58,6 +58,6 @@ Nieuwe scripts, stylesheets of downloadbare documenten moeten bewust aan de publ
 
 ## Verificatie
 
-De automatische suite voor deze publicatie bevat 49 tests, waaronder overflow, dubbele submit, vastgelopen responses, byteoverschrijding zonder betrouwbare lengteheader, behoud van geldige cache, XSS als tekst, uitsluiten van interne publicatiebestanden en detectie van een synthetisch token in staged inhoud. De zes extra tests voor het lokale projectconcept blijven eveneens lokaal.
+De automatische suite voor deze publicatie bevat 49 tests, die lokaal en in GitHub Actions slagen. Ze controleren onder meer overflow, dubbele submit, vastgelopen responses, byteoverschrijding zonder betrouwbare lengteheader, behoud van geldige cache, XSS als tekst, uitsluiten van interne publicatiebestanden en detectie van een synthetisch token in staged inhoud. De dependency-audit vond geen bekende kwetsbaarheden. De zes extra tests voor het lokale projectconcept blijven eveneens lokaal.
 
 Daarnaast is de gebouwde website lokaal in echte Chrome gecontroleerd: zeven pagina's zonder scriptfouten of onverwachte CSP-blokkades, normale calculator plus afwijzen van overflow, een synthetische Formspree-inzending, blokkeren van inline scripts/eventhandlers en onbekende fetchbestemmingen. Externe diensten zijn bij deze controle onderschept en gesimuleerd; er zijn geen echte formulierinzendingen gedaan.
