@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test google-reviews.test.mjs google-reviews-dom.test.mjs"
+    "test": "node --test *.test.mjs *.test.cjs"
   },
   "devDependencies": {
     "jsdom": "30.0.1"

@@ -157,3 +157,15 @@ test('invalid nonfinite inputs and zero efficiencies are rejected instead of Inf
   assert.throws(() => battery({ jaarverbruikKwh: 'NaN' }), models.InputError);
   assert.throws(() => charger({ kilometersPerDag: '1e309' }), models.InputError);
 });
+
+test('grote eindige invoer en gemaskeerde overflow stoppen vóór advies ontstaat', () => {
+  const cases = [
+    ['battery', { noodstroom: 'ja', noodstroomKw: '1e308', noodstroomUren: '4' }],
+    ['solar', { jaarverbruikKwh: '1e308', extraJaarverbruikKwh: '1e308' }],
+    ['solar', { jaarverbruikKwh: '5000', paneelWp: '1e308', opbrengstPerKwp: '1e308' }],
+    ['solar', { jaarverbruikKwh: '5000', dakoppervlakteM2: '9'.repeat(309) }],
+    ['charger', { netaansluiting: '3-fase', hoofdzekeringA: '1e308', overigeBelastingKw: '0' }],
+    ['electrical', { netaansluiting: '3-fase', hoofdzekeringA: '25', overigeBelastingKw: '1e308', aansluitvermogenKw: '1e308' }],
+  ];
+  for (const [model, input] of cases) assert.throws(() => models[model](values(input)), models.InputError);
+});

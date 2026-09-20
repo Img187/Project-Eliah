@@ -133,10 +133,10 @@
   }
   function validate(data) {
     const time = Date.parse(data?.fetchedAt);
-    if (!Number.isFinite(time) || time > Date.now() + 60000 || Date.now() - time > MAX_AGE || !Array.isArray(data.reviews) || data.totalReviewCount !== data.reviews.length || !Number.isFinite(data.averageRating) || (data.reviews.length && (data.averageRating < 1 || data.averageRating > 5))) throw new Error('Ongeldige reviewgegevens');
+    if (!Number.isFinite(time) || time > Date.now() + 60000 || Date.now() - time > MAX_AGE || !Array.isArray(data.reviews) || data.reviews.length > 1000 || data.totalReviewCount !== data.reviews.length || !Number.isFinite(data.averageRating) || (data.reviews.length && (data.averageRating < 1 || data.averageRating > 5))) throw new Error('Ongeldige reviewgegevens');
     const ids = new Set();
     for (const review of data.reviews) {
-      if (typeof review.id !== 'string' || !review.id || ids.has(review.id) || typeof review.author !== 'string' || !review.author.trim() || typeof review.text !== 'string' || !Number.isInteger(review.rating) || review.rating < 1 || review.rating > 5 || !Number.isFinite(Date.parse(review.publishedAt))) throw new Error('Ongeldige review');
+      if (!review || typeof review.id !== 'string' || !review.id || review.id.length > 256 || ids.has(review.id) || typeof review.author !== 'string' || !review.author.trim() || review.author.length > 512 || typeof review.text !== 'string' || review.text.length > 10000 || !Number.isInteger(review.rating) || review.rating < 1 || review.rating > 5 || typeof review.publishedAt !== 'string' || review.publishedAt.length > 64 || !Number.isFinite(Date.parse(review.publishedAt)) || (review.photoUrl !== undefined && (typeof review.photoUrl !== 'string' || review.photoUrl.length > 2048))) throw new Error('Ongeldige review');
       ids.add(review.id);
     }
     return data;
@@ -146,9 +146,9 @@
     if (!endpoint || busy || document.hidden) return;
     busy = true;
     try {
-      const response = await fetch(endpoint, { credentials: 'omit', cache: 'no-store', signal: AbortSignal.timeout(20000) });
+      const { response, data } = await window.SparkyNetwork.fetchJson(endpoint, { cache: 'no-store' }, { maxBytes: 2 * 1024 * 1024, timeoutMs: 20000 });
       if (!response.ok) throw new Error('Reviews niet beschikbaar');
-      applyFeed(validate(await response.json()));
+      applyFeed(validate(data));
     } catch {
       section.dataset.reviewMode = fetchedAt ? 'cached' : 'unavailable';
       status.hidden = false;
@@ -172,12 +172,13 @@
   }, 12000);
   setInterval(refresh, 5 * 60 * 1000);
   document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });
-  fetch('data/reviews-config.json', { cache: 'no-cache' })
-    .then(response => { if (!response.ok) throw new Error('Geen configuratie'); return response.json(); })
+  window.SparkyNetwork.fetchJson('data/reviews-config.json', { cache: 'no-cache' }, { maxBytes: 8192, timeoutMs: 10000 })
+    .then(({ response, data }) => { if (!response.ok) throw new Error('Geen configuratie'); return data; })
     .then(config => {
+      if (!config || typeof config.endpoint !== 'string' || config.endpoint.length > 2048) throw new Error('Ongeldige configuratie');
       if (!config.endpoint) return; // Bestaande proef blijft staan tot de koppeling is geconfigureerd.
       const url = new URL(config.endpoint, location.href);
-      if (url.protocol !== 'https:' && !(location.hostname === '127.0.0.1' && url.hostname === '127.0.0.1' && url.protocol === 'http:')) throw new Error('HTTPS vereist');
+      if (url.username || url.password || (url.protocol !== 'https:' && !(location.hostname === '127.0.0.1' && url.hostname === '127.0.0.1' && url.protocol === 'http:'))) throw new Error('HTTPS vereist');
       endpoint = url.href;
       // Een statische proef mag bij een API-storing niet als live resultaat doorgaan.
       list.replaceChildren();

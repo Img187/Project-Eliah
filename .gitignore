@@ -5,3 +5,10 @@
 .env.*
 !.env.example
 /tests/node_modules/
+/build/
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+service-account*.json

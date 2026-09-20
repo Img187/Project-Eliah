@@ -6,6 +6,12 @@ Deze versie bevat géén Relume, géén Tailwind-configuratie, géén npm-packag
 
 Open deze map in VS Code en start bijvoorbeeld Live Server op `index.html`.
 
+## Publiceren en beveiliging
+
+De website wordt voorbereid met `node scripts/prepare-pages.mjs` in `build/pages`. De GitHub Actions-workflow publiceert uitsluitend die map na geslaagde tests. Hiervoor moet de Pages-publicatiebron eenmalig op **GitHub Actions** staan. Zie [publicatie en beveiliging](docs/publicatie-security.md) voor de overstap, controles vóór een commit en de resterende GitHub-/Formspree-instellingen.
+
+Alle tests: `npm --prefix tests test`. Na wijzigen van JSON-LD of de review-API-configuratie: `node scripts/prepare-pages.mjs --sync`, zodat de Content Security Policy weer overeenkomt.
+
 ## Structuur
 
 - `index.html`

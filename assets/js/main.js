@@ -1078,14 +1078,26 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
 
     upload.addEventListener('change', () => {
       // Een nieuwe keuze voegt toe; de bestaande selectie blijft behouden.
+      if (upload.files.length > formspreeMaxFiles) {
+        syncFiles();
+        const status = field.querySelector('[data-upload-status]');
+        if (status) { status.dataset.status = 'error'; status.textContent = 'Kies maximaal vijf foto’s tegelijk. Uw eerdere selectie is behouden.'; }
+        return;
+      }
+      let skipped = false;
       for (const file of Array.from(upload.files || [])) {
         const duplicate = selectedFiles.some((existing) => existing.name === file.name
           && existing.size === file.size && existing.lastModified === file.lastModified && existing.type === file.type);
-        if (!duplicate) selectedFiles.push(file);
+        if (!duplicate && selectedFiles.length < formspreeMaxFiles) selectedFiles.push(file);
+        else if (!duplicate) skipped = true;
       }
       syncFiles();
       renderFiles();
       validateFormspreeUpload(upload);
+      if (skipped) {
+        const status = field.querySelector('[data-upload-status]');
+        if (status) { status.dataset.status = 'error'; status.textContent = 'Er zijn maximaal vijf foto’s geselecteerd. Verwijder eerst een foto om een andere toe te voegen.'; }
+      }
     });
     dialog.addEventListener('close', () => {
       const index = selectedFiles.indexOf(pendingFile);
@@ -1115,6 +1127,7 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
 
   // Verstuur alle acht aanvragen via hetzelfde Formspree-formulier zonder de bezoeker weg te sturen.
   document.querySelectorAll('form[data-formspree-form]').forEach((form) => {
+    let submitting = false;
     const requiredCheckboxGroups = form.querySelectorAll('[data-required-checkbox-group]');
     const fileUploads = form.querySelectorAll('[data-formspree-upload]');
 
@@ -1142,6 +1155,7 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
+      if (submitting) return;
 
       const note = form.querySelector('.formulierNotitie');
       const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
@@ -1159,6 +1173,7 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
         return;
       }
 
+      submitting = true;
       if (submitButton) {
         submitButton.dataset.originalText = submitButton.textContent;
         submitButton.disabled = true;
@@ -1176,18 +1191,17 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
         const payload = new FormData(form);
         const uploadControls = form.querySelectorAll('[data-formspree-upload], .adviesBestandVerwijder');
         uploadControls.forEach((control) => { control.disabled = true; });
-        const response = await fetch(form.action, {
+        const { response, data: result } = await window.SparkyNetwork.fetchJson(form.action, {
           method: 'POST',
           body: payload,
           headers: { Accept: 'application/json' }
-        });
-        const result = await response.json().catch(() => ({}));
+        }, { maxBytes: 65536, timeoutMs: 90000, allowInvalidJson: true });
 
         if (!response.ok) {
           if (response.status === 429) throw new Error('Er zijn tijdelijk te veel aanvragen verstuurd. Wacht even en probeer het opnieuw.');
           if (response.status === 413) throw new Error('De gekozen foto’s zijn samen te groot om te versturen. Kies minder of kleinere foto’s.');
-          const formspreeMessage = Array.isArray(result.errors)
-            ? result.errors.map((error) => error.message).filter(Boolean).join(' ')
+          const formspreeMessage = Array.isArray(result?.errors)
+            ? result.errors.slice(0, 5).map((error) => typeof error?.message === 'string' ? error.message.slice(0, 500) : '').filter(Boolean).join(' ')
             : '';
           throw new Error(formspreeMessage || 'De aanvraag kon niet worden verstuurd.');
         }
@@ -1212,6 +1226,7 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
           note.textContent = `${error.message || 'Er ging iets mis bij het versturen.'} Probeer het opnieuw of mail naar info@sparkyenergies.com.`;
         }
       } finally {
+        submitting = false;
         form.querySelectorAll('[data-formspree-upload], .adviesBestandVerwijder').forEach((control) => { control.disabled = false; });
         if (submitButton) {
           submitButton.disabled = false;
@@ -1367,6 +1382,15 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
         if (!(error instanceof models.InputError)) throw error;
         const input = form.elements.namedItem(error.field);
         if (input && input.setCustomValidity) { input.setCustomValidity(error.message); input.reportValidity(); }
+        const output = form.closest('.adviesCalculatorSectie').querySelector('[data-calculation-output]');
+        if (output) {
+          output.querySelector('[data-result-title]').textContent = 'Berekening niet mogelijk';
+          output.querySelector('[data-result-summary]').textContent = error.message;
+          output.querySelector('[data-result-details]').replaceChildren();
+          output.querySelector('[data-calculation-contact]').hidden = true;
+          output.classList.remove('heeftResultaat');
+        }
+        try { window.sessionStorage.removeItem(calculatorStorageKey); } catch { /* Sessieopslag is optioneel. */ }
         return;
       }
       if (!advice) return;

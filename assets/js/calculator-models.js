@@ -9,7 +9,8 @@
   class InputError extends Error {
     constructor(field, message) { super(message); this.field = field; }
   }
-  const number = (v, key, fallback = null, min = 0, max = Infinity) => {
+  // Technische bovengrens; geen uitspraak over een geschikte installatiegrootte.
+  const number = (v, key, fallback = null, min = 0, max = Number.MAX_SAFE_INTEGER) => {
     const raw = v.get(key);
     if (raw === null || String(raw).trim() === '') return fallback;
     const value = Number(raw);
@@ -20,10 +21,20 @@
   };
   const positive = (v, key, fallback) => number(v, key, fallback, .000001);
   const fraction = (v, key, fallback) => number(v, key, fallback, 1, 100) / 100;
-  const fmt = (value, digits = 1) => value.toLocaleString('nl-NL', { maximumFractionDigits: value > 0 && value < .1 ? Math.max(digits, 4) : digits });
+  const assertFinite = (value) => {
+    if (typeof value === 'number' && !Number.isFinite(value)) throw new InputError('', 'Deze waarden leveren een te grote berekening op. Controleer uw invoer.');
+    if (value && typeof value === 'object') Object.values(value).forEach(assertFinite);
+  };
+  const fmt = (value, digits = 1) => {
+    assertFinite(value);
+    return value.toLocaleString('nl-NL', { maximumFractionDigits: value > 0 && value < .1 ? Math.max(digits, 4) : digits });
+  };
   const kw = (value) => `${fmt(value)} kW`;
   const kwh = (value) => `${fmt(value)} kWh`;
-  const advice = (type, topic, title, summary, details, metrics) => ({ type, topic, title, summary, details, metrics, fields: [] });
+  const advice = (type, topic, title, summary, details, metrics) => {
+    assertFinite(metrics);
+    return { type, topic, title, summary, details, metrics, fields: [] };
+  };
 
   function battery(v) {
     const importKwh = number(v, 'jaarverbruikKwh', 0);
@@ -83,7 +94,7 @@
     const measuredExisting = number(v, 'bestaandeOpwekKwh');
     const existingYield = measuredExisting ?? existingPanels * existingWp / 1000 * specificYield;
     const roofChoice = v.get('dakoppervlakteM2');
-    const roofArea = roofChoice === 'meer-dan-1000' ? positive(v, 'dakoppervlakteExtraM2') : /^\d+(\.\d+)?$/.test(roofChoice || '') ? Number(roofChoice) : null;
+    const roofArea = roofChoice === 'meer-dan-1000' ? positive(v, 'dakoppervlakteExtraM2') : /^\d+(\.\d+)?$/.test(roofChoice || '') ? number(v, 'dakoppervlakteM2') : null;
     const areaPerPanel = positive(v, 'ruimtePerPaneelM2', 2);
     const existingArea = number(v, 'bestaandDakgebruikM2') ?? existingPanels * areaPerPanel;
     const availableRoof = roofArea === null ? null : Math.max(0, Math.floor((roofArea - existingArea) / areaPerPanel));

@@ -7,6 +7,7 @@ import { JSDOM } from 'jsdom';
 const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
 const sectionHtml = html.match(/<section\b[^>]*class="[^"]*googleReviewsSectie[\s\S]*?<\/section>/)[0];
 const script = await readFile(new URL('../assets/js/google-reviews.js', import.meta.url), 'utf8');
+const networkScript = await readFile(new URL('../assets/js/network.js', import.meta.url), 'utf8');
 const start = Date.parse('2026-09-14T12:00:00Z');
 const feed = (count, overrides = {}) => ({
   fetchedAt: new Date(start).toISOString(), totalReviewCount: count, averageRating: count ? 3 : 0,
@@ -18,10 +19,33 @@ const feed = (count, overrides = {}) => ({
 });
 const settle = async () => { for (let i = 0; i < 4; i++) await new Promise(resolve => setImmediate(resolve)); };
 
+test('ongeldige en te grote reviewfeeds vervangen de geldige cache niet', async t => {
+  const h = await harness(t, { data: feed(2) });
+  const original = h.ids();
+  const oversizedText = feed(2);
+  oversizedText.reviews[0].text = 'x'.repeat(10001);
+  const nullReview = feed(2);
+  nullReview.reviews[0] = null;
+  const oversizedBody = feed(1);
+  oversizedBody.reviews[0].text = 'x'.repeat(2 * 1024 * 1024);
+  for (const invalid of [feed(1001), oversizedText, nullReview, oversizedBody]) {
+    h.setFeed(invalid);
+    await h.refresh();
+    assert.deepEqual(h.ids(), original);
+    assert.equal(h.section.dataset.reviewMode, 'cached');
+  }
+  h.setFeed(feed(3));
+  await h.refresh();
+  assert.equal(h.ids().length, 3);
+});
+
 async function harness(t, { data = feed(7), endpoint = 'https://reviews.example/reviews', hover = false, withoutStatic = false } = {}) {
   const dom = new JSDOM(sectionHtml, { url: 'https://www.sparkyenergies.com/', runScripts: 'outside-only', pretendToBeVisual: true });
   t.after(() => dom.window.close());
   const { window } = dom;
+  window.TextDecoder = TextDecoder;
+  window.AbortController = AbortController;
+  window.eval(networkScript);
   const section = window.document.querySelector('section');
   const list = section.querySelector('.googleReviewLijst');
   if (withoutStatic) list.replaceChildren();
@@ -39,11 +63,11 @@ async function harness(t, { data = feed(7), endpoint = 'https://reviews.example/
   const matches = list.matches.bind(list);
   list.matches = selector => selector === ':hover' ? hover : matches(selector);
   window.fetch = async url => {
-    if (url === 'data/reviews-config.json') return { ok: true, json: async () => ({ endpoint }) };
+    if (url === 'data/reviews-config.json') return new Response(JSON.stringify({ endpoint }));
     assert.equal(url, endpoint);
     requests++;
     const snapshot = structuredClone(data);
-    return { ok: !failure, json: async () => snapshot };
+    return new Response(JSON.stringify(snapshot), { status: failure ? 503 : 200 });
   };
   window.eval(script);
   await settle();
