@@ -76,7 +76,10 @@ function renderIntentSection(page) {
     return `  <li class="kaartLijstItem">\n    <article id="${id}Artikel${number}" class="kaart kenmerkKaart">\n      <h3 id="${id}Artikel${number}H3">${escapeHtml(card.heading)}</h3>\n      <p id="${id}Artikel${number}P01">${escapeHtml(card.text)}</p>\n    </article>\n  </li>`;
   }).join('\n');
 
-  return `<section id="${id}" class="siteSectie kenmerkKaartenSectie layoutFeatures" aria-labelledby="${id}H2">\n<header class="sectieKop">\n  <h2 id="${id}H2" class="sectieTitel">${escapeHtml(heading)}</h2>\n  <p id="${id}P01" class="sectieIntro">${escapeHtml(intro)}</p>\n</header>\n<ul id="${id}Lijst" class="kaartLijst kenmerkKaartLijst kenmerkKaartLijstAutoHoogte" role="list">\n${cardsHtml}\n</ul>\n<p id="${id}P02" class="contentParagraaf">${closingHtml}</p>\n</section>\n`;
+  const closingParagraph = closingHtml
+    ? `<p id="${id}P02" class="contentParagraaf">${closingHtml}</p>\n`
+    : '';
+  return `<section id="${id}" class="siteSectie kenmerkKaartenSectie layoutFeatures" aria-labelledby="${id}H2">\n<header class="sectieKop">\n  <h2 id="${id}H2" class="sectieTitel">${escapeHtml(heading)}</h2>\n  <p id="${id}P01" class="sectieIntro">${escapeHtml(intro)}</p>\n</header>\n<ul id="${id}Lijst" class="kaartLijst kenmerkKaartLijst kenmerkKaartLijstAutoHoogte" role="list">\n${cardsHtml}\n</ul>\n${closingParagraph}</section>\n`;
 }
 
 function listWithFinalAnd(items) {

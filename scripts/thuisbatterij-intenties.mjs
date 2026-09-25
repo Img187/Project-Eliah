@@ -80,7 +80,6 @@ export const batteryIntentPages = [
           text: 'Noodstroom werkt niet standaard bij iedere batterij. Een geschikte omvormer, omschakelvoorziening en aangepaste verdeling kunnen aanvullende werkzaamheden vereisen.',
         },
       ],
-      closingHtml: 'Na de technische beoordeling ontvangt u een transparant voorstel waarin het batterijsysteem, de installatie en eventuele aanvullende werkzaamheden afzonderlijk worden benoemd. Zo kunt u de totale kosten voor uw situatie beoordelen.',
     },
     replacements: {
       thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparenH2: 'Welke factoren bepalen de kosten van een thuisbatterij?',
@@ -164,8 +163,11 @@ for (const page of batteryIntentPages) {
   }
   const { intentSection } = page;
   if (!intentSection || typeof intentSection !== 'object') throw new Error(`${page.file}: intentSection ontbreekt.`);
-  for (const field of ['id', 'heading', 'intro', 'closingHtml']) {
+  for (const field of ['id', 'heading', 'intro']) {
     if (typeof intentSection[field] !== 'string' || !intentSection[field].trim()) throw new Error(`${page.file}: intentSection.${field} moet gevulde tekst bevatten.`);
+  }
+  if (intentSection.closingHtml !== undefined && (typeof intentSection.closingHtml !== 'string' || !intentSection.closingHtml.trim())) {
+    throw new Error(`${page.file}: intentSection.closingHtml moet bij gebruik gevulde tekst bevatten.`);
   }
   if (!Array.isArray(intentSection.cards) || intentSection.cards.length !== 4) throw new Error(`${page.file}: intentSection.cards moet exact vier kaarten bevatten.`);
   for (const [index, card] of intentSection.cards.entries()) {
