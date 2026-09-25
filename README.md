@@ -8,19 +8,23 @@ Open deze map in VS Code en start bijvoorbeeld Live Server op `index.html`.
 
 ## Publiceren en beveiliging
 
-De website wordt voorbereid met `node scripts/prepare-pages.mjs` in `build/pages`. De GitHub Actions-workflow publiceert uitsluitend die map na geslaagde tests. De Pages-publicatiebron staat op **GitHub Actions**. Zie [publicatie en beveiliging](docs/publicatie-security.md) voor de inrichting, controles vóór een commit en de resterende GitHub-/Formspree-instellingen.
+De regionale thuisbatterijpagina's worden gegenereerd met `node scripts/generate-thuisbatterij-regios.mjs`. Daarna wordt de website met `node scripts/prepare-pages.mjs` voorbereid in `build/pages`. De GitHub Actions-workflow publiceert uitsluitend die map na geslaagde tests. De Pages-publicatiebron staat op **GitHub Actions**. Zie [publicatie en beveiliging](docs/publicatie-security.md) voor de inrichting, controles vóór een commit en de resterende GitHub-/Formspree-instellingen.
 
-Alle tests: `npm --prefix tests test`. Na wijzigen van JSON-LD of de review-API-configuratie: `node scripts/prepare-pages.mjs --sync`, zodat de Content Security Policy weer overeenkomt.
+Alle tests: `npm --prefix tests test`. Na wijzigen van regionale content of de gedeelde header/footer: `node scripts/generate-thuisbatterij-regios.mjs`. Na overige wijzigingen van JSON-LD of de review-API-configuratie: `node scripts/prepare-pages.mjs --sync`, zodat de Content Security Policy weer overeenkomt.
 
 ## Structuur
 
 - `index.html`
-- `thuisbatterijen.html`
+- `thuisbatterij-laten-installeren.html`
+- `thuisbatterijen.html` (legacy doorverwijzing naar de nieuwe URL)
 - `zonnepanelen.html`
 - `laadpalen.html`
 - `elektrotechnische-renovaties.html`
 - `over-ons.html`
 - `contact.html`
+- `thuisbatterij-plaatsen-in-*.html` (30 gegenereerde provincie- en stadspagina's)
+- `data/thuisbatterij-regios/*.json` (de unieke regionale broncopy)
+- `scripts/generate-thuisbatterij-regios.mjs`
 - `assets/css/styles.css`
 - `assets/js/main.js`
 - `assets/js/cookie-consent.js`
@@ -95,7 +99,7 @@ De contactpagina bevat sectie `contactSectVragenformulierVoorBesparingEnInstalla
 
 ## Google Analytics
 
-De zeven openbare pagina's gebruiken de Google-tag voor de GA4-webstream van Sparky Energies:
+Alle 37 indexeerbare contentpagina's gebruiken de Google-tag voor de GA4-webstream van Sparky Energies. De niet-indexeerbare legacy doorverwijzing wordt bewust niet apart gemeten om dubbele pageviews te voorkomen:
 
 - Measurement ID: `G-87KMB19788`
 

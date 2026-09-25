@@ -1,13 +1,13 @@
 # Sparky Energies – developer section index
 
-> Gegenereerd op **2026-09-14** uit de zeven actuele publieke HTML-pagina’s. De JSON-bron is [`data/section-index.json`](data/section-index.json); de visuele versie staat in [`section-index.html`](section-index.html).
+> Gegenereerd op **2026-09-25** uit de zeven actuele publieke HTML-pagina’s. De JSON-bron is [`data/section-index.json`](data/section-index.json); de visuele versie staat in [`section-index.html`](section-index.html).
 
 ## Snelle samenvatting
 
 | Nr. | Pagina | Bestand | Primaire secties | Ondersteunend | Buttons | Formulieren |
 |---:|---|---|---:|---:|---:|---:|
 | 1 | [Home](index.html) | `index.html` | 6 | 3 | 9 | 1 |
-| 2 | [Thuisbatterijen](thuisbatterijen.html) | `thuisbatterijen.html` | 8 | 3 | 4 | 1 |
+| 2 | [Thuisbatterijen](thuisbatterij-laten-installeren.html) | `thuisbatterij-laten-installeren.html` | 8 | 3 | 4 | 1 |
 | 3 | [Zonnepanelen](zonnepanelen.html) | `zonnepanelen.html` | 7 | 2 | 4 | 1 |
 | 4 | [Laadpalen](laadpalen.html) | `laadpalen.html` | 8 | 2 | 6 | 1 |
 | 5 | [Elektrotechnische renovaties](elektrotechnische-renovaties.html) | `elektrotechnische-renovaties.html` | 9 | 2 | 6 | 1 |
@@ -53,7 +53,7 @@ Alle zeven publieke pagina's laden deze tag via `assets/js/cookie-consent.js` na
 | 8 | Over Sparky Energies | H2: Energie van nu, zekerheid voor morgen. | `homeSectVanIdeeTotInstallatieVanVonkTotVermogen` | `homeSectVanIdeeTotInstallatieVanVonkTotVermogenH2` | `layoutImageCta` |
 | 7 | Klaar om uw woning toekomstbestendig te maken? | H2: Klaar om uw woning toekomstbestendig te maken? | `homeSectKlaarOmUwWoningToekomstbestendigTeMaken` | `homeSectKlaarOmUwWoningToekomstbestendigTeMakenH2` | `layoutEmailCta` |
 
-### 2. Thuisbatterijen — `thuisbatterijen.html`
+### 2. Thuisbatterijen — `thuisbatterij-laten-installeren.html`
 
 | Nr. | Data-titel | Zichtbare heading | Section ID | Heading ID | Layout/shared classes |
 |---:|---|---|---|---|---|
@@ -149,7 +149,7 @@ Deze secties zijn belangrijk voor styling en toegankelijkheid, maar tellen niet 
 | Label | Element | Element ID | Section ID | Bestemming | Linktype |
 |---|---|---|---|---|---|
 | Ontvang advies + prijsindicatie | `a` | `homeSectGecertificeerdeInstallateursMetVakmanschapBtn01Offerte` | `homeSectGecertificeerdeInstallateursMetVakmanschap` | `contact.html#contactRouteKeuze` | `interne-pagina-sectie` |
-| Thuisbatterijen Gebruik meer van uw eigen stroomSla zonnestroom op, stuur slim op energieprijzen en kies indien gewenst voor noodstroom. | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn01LeesMeer` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `thuisbatterijen.html` | `interne-pagina` |
+| Thuisbatterijen Gebruik meer van uw eigen stroomSla zonnestroom op, stuur slim op energieprijzen en kies indien gewenst voor noodstroom. | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn01LeesMeer` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `thuisbatterij-laten-installeren.html` | `interne-pagina` |
 | Zonnepanelen Maak meer gebruik van energie van uw eigen dakEen zonnepaneleninstallatie afgestemd op uw verbruik, dak en toekomstige elektrische apparatuur. | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn02Ontdek` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `zonnepanelen.html` | `interne-pagina` |
 | Laadpalen Laad thuis veilig en slimVan laadpunt en load balancing tot laden met eigen zonnestroom. | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn03Meer` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `laadpalen.html` | `interne-pagina` |
 | Elektrotechniek Maak uw elektrische installatie toekomstbestendigGroepenkast, inductie, Quooker, voorbereiding voor een warmtepomp, extra elektra en zakelijke installaties. | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn04Meer` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `elektrotechnische-renovaties.html` | `interne-pagina` |
@@ -202,7 +202,7 @@ Deze secties zijn belangrijk voor styling en toegankelijkheid, maar tellen niet 
 
 | Label | Element | Element ID | Section ID | Bestemming | Linktype |
 |---|---|---|---|---|---|
-| Thuisbatterijen | `a` | `overOnsSectWatWijDoenLink01Thuisbatterijen` | `overOnsSectWatWijDoen` | `thuisbatterijen.html` | `interne-pagina` |
+| Thuisbatterijen | `a` | `overOnsSectWatWijDoenLink01Thuisbatterijen` | `overOnsSectWatWijDoen` | `thuisbatterij-laten-installeren.html` | `interne-pagina` |
 | Zonnepanelen | `a` | `overOnsSectWatWijDoenLink02Zonnepanelen` | `overOnsSectWatWijDoen` | `zonnepanelen.html` | `interne-pagina` |
 | Laadpalen | `a` | `overOnsSectWatWijDoenLink03Laadpalen` | `overOnsSectWatWijDoen` | `laadpalen.html` | `interne-pagina` |
 | Groepenkasten | `a` | `overOnsSectWatWijDoenLink04Groepenkasten` | `overOnsSectWatWijDoen` | `elektrotechnische-renovaties.html#elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoning` | `interne-pagina-sectie` |

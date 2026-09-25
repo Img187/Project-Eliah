@@ -1,7 +1,9 @@
 import { execFileSync } from 'node:child_process';
 import { readFile } from 'node:fs/promises';
 import { extname, join } from 'node:path';
-import { root } from './prepare-pages.mjs';
+import { fileURLToPath } from 'node:url';
+
+const root = fileURLToPath(new URL('../', import.meta.url));
 
 // Geen geheimen afdrukken. Dit is een beperkte extra controle, geen vervanging van push protection.
 const staged = process.argv.includes('--staged');

@@ -1,0 +1,174 @@
+{
+  "province": {
+    "name": "Zuid-Holland",
+    "slug": "zuid-holland",
+    "metaDescription": "Thuisbatterij plaatsen in Zuid-Holland? Ontvang advies over capaciteit, zonnepanelen, groepenkast en een veilige aansluiting voor uw situatie.",
+    "intro": "Thuisbatterij plaatsen in Zuid-Holland vraagt om meer dan alleen het kiezen van opslagcapaciteit. Wij brengen uw opwek, verbruik, energiecontract, aansluiting en toekomstplannen samen in een passend technisch advies.",
+    "contextHeading": "Een batterij die past bij uw energiesituatie",
+    "contextParagraphs": [
+      "Binnen Zuid-Holland lopen woningtypen, bedrijfsruimten en elektrische installaties sterk uiteen. Daarom bepalen we de benodigde capaciteit aan de hand van uw dag- en avondverbruik, teruglevering en beschikbare aansluitruimte.",
+      "Een thuisbatterij kan meer eigen zonnestroom beschikbaar maken op momenten dat u die nodig heeft. We bekijken tegelijk hoe opslag samenwerkt met uw omvormer, groepenkast, laadpaal of toekomstige warmtepomp."
+    ],
+    "cards": [
+      {
+        "title": "Capaciteit op basis van gebruik",
+        "text": "Uw jaarverbruik, teruglevering en verbruiksprofiel vormen het vertrekpunt. Zo ontstaat een onderbouwde indicatie in plaats van een standaardpakket."
+      },
+      {
+        "title": "De complete installatie in beeld",
+        "text": "We beoordelen zonnepanelen, omvormer, groepenkast en netaansluiting als één systeem. Eventuele aandachtspunten worden vóór een definitief voorstel besproken."
+      },
+      {
+        "title": "Voorbereid op latere uitbreiding",
+        "text": "Plannen voor elektrisch rijden, extra panelen of een warmtepomp nemen we mee. Of uitbreiding mogelijk is, hangt af van het gekozen systeem en de technische situatie."
+      }
+    ],
+    "areaHeading": "Thuisbatterijadvies in Zuid-Holland",
+    "areaParagraphs": [
+      "Sparky Energies is gevestigd in Rotterdam en beoordeelt aanvragen uit de hele provincie, waaronder Rotterdam, Den Haag, Dordrecht en Gouda. Wij stemmen vooraf af welke gegevens nodig zijn voor een eerste technische inschatting.",
+      "Soms geven foto's van de groepenkast, omvormer en mogelijke opstelplaats al veel duidelijkheid; in andere situaties is een opname nodig. De uiteindelijke aanpak wordt afgestemd op het adres en de bestaande installatie."
+    ],
+    "faqLocal": {
+      "question": "Kunt u in heel Zuid-Holland een thuisbatterij plaatsen?",
+      "answer": "Wij beoordelen aanvragen uit de hele provincie Zuid-Holland. Of plaatsing technisch passend is, bepalen we op basis van de installatie, bereikbaarheid van de opstelplaats en de gewenste functies."
+    }
+  },
+  "cities": [
+    {
+      "name": "Rotterdam",
+      "slug": "rotterdam",
+      "metaDescription": "Thuisbatterij plaatsen in Rotterdam? Laat capaciteit, opstelruimte, groepenkast en aansluiting beoordelen door Sparky Energies uit Rotterdam.",
+      "intro": "Thuisbatterij plaatsen in Rotterdam begint met een goede beoordeling van uw woning of bedrijfspand. Vanuit onze Rotterdamse basis kijken wij naar uw verbruik, zonnepanelen, beschikbare ruimte en de technische mogelijkheden van de aansluiting.",
+      "contextHeading": "Opslag passend bij een Rotterdamse installatie",
+      "contextParagraphs": [
+        "In een appartement, rijwoning of compact bedrijfspand kan de beschikbare opstelruimte bepalend zijn. We letten daarom niet alleen op batterijcapaciteit, maar ook op bereikbaarheid, kabelroute en een verantwoorde positie van de apparatuur.",
+        "Veel elektrische installaties zijn in de loop der tijd uitgebreid. Voor een thuisbatterij controleren we daarom hoe omvormer, beveiligingen, fasenverdeling en eventuele grote verbruikers op elkaar aansluiten."
+      ],
+      "cards": [
+        {
+          "title": "Slim omgaan met beschikbare ruimte",
+          "text": "We zoeken een opstelling die technisch geschikt en praktisch bereikbaar is. Daarbij volgen we de installatievoorschriften en eisen van de fabrikant."
+        },
+        {
+          "title": "Groepenkast en aansluiting gecontroleerd",
+          "text": "Vrije ruimte alleen is niet voldoende. Ook beveiligingen, kabels en beschikbare aansluitcapaciteit tellen mee in het advies."
+        },
+        {
+          "title": "Eén plan voor opwek en verbruik",
+          "text": "Zonnepanelen, batterij, laadpunt en andere elektrische apparatuur worden in samenhang bekeken. Zo weet u welke keuzes nu relevant zijn en wat later kan."
+        }
+      ],
+      "areaHeading": "Onze basis in Rotterdam",
+      "areaParagraphs": [
+        "Sparky Energies is gevestigd aan de Anthonetta Kuijlstraat in Rotterdam. Vanuit deze basis beoordelen we aanvragen uit de stad en omliggende plaatsen.",
+        "We bespreken eerst uw doel en de beschikbare installatiegegevens. Daarna bepalen we of aanvullende foto's, metingen of een bezoek op locatie nodig zijn voor een verantwoord voorstel."
+      ],
+      "faqLocal": {
+        "question": "Is een thuisbatterij mogelijk in een appartement in Rotterdam?",
+        "answer": "Dat kan in sommige situaties, maar opstelruimte, eigendomssituatie en afspraken binnen een VvE kunnen een rol spelen. Ook de kabelroute en aansluiting moeten technisch geschikt zijn voordat een systeem wordt gekozen."
+      }
+    },
+    {
+      "name": "Den Haag",
+      "slug": "den-haag",
+      "metaDescription": "Thuisbatterij plaatsen in Den Haag? Ontvang advies over capaciteit, opstelplaats, zonnepanelen en een veilige elektrische aansluiting.",
+      "intro": "Thuisbatterij plaatsen in Den Haag begint bij de ruimte en installatie die daadwerkelijk beschikbaar zijn. Wij beoordelen hoe opslag kan aansluiten op uw verbruik, zonne-opwek en wensen, zonder vooraf uit te gaan van één vaste batterijgrootte.",
+      "contextHeading": "Ruimte en techniek zorgvuldig gecombineerd",
+      "contextParagraphs": [
+        "Bij een appartement, bovenwoning of woning met beperkte technische ruimte vraagt de opstelplaats extra aandacht. Bereikbaarheid, ventilatie-eisen, kabelverloop en eventuele gezamenlijke delen worden daarom vroeg in het advies meegenomen.",
+        "Ook de eigendomssituatie van zonnepanelen en elektrische voorzieningen kan verschillen. We maken duidelijk welke informatie van u, een verhuurder of een VvE nodig kan zijn voordat de installatie verder wordt uitgewerkt."
+      ],
+      "cards": [
+        {
+          "title": "De opstelplaats eerst beoordelen",
+          "text": "Binnen of buiten plaatsen is geen keuze op basis van voorkeur alleen. Het batterijtype, de omgeving en de voorschriften bepalen welke locatie geschikt kan zijn."
+        },
+        {
+          "title": "Verbruik boven vuistregels",
+          "text": "We kijken naar wanneer u stroom gebruikt en teruglevert. Dat geeft meer houvast dan alleen het aantal panelen op het dak."
+        },
+        {
+          "title": "Duidelijk over de randvoorwaarden",
+          "text": "U krijgt inzicht in noodzakelijke aanpassingen en openstaande controles. Zo blijft het advies transparant, ook wanneer nog niet alle gegevens beschikbaar zijn."
+        }
+      ],
+      "areaHeading": "Aanvragen uit Den Haag en omgeving",
+      "areaParagraphs": [
+        "Wij behandelen aanvragen voor thuisbatterijen in Den Haag en omliggende plaatsen vanuit onze basis in Rotterdam. Vooraf vragen we gericht naar het woningtype, de zonnepanelen en de mogelijke plaats van het systeem.",
+        "Bij gedeelde gebouwen kan aanvullende afstemming nodig zijn voordat werkzaamheden kunnen worden gepland. We nemen zulke voorwaarden mee zonder te beloven dat iedere locatie direct geschikt is."
+      ],
+      "faqLocal": {
+        "question": "Wat moet ik bij een Haagse VvE vooraf controleren?",
+        "answer": "Controleer of toestemming of technische afstemming binnen de VvE nodig is voor de gekozen opstelplaats en kabelroute. Wij kunnen de elektrische aandachtspunten benoemen, maar de formele besluitvorming blijft afhankelijk van uw gebouw en gemaakte afspraken."
+      }
+    },
+    {
+      "name": "Dordrecht",
+      "slug": "dordrecht",
+      "metaDescription": "Thuisbatterij plaatsen in Dordrecht? Laat zonne-opwek, avondverbruik, omvormer en groepenkast samen technisch beoordelen.",
+      "intro": "Thuisbatterij plaatsen in Dordrecht begint met de vraag wanneer u energie opwekt en verbruikt. Wij gebruiken dat profiel om te beoordelen welke opslagcapaciteit, omvormer en aansluiting bij uw huidige installatie kunnen passen.",
+      "contextHeading": "Eerst begrijpen wanneer u stroom nodig heeft",
+      "contextParagraphs": [
+        "De bouwperiode van een pand zegt niet automatisch hoe de elektrische installatie is ingericht. Aanpassingen aan zonnepanelen, groepenkast of grote verbruikers kunnen bepalend zijn voor wat er nu veilig kan worden toegevoegd.",
+        "Een batterij die overdag wordt geladen, moet aansluiten op het verbruik later op de dag. Daarom wegen we teruglevering, avondvraag en gewenste reserve afzonderlijk, zodat capaciteit niet alleen op een jaartotaal wordt gebaseerd."
+      ],
+      "cards": [
+        {
+          "title": "Dag- en avondprofiel vergelijken",
+          "text": "We brengen in beeld hoeveel zonnestroom beschikbaar is en hoeveel u later gebruikt. Seizoensverschillen blijven daarbij een aandachtspunt."
+        },
+        {
+          "title": "Compatibiliteit van de omvormer",
+          "text": "Een bestaande omvormer is niet altijd zonder meer geschikt voor iedere batterij. Merk, type en gekozen systeemopbouw worden daarom gecontroleerd."
+        },
+        {
+          "title": "Uitleg bij de oplevering",
+          "text": "Na installatie hoort u hoe de batterij, sturing en app worden gebruikt. Instellingen en eventuele beperkingen worden duidelijk toegelicht."
+        }
+      ],
+      "areaHeading": "Thuisbatterij laten beoordelen in Dordrecht",
+      "areaParagraphs": [
+        "Voor aanvragen uit Dordrecht starten we met uw jaaroverzicht, gegevens van de zonnepanelen en foto's van relevante apparatuur. Daarmee kunnen we gericht aangeven welke informatie nog ontbreekt.",
+        "Als de kabelroute, groepenkast of opstelplaats niet op afstand kan worden beoordeeld, kan een technische opname nodig zijn. Pas daarna kan een definitieve systeemkeuze worden onderbouwd."
+      ],
+      "faqLocal": {
+        "question": "Kan mijn bestaande omvormer in Dordrecht blijven werken met een thuisbatterij?",
+        "answer": "Dat hangt af van het type omvormer, de gewenste batterij en de gekozen AC- of DC-gekoppelde oplossing. We controleren de compatibiliteit voordat we adviseren om bestaande apparatuur te behouden of aan te passen."
+      }
+    },
+    {
+      "name": "Gouda",
+      "slug": "gouda",
+      "metaDescription": "Thuisbatterij plaatsen in Gouda? Sparky Energies adviseert over opslagcapaciteit, slimme sturing, opstelruimte en veilige installatie.",
+      "intro": "Thuisbatterij plaatsen in Gouda vraagt om een plan dat rekening houdt met ruimte, kabelroutes en uw dagelijkse energiegebruik. Wij bekijken de batterij als onderdeel van de volledige elektrische installatie, niet als los product.",
+      "contextHeading": "Een praktisch plan voor opslag in uw pand",
+      "contextParagraphs": [
+        "Bij een compacte woning of werkruimte moet apparatuur bereikbaar blijven voor controle en onderhoud. Daarom bekijken we vooraf waar batterij en omvormer verantwoord kunnen staan en hoe de bekabeling naar de groepenkast kan lopen.",
+        "Toekomstige apparatuur kan uw vermogensvraag veranderen. Als u denkt aan een laadpaal, warmtepomp of extra zonnepanelen, nemen we dat mee zonder capaciteit te adviseren die nu geen duidelijk doel heeft."
+      ],
+      "cards": [
+        {
+          "title": "Plaatsing met oog voor de ruimte",
+          "text": "We beoordelen afmetingen, bereikbaarheid en technische voorwaarden van de beoogde locatie. De productspecificaties blijven daarbij leidend."
+        },
+        {
+          "title": "Slimme sturing zonder aannames",
+          "text": "Een EMS kan sturen op zonnestroom, verbruik of tarieven wanneer de apparatuur dit ondersteunt. Welke functie zinvol is, hangt af van uw contract en doel."
+        },
+        {
+          "title": "Toekomstplannen vooraf meenemen",
+          "text": "Nieuwe elektrische verbruikers kunnen invloed hebben op aansluiting en groepenkast. Door die plannen vroeg te bespreken, blijven keuzes beter op elkaar afgestemd."
+        }
+      ],
+      "areaHeading": "Advies voor Gouda en omliggende plaatsen",
+      "areaParagraphs": [
+        "Wij beoordelen aanvragen uit Gouda en de omliggende regio vanuit Rotterdam. De eerste stap is een gesprek over uw energieprofiel en de technische gegevens die al beschikbaar zijn.",
+        "Daarna bepalen we welke controles nog nodig zijn en of een bezoek aan het pand toegevoegde waarde heeft. Zo wordt pas een voorstel gemaakt wanneer de relevante uitgangspunten duidelijk zijn."
+      ],
+      "faqLocal": {
+        "question": "Waar kan een thuisbatterij in mijn woning in Gouda worden geplaatst?",
+        "answer": "Dat hangt af van het gekozen systeem, de beschikbare ruimte en de voorschriften voor die apparatuur. We beoordelen onder meer bereikbaarheid, omgeving, kabelroute en afstand tot de elektrische installatie voordat een locatie wordt voorgesteld."
+      }
+    }
+  ]
+}

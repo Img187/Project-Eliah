@@ -2,11 +2,15 @@ import { createHash } from 'node:crypto';
 import { copyFile, lstat, mkdir, readFile, readdir, realpath, rm, writeFile } from 'node:fs/promises';
 import { dirname, extname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { regionPageFiles } from './thuisbatterij-regios.mjs';
 
 export const root = fileURLToPath(new URL('../', import.meta.url));
-export const pages = ['index.html', 'thuisbatterijen.html', 'zonnepanelen.html', 'laadpalen.html', 'elektrotechnische-renovaties.html', 'over-ons.html', 'contact.html'];
+export const basePages = ['index.html', 'thuisbatterij-laten-installeren.html', 'zonnepanelen.html', 'laadpalen.html', 'elektrotechnische-renovaties.html', 'over-ons.html', 'contact.html'];
+export const pages = [...basePages, ...regionPageFiles];
+export const redirectPages = ['thuisbatterijen.html'];
+export const publishedHtmlPages = [...pages, ...redirectPages];
 const runtime = ['network.js', 'main.js', 'cookie-consent.js', 'calculator-models.js', 'google-reviews.js'];
-const fixed = [...pages, 'robots.txt', 'sitemap.xml', 'CNAME', '.nojekyll',
+const fixed = [...publishedHtmlPages, 'robots.txt', 'sitemap.xml', 'CNAME', '.nojekyll',
   'data/reviews-config.json',
   ...runtime.map(name => `assets/js/${name}`), 'assets/css/styles.css',
   'assets/documenten/algemene-voorwaarden-sparky-energies-vof.pdf',
@@ -72,7 +76,7 @@ async function settings(directory) {
 
 export async function syncSecurity(directory = root) {
   const { endpoint } = await settings(directory);
-  for (const page of pages) {
+  for (const page of publishedHtmlPages) {
     const file = join(directory, page);
     await writeFile(file, secureHtml(await readFile(file, 'utf8'), endpoint));
   }
@@ -93,7 +97,7 @@ export async function buildPages(directory = root) {
   for (const file of files) {
     const source = join(workspace, file);
     if (!(await lstat(source)).isFile() || await realpath(source) !== source) throw new Error(`Geen regulier publiek bestand: ${file}`);
-    if (pages.includes(file)) {
+    if (publishedHtmlPages.includes(file)) {
       const html = await readFile(source, 'utf8');
       if (secureHtml(html, endpoint) !== html.replace(/\r\n/g, '\n')) throw new Error(`Beveiligingsconfiguratie bijwerken: node scripts/prepare-pages.mjs --sync (${file})`);
     }

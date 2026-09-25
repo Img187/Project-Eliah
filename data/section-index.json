@@ -1,11 +1,11 @@
 {
   "metadata": {
     "schema_version": 2,
-    "generated_on": "2026-09-14",
+    "generated_on": "2026-09-25",
     "language": "nl",
     "source_files": [
       "index.html",
-      "thuisbatterijen.html",
+      "thuisbatterij-laten-installeren.html",
       "zonnepanelen.html",
       "laadpalen.html",
       "elektrotechnische-renovaties.html",
@@ -38,7 +38,7 @@
       },
       {
         "page": "Thuisbatterijen",
-        "file": "thuisbatterijen.html",
+        "file": "thuisbatterij-laten-installeren.html",
         "measurement_id": "",
         "config_id": "",
         "google_tag_id": "",
@@ -226,7 +226,7 @@
     },
     {
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_number": 1,
       "id": "thuisbatterijSectThuisbatterijLatenInstalleren",
@@ -248,7 +248,7 @@
     },
     {
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_number": 2,
       "id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparen",
@@ -272,7 +272,7 @@
     },
     {
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_number": 3,
       "id": "thuisbatterijSectVoorWoningEnBedrijf",
@@ -294,7 +294,7 @@
     },
     {
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_number": 4,
       "id": "thuisbatterijSectHoeWerktEenThuisbatterij",
@@ -316,7 +316,7 @@
     },
     {
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_number": 5,
       "id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturing",
@@ -338,7 +338,7 @@
     },
     {
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_number": 7,
       "id": "thuisbatterijSectZoWerkenWij",
@@ -360,7 +360,7 @@
     },
     {
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_number": 8,
       "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
@@ -384,7 +384,7 @@
     },
     {
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_number": 9,
       "id": "thuisbatterijSectOntdekWelkeBatterijPastBijU",
@@ -1110,7 +1110,7 @@
     },
     {
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "parent_section_id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparen",
       "id": "thuisbatterijSectWanneerWachten",
@@ -1125,7 +1125,7 @@
     },
     {
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "parent_section_id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparen",
       "id": "thuisbatterijCalculator",
@@ -1140,7 +1140,7 @@
     },
     {
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "parent_section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
       "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenVragen",
@@ -1482,19 +1482,19 @@
     {
       "id": "thuisbatterijSectThuisbatterijLatenInstallerenP01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectThuisbatterijLatenInstalleren",
       "type": "intro",
       "classes": [
         "sectieIntro"
       ],
-      "text": "Gebruik meer van uw eigen zonnestroom, speel slim in op energieprijzen en kies indien gewenst voor noodstroom. Wij berekenen welke batterijcapaciteit past bij uw verbruik, zonnepanelen, aansluiting en toekomstplannen."
+      "text": "Een thuisbatterij laten installeren helpt u meer van uw eigen zonnestroom te gebruiken, slim in te spelen op energieprijzen en desgewenst noodstroom beschikbaar te houden. Wij berekenen welke batterijcapaciteit past bij uw verbruik, zonnepanelen, aansluiting en toekomstplannen."
     },
     {
       "id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparenP01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparen",
       "type": "intro",
@@ -1506,7 +1506,7 @@
     {
       "id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparenArtikel01P01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparen",
       "type": "card-p",
@@ -1516,7 +1516,7 @@
     {
       "id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparenArtikel02P01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparen",
       "type": "card-p",
@@ -1526,7 +1526,7 @@
     {
       "id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparenArtikel03P01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparen",
       "type": "card-p",
@@ -1536,7 +1536,7 @@
     {
       "id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparenArtikel04P01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparen",
       "type": "card-p",
@@ -1546,7 +1546,7 @@
     {
       "id": "thuisbatterijSectVoorWoningEnBedrijfP01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectVoorWoningEnBedrijf",
       "type": "intro",
@@ -1558,7 +1558,7 @@
     {
       "id": "thuisbatterijSectVoorWoningEnBedrijfP02",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectVoorWoningEnBedrijf",
       "type": "content-p",
@@ -1570,7 +1570,7 @@
     {
       "id": "thuisbatterijSectHoeWerktEenThuisbatterijP01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectHoeWerktEenThuisbatterij",
       "type": "intro",
@@ -1582,7 +1582,7 @@
     {
       "id": "thuisbatterijSectHoeWerktEenThuisbatterijP02",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectHoeWerktEenThuisbatterij",
       "type": "content-p",
@@ -1594,7 +1594,7 @@
     {
       "id": "thuisbatterijSectHoeWerktEenThuisbatterijP03",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectHoeWerktEenThuisbatterij",
       "type": "content-p",
@@ -1606,7 +1606,7 @@
     {
       "id": "thuisbatterijSectHoeWerktEenThuisbatterijP04",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectHoeWerktEenThuisbatterij",
       "type": "content-p",
@@ -1618,7 +1618,7 @@
     {
       "id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturingStap01P01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturing",
       "type": "card-p",
@@ -1628,7 +1628,7 @@
     {
       "id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturingStap01P02",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturing",
       "type": "card-p",
@@ -1638,7 +1638,7 @@
     {
       "id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturingStap01P03",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturing",
       "type": "card-p",
@@ -1648,7 +1648,7 @@
     {
       "id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturingStap02P01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturing",
       "type": "card-p",
@@ -1658,7 +1658,7 @@
     {
       "id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturingStap02P02",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturing",
       "type": "card-p",
@@ -1668,7 +1668,7 @@
     {
       "id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturingStap03P01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturing",
       "type": "card-p",
@@ -1678,7 +1678,7 @@
     {
       "id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturingStap03P02",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturing",
       "type": "card-p",
@@ -1688,7 +1688,7 @@
     {
       "id": "thuisbatterijSectZoWerkenWijStap01P01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectZoWerkenWij",
       "type": "process-p",
@@ -1698,7 +1698,7 @@
     {
       "id": "thuisbatterijSectZoWerkenWijStap02P01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectZoWerkenWij",
       "type": "process-p",
@@ -1708,7 +1708,7 @@
     {
       "id": "thuisbatterijSectZoWerkenWijStap03P01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectZoWerkenWij",
       "type": "process-p",
@@ -1718,7 +1718,7 @@
     {
       "id": "thuisbatterijSectZoWerkenWijStap04P01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectZoWerkenWij",
       "type": "process-p",
@@ -1728,7 +1728,7 @@
     {
       "id": "thuisbatterijSectZoWerkenWijStap05P01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectZoWerkenWij",
       "type": "process-p",
@@ -1738,7 +1738,7 @@
     {
       "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenP01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
       "type": "intro",
@@ -1750,7 +1750,7 @@
     {
       "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenVraag01P01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
       "type": "faq-answer",
@@ -1760,7 +1760,7 @@
     {
       "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenVraag02P01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
       "type": "faq-answer",
@@ -1770,7 +1770,7 @@
     {
       "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenVraag03P01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
       "type": "faq-answer",
@@ -1780,7 +1780,7 @@
     {
       "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenVraag04P01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
       "type": "faq-answer",
@@ -1790,7 +1790,7 @@
     {
       "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenVraag05P01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
       "type": "faq-answer",
@@ -1800,7 +1800,7 @@
     {
       "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenVraag06P01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
       "type": "faq-answer",
@@ -1810,7 +1810,7 @@
     {
       "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenContactP01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
       "type": "cta-p",
@@ -1820,7 +1820,7 @@
     {
       "id": "thuisbatterijSectOntdekWelkeBatterijPastBijUP01",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectOntdekWelkeBatterijPastBijU",
       "type": "intro",
@@ -1832,7 +1832,7 @@
     {
       "id": "thuisbatterijSectOntdekWelkeBatterijPastBijUFormulierNotitie",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectOntdekWelkeBatterijPastBijU",
       "type": "form-note",
@@ -1844,7 +1844,7 @@
     {
       "id": "thuisbatterijSectOntdekWelkeBatterijPastBijUP02",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectOntdekWelkeBatterijPastBijU",
       "type": "privacy-note",
@@ -3200,7 +3200,7 @@
       "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
       "section_heading": "Wat wij voor u installeren en onderhouden",
       "label": "Thuisbatterijen Gebruik meer van uw eigen stroomSla zonnestroom op, stuur slim op energieprijzen en kies indien gewenst voor noodstroom.",
-      "href": "thuisbatterijen.html",
+      "href": "thuisbatterij-laten-installeren.html",
       "link_type": "interne-pagina",
       "target_page": "Thuisbatterijen",
       "target_section": "",
@@ -3330,7 +3330,7 @@
       "id": "thuisbatterijSectThuisbatterijLatenInstallerenBtn01Offerte",
       "element": "a",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_number": 1,
       "section_id": "thuisbatterijSectThuisbatterijLatenInstalleren",
@@ -3347,7 +3347,7 @@
       "id": "thuisbatterijSectZoWerkenWijBtn01Meer",
       "element": "a",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_number": 7,
       "section_id": "thuisbatterijSectZoWerkenWij",
@@ -3364,7 +3364,7 @@
       "id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelenBtn01Contact",
       "element": "a",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_number": 8,
       "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
@@ -3381,7 +3381,7 @@
       "id": "thuisbatterijSectOntdekWelkeBatterijPastBijUBtn01Aanvragen",
       "element": "button",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_number": 9,
       "section_id": "thuisbatterijSectOntdekWelkeBatterijPastBijU",
@@ -3676,7 +3676,7 @@
       "section_id": "overOnsSectWatWijDoen",
       "section_heading": "Wat wij doen",
       "label": "Thuisbatterijen",
-      "href": "thuisbatterijen.html",
+      "href": "thuisbatterij-laten-installeren.html",
       "link_type": "interne-pagina",
       "target_page": "Thuisbatterijen",
       "target_section": "",
@@ -3852,7 +3852,7 @@
     {
       "id": "thuisbatterijSectOntdekWelkeBatterijPastBijUFormulier",
       "page": "Thuisbatterijen",
-      "file": "thuisbatterijen.html",
+      "file": "thuisbatterij-laten-installeren.html",
       "page_number": 2,
       "section_id": "thuisbatterijSectOntdekWelkeBatterijPastBijU",
       "action": "https://formspree.io/f/xnjenvqd",
@@ -3957,37 +3957,37 @@
         "visible_heading": "Energie van nu, zekerheid voor morgen."
       },
       {
-        "file": "thuisbatterijen.html",
+        "file": "thuisbatterij-laten-installeren.html",
         "section_id": "thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparen",
         "data_section_title": "Slim opslaan, slim gebruiken en slim besparen",
         "visible_heading": "Wat een thuisbatterij voor u kan doen"
       },
       {
-        "file": "thuisbatterijen.html",
+        "file": "thuisbatterij-laten-installeren.html",
         "section_id": "thuisbatterijSectVoorWoningEnBedrijf",
         "data_section_title": "Voor woning en bedrijf",
         "visible_heading": "Wanneer is een thuisbatterij interessant?"
       },
       {
-        "file": "thuisbatterijen.html",
+        "file": "thuisbatterij-laten-installeren.html",
         "section_id": "thuisbatterijSectSlimEnergiebeheerMetEMSEnAISturing",
         "data_section_title": "Sla overtollige energie op voor gebruik wanneer de zon niet schijnt.",
         "visible_heading": "Slim energiebeheer, inzicht en noodstroom"
       },
       {
-        "file": "thuisbatterijen.html",
+        "file": "thuisbatterij-laten-installeren.html",
         "section_id": "thuisbatterijSectZoWerkenWij",
         "data_section_title": "Sparky Energies helpt u met een passend advies, veilige installatie en duidelijke uitleg. Wij kijken niet alleen naar de batterij, maar naar de volledige elektrische installatie.",
         "visible_heading": "Zo installeren wij uw thuisbatterij"
       },
       {
-        "file": "thuisbatterijen.html",
+        "file": "thuisbatterij-laten-installeren.html",
         "section_id": "thuisbatterijSectVeelGesteldeVragenOverThuisbatterijenInstallatieEnVoordelen",
         "data_section_title": "Vragen",
         "visible_heading": "Veelgestelde vragen over thuisbatterijen, installatie en voordelen"
       },
       {
-        "file": "thuisbatterijen.html",
+        "file": "thuisbatterij-laten-installeren.html",
         "section_id": "thuisbatterijSectOntdekWelkeBatterijPastBijU",
         "data_section_title": "Ontdek welke batterij bij u past",
         "visible_heading": "Laat uw batterijadvies controleren"

@@ -1,0 +1,174 @@
+{
+  "province": {
+    "name": "Zeeland",
+    "slug": "zeeland",
+    "metaDescription": "Thuisbatterij plaatsen in Zeeland? Krijg persoonlijk advies over capaciteit, aansluiting en slimme sturing op basis van uw verbruik en zonnepanelen.",
+    "intro": "Thuisbatterij plaatsen in Zeeland? We bekijken hoeveel zonnestroom u opwekt, wanneer u energie gebruikt en welke opslagcapaciteit bij uw situatie past. Zo ontstaat een voorstel waarin batterij, omvormer, groepenkast en eventuele laadpaal als één energiesysteem worden beoordeeld.",
+    "contextHeading": "Een thuisbatterij afgestemd op uw energieprofiel",
+    "contextParagraphs": [
+      "Een passende batterij begint bij inzicht in uw jaarverbruik, teruglevering en dagelijkse verbruiksmomenten. Ook het type energiecontract en plannen voor bijvoorbeeld elektrisch rijden of verwarmen wegen mee in de technische keuze.",
+      "We beoordelen daarnaast de beschikbare plaats, de bestaande bekabeling en de mogelijkheden van uw meterkast. Daarmee wordt duidelijk welke opstelling praktisch is en of aanpassingen nodig zijn voordat de installatie kan worden uitgevoerd."
+    ],
+    "cards": [
+      {
+        "title": "Capaciteit zonder overdimensioneren",
+        "text": "De batterijcapaciteit wordt gekoppeld aan uw werkelijke opwek en verbruik, zodat de keuze niet alleen op het aantal zonnepanelen is gebaseerd."
+      },
+      {
+        "title": "Samenhang met uw installatie",
+        "text": "Omvormer, groepenkast, netaansluiting en andere grote verbruikers worden meegenomen bij het bepalen van een geschikte configuratie."
+      },
+      {
+        "title": "Voorbereid op later",
+        "text": "Toekomstplannen zoals een laadpaal, warmtepomp of uitbreiding van zonnepanelen kunnen al in het ontwerp worden meegewogen."
+      }
+    ],
+    "areaHeading": "Advies over thuisbatterijen in Zeeland",
+    "areaParagraphs": [
+      "Voor woningen en bedrijfspanden in Zeeland bespreken we eerst uw doelen: meer eigen zonnestroom gebruiken, inspelen op variabele tarieven of geselecteerde apparatuur kunnen blijven voeden met een geschikte back-upvoorziening.",
+      "Op basis van uw gegevens bepalen we welke vervolgstap zinvol is. Soms is eerst een controle of aanpassing van de bestaande elektrische installatie nodig voordat een thuisbatterij passend kan worden aangesloten."
+    ],
+    "faqLocal": {
+      "question": "Welke gegevens zijn nodig voor advies over een thuisbatterij in Zeeland?",
+      "answer": "Uw recente jaarverbruik, teruglevering, aantal zonnepanelen, type omvormer en foto's van de groepenkast geven een goede eerste basis. Ook horen we graag welke grote verbruikers en uitbreidingsplannen u heeft."
+    }
+  },
+  "cities": [
+    {
+      "name": "Terneuzen",
+      "slug": "terneuzen",
+      "metaDescription": "Thuisbatterij plaatsen in Terneuzen? Laat capaciteit, zonnepanelen, groepenkast en slimme energiesturing in samenhang beoordelen.",
+      "intro": "Thuisbatterij plaatsen in Terneuzen? We brengen uw stroomafname en teruglevering in kaart en bekijken hoe een batterij aansluit op uw zonnepanelen en dagelijkse energiegebruik. Daarbij houden we rekening met de technische grenzen van uw bestaande installatie en uw plannen voor de komende jaren.",
+      "contextHeading": "Opslag die past bij uw gebruiksmomenten",
+      "contextParagraphs": [
+        "Niet alleen de totale jaaropwek telt, maar vooral het verschil tussen opwek en verbruik gedurende de dag. Daarom gebruiken we uw beschikbare meetgegevens om een realistische bandbreedte voor de opslagcapaciteit te bepalen.",
+        "Heeft u een laadpaal, warmtepomp of andere grote verbruiker, dan bekijken we hoe die samenwerkt met de batterij. Een energiemanagementsysteem kan daarbij helpen om laden en ontladen gericht aan te sturen."
+      ],
+      "cards": [
+        {
+          "title": "Verbruik eerst inzichtelijk",
+          "text": "Uw afname, teruglevering en piekmomenten vormen de basis voor een technisch onderbouwde batterijselectie."
+        },
+        {
+          "title": "Aansluiting gecontroleerd",
+          "text": "We kijken naar de hoofdzekering, beschikbare groepen en bekabeling voordat een configuratie wordt voorgesteld."
+        },
+        {
+          "title": "Slimme aansturing besproken",
+          "text": "De mogelijkheden van dynamische tarieven en automatisch energiebeheer worden afgestemd op uw contract en apparatuur."
+        }
+      ],
+      "areaHeading": "Thuisbatterijadvies voor Terneuzen",
+      "areaParagraphs": [
+        "Wanneer u in Terneuzen een thuisbatterij overweegt, starten we met de vraag wat u met energieopslag wilt bereiken. Dat voorkomt dat functies worden gekozen die niet aansluiten bij uw huishouden of bedrijf.",
+        "Na de eerste inventarisatie bespreken we capaciteit, plaatsing en eventuele werkzaamheden aan de meterkast. U krijgt daarbij uitleg over de keuzes en aandachtspunten van de voorgestelde opzet."
+      ],
+      "faqLocal": {
+        "question": "Kan een thuisbatterij in Terneuzen met mijn huidige zonnepanelen werken?",
+        "answer": "Dat hangt onder meer af van uw omvormer, aansluiting en gewenste functies. We controleren of de bestaande onderdelen kunnen samenwerken of dat een andere koppeling of aanvullende voorziening nodig is."
+      }
+    },
+    {
+      "name": "Middelburg",
+      "slug": "middelburg",
+      "metaDescription": "Thuisbatterij plaatsen in Middelburg? Ontvang advies over opslagcapaciteit, omvormer, meterkast en energiebeheer voor uw situatie.",
+      "intro": "Thuisbatterij plaatsen in Middelburg? We onderzoeken hoe uw zonnepanelen, verbruikspatroon en elektrische installatie op elkaar aansluiten. Op basis daarvan bespreken we een batterijoplossing die rekening houdt met zowel uw huidige gebruik als mogelijke toekomstige uitbreidingen.",
+      "contextHeading": "Technische keuzes voor woning of bedrijfspand",
+      "contextParagraphs": [
+        "De beschikbare installatieruimte, ventilatie en bereikbaarheid voor onderhoud zijn belangrijke onderdelen van de plaatsingskeuze. Ook de afstand tot de meterkast en omvormer kan invloed hebben op de uitvoering.",
+        "Voor de capaciteit kijken we verder dan een standaardberekening. Uw verbruik in de avond, teruglevering overdag en eventuele flexibele tarieven bepalen mede hoeveel opslag praktisch bruikbaar kan zijn."
+      ],
+      "cards": [
+        {
+          "title": "Plaatsing zorgvuldig bekeken",
+          "text": "We beoordelen waar de batterij technisch passend en bereikbaar kan worden opgesteld, met aandacht voor de voorschriften van het gekozen systeem."
+        },
+        {
+          "title": "Omvormer en batterij gekoppeld",
+          "text": "De compatibiliteit met uw huidige omvormer bepaalt mede of een AC- of DC-gekoppelde oplossing voor de hand ligt."
+        },
+        {
+          "title": "Duidelijke gebruiksdoelen",
+          "text": "Eigen verbruik, tariefsturing en een eventuele back-upfunctie worden afzonderlijk besproken, omdat elke functie andere eisen stelt."
+        }
+      ],
+      "areaHeading": "Een passende thuisbatterij in Middelburg",
+      "areaParagraphs": [
+        "Voor een aanvraag in Middelburg verzamelen we eerst de gegevens van uw zonnepanelen, omvormer en groepenkast. Daarmee kunnen we vroeg aangeven welke onderdelen nader moeten worden gecontroleerd.",
+        "Daarna lichten we toe hoe de batterij in het totale energiesysteem past. Als een aanpassing aan de aansluiting of verdeler nodig lijkt, wordt die als aparte stap meegenomen in het advies."
+      ],
+      "faqLocal": {
+        "question": "Waar kan een thuisbatterij in Middelburg worden geplaatst?",
+        "answer": "De geschikte plek hangt af van het batterijsysteem, de beschikbare ruimte, omgevingstemperatuur, ventilatie en afstand tot de elektrische installatie. We beoordelen dit per locatie en volgen de installatievoorschriften van de fabrikant."
+      }
+    },
+    {
+      "name": "Vlissingen",
+      "slug": "vlissingen",
+      "metaDescription": "Thuisbatterij plaatsen in Vlissingen? Bespreek veilige plaatsing, passende capaciteit en slimme koppeling met zonnepanelen en meterkast.",
+      "intro": "Thuisbatterij plaatsen in Vlissingen? We combineren uw wensen met een technische controle van zonnepanelen, omvormer, meterkast en beschikbare installatieruimte. Zo krijgt u inzicht in een configuratie die past bij de manier waarop u energie opwekt en gebruikt.",
+      "contextHeading": "Aandacht voor opstelling en systeemkeuze",
+      "contextParagraphs": [
+        "Een batterij moet op een geschikte plek staan en correct worden aangesloten. We letten daarom op de omstandigheden rond de opstelling, de benodigde vrije ruimte en de route van kabels naar de verdeler of omvormer.",
+        "Vervolgens vergelijken we uw dagelijkse energievraag met de beschikbare zonnestroom. Dat helpt om te bepalen welke capaciteit zinvol kan zijn en welke instellingen bij uw energiecontract passen."
+      ],
+      "cards": [
+        {
+          "title": "Geschikte opstellingsplaats",
+          "text": "De gekozen ruimte wordt beoordeeld op bereikbaarheid en de technische voorwaarden die voor het batterijsysteem gelden."
+        },
+        {
+          "title": "Capaciteit op meetgegevens",
+          "text": "Beschikbare verbruiks- en opwekdata geven meer houvast dan een keuze die uitsluitend op het piekvermogen van de panelen rust."
+        },
+        {
+          "title": "Samenwerking met grote verbruikers",
+          "text": "We bespreken hoe een laadpaal, warmtepomp of elektrische boiler de gewenste batterijcapaciteit en aansturing kan beïnvloeden."
+        }
+      ],
+      "areaHeading": "Thuisbatterij laten beoordelen in Vlissingen",
+      "areaParagraphs": [
+        "In Vlissingen kan een thuisbatterij worden afgestemd op een bestaande zonnepaneleninstallatie of worden meegenomen in een bredere verduurzamingsplanning. De technische uitwerking blijft afhankelijk van uw eigen installatie.",
+        "We leggen uit welke onderdelen direct bruikbaar zijn en waar aanvullend onderzoek nodig is. Daardoor kunt u de opties vergelijken zonder vooraf uit te gaan van één standaardoplossing."
+      ],
+      "faqLocal": {
+        "question": "Is noodstroom standaard inbegrepen bij een thuisbatterij in Vlissingen?",
+        "answer": "Nee. Voor noodstroom zijn een geschikte omvormer, omschakelvoorziening en een bewuste keuze van de te voeden groepen nodig. We bespreken deze functie apart, inclusief de technische beperkingen."
+      }
+    },
+    {
+      "name": "Goes",
+      "slug": "goes",
+      "metaDescription": "Thuisbatterij plaatsen in Goes? Krijg een onderbouwde beoordeling van verbruik, zonne-opwek, batterijcapaciteit en elektrische aansluiting.",
+      "intro": "Thuisbatterij plaatsen in Goes? We gebruiken uw energiegegevens om te bepalen hoe opslag kan aansluiten op uw verbruik, zonnepanelen en contract. Daarbij kijken we ook naar de groepenkast en naar apparatuur die nu of later extra elektriciteit vraagt.",
+      "contextHeading": "Van energiegegevens naar een passend ontwerp",
+      "contextParagraphs": [
+        "Een jaaroverzicht geeft een eerste beeld, maar kwartier- of uurgegevens kunnen meer vertellen over de momenten waarop u teruglevert of juist stroom afneemt. Waar beschikbaar nemen we die informatie mee in de beoordeling.",
+        "Ook uw doel maakt verschil. Meer zelf opgewekte stroom gebruiken vraagt een andere afweging dan sturen op dynamische prijzen of een beperkte back-upvoorziening voor geselecteerde groepen."
+      ],
+      "cards": [
+        {
+          "title": "Analyse van opwek en afname",
+          "text": "We vergelijken de beschikbare energiegegevens om een bruikbare bandbreedte voor de opslagcapaciteit te bespreken."
+        },
+        {
+          "title": "Functies bewust gekozen",
+          "text": "Zelfconsumptie, tariefsturing en back-up worden niet op één hoop gegooid, maar per gewenste toepassing beoordeeld."
+        },
+        {
+          "title": "Elektrische basis op orde",
+          "text": "De staat en indeling van de groepenkast worden meegenomen om te bepalen welke aansluiting of uitbreiding nodig kan zijn."
+        }
+      ],
+      "areaHeading": "Persoonlijk thuisbatterijadvies in Goes",
+      "areaParagraphs": [
+        "Voor uw situatie in Goes bespreken we eerst welke energiestromen u wilt verschuiven en welke apparaten daarbij betrokken zijn. Dat vormt de basis voor het technische gesprek over batterijvermogen en capaciteit.",
+        "U ontvangt uitleg over de mogelijke opstelling, koppeling en bediening. De definitieve uitvoering wordt pas bepaald nadat de relevante onderdelen van de installatie voldoende zijn beoordeeld."
+      ],
+      "faqLocal": {
+        "question": "Hoe wordt de capaciteit van een thuisbatterij in Goes bepaald?",
+        "answer": "We kijken naar uw teruglevering, afname buiten zonne-uren, gewenste functies en toekomstige verbruikers. Op basis daarvan bespreken we een capaciteitsbereik dat vervolgens technisch moet worden bevestigd."
+      }
+    }
+  ]
+}

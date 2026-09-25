@@ -1,0 +1,174 @@
+{
+  "province": {
+    "name": "Overijssel",
+    "slug": "overijssel",
+    "metaDescription": "Thuisbatterij plaatsen in Overijssel? Laat capaciteit, omvormer, groepenkast en energieverbruik beoordelen voor een passende en veilige installatie.",
+    "intro": "Thuisbatterij plaatsen in Overijssel begint met een goed beeld van uw woning, zonnepanelen, verbruik en elektrische aansluiting. Sparky Energies helpt u de mogelijkheden zorgvuldig af te wegen, zodat de gekozen opslagcapaciteit aansluit op de manier waarop u energie opwekt en gebruikt.",
+    "contextHeading": "Energieopslag passend bij uw situatie in Overijssel",
+    "contextParagraphs": [
+      "Binnen Overijssel lopen woningen, aansluitingen en energieprofielen sterk uiteen. Daarom kijken wij niet alleen naar het aantal zonnepanelen, maar ook naar uw dagelijkse verbruik, de momenten waarop u stroom nodig heeft en eventuele plannen voor elektrisch koken, laden of verwarmen.",
+      "Een thuisbatterij vormt één onderdeel van de complete installatie. De beschikbare ruimte, de bestaande omvormer, het aansluitvermogen en de beveiliging in de groepenkast bepalen samen welke oplossing technisch verantwoord en praktisch bruikbaar kan zijn."
+    ],
+    "cards": [
+      {
+        "title": "Capaciteit op basis van uw energieprofiel",
+        "text": "Uw jaarverbruik alleen vertelt niet hoeveel opslag u nodig heeft. Opwek per dag, verbruiksmomenten en gewenste reserve zijn minstens zo belangrijk voor een realistische keuze."
+      },
+      {
+        "title": "Controle van aansluiting en groepenkast",
+        "text": "Vooraf beoordelen wij welke aansluiting aanwezig is en of beveiligingen, bekabeling en vrije ruimte geschikt zijn voor de beoogde batterij en omvormer."
+      },
+      {
+        "title": "Voorbereid op toekomstige elektrische apparaten",
+        "text": "Plannen voor een laadpaal, warmtepomp of inductiekookplaat kunnen invloed hebben op het ontwerp. Door die wensen mee te nemen voorkomt u dat systemen los van elkaar worden gekozen."
+      }
+    ],
+    "areaHeading": "Advies voor steden, dorpen en buitengebieden in Overijssel",
+    "areaParagraphs": [
+      "Of uw woning nu in een stedelijke omgeving of buiten de grotere plaatsen ligt, de technische uitgangspunten blijven leidend. Voor een eerste beoordeling zijn gegevens over zonnepanelen, omvormer, meterkast en energieverbruik waardevol.",
+      "Ook zonder bestaande zonnepanelen kan energieopslag worden onderzocht. Het nut hangt dan onder meer af van uw energiecontract, laad- en verbruikspatroon en de manier waarop u de batterij wilt aansturen."
+    ],
+    "faqLocal": {
+      "question": "Welke thuisbatterij past bij een woning in Overijssel?",
+      "answer": "Dat is niet uitsluitend afhankelijk van de grootte van de woning. Uw opwek, verbruiksmomenten, aansluiting, omvormer en toekomstplannen bepalen samen welke capaciteit en configuratie passend kunnen zijn. Een technische inventarisatie geeft daarvoor de beste basis."
+    }
+  },
+  "cities": [
+    {
+      "name": "Enschede",
+      "slug": "enschede",
+      "metaDescription": "Thuisbatterij plaatsen in Enschede? Ontdek welke opslagcapaciteit past bij uw zonnepanelen, stroomverbruik, omvormer en meterkast.",
+      "intro": "Thuisbatterij plaatsen in Enschede vraagt om meer dan het kiezen van een merk of aantal kilowattuur. Wij brengen uw opwek, verbruik, omvormer en groepenkast samen in één technisch voorstel dat rekening houdt met uw huidige woning en toekomstige energiewensen.",
+      "contextHeading": "Slim omgaan met zonnestroom in Enschede",
+      "contextParagraphs": [
+        "Wanneer zonnepanelen overdag meer produceren dan u direct gebruikt, kan een batterij een deel van die energie bewaren voor een later moment. Hoeveel opslag zinvol is, hangt af van uw terugkerende dagprofiel en niet van één uitzonderlijk zonnige dag.",
+        "Bij de voorbereiding controleren wij ook waar de batterij kan staan. Bereikbaarheid, ventilatie, kabellengte en de afstand tot de meterkast spelen mee bij een veilige en nette inpassing in of rond uw woning."
+      ],
+      "cards": [
+        {
+          "title": "Afstemmen op opwek en avondverbruik",
+          "text": "We vergelijken de productie van uw zonnepanelen met het stroomgebruik later op de dag, zodat een batterij niet onnodig groot of juist te beperkt wordt gekozen."
+        },
+        {
+          "title": "Geschikte plek in en rond de woning",
+          "text": "Een technische ruimte, garage of andere locatie moet voldoen aan de voorwaarden van het systeem en praktisch bereikbaar blijven voor controle en onderhoud."
+        },
+        {
+          "title": "Samenwerking met uw bestaande omvormer",
+          "text": "Niet iedere batterijconfiguratie sluit op dezelfde manier aan. Het type omvormer en de gewenste aansturing bepalen of een AC- of DC-gekoppelde oplossing passend kan zijn."
+        }
+      ],
+      "areaHeading": "Een thuisbatterij laten beoordelen in Enschede",
+      "areaParagraphs": [
+        "Voor een gerichte beoordeling kunt u recente verbruiksgegevens en informatie over uw zonnepaneleninstallatie verzamelen. Denk aan het paneelvermogen, het type omvormer en duidelijke foto's van de meterkast.",
+        "Heeft u plannen voor elektrisch rijden of verwarmen, dan nemen wij die extra belasting mee in de afweging. Zo ontstaat een samenhangend beeld van de installatie die u nu en later nodig kunt hebben."
+      ],
+      "faqLocal": {
+        "question": "Kan een thuisbatterij in Enschede op mijn bestaande zonnepanelen worden aangesloten?",
+        "answer": "Dat kan in veel situaties technisch worden onderzocht, maar de juiste aansluiting verschilt per systeem. Het merk en type omvormer, de beschikbare groepen, het aansluitvermogen en uw gewenste functies moeten eerst worden gecontroleerd."
+      }
+    },
+    {
+      "name": "Zwolle",
+      "slug": "zwolle",
+      "metaDescription": "Thuisbatterij plaatsen in Zwolle? Krijg zorgvuldig advies over vermogen, capaciteit, veilige aansluiting en slim gebruik van uw eigen zonnestroom.",
+      "intro": "Thuisbatterij plaatsen in Zwolle kan interessant zijn wanneer u opgewekte zonnestroom vaker zelf wilt gebruiken of uw energieverbruik slimmer wilt plannen. Sparky Energies beoordeelt welke capaciteit, aansluiting en regeling passen bij uw installatie, zonder alleen naar een standaardpakket te kijken.",
+      "contextHeading": "Van meetgegevens naar een passende batterij in Zwolle",
+      "contextParagraphs": [
+        "Een betrouwbare dimensionering begint bij gegevens. Met kwartier- of uurwaarden wordt zichtbaar wanneer u teruglevert, wanneer u stroom afneemt en hoeveel energie er op een normale dag beschikbaar is om op te slaan.",
+        "Daarna kijken wij naar de technische randvoorwaarden. Het aantal fasen, de hoofdzekering, bestaande groepen en het vermogen van de batterij-omvormer moeten logisch op elkaar aansluiten om pieken beheersbaar te houden."
+      ],
+      "cards": [
+        {
+          "title": "Inzicht uit uw slimme meter",
+          "text": "Verbruiksdata maakt duidelijk welk deel van uw zonnestroom op andere momenten bruikbaar kan zijn en voorkomt een keuze op basis van alleen de energierekening."
+        },
+        {
+          "title": "Vermogen passend bij de aansluiting",
+          "text": "Naast opslagcapaciteit telt het laad- en ontlaadvermogen. Wij bekijken hoe dit vermogen zich verhoudt tot uw netaansluiting en gelijktijdige apparaten."
+        },
+        {
+          "title": "Regeling die u kunt begrijpen",
+          "text": "Een energiemanagementsysteem hoort inzicht te geven in laden, ontladen en actuele energiestromen. De instellingen moeten passen bij het doel dat u met de batterij heeft."
+        }
+      ],
+      "areaHeading": "Technische voorbereiding voor woningen in Zwolle",
+      "areaParagraphs": [
+        "De staat van de groepenkast is een vast onderdeel van de voorbereiding. Als aanpassingen nodig blijken, moeten die worden meegenomen in de configuratie en niet pas tijdens de montage aan het licht komen.",
+        "Ook de route van kabels verdient aandacht. Een vooraf gekozen plaats voor batterij en omvormer helpt om de installatie overzichtelijk te ontwerpen en de werkzaamheden realistisch te bespreken."
+      ],
+      "faqLocal": {
+        "question": "Hoe groot moet een thuisbatterij voor mijn woning in Zwolle zijn?",
+        "answer": "De passende grootte volgt uit uw dagelijkse overschot, avond- en nachtverbruik, gewenste laadstrategie en technisch beschikbare vermogen. Een grotere batterij is niet automatisch doelmatiger; dimensioneren op meetgegevens geeft meer houvast."
+      }
+    },
+    {
+      "name": "Deventer",
+      "slug": "deventer",
+      "metaDescription": "Thuisbatterij plaatsen in Deventer? Laat uw zonnepanelen, energiepatroon, beschikbare ruimte en elektrische installatie in samenhang beoordelen.",
+      "intro": "Thuisbatterij plaatsen in Deventer begint bij de vraag wat u met de opslag wilt bereiken. Wilt u vooral meer eigen zonnestroom gebruiken, inspelen op wisselende tarieven of voorbereid zijn op extra elektrische apparaten? Wij vertalen dat doel naar een onderbouwde technische configuratie.",
+      "contextHeading": "Eerst het doel, daarna de techniek in Deventer",
+      "contextParagraphs": [
+        "Dezelfde batterij kan bij twee woningen anders presteren doordat opwek en verbruik niet op dezelfde momenten plaatsvinden. Daarom bekijken wij uw huishouden als energiesysteem, inclusief grote verbruikers en eventuele geplande uitbreidingen.",
+        "De bestaande installatie bepaalt vervolgens wat uitvoerbaar is. Een inspectie van de groepenkast, omvormer en montageplek maakt duidelijk welke beveiliging, bekabeling en aansturing bij uw situatie horen."
+      ],
+      "cards": [
+        {
+          "title": "Doelgericht opslaan",
+          "text": "Zelfconsumptie, dynamisch laden en een gewenste back-upfunctie stellen verschillende eisen. Uw belangrijkste doel vormt daarom het vertrekpunt van het advies."
+        },
+        {
+          "title": "Ruimte en bereikbaarheid vooraf bepalen",
+          "text": "Wij kijken naar afmetingen, vrije ruimte, ondergrond en bereikbaarheid, zodat de gekozen locatie past bij de installatievoorschriften van het systeem."
+        },
+        {
+          "title": "Uitbreidingen direct meenemen",
+          "text": "Een toekomstige laadvoorziening of warmtepomp verandert uw verbruiksprofiel. Door deze plannen vroeg te bespreken kan de totale elektrische installatie samenhangend worden beoordeeld."
+        }
+      ],
+      "areaHeading": "Thuisbatterijadvies voor uw situatie in Deventer",
+      "areaParagraphs": [
+        "Een bestaande zonnepaneleninstallatie is een logisch startpunt, maar niet de enige factor. Ook zonder panelen kan een batterij technisch worden bekeken in combinatie met een passend energiecontract en duidelijke gebruiksdoelen.",
+        "Voor een transparante afweging worden capaciteit en vermogen apart besproken. Zo ziet u niet alleen hoeveel energie kan worden opgeslagen, maar ook hoe snel het systeem die energie kan laden of leveren."
+      ],
+      "faqLocal": {
+        "question": "Is een dynamisch energiecontract nodig voor een thuisbatterij in Deventer?",
+        "answer": "Nee, een dynamisch contract is niet per definitie vereist. Het kan wel invloed hebben op de aansturing en het gebruiksdoel. Uw zonnepanelen, verbruiksprofiel, contractvoorwaarden en systeeminstellingen moeten gezamenlijk worden afgewogen."
+      }
+    },
+    {
+      "name": "Hengelo",
+      "slug": "hengelo",
+      "metaDescription": "Thuisbatterij plaatsen in Hengelo? Bespreek een veilige configuratie voor uw meterkast, zonnepanelen, energiecontract en toekomstige verbruik.",
+      "intro": "Thuisbatterij plaatsen in Hengelo vraagt om een oplossing die past bij uw dagelijkse energiestromen én bij de technische grenzen van de woning. Wij onderzoeken de verhouding tussen opwek, verbruik, aansluitvermogen en beschikbare ruimte voordat een batterijtype wordt gekozen.",
+      "contextHeading": "Een samenhangend energieplan voor Hengelo",
+      "contextParagraphs": [
+        "Een batterij werkt samen met zonnepanelen, omvormer, slimme meter en groepenkast. Als één van deze onderdelen niet goed is afgestemd, kan de beschikbare opslag of het gewenste vermogen niet optimaal worden benut.",
+        "Ook uw verwachtingen zijn belangrijk. Noodstroom vraagt bijvoorbeeld om andere componenten en een afgebakend noodstroomcircuit; een gewone netgekoppelde batterij blijft niet vanzelf actief wanneer het elektriciteitsnet uitvalt."
+      ],
+      "cards": [
+        {
+          "title": "Installatie als één geheel bekijken",
+          "text": "Wij beoordelen niet alleen de batterij, maar ook de meter, omvormer, verdeling en beveiliging die nodig zijn om het systeem verantwoord te laten functioneren."
+        },
+        {
+          "title": "Heldere keuze voor wel of geen back-up",
+          "text": "Wilt u noodstroom, dan moet vooraf duidelijk zijn welke apparaten gevoed moeten worden en welk extra ontwerp daarvoor nodig is."
+        },
+        {
+          "title": "Sturing afgestemd op uw contract",
+          "text": "Vaste, variabele en dynamische tarieven kunnen om een andere laadstrategie vragen. De regeling hoort aan te sluiten bij uw contract en gebruiksdoel."
+        }
+      ],
+      "areaHeading": "Voorbereiden op batterijopslag in Hengelo",
+      "areaParagraphs": [
+        "Met een foto van de groepenkast, technische gegevens van de omvormer en recente energiegegevens kan de eerste inventarisatie gericht worden opgebouwd. Ontbrekende informatie kan daarna specifiek worden aangevuld.",
+        "De uiteindelijke plaatsing vraagt een geschikte ondergrond en voldoende ruimte volgens de productspecificaties. Daarom hoort de beoogde locatie al tijdens het advies te worden besproken."
+      ],
+      "faqLocal": {
+        "question": "Geeft een thuisbatterij in Hengelo automatisch stroom bij een netstoring?",
+        "answer": "Nee. Daarvoor is een systeem met expliciete back-upmogelijkheid, passende omschakeling en een vooraf bepaald noodstroomcircuit nodig. Welke apparaten dan bruikbaar zijn, hangt af van het gekozen vermogen en ontwerp."
+      }
+    }
+  ]
+}

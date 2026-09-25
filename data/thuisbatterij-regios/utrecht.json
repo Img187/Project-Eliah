@@ -1,0 +1,175 @@
+{
+  "province": {
+    "name": "Utrecht",
+    "slug": "provincie-utrecht",
+    "searchName": "provincie Utrecht",
+    "metaDescription": "Thuisbatterij plaatsen in provincie Utrecht? Ontvang technisch advies over capaciteit, zonne-opwek, groepenkast en passende energiesturing.",
+    "intro": "Thuisbatterij plaatsen in provincie Utrecht begint met inzicht in uw eigen energieprofiel. Voor de provincie beoordelen wij hoe opwek, verbruik, aansluiting en toekomstige elektrische apparatuur samen de juiste systeemkeuze beïnvloeden.",
+    "contextHeading": "Opslag voor uiteenlopende woningen en bedrijven",
+    "contextParagraphs": [
+      "Binnen de provincie Utrecht verschillen beschikbare ruimte, netaansluitingen en gebruikspatronen per adres. Een huishouden met veel avondverbruik vraagt om een andere afweging dan een bedrijf dat vooral overdag energie gebruikt.",
+      "We onderzoeken welk deel van uw zonnestroom werkelijk kan worden verschoven naar een later moment. Daarbij houden we rekening met omzettingsverlies, seizoenen en de technische grenzen van batterij en omvormer."
+    ],
+    "cards": [
+      {
+        "title": "Data vóór batterijgrootte",
+        "text": "Jaarstanden zijn een begin, maar het moment van opwek en verbruik is minstens zo belangrijk. Beschikbare meetgegevens maken de indicatie nauwkeuriger."
+      },
+      {
+        "title": "Aansluiting en beveiliging",
+        "text": "We controleren hoe het systeem elektrisch kan worden aangesloten en beveiligd. Een aanpassing aan de groepenkast wordt alleen opgenomen wanneer die technisch nodig blijkt."
+      },
+      {
+        "title": "Een concept dat kan meegroeien",
+        "text": "Sommige batterijsystemen zijn modulair, andere niet. Als uitbreiding belangrijk is, nemen we compatibiliteit en productspecificaties vanaf het begin mee."
+      }
+    ],
+    "areaHeading": "Thuisbatterijadvies in de provincie Utrecht",
+    "areaParagraphs": [
+      "Sparky Energies beoordeelt aanvragen uit de provincie Utrecht, waaronder Utrecht, Amersfoort, Veenendaal en Nieuwegein. Onze bedrijfsbasis blijft Rotterdam; per aanvraag stemmen we de voorbereiding en een eventuele opname op locatie af.",
+      "Met foto's, energiedata en apparaatgegevens kan vaak een eerste richting worden bepaald. Een definitief ontwerp volgt pas nadat ook de relevante technische details zijn gecontroleerd."
+    ],
+    "faqLocal": {
+      "question": "Is iedere woning in de provincie Utrecht geschikt voor een thuisbatterij?",
+      "answer": "Niet iedere installatie is direct geschikt en soms is eerst een aanpassing of aanvullend onderzoek nodig. De groepenkast, aansluiting, opstelplaats en het gewenste gebruik bepalen samen wat verantwoord is."
+    }
+  },
+  "cities": [
+    {
+      "name": "Utrecht",
+      "slug": "utrecht",
+      "metaDescription": "Thuisbatterij plaatsen in Utrecht? Laat ruimte, verbruiksprofiel, zonnepanelen en groepenkast beoordelen voor een passend technisch voorstel.",
+      "intro": "Thuisbatterij plaatsen in Utrecht vraagt om een zorgvuldige combinatie van ruimte, vermogen en gebruiksdoel. Wij beoordelen of opslag logisch aansluit op uw zonnepanelen, avondverbruik en plannen voor verdere elektrificatie.",
+      "contextHeading": "Een systeem dat past binnen uw beschikbare ruimte",
+      "contextParagraphs": [
+        "Bij een stadswoning of appartement kan de afstand tussen meterkast, omvormer en mogelijke batterijlocatie groot of lastig overbrugbaar zijn. We nemen de kabelroute en bereikbaarheid daarom mee voordat een product wordt geselecteerd.",
+        "Ook toekomstige belasting telt mee, bijvoorbeeld wanneer u elektrisch wilt laden of verwarmen. We bekijken welke functies gelijktijdig kunnen werken en waar vermogenssturing mogelijk nodig is."
+      ],
+      "cards": [
+        {
+          "title": "Ruimte-efficiënt installatieplan",
+          "text": "Niet iedere vrije wand is automatisch een geschikte opstelplaats. We toetsen de locatie aan de systeemvereisten en de praktische bereikbaarheid."
+        },
+        {
+          "title": "Piekbelasting in beeld",
+          "text": "Batterij, laadpaal en warmtepomp kunnen de elektrische belasting veranderen. We beoordelen hoe sturing en aansluiting daarmee omgaan."
+        },
+        {
+          "title": "Advies zonder standaardpakket",
+          "text": "Merk en capaciteit volgen uit uw situatie en gewenste functies. U krijgt uitgelegd welke aannames nog moeten worden geverifieerd."
+        }
+      ],
+      "areaHeading": "Aanvragen uit Utrecht en directe omgeving",
+      "areaParagraphs": [
+        "Voor een aanvraag uit de stad Utrecht verzamelen we eerst informatie over woningtype, energiegebruik en bestaande apparatuur. Daardoor kan een eventueel locatiebezoek gericht worden voorbereid.",
+        "Onze bedrijfsbasis is Rotterdam. Voor Utrecht bepalen we op basis van uw aanvraag welke technische controle en vervolgstap passend zijn."
+      ],
+      "faqLocal": {
+        "question": "Kan een thuisbatterij buiten worden geplaatst bij een woning in Utrecht?",
+        "answer": "Sommige systemen zijn geschikt voor buitenopstelling, maar alleen binnen de voorwaarden van de fabrikant. Beschutting, temperatuur, bereikbaarheid en kabelroute moeten per locatie worden gecontroleerd."
+      }
+    },
+    {
+      "name": "Amersfoort",
+      "slug": "amersfoort",
+      "metaDescription": "Thuisbatterij plaatsen in Amersfoort? Krijg advies over uw bestaande omvormer, opslagcapaciteit, groepenkast en toekomstige uitbreiding.",
+      "intro": "Thuisbatterij plaatsen in Amersfoort begint met de technische staat van wat er al aanwezig is. Wij onderzoeken hoe zonnepanelen, omvormer en groepenkast kunnen samenwerken met opslag en welke onderdelen mogelijk aandacht vragen.",
+      "contextHeading": "Voortbouwen op uw bestaande energie-installatie",
+      "contextParagraphs": [
+        "Zonnepanelen kunnen eerder zijn geplaatst dan andere elektrische voorzieningen in een woning. Daarom controleren we of communicatie, vermogen en beveiliging van bestaande apparatuur aansluiten op de gewenste batterijoplossing.",
+        "De passende opslagcapaciteit volgt niet automatisch uit het aantal panelen. Uw teruglevering, avondvraag en gewenste reserve bepalen hoeveel energie op een normale dag zinvol kan worden verschoven."
+      ],
+      "cards": [
+        {
+          "title": "Bestaande apparatuur als vertrekpunt",
+          "text": "We inventariseren merk, type en vermogen van panelen en omvormer. Zo wordt duidelijk welke koppelingen technisch mogelijk zijn."
+        },
+        {
+          "title": "Capaciteit voor uw avondgebruik",
+          "text": "Opslag wordt afgestemd op het verbruik nadat de zonne-opwek afneemt. Een grotere batterij is niet vanzelfsprekend een betere keuze."
+        },
+        {
+          "title": "Veilige ingebruikname",
+          "text": "Na montage worden verbindingen, beveiligingen en instellingen gecontroleerd. U ontvangt uitleg over normaal gebruik en relevante meldingen."
+        }
+      ],
+      "areaHeading": "Thuisbatterij aanvragen in Amersfoort",
+      "areaParagraphs": [
+        "Aanvragen uit Amersfoort starten met een technische inventarisatie op afstand. We vragen gericht om documenten en foto's, zodat ontbrekende informatie vroeg zichtbaar wordt.",
+        "Wanneer gegevens over leidingverloop, fasenverdeling of opstelplaats niet toereikend zijn, bespreken we een nadere opname. Een offerte blijft afhankelijk van die controle."
+      ],
+      "faqLocal": {
+        "question": "Moeten mijn zonnepanelen en thuisbatterij in Amersfoort van hetzelfde merk zijn?",
+        "answer": "Niet altijd, maar de gekozen onderdelen moeten technisch en softwarematig met elkaar kunnen samenwerken. We beoordelen de compatibiliteit van omvormer, batterij en energiemanagement voordat een combinatie wordt geadviseerd."
+      }
+    },
+    {
+      "name": "Veenendaal",
+      "slug": "veenendaal",
+      "metaDescription": "Thuisbatterij plaatsen in Veenendaal? Laat verbruiksuren, zonne-overschot, aansluiting en slimme sturing zorgvuldig beoordelen.",
+      "intro": "Thuisbatterij plaatsen in Veenendaal begint met het verschil tussen uw opwek overdag en uw verbruik op andere momenten. Wij beoordelen of en hoe opslag dat verschil technisch zinvol kan overbruggen.",
+      "contextHeading": "Van energieprofiel naar gerichte opslag",
+      "contextParagraphs": [
+        "Een huishouden met vooral avondverbruik gebruikt een batterij anders dan een onderneming met een dagprofiel. We maken daarom onderscheid tussen energiehoeveelheid, benodigd vermogen en de uren waarop de installatie actief moet zijn.",
+        "Slimme sturing kan verschillende doelen hebben, zoals meer eigen zonnestroom gebruiken of rekening houden met tarieven. Welke strategie passend is, hangt af van uw contract, apparatuur en voorkeuren."
+      ],
+      "cards": [
+        {
+          "title": "Woning en bedrijf apart benaderd",
+          "text": "We gebruiken het werkelijke gebruikspatroon als basis. Daardoor kunnen ook piekvermogen en bedrijfstijden in de afweging worden meegenomen."
+        },
+        {
+          "title": "Energiebesturing met een doel",
+          "text": "Een EMS wordt niet alleen gekozen omdat het beschikbaar is. Eerst bepalen we welke gegevens en functies u werkelijk wilt gebruiken."
+        },
+        {
+          "title": "Groepenkast vóór uitbreiding controleren",
+          "text": "We kijken naar beveiligingen, fasen en beschikbare aansluitruimte. Eventuele werkzaamheden worden als apart onderdeel van het voorstel toegelicht."
+        }
+      ],
+      "areaHeading": "Beoordeling voor Veenendaal en omgeving",
+      "areaParagraphs": [
+        "Voor Veenendaal en omliggende plaatsen kunnen wij een aanvraag voorbereiden met uw energiedata en installatiegegevens. Dat helpt om het adviesgesprek te richten op de onderdelen die echt verschil maken.",
+        "Een technische opname kan nodig zijn wanneer vermogen, kabelroute of plaatsingsruimte niet voldoende vaststaat. We spreken de vervolgstappen af zonder een uitkomst vooraf te garanderen."
+      ],
+      "faqLocal": {
+        "question": "Is een batterij voor een bedrijf in Veenendaal hetzelfde als een thuisbatterij?",
+        "answer": "De techniek kan overeenkomsten hebben, maar vermogen, gebruiksuren en beveiliging kunnen sterk verschillen. Voor een bedrijf beoordelen we daarom ook gelijktijdige belasting en operationele wensen voordat een systeem wordt gekozen."
+      }
+    },
+    {
+      "name": "Nieuwegein",
+      "slug": "nieuwegein",
+      "metaDescription": "Thuisbatterij plaatsen in Nieuwegein? Ontvang advies dat ook rekening houdt met laadpaal, warmtepomp, groepenkast en uitbreiding.",
+      "intro": "Thuisbatterij plaatsen in Nieuwegein vraagt om vooruitkijken naar uw volledige elektrische installatie. Wij beoordelen de opslag samen met bestaande zonnepanelen en mogelijke uitbreidingen zoals een laadpunt of warmtepomp.",
+      "contextHeading": "Opslag inpassen in een groeiende stroomvraag",
+      "contextParagraphs": [
+        "Nieuwe elektrische apparatuur verandert niet alleen het jaarverbruik, maar ook het vermogen dat op hetzelfde moment nodig is. Daarom bekijken we belasting, fasenverdeling en beschikbare aansluitcapaciteit naast de gewenste batterijgrootte.",
+        "Een thuisbatterij vervangt geen noodzakelijke net- of groepenkastaanpassing. Wel kan passende sturing helpen om opwek, opslag en verbruik beter te coördineren wanneer alle onderdelen dit ondersteunen."
+      ],
+      "cards": [
+        {
+          "title": "Groeiplan voor uw installatie",
+          "text": "We bespreken welke elektrische voorzieningen al aanwezig zijn en welke u later verwacht. Zo kunnen compatibiliteit en uitbreidbaarheid gericht worden meegewogen."
+        },
+        {
+          "title": "Opslag en laden op elkaar afstemmen",
+          "text": "Een laadpaal en batterij kunnen gelijktijdig vermogen vragen. De regeling en aansluiting moeten daarom als samenhangend systeem worden beoordeeld."
+        },
+        {
+          "title": "Back-up bewust ontwerpen",
+          "text": "Noodstroom is geen standaardfunctie van iedere batterij. Gewenste groepen, vermogen en omschakeling moeten vooraf expliciet worden ontworpen."
+        }
+      ],
+      "areaHeading": "Thuisbatterijadvies voor Nieuwegein",
+      "areaParagraphs": [
+        "Bij aanvragen uit Nieuwegein vragen we naast energiedata ook naar geplande elektrische apparatuur. Hierdoor kan het eerste advies rekening houden met zowel de huidige als de verwachte belasting.",
+        "Vervolgens bepalen we welke technische controle nog nodig is en of de voorgestelde opstelplaats haalbaar lijkt. Pas met voldoende gegevens werken we een concreet voorstel uit."
+      ],
+      "faqLocal": {
+        "question": "Kan ik een thuisbatterij in Nieuwegein later uitbreiden?",
+        "answer": "Dat is mogelijk bij bepaalde modulaire systemen, binnen de grenzen van fabrikant en omvormer. Als uitbreiding belangrijk is, moet die wens al bij de eerste systeemkeuze worden meegenomen."
+      }
+    }
+  ]
+}
