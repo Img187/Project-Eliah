@@ -80,7 +80,7 @@ export const batteryIntentPages = [
           text: 'Noodstroom werkt niet standaard bij iedere batterij. Een geschikte omvormer, omschakelvoorziening en aangepaste verdeling kunnen aanvullende werkzaamheden vereisen.',
         },
       ],
-      closingHtml: '<strong>Marktindicatie, geraadpleegd op 25 september 2026:</strong> volgens de <a href="https://www.consumentenbond.nl/zonnepanelen/thuisbatterij" target="_blank" rel="noopener noreferrer">Consumentenbond</a> kost een gemiddeld vast thuisbatterijsysteem ongeveer € 4.000–€ 6.000, inclusief installatie en btw. Dit is algemene marktinformatie en geen offerte van Sparky Energies. De uiteindelijke kosten kunnen afwijken door onder meer extra werk aan de groepenkast, bekabeling of een back-upvoorziening.',
+      closingHtml: 'Na de technische beoordeling ontvangt u een transparant voorstel waarin het batterijsysteem, de installatie en eventuele aanvullende werkzaamheden afzonderlijk worden benoemd. Zo kunt u de totale kosten voor uw situatie beoordelen.',
     },
     replacements: {
       thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparenH2: 'Welke factoren bepalen de kosten van een thuisbatterij?',
