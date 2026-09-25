@@ -7,6 +7,9 @@ const regionalLastModified = '2026-09-25';
 const basePageLastModified = {
   'index.html': '2026-07-16',
   'thuisbatterij-laten-installeren.html': '2026-09-25',
+  'thuisbatterij-kopen.html': '2026-09-25',
+  'thuisbatterij-kosten.html': '2026-09-25',
+  'thuisbatterij-voor-zonnepanelen.html': '2026-09-25',
   'zonnepanelen.html': '2026-07-16',
   'laadpalen.html': '2026-07-16',
   'meterkast-vervangen.html': '2026-09-25',

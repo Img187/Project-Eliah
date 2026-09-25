@@ -3,10 +3,20 @@ import { copyFile, lstat, mkdir, readFile, readdir, realpath, rm, writeFile } fr
 import { dirname, extname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { meterkastRegionPageFiles } from './meterkast-regios.mjs';
+import { batteryIntentPageFiles } from './thuisbatterij-intenties.mjs';
 import { regionPageFiles } from './thuisbatterij-regios.mjs';
 
 export const root = fileURLToPath(new URL('../', import.meta.url));
-export const basePages = ['index.html', 'thuisbatterij-laten-installeren.html', 'zonnepanelen.html', 'laadpalen.html', 'meterkast-vervangen.html', 'over-ons.html', 'contact.html'];
+export const basePages = [
+  'index.html',
+  'thuisbatterij-laten-installeren.html',
+  ...batteryIntentPageFiles,
+  'zonnepanelen.html',
+  'laadpalen.html',
+  'meterkast-vervangen.html',
+  'over-ons.html',
+  'contact.html',
+];
 export const pages = [...basePages, ...regionPageFiles, ...meterkastRegionPageFiles];
 export const redirectPages = ['thuisbatterijen.html', 'elektrotechnische-renovaties.html'];
 export const publishedHtmlPages = [...pages, ...redirectPages];

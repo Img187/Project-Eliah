@@ -4,13 +4,14 @@ De codewijzigingen richten zich op de publieke website. GitHub Pages serveert HT
 
 ## Wat is aangepast
 
-- Alle 69 gepubliceerde HTML-bestanden (67 indexeerbare contentpagina's en twee legacy doorverwijzingen) bevatten een Content Security Policy vóór de geladen resources. Die beperkt scripts en netwerkbestemmingen, verbiedt uitvoerbare inline scripts/eventhandlers en `eval`, blokkeert object-embeds en beperkt formulierbestemmingen tot Formspree. Bestaande JSON-LD heeft een berekende hash. Inline CSS blijft toegestaan voor de bestaande dynamische vormgeving.
+- Alle 72 gepubliceerde HTML-bestanden (70 indexeerbare contentpagina's en twee legacy doorverwijzingen) bevatten een Content Security Policy vóór de geladen resources. Die beperkt scripts en netwerkbestemmingen, verbiedt uitvoerbare inline scripts/eventhandlers en `eval`, blokkeert object-embeds en beperkt formulierbestemmingen tot Formspree. Bestaande JSON-LD heeft een berekende hash. Inline CSS blijft toegestaan voor de bestaande dynamische vormgeving.
 - Calculators weigeren te grote numerieke invoer en controleren eindresultaten op `Infinity`/`NaN`. Bij een fout verdwijnen het oude advies en de opgeslagen overdracht.
 - Formulieren starten per formulier maximaal één gelijktijdige verzending. De volledige aanvraag, inclusief upload en lezen van de response, wordt na 90 seconden afgebroken. Er is geen automatische herhaling van POST-verzoeken. Een fout behoudt de invoer en herstelt de bediening.
 - Uploadlijsten bewaren maximaal vijf bestanden. Een selectie van meer dan vijf tegelijk wordt vóór kopiëren/renderen geweigerd; eerdere selectie blijft behouden. Bestaande type- en 10 MiB-controles blijven van toepassing.
 - `assets/js/network.js` begrenst daadwerkelijk ingelezen responsebytes, ook zonder correcte `Content-Length`. Reviewconfiguratie: 8 KiB/10s; reviews: 2 MiB/20s; Formspree-response: 64 KiB/90s. Een vaste bytebuffer voorkomt groei door extreem veel kleine chunks.
 - Reviewgegevens krijgen ook grenzen voor aantallen en tekstlengtes. Ongeldige reviewupdates vervangen de laatste geldige cache niet.
-- `scripts/prepare-pages.mjs` bouwt `build/pages` uit een expliciete publicatielijst: 67 indexeerbare pagina's, twee legacy doorverwijzingen, gebruikte scripts/CSS, afbeeldingen, WOFF2-fonts, twee publieke PDF's, de publieke reviewconfiguratie, robots/sitemap/CNAME. Tests, backend, tools, interne documentatie en sectie-index staan buiten het websitepakket. Symlinks worden geweigerd.
+- `scripts/prepare-pages.mjs` bouwt `build/pages` uit een expliciete publicatielijst: 70 indexeerbare pagina's, twee legacy doorverwijzingen, gebruikte scripts/CSS, afbeeldingen, WOFF2-fonts, twee publieke PDF's, de publieke reviewconfiguratie, robots/sitemap/CNAME. Tests, backend, tools, interne documentatie en sectie-index staan buiten het websitepakket. Symlinks worden geweigerd.
+- De landelijke intentiepagina's `thuisbatterij-kopen.html`, `thuisbatterij-kosten.html` en `thuisbatterij-voor-zonnepanelen.html` worden met `scripts/generate-thuisbatterij-intenties.mjs` opgebouwd. Ze staan niet in de hoofdnavigatie en zijn via inhoudelijke contextlinks bereikbaar.
 - De onafgemaakte projectsectie in `index.html` en de bijbehorende projectbestanden blijven lokaal. Deze veiligheidsupdate publiceert de bestaande homepage met alleen de nieuwe beveiligingsinstellingen. De publicatiebuilder neemt optionele projectcode pas mee wanneer de homepage die inschakelt.
 - De nieuwe GitHub Actions-workflow test, controleert herkenbare tokenpatronen, voert een dependency-audit uit en bouwt het websitepakket. Alleen een geslaagde controle op `main` kan publiceren. Pull requests publiceren nooit. Actions zijn aan volledige commit-SHA's vastgezet; Dependabot volgt updates.
 
@@ -22,7 +23,7 @@ Op 20 september 2026 is de veiligheidscommit `c1bd4e9` naar `main` gepusht. De [
 2. Behoud in [Settings → Pages](https://github.com/Img187/Project-Eliah/settings/pages) bij **Build and deployment → Source** de bron **GitHub Actions**. Terugschakelen naar branchpublicatie zou `build/pages` omzeilen en bestanden zonder de nieuwe controles publiceren.
 3. Controleer dezelfde pagina op het bestaande custom domain `www.sparkyenergies.com` en **Enforce HTTPS**. Behoud de bestaande DNS-inrichting; `CNAME` wordt in het nieuwe websitepakket meegenomen.
 4. Start zo nodig de workflow **Website controleren en publiceren** handmatig op `main`. Controleer dat zowel **Beveiliging en tests** als deployment slagen. De bestaande site blijft de laatste geslaagde publicatie gebruiken wanneer de nieuwe workflow niet kan publiceren.
-5. Controleer na uitrollen de 67 indexeerbare pagina's, de twee legacy doorverwijzingen, een echte normale formulierinzending en de externe Google-integraties met toestemming. Tests gebruiken synthetische responses en bewijzen geen Formspree-accountconfiguratie.
+5. Controleer na uitrollen de 70 indexeerbare pagina's, de twee legacy doorverwijzingen, een echte normale formulierinzending en de externe Google-integraties met toestemming. Tests gebruiken synthetische responses en bewijzen geen Formspree-accountconfiguratie.
 
 GitHub vereist dat de workflow als publicatiebron is ingesteld voordat een aangepaste Pages-workflow wordt gebruikt. [GitHub: aangepaste Pages-workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
 
@@ -52,7 +53,7 @@ Activeer/controleer in de GitHub-instellingen **secret scanning en push protecti
 
 ## Bij latere websitewijzigingen
 
-Na aanpassen van JSON-LD of het review-endpoint: voer `node scripts/prepare-pages.mjs --sync` uit. Dit werkt CSP-hashes bij en voegt uitsluitend de geconfigureerde HTTPS-revieworigin aan `connect-src` toe. Commit de bijgewerkte HTML samen met de configuratie. De build weigert een niet-gesynchroniseerde policy. Gebruik geen tokens, gebruikersnaam of wachtwoord in het publieke endpoint.
+Na aanpassen van de landelijke thuisbatterij-intentiecontent: voer `node scripts/generate-thuisbatterij-intenties.mjs` uit. Na aanpassen van JSON-LD of het review-endpoint: voer `node scripts/prepare-pages.mjs --sync` uit. Dit werkt CSP-hashes bij en voegt uitsluitend de geconfigureerde HTTPS-revieworigin aan `connect-src` toe. Commit de bijgewerkte HTML samen met de configuratie. De build weigert een niet-gesynchroniseerde policy. Gebruik geen tokens, gebruikersnaam of wachtwoord in het publieke endpoint.
 
 Nieuwe scripts, stylesheets of downloadbare documenten moeten bewust aan de publicatielijst in `scripts/prepare-pages.mjs` worden toegevoegd. Interne documenten horen niet in die lijst. `build/pages` is gegenereerd en wordt bij bouwen opnieuw aangemaakt; plaats daar geen handmatig werk.
 

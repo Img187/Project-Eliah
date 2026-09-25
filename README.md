@@ -8,14 +8,15 @@ Open deze map in VS Code en start bijvoorbeeld Live Server op `index.html`.
 
 ## Publiceren en beveiliging
 
-De regionale thuisbatterijpagina's worden gegenereerd met `node scripts/generate-thuisbatterij-regios.mjs`; de regionale meterkastpagina's met `node scripts/generate-meterkast-regios.mjs`. Daarna wordt de website met `node scripts/prepare-pages.mjs` voorbereid in `build/pages`. De GitHub Actions-workflow publiceert uitsluitend die map na geslaagde tests. De Pages-publicatiebron staat op **GitHub Actions**. Zie [publicatie en beveiliging](docs/publicatie-security.md) voor de inrichting, controles vóór een commit en de resterende GitHub-/Formspree-instellingen.
+De drie landelijke thuisbatterij-intentiepagina's worden gegenereerd met `node scripts/generate-thuisbatterij-intenties.mjs`; de regionale thuisbatterijpagina's met `node scripts/generate-thuisbatterij-regios.mjs`; de regionale meterkastpagina's met `node scripts/generate-meterkast-regios.mjs`. Daarna wordt de website met `node scripts/prepare-pages.mjs` voorbereid in `build/pages`. De GitHub Actions-workflow publiceert uitsluitend die map na geslaagde tests. De Pages-publicatiebron staat op **GitHub Actions**. Zie [publicatie en beveiliging](docs/publicatie-security.md) voor de inrichting, controles vóór een commit en de resterende GitHub-/Formspree-instellingen.
 
-Alle tests: `npm --prefix tests test`. Na wijzigen van regionale content of de gedeelde header/footer: voer beide regionale generators uit. Na overige wijzigingen van JSON-LD of de review-API-configuratie: `node scripts/prepare-pages.mjs --sync`, zodat de Content Security Policy weer overeenkomt.
+Alle tests: `npm --prefix tests test`. Na wijzigen van landelijke thuisbatterij-intentiecontent, regionale content of de gedeelde header/footer: voer de bijbehorende generator(s) uit. Na overige wijzigingen van JSON-LD of de review-API-configuratie: `node scripts/prepare-pages.mjs --sync`, zodat de Content Security Policy weer overeenkomt.
 
 ## Structuur
 
 - `index.html`
 - `thuisbatterij-laten-installeren.html`
+- `thuisbatterij-kopen.html`, `thuisbatterij-kosten.html` en `thuisbatterij-voor-zonnepanelen.html` (gegenereerde landelijke intentiepagina's; niet in de hoofdnavigatie en bereikbaar via contextlinks)
 - `thuisbatterijen.html` (legacy doorverwijzing naar de nieuwe URL)
 - `zonnepanelen.html`
 - `laadpalen.html`
@@ -26,6 +27,7 @@ Alle tests: `npm --prefix tests test`. Na wijzigen van regionale content of de g
 - `thuisbatterij-plaatsen-in-*.html` (30 gegenereerde provincie- en stadspagina's)
 - `meterkast-vervangen-in-*.html` (30 gegenereerde provincie- en stadspagina's)
 - `data/thuisbatterij-regios/*.json` (de unieke regionale broncopy)
+- `scripts/generate-thuisbatterij-intenties.mjs`
 - `scripts/generate-thuisbatterij-regios.mjs`
 - `scripts/generate-meterkast-regios.mjs`
 - `assets/css/styles.css`
@@ -102,7 +104,7 @@ De contactpagina bevat sectie `contactSectVragenformulierVoorBesparingEnInstalla
 
 ## Google Analytics
 
-Alle 67 indexeerbare contentpagina's gebruiken de Google-tag voor de GA4-webstream van Sparky Energies. De twee niet-indexeerbare legacy doorverwijzingen worden bewust niet apart gemeten om dubbele pageviews te voorkomen:
+Alle 70 indexeerbare contentpagina's gebruiken de Google-tag voor de GA4-webstream van Sparky Energies. De twee niet-indexeerbare legacy doorverwijzingen worden bewust niet apart gemeten om dubbele pageviews te voorkomen:
 
 - Measurement ID: `G-87KMB19788`
 
