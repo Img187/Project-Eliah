@@ -1,22 +1,12 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { basePages, root, secureHtml } from './prepare-pages.mjs';
+import { root, secureHtml } from './prepare-pages.mjs';
+import { origin, renderSitemap } from './sitemap.mjs';
 import { regionPages } from './thuisbatterij-regios.mjs';
 
-const origin = 'https://www.sparkyenergies.com';
 const pagePrefix = 'thuisbatterij-plaatsen-in-';
 const baseFile = 'thuisbatterij-laten-installeren.html';
-const basePageLastModified = {
-  'index.html': '2026-07-16',
-  [baseFile]: '2026-09-25',
-  'zonnepanelen.html': '2026-07-16',
-  'laadpalen.html': '2026-07-16',
-  'elektrotechnische-renovaties.html': '2026-07-16',
-  'over-ons.html': '2026-07-16',
-  'contact.html': '2026-07-16',
-};
-const regionalLastModified = '2026-09-25';
 
 function escapeHtml(value) {
   return String(value)
@@ -96,18 +86,6 @@ export async function renderRegionPage(page, baseSource, endpoint) {
   html = replaceElementText(html, 'p', 'thuisbatterijSectThuisbatterijLatenInstallerenP01', page.intro);
 
   return secureHtml(html, endpoint);
-}
-
-export function renderSitemap() {
-  const records = [
-    ...basePages.map((file) => ({
-      location: file === 'index.html' ? `${origin}/` : `${origin}/${file}`,
-      lastModified: basePageLastModified[file],
-    })),
-    ...regionPages.map((page) => ({ location: pageUrl(page), lastModified: regionalLastModified })),
-  ];
-  const urls = records.map(({ location, lastModified }) => `  <url>\n    <loc>${location}</loc>\n    <lastmod>${lastModified}</lastmod>\n  </url>`).join('\n');
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
 }
 
 export async function generateRegionPages(directory = root) {

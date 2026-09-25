@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile, stat } from 'node:fs/promises';
 import { join } from 'node:path';
 import { JSDOM } from 'jsdom';
-import { root, pages, publishedHtmlPages, publicFiles, secureHtml } from '../scripts/prepare-pages.mjs';
+import { root, pages, redirectPages, publishedHtmlPages, publicFiles, secureHtml } from '../scripts/prepare-pages.mjs';
 
 test('publicatielijst sluit interne code en documenten uit en bevat alle lokale paginabronnen', async () => {
   const files = await publicFiles();
@@ -20,7 +20,7 @@ test('publicatielijst sluit interne code en documenten uit en bevat alle lokale 
         const url = new URL(raw, dom.window.location.href);
         if (url.origin !== dom.window.location.origin) continue;
         const file = decodeURIComponent(url.pathname.slice(1)) || 'index.html';
-        if (pages.includes(page)) assert.notEqual(file, 'thuisbatterijen.html', `${page} verwijst nog naar de legacy-URL.`);
+        if (pages.includes(page)) assert.ok(!redirectPages.includes(file), `${page} verwijst nog naar legacy-URL ${file}.`);
         assert.ok(files.includes(file), `${page} verwijst naar uitgesloten bestand ${file}`);
         assert.ok((await stat(join(root, file))).isFile());
       }

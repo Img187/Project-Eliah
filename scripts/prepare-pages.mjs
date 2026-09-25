@@ -2,12 +2,13 @@ import { createHash } from 'node:crypto';
 import { copyFile, lstat, mkdir, readFile, readdir, realpath, rm, writeFile } from 'node:fs/promises';
 import { dirname, extname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { meterkastRegionPageFiles } from './meterkast-regios.mjs';
 import { regionPageFiles } from './thuisbatterij-regios.mjs';
 
 export const root = fileURLToPath(new URL('../', import.meta.url));
-export const basePages = ['index.html', 'thuisbatterij-laten-installeren.html', 'zonnepanelen.html', 'laadpalen.html', 'elektrotechnische-renovaties.html', 'over-ons.html', 'contact.html'];
-export const pages = [...basePages, ...regionPageFiles];
-export const redirectPages = ['thuisbatterijen.html'];
+export const basePages = ['index.html', 'thuisbatterij-laten-installeren.html', 'zonnepanelen.html', 'laadpalen.html', 'meterkast-vervangen.html', 'over-ons.html', 'contact.html'];
+export const pages = [...basePages, ...regionPageFiles, ...meterkastRegionPageFiles];
+export const redirectPages = ['thuisbatterijen.html', 'elektrotechnische-renovaties.html'];
 export const publishedHtmlPages = [...pages, ...redirectPages];
 const runtime = ['network.js', 'main.js', 'cookie-consent.js', 'calculator-models.js', 'google-reviews.js'];
 const fixed = [...publishedHtmlPages, 'robots.txt', 'sitemap.xml', 'CNAME', '.nojekyll',

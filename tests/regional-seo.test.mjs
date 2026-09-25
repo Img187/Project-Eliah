@@ -91,7 +91,7 @@ test('primaire thuisbatterij-URL en legacy doorverwijzing zijn SEO-consistent', 
   const primaryFile = 'thuisbatterij-laten-installeren.html';
   const legacyFile = 'thuisbatterijen.html';
   const primaryUrl = absoluteUrl(primaryFile);
-  assert.deepEqual(redirectPages, [legacyFile]);
+  assert.ok(redirectPages.includes(legacyFile));
 
   const [primaryHtml, legacyHtml] = await Promise.all([
     readFile(join(root, primaryFile), 'utf8'),
