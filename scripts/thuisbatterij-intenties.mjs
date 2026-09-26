@@ -31,7 +31,6 @@ export const batteryIntentPages = [
           text: 'Het voorstel omvat niet alleen de batterij, maar ook de benodigde beveiligingen, bekabeling, inbedrijfstelling en uitleg over het systeem.',
         },
       ],
-      closingHtml: 'Na de technische beoordeling ontvangt u een duidelijk voorstel voor een compleet systeem. Zo weet u welke thuisbatterij, werkzaamheden en functies onderdeel zijn van de gekozen oplossing.',
     },
     replacements: {
       thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparenH2: 'Welke thuisbatterij past bij uw situatie?',
@@ -126,7 +125,6 @@ export const batteryIntentPages = [
           text: 'Het energiemanagementsysteem bewaakt opwek, verbruik en batterijniveau en stuurt het laden en ontladen volgens de gekozen instellingen.',
         },
       ],
-      closingHtml: 'Bij bestaande zonnepanelen controleren we of de huidige omvormer met batterijopslag kan samenwerken. Zo nodig beoordelen we een afzonderlijke batterij-omvormer of een andere systeemopbouw.',
     },
     replacements: {
       thuisbatterijSectSlimOpslaanSlimGebruikenEnSlimBesparenH2: 'Meer van uw eigen zonnestroom gebruiken',
