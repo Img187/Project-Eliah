@@ -5,7 +5,7 @@ import { root, secureHtml } from './prepare-pages.mjs';
 import { origin, renderSitemap } from './sitemap.mjs';
 import { regionPages } from './thuisbatterij-regios.mjs';
 
-const pagePrefix = 'thuisbatterij-plaatsen-in-';
+const pagePrefix = 'thuisbatterij-installeren-in-';
 const baseFile = 'thuisbatterij-laten-installeren.html';
 
 function escapeHtml(value) {
@@ -52,7 +52,7 @@ function renderStructuredData(source, page, title, url) {
   webPage.mainEntity = { '@id': `${url}#service` };
 
   service['@id'] = `${url}#service`;
-  service.name = `Thuisbatterij plaatsen in ${page.searchName}`;
+  service.name = `Thuisbatterij installeren in ${page.searchName}`;
   service.url = url;
   service.description = page.metaDescription;
   service.areaServed = page.kind === 'province'
@@ -69,7 +69,7 @@ function renderStructuredData(source, page, title, url) {
 
 export async function renderRegionPage(page, baseSource, endpoint) {
   const url = pageUrl(page);
-  const phrase = `Thuisbatterij plaatsen in ${page.searchName}`;
+  const phrase = `Thuisbatterij installeren in ${page.searchName}`;
   const title = `${phrase} | Sparky Energies`;
   let html = baseSource.replace(/\r\n/g, '\n');
 

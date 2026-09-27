@@ -1,9 +1,12 @@
 import { basePages } from './prepare-pages.mjs';
+import { laadpaalRegionPageEntries, laadpaalRegionPageFile } from './laadpaal-regios.mjs';
 import { meterkastRegionPages } from './meterkast-regios.mjs';
 import { regionPages as thuisbatterijRegionPages } from './thuisbatterij-regios.mjs';
 
 export const origin = 'https://www.sparkyenergies.com';
 const regionalLastModified = '2026-09-25';
+const laadpaalRegionalLastModified = '2026-09-26';
+const regionalRenameLastModified = '2026-09-27';
 const basePageLastModified = {
   'index.html': '2026-07-16',
   'thuisbatterij-laten-installeren.html': '2026-09-25',
@@ -17,10 +20,10 @@ const basePageLastModified = {
   'contact.html': '2026-07-16',
 };
 
-function regionalRecord(prefix, page) {
+function regionalRecord(prefix, page, lastModified = regionalLastModified) {
   return {
     location: `${origin}/${prefix}${page.slug}.html`,
-    lastModified: regionalLastModified,
+    lastModified,
   };
 }
 
@@ -30,8 +33,12 @@ export function renderSitemap() {
       location: file === 'index.html' ? `${origin}/` : `${origin}/${file}`,
       lastModified: basePageLastModified[file],
     })),
-    ...thuisbatterijRegionPages.map((page) => regionalRecord('thuisbatterij-plaatsen-in-', page)),
+    ...thuisbatterijRegionPages.map((page) => regionalRecord('thuisbatterij-installeren-in-', page, regionalRenameLastModified)),
     ...meterkastRegionPages.map((page) => regionalRecord('meterkast-vervangen-in-', page)),
+    ...laadpaalRegionPageEntries.map(({ page, audience }) => ({
+      location: `${origin}/${laadpaalRegionPageFile(page, audience)}`,
+      lastModified: audience.key === 'bedrijven' ? regionalRenameLastModified : laadpaalRegionalLastModified,
+    })),
   ];
   const urls = records
     .map(({ location, lastModified }) => `  <url>\n    <loc>${location}</loc>\n    <lastmod>${lastModified}</lastmod>\n  </url>`)

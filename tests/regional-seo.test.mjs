@@ -184,9 +184,9 @@ test('alle regionale pagina\'s hebben consistente, unieke SEO-signalen', async (
 
   for (const [index, page] of regionPages.entries()) {
     const file = regionPageFiles[index];
-    const expectedFile = `thuisbatterij-plaatsen-in-${page.slug}.html`;
+    const expectedFile = `thuisbatterij-installeren-in-${page.slug}.html`;
     const expectedUrl = absoluteUrl(expectedFile);
-    const phrase = `Thuisbatterij plaatsen in ${page.searchName}`;
+    const phrase = `Thuisbatterij installeren in ${page.searchName}`;
     assert.equal(file, expectedFile, `${page.name} heeft een onverwachte bestandsnaam.`);
 
     const path = join(root, file);
@@ -206,6 +206,7 @@ test('alle regionale pagina\'s hebben consistente, unieke SEO-signalen', async (
       const twitterDescription = singleElement(document, 'meta[name="twitter:description"]', `${file}: twitter:description`).getAttribute('content')?.trim();
 
       assert.ok(title, `${file} heeft een lege title.`);
+      assert.equal(title, `${phrase} | Sparky Energies`, `${file} heeft niet de verwachte title.`);
       assert.ok(description, `${file} heeft een lege meta description.`);
       assert.equal(canonical, expectedUrl, `${file} heeft niet de verwachte self-canonical.`);
       assert.equal(openGraphTitle, title, `${file} heeft geen consistente og:title.`);

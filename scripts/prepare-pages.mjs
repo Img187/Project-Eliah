@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { copyFile, lstat, mkdir, readFile, readdir, realpath, rm, writeFile } from 'node:fs/promises';
 import { dirname, extname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { laadpaalRegionPageFiles } from './laadpaal-regios.mjs';
 import { meterkastRegionPageFiles } from './meterkast-regios.mjs';
 import { batteryIntentPageFiles } from './thuisbatterij-intenties.mjs';
 import { regionPageFiles } from './thuisbatterij-regios.mjs';
@@ -17,7 +18,7 @@ export const basePages = [
   'over-ons.html',
   'contact.html',
 ];
-export const pages = [...basePages, ...regionPageFiles, ...meterkastRegionPageFiles];
+export const pages = [...basePages, ...regionPageFiles, ...meterkastRegionPageFiles, ...laadpaalRegionPageFiles];
 export const redirectPages = ['thuisbatterijen.html', 'elektrotechnische-renovaties.html'];
 export const publishedHtmlPages = [...pages, ...redirectPages];
 const runtime = ['network.js', 'main.js', 'cookie-consent.js', 'calculator-models.js', 'google-reviews.js'];

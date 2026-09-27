@@ -44,8 +44,8 @@ function normalizePage(page, province, source, kind) {
     answer: requireText(normalized.faqLocal?.answer, 'faqLocal.answer', source),
   };
 
-  const keyphrase = `thuisbatterij plaatsen in ${normalized.searchName}`.toLocaleLowerCase('nl-NL');
-  if (!normalized.intro.toLocaleLowerCase('nl-NL').includes(keyphrase)) throw new Error(`${source}: intro mist de exacte zoekterm “Thuisbatterij plaatsen in ${normalized.searchName}”.`);
+  const keyphrase = `thuisbatterij installeren in ${normalized.searchName}`.toLocaleLowerCase('nl-NL');
+  if (!normalized.intro.toLocaleLowerCase('nl-NL').includes(keyphrase)) throw new Error(`${source}: intro mist de exacte zoekterm “Thuisbatterij installeren in ${normalized.searchName}”.`);
   if (normalized.metaDescription.length > 165) throw new Error(`${source}: metaDescription voor ${normalized.name} is langer dan 165 tekens.`);
   return normalized;
 }
@@ -81,7 +81,7 @@ async function loadProvinceGroups() {
 
 export const regionGroups = await loadProvinceGroups();
 export const regionPages = regionGroups.flatMap(({ province, cities }) => [province, ...cities]);
-export const regionPageFiles = regionPages.map(({ slug }) => `thuisbatterij-plaatsen-in-${slug}.html`);
+export const regionPageFiles = regionPages.map(({ slug }) => `thuisbatterij-installeren-in-${slug}.html`);
 
 export function groupForPage(page) {
   return regionGroups.find(({ province }) => province.slug === page.provinceSlug);
