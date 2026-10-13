@@ -117,7 +117,7 @@ function verifyAndNormalizeSectionCopy(page, document, normalizedMain, baseMain,
   if (page.sectionCopy) {
     for (const section of sections.filter((element) => !element.matches('[hidden], [aria-hidden="true"]'))) {
       assert.ok(targets.some((target) => section.contains(target)), `${file}: ${section.id} mist een provinciegerichte tekstoverride.`);
-      assert.match(section.textContent, /\bZeeland\b/i, `${file}: ${section.id} mist een verwijzing naar Zeeland.`);
+      assert.ok(section.textContent.toLocaleLowerCase('nl-NL').includes(page.name.toLocaleLowerCase('nl-NL')), `${file}: ${section.id} mist een verwijzing naar ${page.name}.`);
     }
   }
 
@@ -152,10 +152,20 @@ test('regioconfiguratie bevat zes provinciegroepen en dertig unieke pagina\'s', 
     'regionPages moet dezelfde volgorde en inhoud hebben als regionGroups.',
   );
   const customizedPages = regionPages.filter((page) => Object.hasOwn(page, 'sectionCopy'));
-  assert.deepEqual(customizedPages.map(({ slug }) => slug), ['zeeland'], 'Alleen de provincie Zeeland mag sectieteksten aanpassen in deze proef.');
-  assert.equal(customizedPages[0].kind, 'province');
-  assert.ok(customizedPages[0].sectionCopy && typeof customizedPages[0].sectionCopy === 'object' && !Array.isArray(customizedPages[0].sectionCopy), 'Zeeland moet een object met tekstoverrides bevatten.');
-  assert.ok(Object.keys(customizedPages[0].sectionCopy).length > 0, 'Zeeland moet ten minste één sectietekst aanpassen.');
+  assert.deepEqual(customizedPages.map(({ slug }) => slug), regionGroups.map(({ province }) => province.slug), 'Alle zes provinciepagina\'s moeten eigen sectieteksten bevatten; stadspagina\'s blijven ongewijzigd.');
+  const uniqueProvinceCopy = new Set();
+  const locationNames = [...new Set(regionPages.flatMap((page) => [page.name, page.searchName]))]
+    .concat(['Zeeuwse', 'Zuid-Hollandse', 'Utrechtse', 'Overijsselse', 'Brabantse', 'Limburgse'])
+    .sort((left, right) => right.length - left.length);
+  for (const page of customizedPages) {
+    assert.equal(page.kind, 'province');
+    assert.ok(page.sectionCopy && typeof page.sectionCopy === 'object' && !Array.isArray(page.sectionCopy), `${page.name} moet een object met sectieteksten bevatten.`);
+    assert.ok(Object.keys(page.sectionCopy).length > 0, `${page.name} moet sectieteksten aanpassen.`);
+    let copyWithoutLocations = JSON.stringify(page.sectionCopy).toLocaleLowerCase('nl-NL');
+    for (const name of locationNames) copyWithoutLocations = copyWithoutLocations.replaceAll(name.toLocaleLowerCase('nl-NL'), '[plaats]');
+    assert.ok(!uniqueProvinceCopy.has(copyWithoutLocations), `${page.name} mag geen naamverwisseling van een andere provinciepagina zijn.`);
+    uniqueProvinceCopy.add(copyWithoutLocations);
+  }
 });
 
 test('primaire thuisbatterij-URL en legacy doorverwijzing zijn SEO-consistent', async () => {
