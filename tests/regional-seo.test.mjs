@@ -67,6 +67,72 @@ function topLevelMainSections(document, file) {
   return [...main.children].filter((element) => element.tagName === 'SECTION');
 }
 
+function sectionCopyParts(copy, label) {
+  const parts = typeof copy === 'string' ? [copy] : copy;
+  assert.ok(Array.isArray(parts) && parts.length > 0, `${label} moet tekst of een gevulde segmentlijst bevatten.`);
+  for (const part of parts) {
+    if (typeof part === 'string') continue;
+    assert.ok(part && typeof part === 'object' && !Array.isArray(part), `${label} bevat een ongeldig tekstsegment.`);
+    assert.equal(typeof part.text, 'string', `${label} bevat een link zonder tekst.`);
+    assert.ok(part.text.trim(), `${label} bevat een lege linktekst.`);
+    assert.equal(typeof part.href, 'string', `${label} bevat een link zonder href.`);
+    assert.ok(part.href.trim(), `${label} bevat een lege href.`);
+    assert.equal(new URL(part.href, origin).origin, origin, `${label} mag uitsluitend interne links bevatten.`);
+  }
+  assert.ok(parts.map((part) => typeof part === 'string' ? part : part.text).join('').trim(), `${label} mag niet leeg zijn.`);
+  return parts;
+}
+
+function verifyAndNormalizeSectionCopy(page, document, normalizedMain, baseMain, file) {
+  const sections = topLevelMainSections(document, file).slice(1);
+  const targets = [];
+
+  for (const [selector, copy] of Object.entries(page.sectionCopy ?? {})) {
+    const label = `${file}: sectionCopy ${selector}`;
+    assert.match(selector, /^#[A-Za-z][\w-]*(?: \.sectieIntro)?$/, `${label} moet een element-ID of sectie-intro aanwijzen.`);
+    const baseTarget = singleElement(baseMain, selector, `${label} in de basispagina`);
+    const target = singleElement(document, selector, label);
+    assert.ok(baseTarget.matches('h2, h3, h4, h5, h6, p, a, button, label, legend'), `${label} moet een tekstelement aanwijzen.`);
+    assert.ok(sections.some((section) => section.contains(target)), `${label} moet binnen een hoofdsectie na de hero staan.`);
+    assert.ok(!target.closest('[hidden], [aria-hidden="true"]'), `${label} moet zichtbare inhoud aanpassen.`);
+    assert.ok(!targets.some((previous) => previous.contains(target) || target.contains(previous)), `${label} overlapt een andere tekstoverride.`);
+    targets.push(target);
+
+    const parts = sectionCopyParts(copy, label);
+    const expectedText = parts.map((part) => typeof part === 'string' ? part : part.text).join('');
+    assert.equal(target.textContent, expectedText, `${label} heeft niet de geconfigureerde tekst.`);
+    assert.notEqual(target.textContent.trim(), baseTarget.textContent.trim(), `${label} moet de generieke basistekst daadwerkelijk aanpassen.`);
+    const expectedLinks = parts.filter((part) => typeof part !== 'string');
+    const links = [...target.querySelectorAll('a')];
+    assert.equal(links.length, expectedLinks.length, `${label} heeft niet het verwachte aantal links.`);
+    for (const [index, link] of links.entries()) {
+      assert.equal(link.textContent, expectedLinks[index].text, `${label}: link ${index + 1} heeft een andere tekst.`);
+      assert.equal(link.getAttribute('href'), expectedLinks[index].href, `${label}: link ${index + 1} heeft een andere bestemming.`);
+    }
+    assert.ok([...target.children].every((child) => child.matches('a, span.faqPlus')), `${label} mag geen andere onderliggende elementen wijzigen.`);
+
+    singleElement(normalizedMain, selector, `${label} in de hoofdinhoudskopie`).innerHTML = baseTarget.innerHTML;
+  }
+
+  if (page.sectionCopy) {
+    for (const section of sections.filter((element) => !element.matches('[hidden], [aria-hidden="true"]'))) {
+      assert.ok(targets.some((target) => section.contains(target)), `${file}: ${section.id} mist een provinciegerichte tekstoverride.`);
+      assert.match(section.textContent, /\bZeeland\b/i, `${file}: ${section.id} mist een verwijzing naar Zeeland.`);
+    }
+  }
+
+  const baseQuestions = [...baseMain.querySelectorAll('.faqLijst summary h3')];
+  assert.equal(document.querySelectorAll('#mainContent .faqLijst summary h3').length, baseQuestions.length, `${file} moet alle FAQ-vragen behouden.`);
+  for (const question of baseQuestions) {
+    const actualQuestion = singleElement(document, `#${question.id}`, `${file}: FAQ-vraag ${question.id}`);
+    assert.equal(
+      normalizedOuterHtml(singleElement(actualQuestion, ':scope > span.faqPlus', `${file}: FAQ-plus ${question.id}`)),
+      normalizedOuterHtml(singleElement(question, ':scope > span.faqPlus', `basis: FAQ-plus ${question.id}`)),
+      `${file} moet de FAQ-plus van ${question.id} behouden.`,
+    );
+  }
+}
+
 test('regioconfiguratie bevat zes provinciegroepen en dertig unieke pagina\'s', () => {
   assert.equal(regionGroups.length, 6);
   assert.equal(regionPages.length, 30);
@@ -85,6 +151,11 @@ test('regioconfiguratie bevat zes provinciegroepen en dertig unieke pagina\'s', 
     regionGroups.flatMap(({ province, cities }) => [province, ...cities]).map(({ slug }) => slug),
     'regionPages moet dezelfde volgorde en inhoud hebben als regionGroups.',
   );
+  const customizedPages = regionPages.filter((page) => Object.hasOwn(page, 'sectionCopy'));
+  assert.deepEqual(customizedPages.map(({ slug }) => slug), ['zeeland'], 'Alleen de provincie Zeeland mag sectieteksten aanpassen in deze proef.');
+  assert.equal(customizedPages[0].kind, 'province');
+  assert.ok(customizedPages[0].sectionCopy && typeof customizedPages[0].sectionCopy === 'object' && !Array.isArray(customizedPages[0].sectionCopy), 'Zeeland moet een object met tekstoverrides bevatten.');
+  assert.ok(Object.keys(customizedPages[0].sectionCopy).length > 0, 'Zeeland moet ten minste één sectietekst aanpassen.');
 });
 
 test('primaire thuisbatterij-URL en legacy doorverwijzing zijn SEO-consistent', async () => {
@@ -153,9 +224,10 @@ test('alle regionale pagina\'s hebben consistente, unieke SEO-signalen', async (
   let expectedHeader;
   let expectedFooter;
   let expectedMain;
+  let baseMain;
   let baseHeroHeading;
   let baseHeroIntro;
-  let expectedSectionsAfterHero;
+  let expectedMainSections;
 
   try {
     const { document } = baseDom.window;
@@ -164,7 +236,8 @@ test('alle regionale pagina\'s hebben consistente, unieke SEO-signalen', async (
     );
     expectedHeader = normalizedOuterHtml(singleElement(document, 'body > header', `${baseFile}: paginakop`));
     expectedFooter = normalizedOuterHtml(singleElement(document, 'body > footer', `${baseFile}: voettekst`));
-    expectedMain = normalizedOuterHtml(singleElement(document, '#mainContent', `${baseFile}: hoofdinhoud`));
+    baseMain = singleElement(document, '#mainContent', `${baseFile}: hoofdinhoud`).cloneNode(true);
+    expectedMain = normalizedOuterHtml(baseMain);
     baseHeroHeading = singleElement(
       document,
       '#thuisbatterijSectThuisbatterijLatenInstallerenH1',
@@ -177,7 +250,7 @@ test('alle regionale pagina\'s hebben consistente, unieke SEO-signalen', async (
     ).textContent;
     const baseSections = topLevelMainSections(document, baseFile);
     assert.ok(baseSections.length >= 2, `${baseFile} moet een hero en minstens een vervolgsectie bevatten.`);
-    expectedSectionsAfterHero = baseSections.slice(1).map(normalizedOuterHtml);
+    expectedMainSections = [...baseMain.querySelectorAll('section')].map(normalizedOuterHtml);
   } finally {
     baseDom.window.close();
   }
@@ -299,15 +372,16 @@ test('alle regionale pagina\'s hebben consistente, unieke SEO-signalen', async (
         '#thuisbatterijSectThuisbatterijLatenInstallerenP01',
         `${file}: gekloonde hero-intro`,
       ).textContent = baseHeroIntro;
+      verifyAndNormalizeSectionCopy(page, document, normalizedMain, baseMain, file);
       assert.equal(
         normalizedOuterHtml(normalizedMain),
         expectedMain,
-        `${file} mag in de zichtbare hoofdinhoud uitsluitend de hero-H1 en hero-intro wijzigen.`,
+        `${file} mag uitsluitend de hero-teksten en expliciet geconfigureerde sectieteksten wijzigen.`,
       );
       assert.deepEqual(
-        regionalSections.slice(1).map(normalizedOuterHtml),
-        expectedSectionsAfterHero,
-        `${file} moet vanaf de tweede hoofdsectie gelijk zijn aan ${baseFile}.`,
+        [...normalizedMain.querySelectorAll('section')].map(normalizedOuterHtml),
+        expectedMainSections,
+        `${file} moet de structuur en overige inhoud van alle hoofd- en subsecties van ${baseFile} behouden.`,
       );
     } finally {
       dom.window.close();

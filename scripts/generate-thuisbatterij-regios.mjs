@@ -35,6 +35,27 @@ function replaceElementText(source, tag, id, value) {
   return replaceRequired(source, pattern, `$1${escapeHtml(value)}$2`, `${tag}#${id}`);
 }
 
+function renderSectionCopy(source, copy = {}) {
+  let html = source;
+  for (const [selector, content] of Object.entries(copy)) {
+    const [id, intro] = selector.slice(1).split(' ');
+    const pattern = intro
+      ? new RegExp(`(<section\\b[^>]*\\bid="${id}"[^>]*>(?:(?!</section>)[\\s\\S])*?<p\\b[^>]*\\bclass="sectieIntro"[^>]*>)([\\s\\S]*?)(</p>)`)
+      : new RegExp(`(<(h[1-3]|p|a|button)\\b[^>]*\\bid="${id}"[^>]*>)([\\s\\S]*?)(</\\2>)`);
+    if (!pattern.test(html)) throw new Error(`Regionale tekstselector ${selector} ontbreekt in ${baseFile}.`);
+    const text = typeof content === 'string' ? escapeHtml(content) : content.map((part) => (
+      typeof part === 'string' ? escapeHtml(part) : `<a href="${escapeHtml(part.href)}">${escapeHtml(part.text)}</a>`
+    )).join('');
+    html = html.replace(pattern, (...match) => {
+      const inner = match[intro ? 2 : 3];
+      const closing = match[intro ? 3 : 4];
+      const faqPlus = inner.match(/<span class="faqPlus" aria-hidden="true"><\/span>\s*$/)?.[0] ?? '';
+      return `${match[1]}${text}${faqPlus}${closing}`;
+    });
+  }
+  return html;
+}
+
 function renderStructuredData(source, page, title, url) {
   const scriptPattern = /<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/;
   const match = source.match(scriptPattern);
@@ -84,6 +105,7 @@ export async function renderRegionPage(page, baseSource, endpoint) {
   html = renderStructuredData(html, page, title, url);
   html = replaceElementText(html, 'h1', 'thuisbatterijSectThuisbatterijLatenInstallerenH1', phrase);
   html = replaceElementText(html, 'p', 'thuisbatterijSectThuisbatterijLatenInstallerenP01', page.intro);
+  html = renderSectionCopy(html, page.sectionCopy);
 
   return secureHtml(html, endpoint);
 }

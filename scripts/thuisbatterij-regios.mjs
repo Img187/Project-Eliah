@@ -11,6 +11,24 @@ function requireText(value, field, source) {
   return value.trim();
 }
 
+function normalizeSectionCopy(copy, source) {
+  if (copy === undefined) return undefined;
+  if (!copy || typeof copy !== 'object' || Array.isArray(copy)) throw new Error(`${source}: sectionCopy moet een object zijn.`);
+  return Object.fromEntries(Object.entries(copy).map(([selector, content]) => {
+    if (!/^#[a-zA-Z][a-zA-Z0-9_-]*(?: \.sectieIntro)?$/.test(selector)) throw new Error(`${source}: ongeldige tekstselector ${selector}.`);
+    if (typeof content === 'string') return [selector, requireText(content, selector, source)];
+    if (!Array.isArray(content) || !content.length) throw new Error(`${source}: ${selector} mist tekst.`);
+    const parts = content.map((part) => {
+      if (typeof part === 'string' && part.trim()) return part;
+      const text = requireText(part?.text, `${selector}.text`, source);
+      const href = requireText(part?.href, `${selector}.href`, source);
+      if (!/^[a-z0-9]+(?:-[a-z0-9]+)*\.html$/.test(href)) throw new Error(`${source}: ${selector} vereist een interne HTML-link.`);
+      return { text, href };
+    });
+    return [selector, parts];
+  }));
+}
+
 function normalizePage(page, province, source, kind) {
   const normalized = {
     kind,
@@ -27,6 +45,7 @@ function normalizePage(page, province, source, kind) {
     areaHeading: requireText(page.areaHeading, 'areaHeading', source),
     areaParagraphs: page.areaParagraphs,
     faqLocal: page.faqLocal,
+    ...(page.sectionCopy === undefined ? {} : { sectionCopy: normalizeSectionCopy(page.sectionCopy, source) }),
   };
 
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(normalized.slug)) throw new Error(`${source}: ongeldige slug ${normalized.slug}.`);
