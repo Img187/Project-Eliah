@@ -29,7 +29,11 @@ De eigen gebeurtenissen bevatten geen formulierinhoud, telefoonnummer, e-mailadr
 
 ## Importeren en activeren
 
-Status op 4 november 2026: de publiek gepubliceerde container bevatte geen tags. De JSON is **lokaal gecontroleerd, import nog niet gevalideerd in GTM**. Er is vanuit deze werkomgeving geen aangemelde GTM-sessie beschikbaar; import, Preview, GA4-instellingen en publicatie zijn nog nodig.
+Status op 4 november 2026: **GTM-versie 2 is gepubliceerd** met één Google-tag en drie GA4-eventtags. De tags, triggers en parameters zijn in GTM gecontroleerd. Tag Assistant herkent `GTM-WLFHDLMC` en `G-87KMB19788` en bevestigt dat de Google-tag eenmaal is geactiveerd. Een echte formulierinzending en de ontvangst daarvan in GA4 zijn hiermee nog niet bewezen.
+
+De live Preview-test toonde geblokkeerde Google-stylesheets en Material Icons-afbeeldingen. De CSP staat nu de vaste Google-origins voor Preview toe, inclusief de waargenomen afbeelding op `fonts.gstatic.com`. De scriptregels blijven zonder `unsafe-inline` en `unsafe-eval`. Zie [Google: CSP voor Preview Mode](https://developers.google.com/tag-platform/security/guides/csp#preview_mode).
+
+Onderstaande importstappen dienen als referentie voor latere wijzigingen; de bestaande configuratie hoeft niet opnieuw te worden geïmporteerd.
 
 1. Exporteer eerst de huidige doelcontainer als reservekopie. Open **GTM-WLFHDLMC → Admin → Import Container** en selecteer [gtm-sparky-energies.json](gtm-sparky-energies.json).
 2. Kies een werkruimte en **Merge / Samenvoegen**. Bekijk alle wijzigingen: verwacht 4 tags, 3 triggers, 5 dataLayer-variabelen en de ingebouwde variabele `Event`. Er mogen geen onbedoelde verwijderingen zijn. Los naamconflicten bewust op; voorkom door hernoemen of herhaald importeren dubbele GA4-tags. [Google beschrijft import en Merge](https://support.google.com/tagmanager/answer/6106997?hl=en).

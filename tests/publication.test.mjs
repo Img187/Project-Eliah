@@ -134,6 +134,34 @@ test('alle pagina’s bevatten actuele CSP vóór resources, zonder uitvoerbare 
   }
 });
 
+test('CSP laat de vaste Tag Assistant-previewbronnen toe en blijft uitvoerbare inline scripts blokkeren', () => {
+  const html = secureHtml('<head><meta charset="utf-8" /><script type="application/ld+json">{"@type":"WebPage"}</script></head>');
+  const dom = new JSDOM(html);
+  try {
+    const policy = dom.window.document.querySelector('meta[http-equiv="Content-Security-Policy"]').content;
+    const directives = new Map(policy.split('; ').map(rule => {
+      const [name, ...sources] = rule.split(' ');
+      return [name, sources];
+    }));
+    const previewResources = {
+      'script-src': ['https://www.googletagmanager.com', 'https://tagmanager.google.com'],
+      'style-src': ['https://www.googletagmanager.com', 'https://tagmanager.google.com', 'https://fonts.googleapis.com'],
+      'font-src': ['https://fonts.gstatic.com', 'data:'],
+      'img-src': ['https://www.googletagmanager.com', 'https://ssl.gstatic.com', 'https://www.gstatic.com', 'https://fonts.gstatic.com'],
+    };
+    for (const [directive, resources] of Object.entries(previewResources)) {
+      for (const resource of resources) assert.ok(directives.get(directive).includes(resource), `${directive} blokkeert ${resource}`);
+    }
+    const scripts = directives.get('script-src');
+    assert.ok(scripts.some(source => /^'sha256-[A-Za-z0-9+/]+=*'$/.test(source)), 'De JSON-LD-hash moet behouden blijven.');
+    assert.ok(scripts.every(source => ["'self'", ...previewResources['script-src']].includes(source) || /^'sha256-[A-Za-z0-9+/]+=*'$/.test(source)), 'Scripts mogen geen brede of onveilige uitzondering krijgen.');
+    assert.deepEqual(directives.get('script-src-attr'), ["'none'"]);
+    assert.deepEqual(directives.get('default-src'), ["'none'"]);
+    assert.deepEqual(directives.get('object-src'), ["'none'"]);
+    assert.deepEqual(directives.get('frame-src'), ['https://www.google.com']);
+  } finally { dom.window.close(); }
+});
+
 test('alle contentpagina\'s en de bedankpagina laden dezelfde consent-gestuurde GTM-container', async () => {
   const analyticsSource = await readFile(join(root, 'assets/js/cookie-consent.js'), 'utf8');
   const measurementId = analyticsSource.match(/const MEASUREMENT_ID = '(G-[A-Z0-9]+)'/)?.[1];

@@ -48,9 +48,10 @@ export function secureHtml(source, endpoint = '') {
   }
   const policy = [
     "default-src 'none'", "base-uri 'none'", "object-src 'none'",
-    `script-src 'self' https://www.googletagmanager.com ${hashes.join(' ')}`.trim(),
-    "script-src-attr 'none'", "style-src 'self' 'unsafe-inline'", "font-src 'self'",
-    "img-src 'self' https://googleusercontent.com https://*.googleusercontent.com https://*.google-analytics.com https://www.googletagmanager.com",
+    // Tag Assistant heeft naast de meettag ook eigen scripts, stijlen, iconen en fonts nodig.
+    `script-src 'self' https://www.googletagmanager.com https://tagmanager.google.com ${hashes.join(' ')}`.trim(),
+    "script-src-attr 'none'", "style-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://tagmanager.google.com https://fonts.googleapis.com", "font-src 'self' https://fonts.gstatic.com data:",
+    "img-src 'self' https://googleusercontent.com https://*.googleusercontent.com https://*.google-analytics.com https://www.googletagmanager.com https://ssl.gstatic.com https://www.gstatic.com https://fonts.gstatic.com",
     `connect-src 'self' https://formspree.io https://*.google-analytics.com https://www.googletagmanager.com https://*.google.com${reviewOrigin}`,
     'frame-src https://www.google.com', 'form-action https://formspree.io', "media-src 'self'", "manifest-src 'self'",
   ].join('; ');
