@@ -1,0 +1,233 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-11-04 00:00:00",
+  "containerVersion": {
+    "accountId": "1",
+    "containerId": "1",
+    "containerVersionId": "1",
+    "name": "Sparky Energies - GA4 contact en aanvragen",
+    "description": "Importvoorstel voor GTM-WLFHDLMC. Formulierconversie via eenmalige generate_lead op /bedankt. Numerieke account/container/version IDs zijn placeholders. Lokaal gecontroleerd; import en Preview nog valideren in GTM.",
+    "container": {
+      "accountId": "1",
+      "containerId": "1",
+      "name": "Sparky Energies",
+      "publicId": "GTM-WLFHDLMC",
+      "usageContext": ["WEB"]
+    },
+    "tag": [
+      {
+        "accountId": "1",
+        "containerId": "1",
+        "tagId": "1",
+        "name": "Sparky - Google tag - G-87KMB19788",
+        "type": "googtag",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "tagId", "value": "G-87KMB19788" }
+        ],
+        "notes": "Native Google tag; standaard send_page_view=true. Eenmaal per pagina op Initialization. Geen tweede GA4-configuratie of aparte page_view-tag toevoegen.",
+        "firingTriggerId": ["2147479573"],
+        "tagFiringOption": "ONCE_PER_LOAD",
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [{ "type": "TEMPLATE", "value": "analytics_storage" }]
+          }
+        }
+      },
+      {
+        "accountId": "1",
+        "containerId": "1",
+        "tagId": "2",
+        "name": "Sparky - GA4 - contact_click",
+        "type": "gaawe",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "measurementIdOverride", "value": "G-87KMB19788" },
+          { "type": "TEMPLATE", "key": "eventName", "value": "contact_click" },
+          { "type": "BOOLEAN", "key": "sendEcommerceData", "value": "false" },
+          { "type": "BOOLEAN", "key": "enhancedUserId", "value": "false" },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              { "type": "MAP", "map": [
+                { "type": "TEMPLATE", "key": "parameter", "value": "contact_method" },
+                { "type": "TEMPLATE", "key": "parameterValue", "value": "{{Sparky - DLV - contact_method}}" }
+              ] },
+              { "type": "MAP", "map": [
+                { "type": "TEMPLATE", "key": "parameter", "value": "link_id" },
+                { "type": "TEMPLATE", "key": "parameterValue", "value": "{{Sparky - DLV - link_id}}" }
+              ] },
+              { "type": "MAP", "map": [
+                { "type": "TEMPLATE", "key": "parameter", "value": "page_path" },
+                { "type": "TEMPLATE", "key": "parameterValue", "value": "{{Sparky - DLV - page_path}}" }
+              ] }
+            ]
+          }
+        ],
+        "firingTriggerId": ["1"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [{ "type": "TEMPLATE", "value": "analytics_storage" }]
+          }
+        }
+      },
+      {
+        "accountId": "1",
+        "containerId": "1",
+        "tagId": "3",
+        "name": "Sparky - GA4 - generate_lead",
+        "type": "gaawe",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "measurementIdOverride", "value": "G-87KMB19788" },
+          { "type": "TEMPLATE", "key": "eventName", "value": "generate_lead" },
+          { "type": "BOOLEAN", "key": "sendEcommerceData", "value": "false" },
+          { "type": "BOOLEAN", "key": "enhancedUserId", "value": "false" },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              { "type": "MAP", "map": [
+                { "type": "TEMPLATE", "key": "parameter", "value": "form_id" },
+                { "type": "TEMPLATE", "key": "parameterValue", "value": "{{Sparky - DLV - form_id}}" }
+              ] },
+              { "type": "MAP", "map": [
+                { "type": "TEMPLATE", "key": "parameter", "value": "page_path" },
+                { "type": "TEMPLATE", "key": "parameterValue", "value": "{{Sparky - DLV - page_path}}" }
+              ] }
+            ]
+          }
+        ],
+        "notes": "Eenmalige generate_lead op /bedankt na een succesvolle contact/offerte-serverreactie, met geldige sessiemarkering en toestemming. Direct bezoek of vernieuwen levert geen extra lead op. Markeer generate_lead in GA4 als key event; voeg geen tweede URL-conversie voor dezelfde aanvraag toe. Kiest het marketingteam voor URL-meting als vervanging, pauzeer dan deze tag en pas GA4/advertentieconversies aan. Geen generieke form-submit-trigger toevoegen.",
+        "firingTriggerId": ["2"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [{ "type": "TEMPLATE", "value": "analytics_storage" }]
+          }
+        }
+      },
+      {
+        "accountId": "1",
+        "containerId": "1",
+        "tagId": "4",
+        "name": "Sparky - GA4 - calculator events",
+        "type": "gaawe",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "measurementIdOverride", "value": "G-87KMB19788" },
+          { "type": "TEMPLATE", "key": "eventName", "value": "{{Event}}" },
+          { "type": "BOOLEAN", "key": "sendEcommerceData", "value": "false" },
+          { "type": "BOOLEAN", "key": "enhancedUserId", "value": "false" },
+          {
+            "type": "LIST",
+            "key": "eventSettingsTable",
+            "list": [
+              { "type": "MAP", "map": [
+                { "type": "TEMPLATE", "key": "parameter", "value": "calculator_type" },
+                { "type": "TEMPLATE", "key": "parameterValue", "value": "{{Sparky - DLV - calculator_type}}" }
+              ] },
+              { "type": "MAP", "map": [
+                { "type": "TEMPLATE", "key": "parameter", "value": "page_path" },
+                { "type": "TEMPLATE", "key": "parameterValue", "value": "{{Sparky - DLV - page_path}}" }
+              ] }
+            ]
+          }
+        ],
+        "firingTriggerId": ["3"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "consentSettings": {
+          "consentStatus": "NEEDED",
+          "consentType": {
+            "type": "LIST",
+            "list": [{ "type": "TEMPLATE", "value": "analytics_storage" }]
+          }
+        }
+      }
+    ],
+    "trigger": [
+      {
+        "accountId": "1",
+        "containerId": "1",
+        "triggerId": "1",
+        "name": "Sparky - CE - contact_click",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [{ "type": "EQUALS", "parameter": [
+          { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" },
+          { "type": "TEMPLATE", "key": "arg1", "value": "contact_click" }
+        ] }]
+      },
+      {
+        "accountId": "1",
+        "containerId": "1",
+        "triggerId": "2",
+        "name": "Sparky - CE - generate_lead",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [{ "type": "EQUALS", "parameter": [
+          { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" },
+          { "type": "TEMPLATE", "key": "arg1", "value": "generate_lead" }
+        ] }]
+      },
+      {
+        "accountId": "1",
+        "containerId": "1",
+        "triggerId": "3",
+        "name": "Sparky - CE - calculator events",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [{ "type": "MATCH_REGEX", "parameter": [
+          { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" },
+          { "type": "TEMPLATE", "key": "arg1", "value": "^calculator_(started|completed|contact_clicked|transferred)$" }
+        ] }]
+      }
+    ],
+    "variable": [
+      {
+        "accountId": "1", "containerId": "1", "variableId": "1",
+        "name": "Sparky - DLV - contact_method", "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "TEMPLATE", "key": "name", "value": "contact_method" }
+        ]
+      },
+      {
+        "accountId": "1", "containerId": "1", "variableId": "2",
+        "name": "Sparky - DLV - link_id", "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "TEMPLATE", "key": "name", "value": "link_id" }
+        ]
+      },
+      {
+        "accountId": "1", "containerId": "1", "variableId": "3",
+        "name": "Sparky - DLV - form_id", "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "TEMPLATE", "key": "name", "value": "form_id" }
+        ]
+      },
+      {
+        "accountId": "1", "containerId": "1", "variableId": "4",
+        "name": "Sparky - DLV - calculator_type", "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "TEMPLATE", "key": "name", "value": "calculator_type" }
+        ]
+      },
+      {
+        "accountId": "1", "containerId": "1", "variableId": "5",
+        "name": "Sparky - DLV - page_path", "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "TEMPLATE", "key": "name", "value": "page_path" }
+        ]
+      }
+    ],
+    "builtInVariable": [
+      { "accountId": "1", "containerId": "1", "type": "EVENT", "name": "Event" }
+    ]
+  }
+}

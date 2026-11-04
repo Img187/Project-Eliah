@@ -1,7 +1,7 @@
 import { regionGroups, regionPages } from './thuisbatterij-regios.mjs';
 
 // Dezelfde regio-indeling geldt voor beide lokale laadpaaldiensten:
-// zes provincies en per provincie de vier grootste opgenomen steden.
+// zes provincies en Rotterdam als enige stadspagina.
 export const laadpaalRegionGroups = regionGroups;
 export const laadpaalRegionPages = regionPages;
 

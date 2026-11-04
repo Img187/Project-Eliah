@@ -1,14 +1,14 @@
 {
   "metadata": {
     "schema_version": 2,
-    "generated_on": "2026-09-25",
+    "generated_on": "2026-10-01",
     "language": "nl",
     "source_files": [
-      "index.html",
+      "homepage.html",
       "thuisbatterij-laten-installeren.html",
       "zonnepanelen.html",
       "laadpalen.html",
-      "elektrotechnische-renovaties.html",
+      "meterkast-vervangen.html",
       "over-ons.html",
       "contact.html"
     ],
@@ -17,8 +17,8 @@
       "pages": 7,
       "primary_sections": 43,
       "supporting_sections": 14,
-      "paragraphs": 177,
-      "buttons": 39,
+      "paragraphs": 180,
+      "buttons": 41,
       "forms": 8
     }
   },
@@ -29,7 +29,7 @@
     "pages": [
       {
         "page": "Home",
-        "file": "index.html",
+        "file": "homepage.html",
         "measurement_id": "",
         "config_id": "",
         "google_tag_id": "",
@@ -65,7 +65,7 @@
       },
       {
         "page": "Elektrotechnische renovaties",
-        "file": "elektrotechnische-renovaties.html",
+        "file": "meterkast-vervangen.html",
         "measurement_id": "",
         "config_id": "",
         "google_tag_id": "",
@@ -95,7 +95,7 @@
   "sections": [
     {
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_number": 1,
       "id": "homeSectGecertificeerdeInstallateursMetVakmanschap",
@@ -115,7 +115,7 @@
     },
     {
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_number": 2,
       "id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
@@ -137,7 +137,7 @@
     },
     {
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_number": 4,
       "id": "homeSectTwijfeltUOfUwInstallatieGeschiktIs",
@@ -159,7 +159,7 @@
     },
     {
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_number": 6,
       "id": "homeSectWatKlantenOverOnsZeggen",
@@ -182,7 +182,7 @@
     },
     {
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_number": 8,
       "id": "homeSectVanIdeeTotInstallatieVanVonkTotVermogen",
@@ -204,7 +204,7 @@
     },
     {
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_number": 7,
       "id": "homeSectKlaarOmUwWoningToekomstbestendigTeMaken",
@@ -744,7 +744,7 @@
     },
     {
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_number": 1,
       "id": "elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovaties",
@@ -760,13 +760,13 @@
       "data_section_title": "Groepenkast en elektrotechnische renovaties",
       "heading_id": "elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovatiesH1",
       "heading_tag": "h1",
-      "heading": "Groepenkast & elektrotechnische installaties",
+      "heading": "Meterkast en groepenkast vervangen",
       "heading_status": "present",
-      "type": "hero"
+      "type": "split_card"
     },
     {
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_number": 2,
       "id": "elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomst",
@@ -790,7 +790,7 @@
     },
     {
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_number": 3,
       "id": "elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoning",
@@ -810,11 +810,11 @@
       "heading_tag": "h2",
       "heading": "Groepenkast vervangen of uitbreiden",
       "heading_status": "present",
-      "type": "split"
+      "type": "split_features"
     },
     {
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_number": 3,
       "id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor",
@@ -832,11 +832,11 @@
       "heading_tag": "h2",
       "heading": "Maak uw woning klaar voor elektrisch wonen",
       "heading_status": "present",
-      "type": "scroll_cards"
+      "type": "sticky_split_cards"
     },
     {
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_number": 5,
       "id": "elektrotechnischeRenovatiesSectExtraElektraWaarUHetNodigHeeft",
@@ -856,11 +856,11 @@
       "heading_tag": "h2",
       "heading": "Extra elektra waar u het nodig heeft",
       "heading_status": "present",
-      "type": "split"
+      "type": "split_features"
     },
     {
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_number": 6,
       "id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
@@ -880,11 +880,11 @@
       "heading_tag": "h2",
       "heading": "Elektra voor bedrijfspanden",
       "heading_status": "present",
-      "type": "features"
+      "type": "feature_columns_transparent"
     },
     {
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_number": 7,
       "id": "elektrotechnischeRenovatiesSectZoWerkenWij",
@@ -902,11 +902,11 @@
       "heading_tag": "h2",
       "heading": "Zo werken wij",
       "heading_status": "present",
-      "type": "process"
+      "type": "process_timeline"
     },
     {
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_number": 8,
       "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
@@ -930,7 +930,7 @@
     },
     {
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_number": 9,
       "id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassen",
@@ -1062,7 +1062,7 @@
   "supporting_sections": [
     {
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "parent_section_id": "homeSectTwijfeltUOfUwInstallatieGeschiktIs",
       "id": "homeSectKeuzehulp",
@@ -1077,7 +1077,7 @@
     },
     {
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "parent_section_id": "homeSectTwijfeltUOfUwInstallatieGeschiktIs",
       "id": "homeSectWaaromSparky",
@@ -1093,7 +1093,7 @@
     },
     {
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "parent_section_id": "homeSectWatKlantenOverOnsZeggen",
       "id": "homeSectZoWerkenWij",
@@ -1212,7 +1212,7 @@
     },
     {
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "parent_section_id": "elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoning",
       "id": "groepenkastCheck",
@@ -1227,7 +1227,7 @@
     },
     {
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "parent_section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
       "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenVragen",
@@ -1274,7 +1274,7 @@
     {
       "id": "homeSectGecertificeerdeInstallateursMetVakmanschapP01",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_id": "homeSectGecertificeerdeInstallateursMetVakmanschap",
       "type": "intro",
@@ -1286,7 +1286,7 @@
     {
       "id": "homeSectWatWijVoorUInstallerenEnOnderhoudenP01",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
       "type": "intro",
@@ -1298,7 +1298,7 @@
     {
       "id": "homeSectWatWijVoorUInstallerenEnOnderhoudenArtikel01P01",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
       "type": "service-p",
@@ -1308,7 +1308,7 @@
     {
       "id": "homeSectWatWijVoorUInstallerenEnOnderhoudenArtikel02P01",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
       "type": "service-p",
@@ -1318,7 +1318,7 @@
     {
       "id": "homeSectWatWijVoorUInstallerenEnOnderhoudenArtikel03P01",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
       "type": "service-p",
@@ -1328,7 +1328,7 @@
     {
       "id": "homeSectWatWijVoorUInstallerenEnOnderhoudenArtikel04P01",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
       "type": "service-p",
@@ -1338,7 +1338,7 @@
     {
       "id": "homeSectTwijfeltUOfUwInstallatieGeschiktIsP01",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_id": "homeSectTwijfeltUOfUwInstallatieGeschiktIs",
       "type": "intro",
@@ -1351,7 +1351,7 @@
     {
       "id": "homeSectTwijfeltUOfUwInstallatieGeschiktIsP02",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_id": "homeSectTwijfeltUOfUwInstallatieGeschiktIs",
       "type": "intro",
@@ -1364,7 +1364,7 @@
     {
       "id": "homeSectWatKlantenOverOnsZeggenP01",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_id": "homeSectWatKlantenOverOnsZeggen",
       "type": "intro",
@@ -1376,7 +1376,7 @@
     {
       "id": "homeSectWatKlantenOverOnsZeggenArtikel01P01",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_id": "homeSectWatKlantenOverOnsZeggen",
       "type": "paragraph",
@@ -1386,7 +1386,7 @@
     {
       "id": "homeSectWatKlantenOverOnsZeggenArtikel02P01",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_id": "homeSectWatKlantenOverOnsZeggen",
       "type": "paragraph",
@@ -1394,9 +1394,29 @@
       "text": "“Zeer tevreden! De zonnepanelen op ons terras, inclusief thuisbatterij, zijn snel en vakkundig geïnstalleerd. Alles werd netjes geregeld, ook de benodigde bekabeling hebben ze zelf verzorgd. Alles werkt perfect en de communicatie en uitvoering waren snel en duidelijk. Wij zijn heel tevreden met het resultaat. Zeker een aanrader! 5*”"
     },
     {
+      "id": "homeSectWatKlantenOverOnsZeggenArtikel03P01",
+      "page": "Home",
+      "file": "homepage.html",
+      "page_number": 1,
+      "section_id": "homeSectWatKlantenOverOnsZeggen",
+      "type": "paragraph",
+      "classes": [],
+      "text": "“De mensen van Sparky Energies hebben bij ons een thuisbatterij geInstalleerd. Onze ervaring was positief en ze komen in nov terug om onze meterkast te optimaliseren. Betrouwbare partner!”"
+    },
+    {
+      "id": "homeSectWatKlantenOverOnsZeggenArtikel04P01",
+      "page": "Home",
+      "file": "homepage.html",
+      "page_number": 1,
+      "section_id": "homeSectWatKlantenOverOnsZeggen",
+      "type": "paragraph",
+      "classes": [],
+      "text": "“TOP SERVICE!! Wij zijn ontzettend tevreden over de plaatsing van onze thuisbatterij. Vanaf het eerste contact was de communicatie duidelijk en professioneel. Alles werd rustig uitgelegd en er werd goed meegedacht over wat voor onze situatie het meest geschikt was. De installatie verliep netjes en vakkundig. De monteurs waren vriendelijk, werkten zorgvuldig en lieten alles netjes achter. Ook na de installatie was er ruimte voor vragen en werd goed uitgelegd hoe alles werkt. Wij zijn erg blij met het eindresultaat en zouden dit bedrijf zeker aanraden aan anderen die overwegen een thuisbatterij te laten plaatsen!”"
+    },
+    {
       "id": "homeSectZoWerkenWijStap01P01",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_id": "homeSectWatKlantenOverOnsZeggen",
       "type": "paragraph",
@@ -1406,7 +1426,7 @@
     {
       "id": "homeSectZoWerkenWijStap02P01",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_id": "homeSectWatKlantenOverOnsZeggen",
       "type": "paragraph",
@@ -1416,7 +1436,7 @@
     {
       "id": "homeSectZoWerkenWijStap03P01",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_id": "homeSectWatKlantenOverOnsZeggen",
       "type": "paragraph",
@@ -1426,7 +1446,7 @@
     {
       "id": "homeSectZoWerkenWijStap04P01",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_id": "homeSectWatKlantenOverOnsZeggen",
       "type": "paragraph",
@@ -1436,7 +1456,7 @@
     {
       "id": "homeSectZoWerkenWijStap05P01",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_id": "homeSectWatKlantenOverOnsZeggen",
       "type": "paragraph",
@@ -1446,7 +1466,7 @@
     {
       "id": "homeSectKlaarOmUwWoningToekomstbestendigTeMakenP01",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_id": "homeSectKlaarOmUwWoningToekomstbestendigTeMaken",
       "type": "intro",
@@ -1458,7 +1478,7 @@
     {
       "id": "homeSectKlaarOmUwWoningToekomstbestendigTeMakenFormulierNotitie",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_id": "homeSectKlaarOmUwWoningToekomstbestendigTeMaken",
       "type": "form-note",
@@ -1470,7 +1490,7 @@
     {
       "id": "homeSectKlaarOmUwWoningToekomstbestendigTeMakenP02",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_id": "homeSectKlaarOmUwWoningToekomstbestendigTeMaken",
       "type": "privacy-note",
@@ -1566,6 +1586,18 @@
         "contentParagraaf"
       ],
       "text": "We beoordelen altijd het complete systeem: zonnepanelen, omvormer, groepenkast, laadpaal, warmtepomp en netaansluiting."
+    },
+    {
+      "id": "thuisbatterijSectVoorWoningEnBedrijfP03",
+      "page": "Thuisbatterijen",
+      "file": "thuisbatterij-laten-installeren.html",
+      "page_number": 2,
+      "section_id": "thuisbatterijSectVoorWoningEnBedrijf",
+      "type": "paragraph",
+      "classes": [
+        "contentParagraaf"
+      ],
+      "text": "Wilt u zich verder oriënteren? Lees waar u op let bij een thuisbatterij kopen, welke factoren de kosten van een thuisbatterij bepalen en hoe een thuisbatterij voor zonnepanelen wordt afgestemd."
     },
     {
       "id": "thuisbatterijSectHoeWerktEenThuisbatterijP01",
@@ -2630,19 +2662,19 @@
     {
       "id": "elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovatiesP01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovaties",
       "type": "intro",
       "classes": [
         "sectieIntro"
       ],
-      "text": "Van het vervangen of uitbreiden van uw groepenkast tot inductie, Quooker, voorbereiding voor een warmtepomp, stopcontacten, krachtstroom en zakelijke elektrotechniek. Wij zorgen voor een veilige installatie die past bij wat u nu én later nodig heeft."
+      "text": "Wilt u uw meterkast vervangen of uw groepenkast vervangen? Wij beoordelen wat veilig nodig is, kunnen een verouderde stoppenkast vervangen en uw groepenkast uitbreiden voor inductie, een Quooker, warmtepomp, laadpaal of thuisbatterij. Zo krijgt u een veilige installatie die past bij wat u nu én later nodig heeft."
     },
     {
       "id": "elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomstP01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomst",
       "type": "intro",
@@ -2654,7 +2686,7 @@
     {
       "id": "elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoningP01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoning",
       "type": "intro",
@@ -2666,7 +2698,7 @@
     {
       "id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoorP01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor",
       "type": "intro",
@@ -2678,67 +2710,67 @@
     {
       "id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoorStap01P01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor",
-      "type": "scroll-card-p",
+      "type": "paragraph",
       "classes": [],
       "text": "Wij controleren het beschikbare vermogen, de groepenkast en benodigde voeding."
     },
     {
       "id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoorStap01P02",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor",
-      "type": "scroll-card-p",
+      "type": "paragraph",
       "classes": [],
       "text": "Daarna realiseren we de elektrotechnische voorbereiding waarop de warmtepompinstallateur kan aansluiten."
     },
     {
       "id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoorStap02P01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor",
-      "type": "scroll-card-p",
+      "type": "paragraph",
       "classes": [],
       "text": "Wilt u overstappen van koken op gas naar inductie? Dan is vaak een aparte kookgroep of aanpassing in de groepenkast nodig."
     },
     {
       "id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoorStap02P02",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor",
-      "type": "scroll-card-p",
+      "type": "paragraph",
       "classes": [],
       "text": "Sparky Energies zorgt voor een veilige aansluiting van uw inductiekookplaat, inclusief de juiste voorbereiding in de keuken en groepenkast. Zo kunt u zorgeloos elektrisch koken."
     },
     {
       "id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoorStap03P01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor",
-      "type": "scroll-card-p",
+      "type": "paragraph",
       "classes": [],
       "text": "Een Quooker of kokendwaterkraan vraagt om een geschikte elektrische aansluiting in de keuken. Vooral bij renovaties of nieuwe keukens is het verstandig om dit direct goed voor te bereiden."
     },
     {
       "id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoorStap03P02",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor",
-      "type": "scroll-card-p",
+      "type": "paragraph",
       "classes": [],
       "text": "Wij kunnen de benodigde groep, bekabeling of wandcontactdoos netjes aanleggen en aansluiten, zodat uw Quooker veilig en betrouwbaar gebruikt kan worden."
     },
     {
       "id": "elektrotechnischeRenovatiesSectExtraElektraWaarUHetNodigHeeftP01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectExtraElektraWaarUHetNodigHeeft",
       "type": "intro",
@@ -2750,27 +2782,27 @@
     {
       "id": "elektrotechnischeRenovatiesSectExtraElektraWaarUHetNodigHeeftArtikel01P01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectExtraElektraWaarUHetNodigHeeft",
-      "type": "card-p",
+      "type": "paragraph",
       "classes": [],
       "text": "Nieuwe aansluitpunten op een praktische en veilige plek."
     },
     {
       "id": "elektrotechnischeRenovatiesSectExtraElektraWaarUHetNodigHeeftArtikel02P01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectExtraElektraWaarUHetNodigHeeft",
-      "type": "card-p",
+      "type": "paragraph",
       "classes": [],
       "text": "Verlichting en bediening passend bij de ruimte en toepassing."
     },
     {
       "id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenP01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
       "type": "intro",
@@ -2782,97 +2814,97 @@
     {
       "id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenArtikel01P01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
-      "type": "card-p",
+      "type": "paragraph",
       "classes": [],
       "text": "Voeding voor zware apparatuur en machines. Veilig en volgens voorschrift aangelegd."
     },
     {
       "id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenArtikel02P01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
-      "type": "card-p",
+      "type": "paragraph",
       "classes": [],
       "text": "Wij plaatsen of verplaatsen elektra zodat iedere werkplek praktisch, veilig en netjes is ingericht."
     },
     {
       "id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenArtikel03P01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
-      "type": "card-p",
+      "type": "paragraph",
       "classes": [],
       "text": "Wij kunnen datapunten voorbereiden of aanleggen voor netwerkapparatuur."
     },
     {
       "id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenArtikel04P01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
-      "type": "card-p",
+      "type": "paragraph",
       "classes": [],
       "text": "Goede verlichting zorgt voor comfort, veiligheid en een professionele uitstraling. Wij helpen met binnen- en buitenverlichting."
     },
     {
       "id": "elektrotechnischeRenovatiesSectZoWerkenWijStap01P01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectZoWerkenWij",
-      "type": "process-p",
+      "type": "paragraph",
       "classes": [],
       "text": "Vertel wat u wilt aanpassen en stuur waar mogelijk foto’s mee."
     },
     {
       "id": "elektrotechnischeRenovatiesSectZoWerkenWijStap02P01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectZoWerkenWij",
-      "type": "process-p",
+      "type": "paragraph",
       "classes": [],
       "text": "We beoordelen installatie, aansluitcapaciteit en toekomstplannen."
     },
     {
       "id": "elektrotechnischeRenovatiesSectZoWerkenWijStap03P01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectZoWerkenWij",
-      "type": "process-p",
+      "type": "paragraph",
       "classes": [],
       "text": "U ontvangt werkzaamheden, materialen, planning en kosten."
     },
     {
       "id": "elektrotechnischeRenovatiesSectZoWerkenWijStap04P01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectZoWerkenWij",
-      "type": "process-p",
+      "type": "paragraph",
       "classes": [],
       "text": "Onze installateurs voeren het afgesproken werk veilig en netjes uit."
     },
     {
       "id": "elektrotechnischeRenovatiesSectZoWerkenWijStap05P01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectZoWerkenWij",
-      "type": "process-p",
+      "type": "paragraph",
       "classes": [],
       "text": "We controleren de installatie en leggen uit wat is aangepast."
     },
     {
       "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenP01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
       "type": "intro",
@@ -2884,67 +2916,67 @@
     {
       "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenVraag01P01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
-      "type": "faq-answer",
+      "type": "paragraph",
       "classes": [],
       "text": "Een verouderde groepenkast kan onvoldoende capaciteit hebben voor moderne apparatuur zoals inductie, warmtepomp of laadpaal. Wij controleren uw installatie en adviseren wanneer vervanging nodig is."
     },
     {
       "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenVraag02P01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
-      "type": "faq-answer",
+      "type": "paragraph",
       "classes": [],
       "text": "Inductie, Quooker en andere krachtige apparaten vereisen vaak hun eigen groep. Wij bepalen wat uw woning nodig heeft en breiden uw groepenkast veilig uit."
     },
     {
       "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenVraag03P01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
-      "type": "faq-answer",
+      "type": "paragraph",
       "classes": [],
       "text": "Dat hangt af van de beschikbare groepen, fasen, hoofdzekering en het verwachte vermogen. Wij beoordelen de bestaande installatie en adviseren welke uitbreiding nodig is."
     },
     {
       "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenVraag04P01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
-      "type": "faq-answer",
+      "type": "paragraph",
       "classes": [],
       "text": "De prijs hangt af van de huidige installatie, het aantal groepen, 1- of 3-fase en de gewenste aansluitingen. Na beoordeling ontvangt u een duidelijke prijsindicatie."
     },
     {
       "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenVraag05P01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
-      "type": "faq-answer",
+      "type": "paragraph",
       "classes": [],
       "text": "Dat verschilt per aanpassing. Bij het voorstel geven wij aan hoeveel tijd nodig is en wanneer de stroom tijdelijk wordt uitgeschakeld."
     },
     {
       "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenVraag06P01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
-      "type": "faq-answer",
+      "type": "paragraph",
       "classes": [],
       "text": "Ja. Met duidelijke foto's van de groepenkast, meterkast en gewenste aansluitplek kunnen wij vaak alvast een eerste inschatting maken."
     },
     {
       "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenContactP01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
       "type": "paragraph",
@@ -2954,7 +2986,7 @@
     {
       "id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassenP01",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassen",
       "type": "intro",
@@ -2966,7 +2998,7 @@
     {
       "id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassenFormulierNotitie",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassen",
       "type": "form-note",
@@ -2978,7 +3010,7 @@
     {
       "id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassenP02",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassen",
       "type": "privacy-note",
@@ -3177,7 +3209,7 @@
       "id": "homeSectGecertificeerdeInstallateursMetVakmanschapBtn01Offerte",
       "element": "a",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_number": 1,
       "section_id": "homeSectGecertificeerdeInstallateursMetVakmanschap",
@@ -3194,7 +3226,7 @@
       "id": "homeSectWatWijVoorUInstallerenEnOnderhoudenBtn01LeesMeer",
       "element": "a",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_number": 2,
       "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
@@ -3211,7 +3243,7 @@
       "id": "homeSectWatWijVoorUInstallerenEnOnderhoudenBtn02Ontdek",
       "element": "a",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_number": 2,
       "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
@@ -3228,7 +3260,7 @@
       "id": "homeSectWatWijVoorUInstallerenEnOnderhoudenBtn03Meer",
       "element": "a",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_number": 2,
       "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
@@ -3245,13 +3277,13 @@
       "id": "homeSectWatWijVoorUInstallerenEnOnderhoudenBtn04Meer",
       "element": "a",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_number": 2,
       "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
       "section_heading": "Wat wij voor u installeren en onderhouden",
       "label": "Elektrotechniek Maak uw elektrische installatie toekomstbestendigGroepenkast, inductie, Quooker, voorbereiding voor een warmtepomp, extra elektra en zakelijke installaties.",
-      "href": "elektrotechnische-renovaties.html",
+      "href": "meterkast-vervangen.html",
       "link_type": "interne-pagina",
       "target_page": "Elektrotechnische renovaties",
       "target_section": "",
@@ -3262,13 +3294,13 @@
       "id": "homeSectWatKlantenOverOnsZeggenBtn01Google",
       "element": "a",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_number": 6,
       "section_id": "homeSectWatKlantenOverOnsZeggen",
       "section_heading": "Wat klanten over ons zeggen",
-      "label": "Google ↗: bekijk reviews (opent in een nieuw tabblad)",
-      "href": "https://www.google.com/search?q=Sparky+Energies+V.O.F.%2C+Anthonetta+Kuijlstraat%2C+%2C+ROTTERDAM#lrd=0x47c433950f503f1d:0x4caacae818dda9f3,1,,,",
+      "label": "Google ↗: bekijk deze review (opent in een nieuw tabblad)",
+      "href": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21OR1NHcDBTbFZZUTBkd1gxQlNWSEEyYkZwVU1sRRAB!2m1!1s0x0:0x4caacae818dda9f3!3m1!1s2@1:CAIQACodChtycF9oOmNGSGp0SlVYQ0dwX1BSVHA2bFpUMlE%7C%7C?hl=nl",
       "link_type": "extern",
       "target_page": "",
       "target_section": "",
@@ -3279,7 +3311,7 @@
       "id": "homeSectWatKlantenOverOnsZeggenBtn02Google",
       "element": "a",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_number": 6,
       "section_id": "homeSectWatKlantenOverOnsZeggen",
@@ -3293,10 +3325,44 @@
       "note": ""
     },
     {
+      "id": "homeSectWatKlantenOverOnsZeggenBtn03Google",
+      "element": "a",
+      "page": "Home",
+      "file": "homepage.html",
+      "page_number": 1,
+      "section_number": 6,
+      "section_id": "homeSectWatKlantenOverOnsZeggen",
+      "section_heading": "Wat klanten over ons zeggen",
+      "label": "Google ↗: bekijk deze review (opent in een nieuw tabblad)",
+      "href": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tWblJqaHphbVJITm5WQllWbDRORWN6WlZCclkzYxAB!2m1!1s0x0:0x4caacae818dda9f3!3m1!1s2@1:CAIQACodChtycF9oOkVnRjhzamRHNnVBYVl4NEczZVBrY3c%7C%7C?hl=nl",
+      "link_type": "extern",
+      "target_page": "",
+      "target_section": "",
+      "form_id": "",
+      "note": ""
+    },
+    {
+      "id": "homeSectWatKlantenOverOnsZeggenBtn04Google",
+      "element": "a",
+      "page": "Home",
+      "file": "homepage.html",
+      "page_number": 1,
+      "section_number": 6,
+      "section_id": "homeSectWatKlantenOverOnsZeggen",
+      "section_heading": "Wat klanten over ons zeggen",
+      "label": "Google ↗: bekijk deze review (opent in een nieuw tabblad)",
+      "href": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2kxaU1TMWllblowVFZJM2FsWjNTR3RVYlhwSFdIYxAB!2m1!1s0x0:0x4caacae818dda9f3!3m1!1s2@1:CAIQACodChtycF9oOi1iMS1ienZ0TVI3alZ3SGtUbXpHWHc%7C%7C?hl=nl",
+      "link_type": "extern",
+      "target_page": "",
+      "target_section": "",
+      "form_id": "",
+      "note": ""
+    },
+    {
       "id": "homeSectVanIdeeTotInstallatieVanVonkTotVermogenBtn01OntdekSparkyNieuw",
       "element": "a",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_number": 8,
       "section_id": "homeSectVanIdeeTotInstallatieVanVonkTotVermogen",
@@ -3313,7 +3379,7 @@
       "id": "homeSectKlaarOmUwWoningToekomstbestendigTeMakenBtn01Aanvragen",
       "element": "button",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_number": 7,
       "section_id": "homeSectKlaarOmUwWoningToekomstbestendigTeMaken",
@@ -3568,7 +3634,7 @@
       "id": "elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovatiesBtn01Offerte",
       "element": "a",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_number": 1,
       "section_id": "elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovaties",
@@ -3585,7 +3651,7 @@
       "id": "elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovatiesBtn02Bespreken",
       "element": "a",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_number": 1,
       "section_id": "elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovaties",
@@ -3602,7 +3668,7 @@
       "id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspandenBtn02MeerInformatie",
       "element": "a",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_number": 6,
       "section_id": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
@@ -3619,7 +3685,7 @@
       "id": "elektrotechnischeRenovatiesSectZoWerkenWijBtn01Meer",
       "element": "a",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_number": 7,
       "section_id": "elektrotechnischeRenovatiesSectZoWerkenWij",
@@ -3636,7 +3702,7 @@
       "id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingenBtn01Contact",
       "element": "a",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_number": 8,
       "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
@@ -3653,7 +3719,7 @@
       "id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassenBtn01Aanvragen",
       "element": "button",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_number": 9,
       "section_id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassen",
@@ -3727,7 +3793,7 @@
       "section_id": "overOnsSectWatWijDoen",
       "section_heading": "Wat wij doen",
       "label": "Groepenkasten",
-      "href": "elektrotechnische-renovaties.html#elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoning",
+      "href": "meterkast-vervangen.html#elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoning",
       "link_type": "interne-pagina-sectie",
       "target_page": "Elektrotechnische renovaties",
       "target_section": "elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoning",
@@ -3744,7 +3810,7 @@
       "section_id": "overOnsSectWatWijDoen",
       "section_heading": "Wat wij doen",
       "label": "Elektrotechniek",
-      "href": "elektrotechnische-renovaties.html",
+      "href": "meterkast-vervangen.html",
       "link_type": "interne-pagina",
       "target_page": "Elektrotechnische renovaties",
       "target_section": "",
@@ -3761,7 +3827,7 @@
       "section_id": "overOnsSectWatWijDoen",
       "section_heading": "Wat wij doen",
       "label": "Krachtstroom",
-      "href": "elektrotechnische-renovaties.html#elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
+      "href": "meterkast-vervangen.html#elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
       "link_type": "interne-pagina-sectie",
       "target_page": "Elektrotechnische renovaties",
       "target_section": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
@@ -3778,7 +3844,7 @@
       "section_id": "overOnsSectWatWijDoen",
       "section_heading": "Wat wij doen",
       "label": "Inspectie, onderhoud en service",
-      "href": "elektrotechnische-renovaties.html#elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
+      "href": "meterkast-vervangen.html#elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
       "link_type": "interne-pagina-sectie",
       "target_page": "Elektrotechniek",
       "target_section": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
@@ -3795,7 +3861,7 @@
       "section_id": "overOnsSectWatWijDoen",
       "section_heading": "Wat wij doen",
       "label": "Industriële oplossingen",
-      "href": "elektrotechnische-renovaties.html#elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
+      "href": "meterkast-vervangen.html#elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
       "link_type": "interne-pagina-sectie",
       "target_page": "Elektrotechnische renovaties",
       "target_section": "elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden",
@@ -3841,7 +3907,7 @@
     {
       "id": "homeSectKlaarOmUwWoningToekomstbestendigTeMakenFormulier",
       "page": "Home",
-      "file": "index.html",
+      "file": "homepage.html",
       "page_number": 1,
       "section_id": "homeSectKlaarOmUwWoningToekomstbestendigTeMaken",
       "action": "https://formspree.io/f/xnjenvqd",
@@ -3885,7 +3951,7 @@
     {
       "id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassenFormulier",
       "page": "Elektrotechnische renovaties",
-      "file": "elektrotechnische-renovaties.html",
+      "file": "meterkast-vervangen.html",
       "page_number": 5,
       "section_id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassen",
       "action": "https://formspree.io/f/xnjenvqd",
@@ -3933,25 +3999,25 @@
     "missing_internal_targets": [],
     "title_differences": [
       {
-        "file": "index.html",
+        "file": "homepage.html",
         "section_id": "homeSectGecertificeerdeInstallateursMetVakmanschap",
         "data_section_title": "Eén installateur voor uw complete elektrische installatie",
         "visible_heading": "Eén installateur voor uw complete elektrische installatie."
       },
       {
-        "file": "index.html",
+        "file": "homepage.html",
         "section_id": "homeSectWatWijVoorUInstallerenEnOnderhouden",
         "data_section_title": "Wat wij voor u installeren en onderhouden",
         "visible_heading": "Onze diensten"
       },
       {
-        "file": "index.html",
+        "file": "homepage.html",
         "section_id": "homeSectTwijfeltUOfUwInstallatieGeschiktIs",
         "data_section_title": "Alles werkt samen",
         "visible_heading": "Alles werkt samen Uw woning wordt steeds elektrischer"
       },
       {
-        "file": "index.html",
+        "file": "homepage.html",
         "section_id": "homeSectVanIdeeTotInstallatieVanVonkTotVermogen",
         "data_section_title": "Over Sparky Energies",
         "visible_heading": "Energie van nu, zekerheid voor morgen."
@@ -4059,31 +4125,31 @@
         "visible_heading": "Laat uw laadoplossing controleren"
       },
       {
-        "file": "elektrotechnische-renovaties.html",
+        "file": "meterkast-vervangen.html",
         "section_id": "elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovaties",
         "data_section_title": "Groepenkast en elektrotechnische renovaties",
-        "visible_heading": "Groepenkast & elektrotechnische installaties"
+        "visible_heading": "Meterkast en groepenkast vervangen"
       },
       {
-        "file": "elektrotechnische-renovaties.html",
+        "file": "meterkast-vervangen.html",
         "section_id": "elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomst",
         "data_section_title": "Zorgeloos voorbereid op een duurzame toekomst",
         "visible_heading": "Wat wilt u laten uitvoeren?"
       },
       {
-        "file": "elektrotechnische-renovaties.html",
+        "file": "meterkast-vervangen.html",
         "section_id": "elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor",
         "data_section_title": "Van het gas af? Wij bereiden uw installatie voor",
         "visible_heading": "Maak uw woning klaar voor elektrisch wonen"
       },
       {
-        "file": "elektrotechnische-renovaties.html",
+        "file": "meterkast-vervangen.html",
         "section_id": "elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen",
         "data_section_title": "Alles wat u weten moet over elektrotechnische aanpassingen",
         "visible_heading": "Veelgestelde vragen over elektrotechnische aanpassingen"
       },
       {
-        "file": "elektrotechnische-renovaties.html",
+        "file": "meterkast-vervangen.html",
         "section_id": "elektrotechnischeRenovatiesSectWiltUUwElektraVeiligLatenAanpassen",
         "data_section_title": "Wilt u uw elektra veilig laten aanpassen?",
         "visible_heading": "Laat uw elektrische installatie beoordelen"

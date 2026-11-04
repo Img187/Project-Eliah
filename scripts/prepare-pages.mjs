@@ -9,7 +9,7 @@ import { regionPageFiles } from './thuisbatterij-regios.mjs';
 
 export const root = fileURLToPath(new URL('../', import.meta.url));
 export const basePages = [
-  'index.html',
+  'homepage.html',
   'thuisbatterij-laten-installeren.html',
   ...batteryIntentPageFiles,
   'zonnepanelen.html',
@@ -19,9 +19,11 @@ export const basePages = [
   'contact.html',
 ];
 export const pages = [...basePages, ...regionPageFiles, ...meterkastRegionPageFiles, ...laadpaalRegionPageFiles];
-export const redirectPages = ['thuisbatterijen.html', 'elektrotechnische-renovaties.html'];
-export const publishedHtmlPages = [...pages, ...redirectPages];
-const runtime = ['network.js', 'main.js', 'cookie-consent.js', 'calculator-models.js', 'google-reviews.js'];
+export const redirectPages = ['index.html', 'thuisbatterijen.html', 'elektrotechnische-renovaties.html'];
+// Deze functionele pagina's worden gepubliceerd, maar niet geïndexeerd of in de sitemap opgenomen.
+export const utilityPages = ['bedankt.html'];
+export const publishedHtmlPages = [...pages, ...redirectPages, ...utilityPages];
+const runtime = ['network.js', 'main.js', 'cookie-consent.js', 'calculator-models.js', 'google-reviews.js', 'bedankt.js'];
 const fixed = [...publishedHtmlPages, 'robots.txt', 'sitemap.xml', 'CNAME', '.nojekyll',
   'data/reviews-config.json',
   ...runtime.map(name => `assets/js/${name}`), 'assets/css/styles.css',
@@ -63,7 +65,7 @@ export function secureHtml(source, endpoint = '') {
 export async function publicFiles(directory = root) {
   const result = [...fixed];
   // Lokale conceptsecties worden pas meegenomen als de gepubliceerde HTML ze werkelijk inschakelt.
-  const homepage = (await readFile(join(directory, 'index.html'), 'utf8')).replace(/<!--[\s\S]*?-->/g, '');
+  const homepage = (await readFile(join(directory, 'homepage.html'), 'utf8')).replace(/<!--[\s\S]*?-->/g, '');
   if (/<script\b[^>]*\ssrc="assets\/js\/projecten\.js"/i.test(homepage)) result.push('assets/js/projecten.js', 'data/projecten.json');
   if (/<link\b[^>]*\shref="assets\/css\/home-overzichten\.css"/i.test(homepage)) result.push('assets/css/home-overzichten.css');
   async function walk(relative, extensions) {

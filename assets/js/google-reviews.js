@@ -10,7 +10,8 @@
   const summary = section.querySelector('[data-review-summary]');
   const status = section.querySelector('[data-review-status]');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  const MAX_VISIBLE = 5;
+  const MAX_VISIBLE = 4;
+  const REVIEW_PREVIEW_LENGTH = 250;
   const MAX_AGE = 24 * 60 * 60 * 1000;
   let reviews = [];
   let visible = [];
@@ -22,6 +23,7 @@
   let busy = false;
   let pending = null;
   let signature = '';
+  let reviewTextId = 0;
 
   const node = (tag, className, text) => {
     const item = document.createElement(tag);
@@ -29,6 +31,56 @@
     if (text !== undefined) item.textContent = text;
     return item;
   };
+  const normalizeReviewText = text => text.replace(/\r\n?/g, '\n').trim();
+  const reviewTextFromElement = element => {
+    const clone = element.cloneNode(true);
+    clone.querySelectorAll('br').forEach(br => br.replaceWith(document.createTextNode('\n')));
+    return normalizeReviewText(clone.textContent || '');
+  };
+  function reviewPreview(text) {
+    const characters = Array.from(text);
+    if (characters.length <= REVIEW_PREVIEW_LENGTH) return '';
+    const limited = characters.slice(0, REVIEW_PREVIEW_LENGTH).join('').trimEnd();
+    const lastBoundary = Math.max(limited.lastIndexOf(' '), limited.lastIndexOf('\n'), limited.lastIndexOf('\t'));
+    return lastBoundary >= REVIEW_PREVIEW_LENGTH * .8 ? limited.slice(0, lastBoundary).trimEnd() : limited;
+  }
+  function addReviewText(quote, text, author, paragraph = node('p')) {
+    const fullText = normalizeReviewText(text);
+    const previewText = reviewPreview(fullText);
+    if (!paragraph.id) paragraph.id = `googleReviewTekst${++reviewTextId}`;
+    if (!previewText) {
+      paragraph.textContent = fullText;
+      quote.replaceChildren(paragraph);
+      return;
+    }
+    const preview = node('span', 'googleReviewVoorbeeld', `${previewText}…`);
+    preview.dataset.reviewPreview = '';
+    const full = node('span', 'googleReviewVolledig', fullText);
+    full.dataset.reviewFull = '';
+    full.id = `${paragraph.id}Volledig`;
+    full.hidden = true;
+    paragraph.replaceChildren(preview, full);
+    const toggle = node('button', 'googleReviewMeer', 'Meer');
+    toggle.type = 'button';
+    toggle.dataset.reviewToggle = '';
+    toggle.setAttribute('aria-controls', full.id);
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', `Volledige review van ${author} tonen`);
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      preview.hidden = !expanded;
+      full.hidden = expanded;
+      toggle.textContent = expanded ? 'Meer' : 'Minder';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      toggle.setAttribute('aria-label', expanded ? `Volledige review van ${author} tonen` : `Review van ${author} inklappen`);
+    });
+    quote.replaceChildren(paragraph, toggle);
+  }
+  section.querySelectorAll('.googleReviewKaart').forEach(card => {
+    const paragraph = card.querySelector('blockquote p');
+    if (!paragraph) return;
+    addReviewText(card.querySelector('blockquote'), reviewTextFromElement(paragraph), card.querySelector('h3')?.textContent.trim() || 'een klant', paragraph);
+  });
   const reading = () => list.matches(':hover') || list.contains(document.activeElement);
   function updateControls() {
     controls.hidden = reviews.length <= MAX_VISIBLE;
@@ -67,7 +119,7 @@
       author.append(node('h3', '', review.author), rating);
       header.append(avatar, author);
       const quote = node('blockquote');
-      quote.append(node('p', '', review.text || 'Deze klant heeft alleen een sterrenbeoordeling gegeven.'));
+      addReviewText(quote, review.text || 'Deze klant heeft alleen een sterrenbeoordeling gegeven.', review.author);
       const footer = node('footer', 'googleReviewVoet');
       const time = node('time', '', new Intl.DateTimeFormat('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(review.publishedAt)));
       time.dateTime = review.publishedAt;

@@ -4,10 +4,11 @@ import { readFile } from 'node:fs/promises';
 import { JSDOM } from 'jsdom';
 
 // De echte homepage-markup en het echte script, zonder browser of netwerk.
-const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+const html = await readFile(new URL('../homepage.html', import.meta.url), 'utf8');
 const sectionHtml = html.match(/<section\b[^>]*class="[^"]*googleReviewsSectie[\s\S]*?<\/section>/)[0];
 const script = await readFile(new URL('../assets/js/google-reviews.js', import.meta.url), 'utf8');
 const networkScript = await readFile(new URL('../assets/js/network.js', import.meta.url), 'utf8');
+const styles = await readFile(new URL('../assets/css/styles.css', import.meta.url), 'utf8');
 const start = Date.parse('2026-09-14T12:00:00Z');
 const feed = (count, overrides = {}) => ({
   fetchedAt: new Date(start).toISOString(), totalReviewCount: count, averageRating: count ? 3 : 0,
@@ -18,6 +19,42 @@ const feed = (count, overrides = {}) => ({
   ...overrides,
 });
 const settle = async () => { for (let i = 0; i < 4; i++) await new Promise(resolve => setImmediate(resolve)); };
+
+test('statische fallback bevat vier reviews; alleen teksten boven 250 tekens zijn inklapbaar', async t => {
+  const h = await harness(t, { endpoint: '' });
+  const cards = [...h.list.querySelectorAll('.googleReviewKaart')];
+  assert.equal(cards.length, 4);
+  assert.deepEqual(
+    cards.map(card => card.querySelector('h3').textContent.trim()),
+    ['Roberto Verde', 'Info Bruidsatelier', 'muriel van wymeersch', 'Duy Blanco'],
+  );
+  assert.deepEqual(
+    cards.map(card => card.querySelector('time').dateTime),
+    ['2026-09-10', '2026-09-13', '2026-09-28', '2026-09-30'],
+  );
+  assert.ok(cards.every(card => card.querySelector('.googleReviewBron').href.startsWith('https://www.google.com/maps/reviews/')));
+  assert.match(cards[2].textContent, /Betrouwbare partner!/);
+  assert.match(cards[3].textContent, /TOP SERVICE!!/);
+  assert.deepEqual(cards.map(card => Boolean(card.querySelector('[data-review-toggle]'))), [false, true, false, true]);
+  for (const card of [cards[1], cards[3]]) {
+    const button = card.querySelector('[data-review-toggle]');
+    const paragraph = card.querySelector('blockquote p');
+    assert.equal(button.type, 'button');
+    assert.equal(button.textContent, 'Meer');
+    assert.equal(button.getAttribute('aria-expanded'), 'false');
+    assert.equal(button.getAttribute('aria-controls'), paragraph.querySelector('[data-review-full]').id);
+  }
+});
+
+test('reviewkaarten vormen één gelijke horizontale rij met scroll op smallere schermen', () => {
+  const layout = styles.match(/\.googleReviewsSectie \.googleReviewLijst\s*\{([^}]*)\}/)?.[1] || '';
+  assert.match(layout, /display:\s*grid/);
+  assert.match(layout, /grid-template-columns:\s*repeat\(4,\s*minmax\(0,\s*1fr\)\)/);
+  assert.match(layout, /align-items:\s*stretch/);
+  assert.match(styles, /\.googleReviewLijst\s*>\s*li\s*\{[^}]*height:\s*100%/);
+  assert.match(styles, /\.googleReviewKaart\s*\{[^}]*height:\s*100%/);
+  assert.match(styles, /@media\s*\(max-width:\s*1100px\)[\s\S]*?grid-auto-flow:\s*column[\s\S]*?overflow-x:\s*auto/);
+});
 
 test('ongeldige en te grote reviewfeeds vervangen de geldige cache niet', async t => {
   const h = await harness(t, { data: feed(2) });
@@ -40,7 +77,7 @@ test('ongeldige en te grote reviewfeeds vervangen de geldige cache niet', async 
 });
 
 async function harness(t, { data = feed(7), endpoint = 'https://reviews.example/reviews', hover = false, withoutStatic = false } = {}) {
-  const dom = new JSDOM(sectionHtml, { url: 'https://www.sparkyenergies.com/', runScripts: 'outside-only', pretendToBeVisual: true });
+  const dom = new JSDOM(sectionHtml, { url: 'https://www.sparkyenergies.com/homepage', runScripts: 'outside-only', pretendToBeVisual: true });
   t.after(() => dom.window.close());
   const { window } = dom;
   window.TextDecoder = TextDecoder;
@@ -49,7 +86,6 @@ async function harness(t, { data = feed(7), endpoint = 'https://reviews.example/
   const section = window.document.querySelector('section');
   const list = section.querySelector('.googleReviewLijst');
   if (withoutStatic) list.replaceChildren();
-  const initial = list.innerHTML;
   let clock = start;
   let hidden = false;
   let failure = false;
@@ -72,7 +108,7 @@ async function harness(t, { data = feed(7), endpoint = 'https://reviews.example/
   window.eval(script);
   await settle();
   return {
-    window, section, list, initial,
+    window, section, list,
     controls: section.querySelector('[data-review-controls]'),
     pause: section.querySelector('[data-review-pause]'),
     next: section.querySelector('[data-review-next]'),
@@ -90,21 +126,67 @@ async function harness(t, { data = feed(7), endpoint = 'https://reviews.example/
   };
 }
 
-test('0, 2, 5 en 7 reviews: maximaal vijf kaarten en alle beoordelingen komen aan bod', async t => {
-  for (const count of [0, 2, 5, 7]) {
+test('0, 2, 4, 5 en 7 reviews: maximaal vier horizontale kaarten en alle beoordelingen komen aan bod', async t => {
+  for (const count of [0, 2, 4, 5, 7]) {
     const h = await harness(t, { data: feed(count), withoutStatic: true });
-    assert.equal(h.list.children.length, Math.min(count, 5));
-    assert.equal(h.controls.hidden, count <= 5);
+    assert.equal(h.list.children.length, Math.min(count, 4));
+    assert.equal(h.controls.hidden, count <= 4);
     assert.equal(h.section.dataset.reviewMode, 'live');
     if (!count) assert.match(h.status.textContent, /nog geen reviews/);
     const seen = new Set(h.ids());
     for (let i = 0; i < 7; i++) {
       await h.tick();
-      assert.equal(new Set(h.ids()).size, Math.min(count, 5));
+      assert.equal(new Set(h.ids()).size, Math.min(count, 4));
       h.ids().forEach(id => seen.add(id));
     }
     assert.equal(seen.size, count);
   }
+});
+
+test('250-tekengrens en toegankelijke Meer/Minder-bediening werken ook voor live reviews', async t => {
+  const exact = 'x'.repeat(250);
+  const overLimit = 'y'.repeat(251);
+  const prefix = 'woord '.repeat(39);
+  const long = `${prefix}abcdefghijklmnopqrstuvwxyz slot`;
+  const data = feed(3);
+  data.reviews[0].text = exact;
+  data.reviews[1].text = overLimit;
+  data.reviews[2].text = long;
+  const h = await harness(t, { data, withoutStatic: true });
+  const [exactCard, overLimitCard, longCard] = h.list.children;
+  assert.equal(exactCard.querySelector('[data-review-toggle]'), null);
+  assert.equal(exactCard.querySelector('blockquote p').textContent, exact);
+  assert.equal(overLimitCard.querySelector('[data-review-preview]').textContent, `${'y'.repeat(250)}…`);
+  assert.equal(overLimitCard.querySelector('[data-review-full]').textContent, overLimit);
+  assert.ok(overLimitCard.querySelector('[data-review-toggle]'));
+
+  const paragraph = longCard.querySelector('blockquote p');
+  const preview = paragraph.querySelector('[data-review-preview]');
+  const full = paragraph.querySelector('[data-review-full]');
+  const button = longCard.querySelector('[data-review-toggle]');
+  const collapsed = `${prefix.trimEnd()}…`;
+  assert.equal(preview.textContent, collapsed);
+  assert.ok(Array.from(preview.textContent.slice(0, -1)).length <= 250);
+  assert.equal(full.textContent, long);
+  assert.equal(full.hidden, true);
+  assert.equal(preview.hidden, false);
+  assert.equal(button.getAttribute('aria-controls'), full.id);
+  assert.equal(button.getAttribute('aria-expanded'), 'false');
+
+  button.focus();
+  button.click();
+  assert.equal(preview.hidden, true);
+  assert.equal(full.hidden, false);
+  assert.equal(button.textContent, 'Minder');
+  assert.equal(button.getAttribute('aria-expanded'), 'true');
+  assert.equal(h.window.document.activeElement, button);
+
+  button.click();
+  assert.equal(preview.hidden, false);
+  assert.equal(full.hidden, true);
+  assert.equal(preview.textContent, collapsed);
+  assert.equal(button.textContent, 'Meer');
+  assert.equal(button.getAttribute('aria-expanded'), 'false');
 });
 
 test('nieuwe, gewijzigde en verwijderde reviews verversen; hover en focus beschermen de gelezen kaart', async t => {
@@ -193,7 +275,8 @@ test('teksten en namen zijn geen HTML; tekstloze reviews en kapotte avatars hebb
 
 test('zonder endpoint blijft de proef staan; ingestelde maar kapotte feed toont geen proef als live review', async t => {
   const unconfigured = await harness(t, { endpoint: '' });
-  assert.equal(unconfigured.list.innerHTML, unconfigured.initial);
+  assert.equal(unconfigured.list.querySelectorAll('.googleReviewKaart').length, 4);
+  assert.equal(unconfigured.list.querySelectorAll('[data-review-toggle]').length, 2);
   assert.equal(unconfigured.requests(), 0);
   const unavailable = await harness(t, { data: { reviews: [] } });
   assert.equal(unavailable.list.children.length, 0);

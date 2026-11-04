@@ -52,17 +52,21 @@ function structuredData(document, file) {
   });
 }
 
-test('laadpaalcluster bevat twee doelgroepen en dertig regio\'s per doelgroep', () => {
+test('laadpaalcluster bevat twee doelgroepen met zes provincies en Rotterdam', () => {
   assert.equal(laadpaalRegionGroups.length, 6);
-  assert.equal(laadpaalRegionPages.length, 30);
+  assert.equal(laadpaalRegionPages.length, 7);
   assert.equal(laadpaalAudiences.length, 2);
-  assert.equal(laadpaalRegionPageEntries.length, 60);
-  assert.equal(laadpaalRegionPageFiles.length, 60);
-  assert.equal(regionalFiles.size, 60);
+  assert.equal(laadpaalRegionPageEntries.length, 14);
+  assert.equal(laadpaalRegionPageFiles.length, 14);
+  assert.equal(regionalFiles.size, 14);
 
   for (const group of laadpaalRegionGroups) {
     assert.equal(group.province.kind, 'province');
-    assert.equal(group.cities.length, 4, `${group.province.name} moet vier steden bevatten.`);
+    assert.deepEqual(
+      group.cities.map(({ slug }) => slug),
+      group.province.slug === 'zuid-holland' ? ['rotterdam'] : [],
+      `${group.province.name} mag alleen Rotterdam als stad behouden.`,
+    );
   }
   for (const file of laadpaalRegionPageFiles) {
     assert.ok(pages.includes(file), `${file} ontbreekt in de publieke paginalijst.`);

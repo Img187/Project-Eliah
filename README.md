@@ -4,7 +4,7 @@ Deze versie bevat géén Relume, géén Tailwind-configuratie, géén npm-packag
 
 ## Starten in VS Code
 
-Open deze map in VS Code en start bijvoorbeeld Live Server op `index.html`.
+Open deze map in VS Code en start bijvoorbeeld Live Server op `homepage.html`.
 
 ## Publiceren en beveiliging
 
@@ -14,7 +14,8 @@ Alle tests: `npm --prefix tests test`. Na wijzigen van landelijke thuisbatterij-
 
 ## Structuur
 
-- `index.html`
+- `homepage.html` (publieke route `/homepage`)
+- `index.html` (doorverwijzing vanaf `/`)
 - `thuisbatterij-laten-installeren.html`
 - `thuisbatterij-kopen.html`, `thuisbatterij-kosten.html` en `thuisbatterij-voor-zonnepanelen.html` (gegenereerde landelijke intentiepagina's; niet in de hoofdnavigatie en bereikbaar via contextlinks)
 - `thuisbatterijen.html` (legacy doorverwijzing naar de nieuwe URL)
@@ -24,10 +25,11 @@ Alle tests: `npm --prefix tests test`. Na wijzigen van landelijke thuisbatterij-
 - `elektrotechnische-renovaties.html` (legacy doorverwijzing naar de nieuwe URL)
 - `over-ons.html`
 - `contact.html`
-- `thuisbatterij-installeren-in-*.html` (30 gegenereerde provincie- en stadspagina's)
-- `laadpaal-thuis-laten-installeren-in-*.html` (30 gegenereerde provincie- en stadspagina's)
-- `zakelijke-laadpaal-plaatsen-in-*.html` (30 gegenereerde provincie- en stadspagina's)
-- `meterkast-vervangen-in-*.html` (30 gegenereerde provincie- en stadspagina's)
+- `bedankt.html` (publieke route `/bedankt`, na geslaagde formulierverzending; `noindex` en buiten de sitemap)
+- `thuisbatterij-installeren-in-*.html` (7 gegenereerde pagina's: zes provincies en Rotterdam)
+- `laadpaal-thuis-laten-installeren-in-*.html` (7 gegenereerde pagina's: zes provincies en Rotterdam)
+- `zakelijke-laadpaal-plaatsen-in-*.html` (7 gegenereerde pagina's: zes provincies en Rotterdam)
+- `meterkast-vervangen-in-*.html` (7 gegenereerde pagina's: zes provincies en Rotterdam)
 - `data/thuisbatterij-regios/*.json` (de unieke regionale broncopy)
 - `scripts/generate-thuisbatterij-intenties.mjs`
 - `scripts/generate-thuisbatterij-regios.mjs`
@@ -105,16 +107,21 @@ Het foto-uploadveld op Contact houdt aanvullende selecties bij en toont elk best
 
 De contactpagina bevat sectie `contactSectVragenformulierVoorBesparingEnInstallatiekosten`. De velden en JS-hooks staan klaar voor een toekomstige berekening van besparing, prijsindicatie en installatieconfiguratie. De definitieve formules staan bewust als TODO in `assets/js/main.js`.
 
-## Google Analytics
+## Google Tag Manager en Analytics
 
-Alle indexeerbare contentpagina's gebruiken de Google-tag voor de GA4-webstream van Sparky Energies. De niet-indexeerbare legacy doorverwijzingen worden bewust niet apart gemeten om dubbele pageviews te voorkomen:
+Alle indexeerbare contentpagina's gebruiken dezelfde consent-gestuurde Google Tag Manager-loader. De niet-indexeerbare legacy doorverwijzingen worden bewust niet apart gemeten om dubbele pageviews te voorkomen:
 
 - Measurement ID: `G-87KMB19788`
+- Tag Manager-container: `GTM-WLFHDLMC`
 
-De Google-tag staat niet in de HTML-head en wordt dus niet standaard gedownload. `assets/js/cookie-consent.js` injecteert het Analytics-script eenmalig tijdens een vrij browsermoment, uitsluitend nadat de bezoeker volledige toestemming heeft gegeven:
+`assets/js/cookie-consent.js` initialiseert `dataLayer` en de standaard geweigerde toestemming. De loader injecteert het asynchrone `gtm.js`-script eenmalig tijdens een vrij browsermoment, uitsluitend nadat de bezoeker volledige toestemming heeft gegeven. Analytics wordt via de GTM-container ingesteld; de oude losse `gtag.js`-loader is vervallen.
 
-- `Volledig`: Google Analytics wordt geladen en de Google Maps-iframe wordt toegestaan.
-- `Weigeren`: Analytics wordt niet geladen, eventuele Analytics-cookies worden verwijderd en Maps wordt niet geladen.
+- `Volledig`: Google Tag Manager wordt geladen en de Google Maps-iframe wordt toegestaan.
+- `Weigeren`: Tag Manager wordt niet geladen, eventuele Analytics-cookies worden verwijderd en Maps wordt niet geladen. Intrekken van toestemming blokkeert nieuwe meetacties.
+
+Na een geslaagde Formspree-verzending sturen alle aanvraagformulieren door naar `/bedankt`. Bij validatie- of verzendfouten blijft het formulier met de invoer staan. De schone URL wordt, net als de bestaande extensieloze routes, door GitHub Pages vanuit `bedankt.html` geserveerd.
+
+De site geeft `contact_click` door voor telefoon-, WhatsApp- en e-mailklikken. `assets/js/bedankt.js` geeft `generate_lead` uitsluitend op de bedankpagina door, na een recente eenmalige succesmarkering uit het formulier. Direct openen of verversen levert geen extra lead-event op. De bestaande calculator-events blijven beschikbaar. Formulierinhoud en contactbestemmingen worden niet aan deze events toegevoegd. Marketing kan `/bedankt` als alternatieve conversiebron gebruiken; activeer die niet tegelijk met `generate_lead` voor dezelfde conversie. Zie [Tag Manager instellen](docs/google-tag-manager.md) en het [container-importbestand](docs/gtm-sparky-energies.json). De container moet worden geïmporteerd en gepubliceerd voordat Analytics deze meetacties kan ontvangen.
 
 Bij het eerste bezoek staat de modale keuzelaag met transparante achtergrond vast onderaan het scherm. De bezoeker kan de pagina bekijken en scrollen, maar niet klikken, tekst selecteren of toetsenbordfocus buiten de laag verplaatsen. Na een keuze wordt de website volledig vrijgegeven. Onder `Sitemap` staan achtereenvolgens `Contact`, de hyperlink `Cookie Voorkeuren`, de downloadbare `Algemene voorwaarden` en de downloadbare `Privacy verklaring`. Beide juridische downloads staan bij de aanvraagformulieren; de privacy-download staat ook in de cookielaag. De interne `section-index.html` heeft `noindex` en wordt niet gemeten.
 

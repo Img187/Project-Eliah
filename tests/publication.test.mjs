@@ -3,7 +3,16 @@ import assert from 'node:assert/strict';
 import { readFile, stat } from 'node:fs/promises';
 import { join } from 'node:path';
 import { JSDOM } from 'jsdom';
-import { root, pages, redirectPages, publishedHtmlPages, publicFiles, secureHtml } from '../scripts/prepare-pages.mjs';
+import { root, pages, redirectPages, utilityPages, publishedHtmlPages, publicFiles, secureHtml } from '../scripts/prepare-pages.mjs';
+
+const origin = 'https://www.sparkyenergies.com';
+const homepageUrl = `${origin}/homepage`;
+const publicPageUrl = page => page === 'homepage.html' ? homepageUrl : page === 'bedankt.html' ? `${origin}/bedankt` : `${origin}/${page}`;
+const publicPathToFile = pathname => {
+  const path = decodeURIComponent(pathname.slice(1));
+  if (!path) return 'index.html';
+  return ['homepage', 'bedankt'].includes(path) ? `${path}.html` : path;
+};
 
 test('publicatielijst sluit interne code en documenten uit en bevat alle lokale paginabronnen', async () => {
   const files = await publicFiles();
@@ -11,21 +20,94 @@ test('publicatielijst sluit interne code en documenten uit en bevat alle lokale 
   assert.ok(files.every(file => !/^(?:server|tests|docs|tools|scripts|\.git|\.github)\//.test(file)));
   assert.ok(!files.includes('section-index.html'));
   assert.ok(!files.includes('data/section-index.json'));
+  assert.ok(!files.includes('assets/js/projecten.js'));
+  assert.ok(!files.includes('assets/css/home-overzichten.css'));
+  assert.ok(!files.includes('data/projecten.json'));
   assert.ok(files.every(file => !/\.(?:md|ttf|otf|env|pem|key)$/.test(file)));
   for (const page of publishedHtmlPages) {
-    const dom = new JSDOM(await readFile(join(root, page), 'utf8'), { url: `https://www.sparkyenergies.com/${page}` });
+    const dom = new JSDOM(await readFile(join(root, page), 'utf8'), { url: publicPageUrl(page) });
     try {
       for (const node of dom.window.document.querySelectorAll('[src], link[href], a[href]')) {
         const raw = node.getAttribute('src') ?? node.getAttribute('href');
         const url = new URL(raw, dom.window.location.href);
         if (url.origin !== dom.window.location.origin) continue;
-        const file = decodeURIComponent(url.pathname.slice(1)) || 'index.html';
+        const file = publicPathToFile(url.pathname);
         if (pages.includes(page)) assert.ok(!redirectPages.includes(file), `${page} verwijst nog naar legacy-URL ${file}.`);
         assert.ok(files.includes(file), `${page} verwijst naar uitgesloten bestand ${file}`);
         assert.ok((await stat(join(root, file))).isFile());
       }
     } finally { dom.window.close(); }
   }
+});
+
+test('alle contentpagina\'s verwijzen rechtstreeks naar homepage.html', async () => {
+  for (const page of pages) {
+    const dom = new JSDOM(await readFile(join(root, page), 'utf8'));
+    try {
+      const document = dom.window.document;
+      assert.equal(document.querySelectorAll('a[href="index.html"]').length, 0, `${page} bevat nog een zichtbare index.html-link.`);
+      assert.equal(document.querySelectorAll('a[href="/"]').length, 0, `${page} bevat nog een homepage-link naar /.`);
+      assert.equal(document.querySelectorAll('a[href="/homepage"]').length, 0, `${page} bevat nog een indirecte /homepage-link.`);
+      assert.equal(document.querySelectorAll('a[href="homepage.html"]').length, 4, `${page} moet vier verwijzingen naar homepage.html bevatten.`);
+      assert.equal(document.querySelectorAll('a.skipLink[href="#mainContent"]').length, 1, `${page} mist de directe inhoudslink.`);
+    } finally { dom.window.close(); }
+  }
+});
+
+test('root verwijst naar homepage.html en homepage-SEO gebruikt de schone /homepage-URL', async () => {
+  assert.ok(pages.includes('homepage.html'));
+  assert.ok(!pages.includes('index.html'));
+  assert.ok(redirectPages.includes('index.html'));
+
+  const redirect = new JSDOM(await readFile(join(root, 'index.html'), 'utf8'), { url: `${origin}/` });
+  try {
+    const document = redirect.window.document;
+    assert.match(document.querySelector('meta[name="robots"]')?.content || '', /^noindex,follow$/i);
+    assert.equal(document.querySelector('meta[http-equiv="refresh"]')?.content, '0; url=homepage.html');
+    assert.equal(document.querySelector('link[rel="canonical"]')?.href, homepageUrl);
+    assert.equal(document.querySelector('body a')?.href, `${origin}/homepage.html`);
+  } finally { redirect.window.close(); }
+
+  const homepage = new JSDOM(await readFile(join(root, 'homepage.html'), 'utf8'), { url: homepageUrl });
+  try {
+    const document = homepage.window.document;
+    assert.equal(document.querySelector('link[rel="canonical"]')?.href, homepageUrl);
+    assert.equal(document.querySelector('meta[property="og:url"]')?.content, homepageUrl);
+    const graph = JSON.parse(document.querySelector('script[type="application/ld+json"]').textContent)['@graph'];
+    const electrician = graph.find(item => item['@type'] === 'Electrician');
+    const website = graph.find(item => item['@type'] === 'WebSite');
+    const webpage = graph.find(item => item['@type'] === 'WebPage');
+    assert.equal(electrician.url, homepageUrl);
+    assert.equal(website.url, homepageUrl);
+    assert.equal(webpage.url, homepageUrl);
+    assert.equal(webpage['@id'], `${homepageUrl}#webpage`);
+  } finally { homepage.window.close(); }
+});
+
+test('bedankpagina is openbaar bereikbaar en meetbaar, maar niet indexeerbaar of in de sitemap', async () => {
+  assert.ok(utilityPages.includes('bedankt.html'));
+  assert.ok(!pages.includes('bedankt.html'));
+  assert.ok(!redirectPages.includes('bedankt.html'));
+  const files = await publicFiles();
+  assert.ok(files.includes('bedankt.html'));
+  assert.ok(files.includes('assets/js/bedankt.js'));
+  const dom = new JSDOM(await readFile(join(root, 'bedankt.html'), 'utf8'), { url: `${origin}/bedankt` });
+  try {
+    const document = dom.window.document;
+    assert.equal(document.querySelector('link[rel="canonical"]')?.href, `${origin}/bedankt`);
+    assert.equal(document.querySelector('meta[property="og:url"]')?.content, `${origin}/bedankt`);
+    assert.equal(document.querySelector('meta[name="robots"]')?.content, 'noindex,follow');
+    assert.equal(document.querySelectorAll('h1').length, 1);
+    assert.match(document.querySelector('h1').textContent, /Bedankt voor uw aanvraag/);
+    assert.equal(document.querySelectorAll('form').length, 0);
+    assert.equal(document.querySelector('#bedanktTerugNaarHome')?.href, `${origin}/homepage.html`);
+    const scripts = [...document.querySelectorAll('script[src]')].map(script => script.getAttribute('src'));
+    assert.equal(scripts.filter(src => src === 'assets/js/bedankt.js').length, 1);
+    assert.ok(scripts.indexOf('assets/js/cookie-consent.js') < scripts.indexOf('assets/js/bedankt.js'));
+    const ids = [...document.querySelectorAll('[id]')].map(element => element.id);
+    assert.equal(new Set(ids).size, ids.length, 'De bedankpagina bevat dubbele IDs.');
+  } finally { dom.window.close(); }
+  assert.doesNotMatch(await readFile(join(root, 'sitemap.xml'), 'utf8'), /\/bedankt(?:\.html)?(?:<|\/)/);
 });
 
 test('alle pagina’s bevatten actuele CSP vóór resources, zonder uitvoerbare inline scripts', async () => {
@@ -52,14 +134,16 @@ test('alle pagina’s bevatten actuele CSP vóór resources, zonder uitvoerbare 
   }
 });
 
-test('alle indexeerbare contentpagina\'s laden dezelfde consent-gestuurde Google-tag', async () => {
+test('alle contentpagina\'s en de bedankpagina laden dezelfde consent-gestuurde GTM-container', async () => {
   const analyticsSource = await readFile(join(root, 'assets/js/cookie-consent.js'), 'utf8');
   const measurementId = analyticsSource.match(/const MEASUREMENT_ID = '(G-[A-Z0-9]+)'/)?.[1];
   assert.equal(measurementId, 'G-87KMB19788');
-  assert.match(analyticsSource, /googletagmanager\.com\/gtag\/js\?id=/);
+  assert.match(analyticsSource, /const TAG_MANAGER_ID = 'GTM-WLFHDLMC'/);
+  assert.match(analyticsSource, /googletagmanager\.com\/gtm\.js\?id=/);
+  assert.doesNotMatch(analyticsSource, /googletagmanager\.com\/gtag\/js|gtag\('config'/);
   assert.match(analyticsSource, /currentChoice !== CHOICE_FULL/);
 
-  for (const page of pages) {
+  for (const page of [...pages, ...utilityPages]) {
     const html = await readFile(join(root, page), 'utf8');
     const dom = new JSDOM(html);
     try {

@@ -25,4 +25,4 @@ Status op 14 september 2026: server en frontend zijn geïmplementeerd en lokaal 
 
 `node --test tests/google-reviews.test.mjs`
 
-Voor browser-QA zonder Google-toegang: `node tests/reviews-preview-server.mjs` en open `http://127.0.0.1:5501/index.html`. Dit gebruikt uitsluitend synthetische testreviews en schrijft niets naar Google of de siteconfiguratie. Het lokale testendpoint `/qa-case` kan via POST wisselen tussen aantallen, storingen en verlopen data; zie het testbestand. Gebruik dit nooit als productie-endpoint.
+Voor browser-QA zonder Google-toegang: `node tests/reviews-preview-server.mjs` en open `http://127.0.0.1:5501/homepage`. Dit gebruikt uitsluitend synthetische testreviews en schrijft niets naar Google of de siteconfiguratie. Het lokale testendpoint `/qa-case` kan via POST wisselen tussen aantallen, storingen en verlopen data; zie het testbestand. Gebruik dit nooit als productie-endpoint.

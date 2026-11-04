@@ -1,20 +1,20 @@
 # Sparky Energies – developer section index
 
-> Gegenereerd op **2026-09-25** uit de zeven actuele publieke HTML-pagina’s. De JSON-bron is [`data/section-index.json`](data/section-index.json); de visuele versie staat in [`section-index.html`](section-index.html).
+> Gegenereerd op **2026-10-01** uit de zeven actuele publieke HTML-pagina’s. De JSON-bron is [`data/section-index.json`](data/section-index.json); de visuele versie staat in [`section-index.html`](section-index.html).
 
 ## Snelle samenvatting
 
 | Nr. | Pagina | Bestand | Primaire secties | Ondersteunend | Buttons | Formulieren |
 |---:|---|---|---:|---:|---:|---:|
-| 1 | [Home](index.html) | `index.html` | 6 | 3 | 9 | 1 |
+| 1 | [Home](homepage.html) | `homepage.html` | 6 | 3 | 11 | 1 |
 | 2 | [Thuisbatterijen](thuisbatterij-laten-installeren.html) | `thuisbatterij-laten-installeren.html` | 8 | 3 | 4 | 1 |
 | 3 | [Zonnepanelen](zonnepanelen.html) | `zonnepanelen.html` | 7 | 2 | 4 | 1 |
 | 4 | [Laadpalen](laadpalen.html) | `laadpalen.html` | 8 | 2 | 6 | 1 |
-| 5 | [Elektrotechnische renovaties](elektrotechnische-renovaties.html) | `elektrotechnische-renovaties.html` | 9 | 2 | 6 | 1 |
+| 5 | [Elektrotechnische renovaties](meterkast-vervangen.html) | `meterkast-vervangen.html` | 9 | 2 | 6 | 1 |
 | 6 | [Over ons](over-ons.html) | `over-ons.html` | 5 | 1 | 9 | 1 |
 | 7 | [Contact](contact.html) | `contact.html` | 0 | 1 | 1 | 2 |
 
-**Totaal:** 43 primaire secties, 14 ondersteunende main-secties, 39 buttons/hyperlinks, 8 formulieren en 177 paragrafen met een ID.
+**Totaal:** 43 primaire secties, 14 ondersteunende main-secties, 41 buttons/hyperlinks, 8 formulieren en 180 paragrafen met een ID.
 
 ### Hoe deze index gelezen wordt
 
@@ -42,7 +42,7 @@ Alle zeven publieke pagina's laden deze tag via `assets/js/cookie-consent.js` na
 
 ## Primaire secties
 
-### 1. Home — `index.html`
+### 1. Home — `homepage.html`
 
 | Nr. | Data-titel | Zichtbare heading | Section ID | Heading ID | Layout/shared classes |
 |---:|---|---|---|---|---|
@@ -91,11 +91,11 @@ Alle zeven publieke pagina's laden deze tag via `assets/js/cookie-consent.js` na
 | 7 | Antwoorden op de meest gestelde vragen over laadpalen. | H2: Veel gestelde vragen over laadpalen. | `laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalen` | `laadpalenSectAntwoordenOpDeMeestGesteldeVragenOverLaadpalenH2` | `layoutFaq` |
 | 8 | Welke laadpaal past bij u? | H2: Laat uw laadoplossing controleren | `laadpalenSectWelkeLaadpaalPastBijU` | `laadpalenSectWelkeLaadpaalPastBijUH2` | `layoutEmailCta` |
 
-### 5. Elektrotechnische renovaties — `elektrotechnische-renovaties.html`
+### 5. Elektrotechnische renovaties — `meterkast-vervangen.html`
 
 | Nr. | Data-titel | Zichtbare heading | Section ID | Heading ID | Layout/shared classes |
 |---:|---|---|---|---|---|
-| 1 | Groepenkast en elektrotechnische renovaties | H1: Groepenkast & elektrotechnische installaties | `elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovaties` | `elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovatiesH1` | `layoutSplitCard` |
+| 1 | Groepenkast en elektrotechnische renovaties | H1: Meterkast en groepenkast vervangen | `elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovaties` | `elektrotechnischeRenovatiesSectGroepenkastEnElektrotechnischeRenovatiesH1` | `layoutSplitCard` |
 | 2 | Zorgeloos voorbereid op een duurzame toekomst | H2: Wat wilt u laten uitvoeren? | `elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomst` | `elektrotechnischeRenovatiesSectZorgeloosVoorbereidOpEenDuurzameToekomstH2` | `kenmerkKaartenSectie`<br>`layoutFeatures` |
 | 3 | Groepenkast vervangen of uitbreiden | H2: Groepenkast vervangen of uitbreiden | `elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoning` | `elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoningH2` | `kenmerkKaartenSectie`<br>`layoutSplitFeatures` |
 | 3 | Van het gas af? Wij bereiden uw installatie voor | H2: Maak uw woning klaar voor elektrisch wonen | `elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoor` | `elektrotechnischeRenovatiesSectVanHetGasAfWijBereidenUwInstallatieVoorH2` | `layoutStickySplitCards` |
@@ -152,9 +152,11 @@ Deze secties zijn belangrijk voor styling en toegankelijkheid, maar tellen niet 
 | Thuisbatterijen Gebruik meer van uw eigen stroomSla zonnestroom op, stuur slim op energieprijzen en kies indien gewenst voor noodstroom. | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn01LeesMeer` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `thuisbatterij-laten-installeren.html` | `interne-pagina` |
 | Zonnepanelen Maak meer gebruik van energie van uw eigen dakEen zonnepaneleninstallatie afgestemd op uw verbruik, dak en toekomstige elektrische apparatuur. | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn02Ontdek` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `zonnepanelen.html` | `interne-pagina` |
 | Laadpalen Laad thuis veilig en slimVan laadpunt en load balancing tot laden met eigen zonnestroom. | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn03Meer` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `laadpalen.html` | `interne-pagina` |
-| Elektrotechniek Maak uw elektrische installatie toekomstbestendigGroepenkast, inductie, Quooker, voorbereiding voor een warmtepomp, extra elektra en zakelijke installaties. | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn04Meer` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `elektrotechnische-renovaties.html` | `interne-pagina` |
-| Google ↗: bekijk reviews (opent in een nieuw tabblad) | `a` | `homeSectWatKlantenOverOnsZeggenBtn01Google` | `homeSectWatKlantenOverOnsZeggen` | `https://www.google.com/search?q=Sparky+Energies+V.O.F.%2C+Anthonetta+Kuijlstraat%2C+%2C+ROTTERDAM#lrd=0x47c433950f503f1d:0x4caacae818dda9f3,1,,,` | `extern` |
+| Elektrotechniek Maak uw elektrische installatie toekomstbestendigGroepenkast, inductie, Quooker, voorbereiding voor een warmtepomp, extra elektra en zakelijke installaties. | `a` | `homeSectWatWijVoorUInstallerenEnOnderhoudenBtn04Meer` | `homeSectWatWijVoorUInstallerenEnOnderhouden` | `meterkast-vervangen.html` | `interne-pagina` |
+| Google ↗: bekijk deze review (opent in een nieuw tabblad) | `a` | `homeSectWatKlantenOverOnsZeggenBtn01Google` | `homeSectWatKlantenOverOnsZeggen` | `https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21OR1NHcDBTbFZZUTBkd1gxQlNWSEEyYkZwVU1sRRAB!2m1!1s0x0:0x4caacae818dda9f3!3m1!1s2@1:CAIQACodChtycF9oOmNGSGp0SlVYQ0dwX1BSVHA2bFpUMlE%7C%7C?hl=nl` | `extern` |
 | Google ↗: bekijk deze review (opent in een nieuw tabblad) | `a` | `homeSectWatKlantenOverOnsZeggenBtn02Google` | `homeSectWatKlantenOverOnsZeggen` | `https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tOTk5HZEhXVkZOWjFOdU0xZHFObU5GZGxrdGFsRRAB!2m1!1s0x0:0x4caacae818dda9f3!3m1!1s2@1:CAIQACodChtycF9oOkNNNGdHWVFNZ1NuM1dqNmNFdlktalE%7C%7C?hl=nl` | `extern` |
+| Google ↗: bekijk deze review (opent in een nieuw tabblad) | `a` | `homeSectWatKlantenOverOnsZeggenBtn03Google` | `homeSectWatKlantenOverOnsZeggen` | `https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tWblJqaHphbVJITm5WQllWbDRORWN6WlZCclkzYxAB!2m1!1s0x0:0x4caacae818dda9f3!3m1!1s2@1:CAIQACodChtycF9oOkVnRjhzamRHNnVBYVl4NEczZVBrY3c%7C%7C?hl=nl` | `extern` |
+| Google ↗: bekijk deze review (opent in een nieuw tabblad) | `a` | `homeSectWatKlantenOverOnsZeggenBtn04Google` | `homeSectWatKlantenOverOnsZeggen` | `https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2kxaU1TMWllblowVFZJM2FsWjNTR3RVYlhwSFdIYxAB!2m1!1s0x0:0x4caacae818dda9f3!3m1!1s2@1:CAIQACodChtycF9oOi1iMS1ienZ0TVI3alZ3SGtUbXpHWHc%7C%7C?hl=nl` | `extern` |
 | Bekijk hoe wij werken | `a` | `homeSectVanIdeeTotInstallatieVanVonkTotVermogenBtn01OntdekSparkyNieuw` | `homeSectVanIdeeTotInstallatieVanVonkTotVermogen` | `over-ons.html` | `interne-pagina` |
 | Ontvang advies + prijsindicatie | `button` | `homeSectKlaarOmUwWoningToekomstbestendigTeMakenBtn01Aanvragen` | `homeSectKlaarOmUwWoningToekomstbestendigTeMaken` | `https://formspree.io/f/xnjenvqd` | `formulier-versturen` |
 
@@ -205,11 +207,11 @@ Deze secties zijn belangrijk voor styling en toegankelijkheid, maar tellen niet 
 | Thuisbatterijen | `a` | `overOnsSectWatWijDoenLink01Thuisbatterijen` | `overOnsSectWatWijDoen` | `thuisbatterij-laten-installeren.html` | `interne-pagina` |
 | Zonnepanelen | `a` | `overOnsSectWatWijDoenLink02Zonnepanelen` | `overOnsSectWatWijDoen` | `zonnepanelen.html` | `interne-pagina` |
 | Laadpalen | `a` | `overOnsSectWatWijDoenLink03Laadpalen` | `overOnsSectWatWijDoen` | `laadpalen.html` | `interne-pagina` |
-| Groepenkasten | `a` | `overOnsSectWatWijDoenLink04Groepenkasten` | `overOnsSectWatWijDoen` | `elektrotechnische-renovaties.html#elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoning` | `interne-pagina-sectie` |
-| Elektrotechniek | `a` | `overOnsSectWatWijDoenLink05ElektrotechnischeRenovaties` | `overOnsSectWatWijDoen` | `elektrotechnische-renovaties.html` | `interne-pagina` |
-| Krachtstroom | `a` | `overOnsSectWatWijDoenLink06Krachtstroom` | `overOnsSectWatWijDoen` | `elektrotechnische-renovaties.html#elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden` | `interne-pagina-sectie` |
-| Inspectie, onderhoud en service | `a` | `overOnsSectWatWijDoenLink07InspectieOnderhoudEnService` | `overOnsSectWatWijDoen` | `elektrotechnische-renovaties.html#elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen` | `interne-pagina-sectie` |
-| Industriële oplossingen | `a` | `overOnsSectWatWijDoenLink08IndustrieleOplossingen` | `overOnsSectWatWijDoen` | `elektrotechnische-renovaties.html#elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden` | `interne-pagina-sectie` |
+| Groepenkasten | `a` | `overOnsSectWatWijDoenLink04Groepenkasten` | `overOnsSectWatWijDoen` | `meterkast-vervangen.html#elektrotechnischeRenovatiesSectGroepenkastHetHartVanUwWoning` | `interne-pagina-sectie` |
+| Elektrotechniek | `a` | `overOnsSectWatWijDoenLink05ElektrotechnischeRenovaties` | `overOnsSectWatWijDoen` | `meterkast-vervangen.html` | `interne-pagina` |
+| Krachtstroom | `a` | `overOnsSectWatWijDoenLink06Krachtstroom` | `overOnsSectWatWijDoen` | `meterkast-vervangen.html#elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden` | `interne-pagina-sectie` |
+| Inspectie, onderhoud en service | `a` | `overOnsSectWatWijDoenLink07InspectieOnderhoudEnService` | `overOnsSectWatWijDoen` | `meterkast-vervangen.html#elektrotechnischeRenovatiesSectAllesWatUWetenMoetOverElektrotechnischeAanpassingen` | `interne-pagina-sectie` |
+| Industriële oplossingen | `a` | `overOnsSectWatWijDoenLink08IndustrieleOplossingen` | `overOnsSectWatWijDoen` | `meterkast-vervangen.html#elektrotechnischeRenovatiesSectElektraVoorBedrijfspanden` | `interne-pagina-sectie` |
 | Bespreek uw project met Sparky | `button` | `overOnsSectKlaarVoorDeVolgendeStapBtn01Aanvragen` | `overOnsSectKlaarVoorDeVolgendeStap` | `https://formspree.io/f/xnjenvqd` | `formulier-versturen` |
 
 ### 7. Contact

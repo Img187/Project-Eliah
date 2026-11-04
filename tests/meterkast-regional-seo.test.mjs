@@ -59,14 +59,18 @@ function linkedFile(link) {
   return decodeURIComponent(pathname.slice(pathname.lastIndexOf('/') + 1));
 }
 
-test('meterkastcluster bevat zes provincies en vier steden per provincie', () => {
+test('meterkastcluster bevat zes provincies en alleen Rotterdam als stad', () => {
   assert.equal(meterkastRegionGroups.length, 6);
-  assert.equal(meterkastRegionPages.length, 30);
-  assert.equal(meterkastRegionPageFiles.length, 30);
-  assert.equal(regionalFiles.size, 30);
+  assert.equal(meterkastRegionPages.length, 7);
+  assert.equal(meterkastRegionPageFiles.length, 7);
+  assert.equal(regionalFiles.size, 7);
   for (const group of meterkastRegionGroups) {
     assert.equal(group.province.kind, 'province');
-    assert.equal(group.cities.length, 4, `${group.province.name} moet vier steden bevatten.`);
+    assert.deepEqual(
+      group.cities.map(({ slug }) => slug),
+      group.province.slug === 'zuid-holland' ? ['rotterdam'] : [],
+      `${group.province.name} mag alleen Rotterdam als stad behouden.`,
+    );
   }
 });
 

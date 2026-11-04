@@ -30,14 +30,16 @@ createServer(async (req, res) => {
     send(200, { fetchedAt: new Date(Date.now() - (expired ? 90000000 : 0)).toISOString(), totalReviewCount: count, averageRating: count ? 3 : 0, reviews });
     return;
   }
-  if (url.pathname !== '/index.html' && !url.pathname.startsWith('/assets/')) { send(404, {}); return; }
-  const path = resolve(root, '.' + decodeURIComponent(url.pathname));
+  const homepageRequest = url.pathname === '/homepage' || url.pathname === '/homepage.html';
+  if (!homepageRequest && !url.pathname.startsWith('/assets/') && url.pathname !== '/data/projecten.json') { send(404, {}); return; }
+  const publicPath = homepageRequest ? '/homepage.html' : url.pathname;
+  const path = resolve(root, '.' + decodeURIComponent(publicPath));
   if (!path.startsWith(resolve(root) + sep)) { send(403, {}); return; }
   try {
     let body = await readFile(path);
-    if (url.pathname === '/index.html') {
+    if (homepageRequest) {
       body = Buffer.from(body.toString('utf8').replace('<title>', '<title>TESTDATA — ').replace(/<script[^>]+src="assets\/js\/cookie-consent\.js"[^>]*><\/script>/, ''));
     }
     res.writeHead(200, { 'Content-Type': types[extname(path)] || 'application/octet-stream', 'Cache-Control': 'no-store' }).end(body);
   } catch { send(404, {}); }
-}).listen(5501, '127.0.0.1', () => console.log('Uitsluitend testdata: http://127.0.0.1:5501/index.html'));
+}).listen(5501, '127.0.0.1', () => console.log('Uitsluitend testdata: http://127.0.0.1:5501/homepage'));

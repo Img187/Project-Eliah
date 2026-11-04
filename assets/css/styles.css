@@ -353,6 +353,8 @@ html.sectieFlowActief { scroll-padding-block-start: var(--sectieFlowKophoogte); 
   }
 }
 .sectieKop { max-width: 850px; }
+.bedanktSectBevestiging { min-block-size: 60svh; display: grid; align-content: center; }
+.bedanktSectBevestiging .sectieKop { max-width: 64ch; }
 .sectieLabel { color: var(--sparkyLichtBlauw); font-family: var(--fontKop); font-weight: 700; margin-block: 0 10px; letter-spacing: .02em; }
 h1, h2, h3, h4, h5, h6 { font-family: var(--fontKop); font-weight: 700; line-height: 1.08; color: var(--sparkyDonkerBlauw); margin: 0; }
 h1 { font-size: clamp(2.6rem, 8vw, 6.4rem); max-width: 20ch; }
@@ -933,8 +935,8 @@ blockquote { margin: 0; }
 .googleReviewsSectie > .sectieKop { max-width: 960px; margin-inline: auto; text-align: center; }
 .googleReviewsSectie > .sectieKop :is(.sectieTitel, .sectieIntro) { margin-inline: auto; text-align: center; }
 .googleReviewsSectie > .sectieKop > .sectieIntro { max-width: 60ch; margin-block-start: clamp(28px, 3vw, 38px); }
-.googleReviewsSectie .googleReviewLijst { display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch; gap: 20px; margin-block-start: 32px; }
-.googleReviewLijst > li { flex: 1 1 calc((100% - 40px) / 3); min-width: min(100%, 18rem); max-width: 26rem; }
+.googleReviewsSectie .googleReviewLijst { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: stretch; gap: 20px; margin-block-start: 32px; }
+.googleReviewLijst > li { min-width: 0; max-width: none; height: 100%; }
 .googleReviewKaart { display: flex; min-width: 0; height: 100%; flex-direction: column; padding: 24px; overflow: visible; border-radius: var(--radiusMiddel); background: #0b3c5d; color: #fff; box-shadow: none; font-size: var(--basisTekst); font-weight: 400; text-align: left; }
 .googleReviewKop { display: flex; align-items: center; gap: 12px; }
 .googleReviewAvatar { display: grid; width: 2.75em; height: 2.75em; flex: 0 0 2.75em; place-items: center; overflow: hidden; border-radius: 50%; background: #fff1d6; color: #764900; font-size: 1em; font-weight: 700; }
@@ -943,8 +945,11 @@ blockquote { margin: 0; }
 .googleReviewKaart .googleReviewAuteur h3 { color: #fff; font-family: var(--fontTekst); font-size: 1em; font-weight: 700; line-height: 1.4; text-align: left; }
 .googleReviewAuteur .googleReviewWaardering { margin: 4px 0 0; text-align: left; }
 .googleReviewSterren { display: block; color: var(--sparkyOranje); font-family: Arial, sans-serif; font-size: 1.05em; line-height: 1.3; letter-spacing: .1em; }
-.googleReviewKaart blockquote { margin-block: 20px 16px; }
+.googleReviewKaart blockquote { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-block: 20px 16px; }
 .googleReviewKaart blockquote p { margin: 0; color: #fff; font-size: 1em; line-height: 1.7; text-align: left; }
+.googleReviewMeer { min-height: 44px; padding: 8px 0; border: 0; background: transparent; color: #fff; font: inherit; font-size: .9em; font-weight: 700; text-decoration: underline; text-underline-offset: .2em; cursor: pointer; }
+.googleReviewMeer:is(:hover, :focus-visible) { color: var(--sparkyOranje); }
+.googleReviewMeer:focus-visible { outline: 3px solid var(--sparkyOranje); outline-offset: 3px; }
 .googleReviewKaart .googleReviewVoet { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 12px; margin-block-start: auto; padding-block-start: 8px; border-block-start: 1px solid rgba(255, 255, 255, .22); color: #d5e4ee; font-size: .8em; }
 .googleReviewBron { display: inline-flex; min-height: 44px; align-items: center; gap: 6px; color: inherit; font-weight: 600; text-decoration: none; }
 .googleReviewBron:is(:hover, :focus-visible) { color: var(--sparkyOranje); text-decoration: underline; }
@@ -954,6 +959,13 @@ blockquote { margin: 0; }
 .googleReviewKaart blockquote p { white-space: pre-line; }
 .googleReviewStatus { margin: 24px auto 0; text-align: center; }
 .googleReviewSamenvatting { margin: 24px auto 0; font-weight: 600; text-align: center; }
+.googleReviewVolledig[hidden], .googleReviewVoorbeeld[hidden] { display: none; }
+body.tekstGroot .googleReviewsSectie .googleReviewLijst { grid-template-columns: repeat(4, minmax(18rem, 1fr)); justify-content: start; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: inline mandatory; padding-block-end: 16px; scrollbar-width: thin; }
+body.tekstGroot .googleReviewLijst > li { scroll-snap-align: start; }
+@media (max-width: 1100px) {
+  .googleReviewsSectie .googleReviewLijst { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: min(22rem, calc(100vw - 64px)); justify-content: start; max-width: 100%; overflow-x: auto; overscroll-behavior-inline: contain; scroll-padding-inline: 1px; scroll-snap-type: inline mandatory; padding-block-end: 16px; scrollbar-width: thin; }
+  .googleReviewLijst > li { scroll-snap-align: start; }
+}
 .overzichtBediening { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; margin-top: 24px; }
 .overzichtBediening[hidden] { display: none; }
 .overzichtKnop { min-height: 44px; padding: 9px 16px; border: 1px solid currentColor; border-radius: 8px; background: transparent; color: inherit; font: inherit; font-size: .9em; line-height: 1.4; cursor: pointer; }

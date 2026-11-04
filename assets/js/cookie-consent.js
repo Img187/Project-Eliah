@@ -6,15 +6,16 @@
   const CHOICE_FULL = 'volledig';
   const CHOICE_FUNCTIONAL = 'functioneel';
   const MEASUREMENT_ID = 'G-87KMB19788';
-  const GOOGLE_ANALYTICS_SCRIPT_ID = 'googleAnalyticsTag';
+  const TAG_MANAGER_ID = 'GTM-WLFHDLMC';
+  const GOOGLE_TAG_MANAGER_SCRIPT_ID = 'googleTagManagerTag';
 
   let currentChoice = readChoice();
   let consentLayer;
   let preferencesLink;
   let returnFocusElement;
   let lockedPageElements = [];
-  let analyticsLoadScheduled = false;
-  let analyticsConfigured = false;
+  let tagManagerLoadScheduled = false;
+  let tagManagerConfigured = false;
 
   function readChoice() {
     try {
@@ -51,42 +52,92 @@
     };
   }
 
-  function loadGoogleAnalytics() {
-    analyticsLoadScheduled = false;
-    if (currentChoice !== CHOICE_FULL || document.getElementById(GOOGLE_ANALYTICS_SCRIPT_ID)) return;
+  // Alleen deze loader mag de Google-tag laden; de GA4-configuratie staat in GTM.
+  function loadGoogleTagManager() {
+    tagManagerLoadScheduled = false;
+    if (currentChoice !== CHOICE_FULL || document.getElementById(GOOGLE_TAG_MANAGER_SCRIPT_ID)) return;
 
     ensureGtag();
-    if (!analyticsConfigured) {
+    if (!tagManagerConfigured) {
       window.gtag('js', new Date());
-      window.gtag('config', MEASUREMENT_ID);
-      analyticsConfigured = true;
+      window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
+      tagManagerConfigured = true;
     }
 
     const script = document.createElement('script');
-    script.id = GOOGLE_ANALYTICS_SCRIPT_ID;
+    script.id = GOOGLE_TAG_MANAGER_SCRIPT_ID;
     script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(MEASUREMENT_ID);
+    script.src = 'https://www.googletagmanager.com/gtm.js?id=' + encodeURIComponent(TAG_MANAGER_ID);
     document.head.appendChild(script);
   }
 
-  function scheduleGoogleAnalyticsLoad() {
-    if (analyticsLoadScheduled || document.getElementById(GOOGLE_ANALYTICS_SCRIPT_ID)) return;
-    analyticsLoadScheduled = true;
+  function scheduleGoogleTagManagerLoad() {
+    if (tagManagerLoadScheduled || document.getElementById(GOOGLE_TAG_MANAGER_SCRIPT_ID)) return;
+    tagManagerLoadScheduled = true;
 
     if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(loadGoogleAnalytics, { timeout: 1500 });
+      window.requestIdleCallback(loadGoogleTagManager, { timeout: 1500 });
       return;
     }
 
-    window.setTimeout(loadGoogleAnalytics, 0);
+    window.setTimeout(loadGoogleTagManager, 0);
   }
 
   function enableGoogleAnalytics() {
     window['ga-disable-' + MEASUREMENT_ID] = false;
     ensureGtag();
     window.gtag('consent', 'update', consentSettings(CHOICE_FULL));
-    scheduleGoogleAnalyticsLoad();
+    scheduleGoogleTagManagerLoad();
   }
+
+  // Houd alleen vaste technische kenmerken bij: geen formulierinhoud of linkbestemming.
+  function track(eventName, metadata = {}) {
+    if (currentChoice !== CHOICE_FULL) return false;
+    const event = { event: eventName, page_path: window.location.pathname };
+    const identifier = (value) => typeof value === 'string' && /^[a-zA-Z][a-zA-Z0-9_-]{0,119}$/.test(value) ? value : '';
+
+    if (eventName === 'contact_click') {
+      if (!['phone', 'whatsapp', 'email'].includes(metadata.contact_method)) return false;
+      event.contact_method = metadata.contact_method;
+      event.link_id = identifier(metadata.link_id);
+    } else if (eventName === 'generate_lead') {
+      event.form_id = identifier(metadata.form_id);
+      if (!event.form_id) return false;
+    } else if (['calculator_started', 'calculator_completed', 'calculator_contact_clicked', 'calculator_transferred'].includes(eventName)) {
+      if (!['thuisbatterij', 'zonnepanelen', 'laadpaal', 'elektrotechniek', 'onbekend'].includes(metadata.calculator_type)) return false;
+      event.calculator_type = metadata.calculator_type;
+    } else {
+      return false;
+    }
+
+    try {
+      window.dataLayer.push(event);
+      return true;
+    } catch (error) {
+      // Meten mag een geslaagde aanvraag of een contactactie nooit onderbreken.
+      return false;
+    }
+  }
+
+  ensureGtag();
+  window.gtag('consent', 'default', consentSettings(CHOICE_FUNCTIONAL));
+  // main.js kan een opgeslagen calculatoradvies al vóór DOMContentLoaded overnemen.
+  if (currentChoice === CHOICE_FULL) window.gtag('consent', 'update', consentSettings(CHOICE_FULL));
+  window.SparkyTracking = Object.freeze({ track });
+
+  document.addEventListener('click', (event) => {
+    const link = event.target instanceof Element && event.target.closest('a[href]');
+    if (!link) return;
+    let destination;
+    try { destination = new URL(link.href, window.location.href); }
+    catch (error) { return; }
+    let contactMethod;
+    if (destination.protocol === 'tel:') contactMethod = 'phone';
+    else if (destination.protocol === 'mailto:') contactMethod = 'email';
+    else if (['https:', 'http:'].includes(destination.protocol)
+      && (destination.hostname === 'wa.me' || destination.hostname === 'whatsapp.com' || destination.hostname.endsWith('.whatsapp.com'))) contactMethod = 'whatsapp';
+    if (contactMethod) track('contact_click', { contact_method: contactMethod, link_id: link.id });
+  });
 
   function deleteGoogleAnalyticsCookies() {
     const cookieNames = document.cookie

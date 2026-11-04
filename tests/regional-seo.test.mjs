@@ -1,17 +1,26 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile, stat } from 'node:fs/promises';
+import { readFile, readdir, stat } from 'node:fs/promises';
 import { join } from 'node:path';
 import { JSDOM } from 'jsdom';
-import { root, pages, redirectPages } from '../scripts/prepare-pages.mjs';
+import { root, pages, publicFiles, redirectPages } from '../scripts/prepare-pages.mjs';
 import { regionPages, regionPageFiles, regionGroups } from '../scripts/thuisbatterij-regios.mjs';
 import { renderRegionPage } from '../scripts/generate-thuisbatterij-regios.mjs';
 
 const origin = 'https://www.sparkyenergies.com';
 const regionFileSet = new Set(regionPageFiles);
+const retainedRegionSlugs = [
+  'zuid-holland',
+  'rotterdam',
+  'provincie-utrecht',
+  'overijssel',
+  'noord-brabant',
+  'zeeland',
+  'limburg',
+];
 
 function absoluteUrl(file) {
-  return file === 'index.html' ? `${origin}/` : `${origin}/${file}`;
+  return file === 'homepage.html' ? `${origin}/homepage` : `${origin}/${file}`;
 }
 
 function linkedFile(link) {
@@ -133,15 +142,20 @@ function verifyAndNormalizeSectionCopy(page, document, normalizedMain, baseMain,
   }
 }
 
-test('regioconfiguratie bevat zes provinciegroepen en dertig unieke pagina\'s', () => {
+test('regioconfiguratie bevat zes provincies en alleen Rotterdam als stad', () => {
   assert.equal(regionGroups.length, 6);
-  assert.equal(regionPages.length, 30);
-  assert.equal(regionPageFiles.length, 30);
-  assert.equal(regionFileSet.size, 30, 'Iedere regiopagina moet een unieke bestandsnaam hebben.');
+  assert.equal(regionPages.length, 7);
+  assert.equal(regionPageFiles.length, 7);
+  assert.equal(regionFileSet.size, 7, 'Iedere regiopagina moet een unieke bestandsnaam hebben.');
+  assert.deepEqual(regionPages.map(({ slug }) => slug), retainedRegionSlugs);
 
   for (const group of regionGroups) {
     assert.equal(group.province.kind, 'province', `${group.province.name} moet als provincie zijn gemarkeerd.`);
-    assert.equal(group.cities.length, 4, `${group.province.name} moet exact vier steden bevatten.`);
+    assert.deepEqual(
+      group.cities.map(({ slug }) => slug),
+      group.province.slug === 'zuid-holland' ? ['rotterdam'] : [],
+      `${group.province.name} mag alleen Rotterdam als stad behouden.`,
+    );
     assert.ok(group.cities.every((city) => city.kind === 'city'), `${group.province.name} bevat een onjuist paginatype.`);
     assert.ok(group.cities.every((city) => city.provinceSlug === group.province.slug), `${group.province.name} bevat een stad met een onjuiste provincie.`);
   }
@@ -165,6 +179,41 @@ test('regioconfiguratie bevat zes provinciegroepen en dertig unieke pagina\'s', 
     for (const name of locationNames) copyWithoutLocations = copyWithoutLocations.replaceAll(name.toLocaleLowerCase('nl-NL'), '[plaats]');
     assert.ok(!uniqueProvinceCopy.has(copyWithoutLocations), `${page.name} mag geen naamverwisseling van een andere provinciepagina zijn.`);
     uniqueProvinceCopy.add(copyWithoutLocations);
+  }
+});
+
+test('regionale HTML, publicatielijst en sitemap behouden uitsluitend zes provincies en Rotterdam', async () => {
+  const prefixes = [
+    'thuisbatterij-installeren-in-',
+    'meterkast-vervangen-in-',
+    'laadpaal-thuis-laten-installeren-in-',
+    'zakelijke-laadpaal-plaatsen-in-',
+  ];
+  const expectedFiles = prefixes.flatMap((prefix) =>
+    retainedRegionSlugs.map((slug) => `${prefix}${slug}.html`),
+  ).sort();
+  const isRegionalFile = (file) => file.endsWith('.html') && prefixes.some((prefix) => file.startsWith(prefix));
+  const [rootEntries, files, sitemap] = await Promise.all([
+    readdir(root, { withFileTypes: true }),
+    publicFiles(),
+    readFile(join(root, 'sitemap.xml'), 'utf8'),
+  ]);
+  assert.deepEqual(
+    rootEntries.filter((entry) => entry.isFile()).map(({ name }) => name).filter(isRegionalFile).sort(),
+    expectedFiles,
+    'De repository mag geen verwijderde stadspagina’s bevatten of bewaarde regiopagina’s missen.',
+  );
+  assert.deepEqual(files.filter(isRegionalFile).sort(), expectedFiles, 'De publicatielijst bevat een onjuiste regiopagina.');
+
+  const dom = new JSDOM(sitemap, { contentType: 'application/xml' });
+  try {
+    const locations = [...dom.window.document.getElementsByTagName('loc')]
+      .map((node) => node.textContent.trim())
+      .filter((location) => isRegionalFile(decodeURIComponent(new URL(location).pathname.slice(1))))
+      .sort();
+    assert.deepEqual(locations, expectedFiles.map(absoluteUrl).sort(), 'De sitemap bevat een onjuiste of dubbele regiopagina.');
+  } finally {
+    dom.window.close();
   }
 });
 

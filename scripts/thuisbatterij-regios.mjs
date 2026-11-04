@@ -82,8 +82,11 @@ async function loadProvinceGroups() {
       slug: requireText(data?.province?.slug, 'province.slug', source),
     };
     const province = normalizePage(data.province, provinceBase, source, 'province');
-    if (!Array.isArray(data.cities) || data.cities.length !== 4) throw new Error(`${source}: iedere provincie moet exact vier steden bevatten.`);
+    if (!Array.isArray(data.cities)) throw new Error(`${source}: cities moet een array zijn.`);
     const cities = data.cities.map((city, index) => normalizePage(city, provinceBase, `${source} cities[${index}]`, 'city'));
+    if (cities.some((city) => city.slug !== 'rotterdam' || province.slug !== 'zuid-holland')) {
+      throw new Error(`${source}: alleen Rotterdam wordt als stadspagina behouden.`);
+    }
     groups.push({ province, cities });
   }
 

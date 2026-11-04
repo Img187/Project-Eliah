@@ -8,7 +8,7 @@ const regionalLastModified = '2026-09-25';
 const laadpaalRegionalLastModified = '2026-09-26';
 const regionalRenameLastModified = '2026-09-27';
 const basePageLastModified = {
-  'index.html': '2026-07-16',
+  'homepage.html': '2026-10-01',
   'thuisbatterij-laten-installeren.html': '2026-09-25',
   'thuisbatterij-kopen.html': '2026-09-25',
   'thuisbatterij-kosten.html': '2026-09-25',
@@ -30,7 +30,7 @@ function regionalRecord(prefix, page, lastModified = regionalLastModified) {
 export function renderSitemap() {
   const records = [
     ...basePages.map((file) => ({
-      location: file === 'index.html' ? `${origin}/` : `${origin}/${file}`,
+      location: file === 'homepage.html' ? `${origin}/homepage` : `${origin}/${file}`,
       lastModified: basePageLastModified[file],
     })),
     ...thuisbatterijRegionPages.map((page) => regionalRecord('thuisbatterij-installeren-in-', page, regionalRenameLastModified)),

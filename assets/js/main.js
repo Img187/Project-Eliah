@@ -50,6 +50,7 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
     let hoverLink = null;
 
     function normalizedPagePath(pathname) {
+      if (pathname === '/homepage') return '/homepage.html';
       return pathname.endsWith('/') ? pathname + 'index.html' : pathname;
     }
 
@@ -1125,7 +1126,11 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
     renderFiles();
   }
 
-  // Verstuur alle acht aanvragen via hetzelfde Formspree-formulier zonder de bezoeker weg te sturen.
+  function redirectToThankYouPage() {
+    window.location.assign('/bedankt');
+  }
+
+  // Stuur de bezoeker pas na een door Formspree bevestigde aanvraag naar de bedankpagina.
   document.querySelectorAll('form[data-formspree-form]').forEach((form) => {
     let submitting = false;
     const requiredCheckboxGroups = form.querySelectorAll('[data-required-checkbox-group]');
@@ -1159,6 +1164,7 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
 
       const note = form.querySelector('.formulierNotitie');
       const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
+      let submittedSuccessfully = false;
 
       requiredCheckboxGroups.forEach(validateCheckboxGroup);
       fileUploads.forEach(validateFormspreeUpload);
@@ -1206,6 +1212,14 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
           throw new Error(formspreeMessage || 'De aanvraag kon niet worden verstuurd.');
         }
 
+        try {
+          window.sessionStorage.setItem('sparkyGeslaagdeAanvraag', JSON.stringify({
+            formId: form.id,
+            createdAt: Date.now()
+          }));
+        } catch (error) {
+          // De bedankpagina blijft bereikbaar als sessieopslag niet beschikbaar is.
+        }
         form.reset();
         fileUploads.forEach(validateFormspreeUpload);
         if (form.id === 'contactSectLatenWeBeginnenFormulier') {
@@ -1220,32 +1234,33 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
           note.dataset.status = 'success';
           note.textContent = 'Bedankt voor uw inzending! We nemen zo spoedig mogelijk contact met u op.';
         }
+        submittedSuccessfully = true;
       } catch (error) {
         if (note) {
           note.dataset.status = 'error';
           note.textContent = `${error.message || 'Er ging iets mis bij het versturen.'} Probeer het opnieuw of mail naar info@sparkyenergies.com.`;
         }
       } finally {
-        submitting = false;
-        form.querySelectorAll('[data-formspree-upload], .adviesBestandVerwijder').forEach((control) => { control.disabled = false; });
-        if (submitButton) {
-          submitButton.disabled = false;
-          submitButton.removeAttribute('aria-busy');
-          submitButton.textContent = submitButton.dataset.originalText || 'Versturen';
-          delete submitButton.dataset.originalText;
+        if (!submittedSuccessfully) {
+          submitting = false;
+          form.querySelectorAll('[data-formspree-upload], .adviesBestandVerwijder').forEach((control) => { control.disabled = false; });
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.removeAttribute('aria-busy');
+            submitButton.textContent = submitButton.dataset.originalText || 'Versturen';
+            delete submitButton.dataset.originalText;
+          }
         }
       }
+      if (submittedSuccessfully) redirectToThankYouPage();
     });
   });
 
   const calculatorStorageKey = 'sparkyCalculatorAanvraag';
 
   function trackCalculatorEvent(eventName, calculatorType) {
-    if (typeof window.gtag !== 'function') return;
-    window.gtag('event', eventName, {
-      calculator_type: calculatorType,
-      event_category: 'adviescalculator'
-    });
+    if (!window.SparkyTracking) return;
+    window.SparkyTracking.track(eventName, { calculator_type: calculatorType });
   }
 
   function calculatorGroupsAreValid(form) {
