@@ -134,7 +134,7 @@ test('alle pagina’s bevatten actuele CSP vóór resources, zonder uitvoerbare 
   }
 });
 
-test('CSP laat de vaste Tag Assistant-previewbronnen toe en blijft uitvoerbare inline scripts blokkeren', () => {
+test('CSP laat de vaste Google-meet- en previewbronnen toe zonder extra scriptrechten', () => {
   const html = secureHtml('<head><meta charset="utf-8" /><script type="application/ld+json">{"@type":"WebPage"}</script></head>');
   const dom = new JSDOM(html);
   try {
@@ -151,6 +151,17 @@ test('CSP laat de vaste Tag Assistant-previewbronnen toe en blijft uitvoerbare i
     };
     for (const [directive, resources] of Object.entries(previewResources)) {
       for (const resource of resources) assert.ok(directives.get(directive).includes(resource), `${directive} blokkeert ${resource}`);
+    }
+    // Waargenomen meetroutes plus de generieke Google-origin en terugval op afbeeldingen.
+    // Er worden alleen origins gecontroleerd, zonder meetverzoeken.
+    for (const [directive, request] of [
+      ['img-src', 'https://www.google.nl/ads/ga-audiences'],
+      ['img-src', 'https://www.google.com/ads/ga-audiences'],
+      ['connect-src', 'https://stats.g.doubleclick.net/g/collect'],
+      ['img-src', 'https://stats.g.doubleclick.net/g/collect'],
+      ['connect-src', 'https://www.google.nl/ads/ga-audiences'],
+    ]) {
+      assert.ok(directives.get(directive).includes(new URL(request).origin), `${directive} blokkeert ${request}`);
     }
     const scripts = directives.get('script-src');
     assert.ok(scripts.some(source => /^'sha256-[A-Za-z0-9+/]+=*'$/.test(source)), 'De JSON-LD-hash moet behouden blijven.');
