@@ -201,34 +201,37 @@
   <div class="adviesCalculatorKaart">
     <header class="sectieKop adviesCalculatorKop">
       <h2 id="zonnepanelenCalculatorH2" class="sectieTitel">Hoeveel zonnepanelen passen bij uw situatie?</h2>
-      <p class="sectieIntro">Bereken voor een woning, bedrijf of groot dak een eerste indicatie van het aantal panelen, het systeemvermogen en de mogelijke jaaropbrengst.</p>
+      <p class="sectieIntro">Bereken een eerste indicatie van de aanvullende zonnepanelen voor uw afname uit het net. Dakmaat, schaduw en de precieze oriëntatie worden daarna gecontroleerd.</p>
     </header>
     <div class="adviesCalculatorGrid">
       <form class="adviesCalculatorFormulier" data-calculation-form="sparky-advies" data-calculator-type="zonnepanelen">
         <div class="adviesCalculatorVelden">
-          <div class="contactFormulierVeld"><label for="zonnepanelenJaarverbruik">Huidig totaal stroomverbruik per jaar</label><div class="adviesCalculatorEenheid"><input id="zonnepanelenJaarverbruik" name="jaarverbruikKwh" type="number" min="1" step="1" inputmode="numeric" placeholder="Bijvoorbeeld 4500" required /><span>kWh</span></div></div>
-          <div class="contactFormulierVeld"><label for="zonnepanelenExtraVerbruik">Alleen nieuwe extra jaarvraag <span class="contactKeuzeUitleg">(optioneel)</span></label><div class="adviesCalculatorEenheid"><input id="zonnepanelenExtraVerbruik" name="extraJaarverbruikKwh" type="number" min="0" step="any" inputmode="numeric" placeholder="Bijvoorbeeld 25000" /><span>kWh/jaar</span></div></div>
-          <div class="contactFormulierVeld"><label for="zonnepanelenBestaand">Bestaande zonnepanelen</label><input id="zonnepanelenBestaand" name="bestaandePanelen" type="number" min="0" step="1" inputmode="numeric" value="0" required /></div>
+          <div class="contactFormulierVeld"><label for="zonnepanelenJaarverbruik">Jaarlijkse afname uit het net</label><div class="adviesCalculatorEenheid"><input id="zonnepanelenJaarverbruik" name="jaarverbruikKwh" type="number" min="0" step="any" inputmode="decimal" placeholder="Bijvoorbeeld 4500" required /><span>kWh</span></div></div>
           <div class="contactFormulierVeld"><label for="zonnepanelenLocatie">Type locatie</label><select id="zonnepanelenLocatie" name="typeLocatie" required><option value="">Kies een optie</option><option value="woning">Woning</option><option value="bedrijf">Bedrijf</option><option value="industrie">Industrie</option><option value="datacenter">Datacenter</option></select></div>
           <div class="contactFormulierVeld"><label for="zonnepanelenDaktype">Daktype</label><select id="zonnepanelenDaktype" name="daktype" required><option value="">Kies een optie</option><option value="schuin">Schuin dak</option><option value="plat">Plat dak</option><option value="combinatie">Combinatie</option></select></div>
-          <div class="contactFormulierVeld"><label for="zonnepanelenDakrichting">Belangrijkste dakrichting</label><select id="zonnepanelenDakrichting" name="dakrichting" required><option value="">Kies een optie</option><option value="zuid">Zuid</option><option value="oost-west">Oost en/of west</option><option value="plat">Plat, vrije oriëntatie</option><option value="noord">Noord</option><option value="onbekend">Weet ik niet</option></select></div>
-          <div class="contactFormulierVeld"><label for="zonnepanelenDakoppervlakte">Totale bruikbare dakoppervlakte</label><select id="zonnepanelenDakoppervlakte" name="dakoppervlakteM2" data-roof-area-select required><option value="">Kies een optie</option><option value="5">5 m²</option><option value="onbekend">Weet ik niet</option><option value="meer-dan-1000">Meer dan 1.000 m²</option></select></div>
-          <div class="contactFormulierVeld" data-roof-area-custom hidden><label for="zonnepanelenDakoppervlakteExtra">Dakoppervlakte boven 1.000 m²</label><div class="adviesCalculatorEenheid"><input id="zonnepanelenDakoppervlakteExtra" name="dakoppervlakteExtraM2" type="number" min="1005" step="5" inputmode="numeric" placeholder="Bijvoorbeeld 5000" disabled /><span>m²</span></div></div>
+          <div class="contactFormulierVeld"><label for="zonnepanelenDakrichting">Huidige dakrichting</label><select id="zonnepanelenDakrichting" name="dakrichting" required><option value="">Kies een optie</option><option value="oost-west">Oost/West</option><option value="zuid-noord">Zuid/Noord</option></select></div>
+          <div class="contactFormulierVeld"><label for="zonnepanelenAansluiting">Netaansluiting</label><select id="zonnepanelenAansluiting" name="netaansluiting" required><option value="">Kies een optie</option><option value="1-fase">1-fase</option><option value="3-fase">3-fase</option><option value="onbekend">Weet ik niet</option></select></div>
         </div>
-        <p class="adviesCalculatorToelichting">Totaal verbruik is netafname plus direct gebruikte zonnestroom. Voeg een geplande auto of warmtepomp alleen toe als dat verbruik nog niet in het totaal zit. Dakruimte is inclusief de bestaande panelen.</p>
+        <p class="adviesCalculatorToelichting">Gebruik de afname uit het net op uw jaaroverzicht, vóór salderen. Het verbruik van uw bestaande auto, warmtepomp of kookplaat zit daar al in. Vink uw situatie aan voor het adviesgesprek; toekomstige veranderingen bespreekt Sparky met u. Er wordt geen vaste verbruikstoeslag toegevoegd.</p>
+        <p class="adviesCalculatorToelichting">Heeft u al zonnepanelen? Dan is uw netafname de resterende stroomvraag na direct gebruikte zonnestroom. De indicatie betreft dan aanvullende opwek; het totale huidige stroomverbruik wordt hiermee niet vastgesteld.</p>
         <fieldset class="adviesCalculatorKeuzes">
-          <legend>Verwacht extra stroomverbruik</legend>
-          <label class="adviesCalculatorKeuze"><input name="elektrischeAuto" type="checkbox" value="ja" /><span>Elektrische auto</span></label>
-          <label class="adviesCalculatorKeuze"><input name="warmtepomp" type="checkbox" value="ja" /><span>Warmtepomp</span></label>
+          <legend>Wat speelt nu of binnenkort?</legend>
+          <label class="adviesCalculatorKeuze"><input name="elektrischeAuto" type="checkbox" value="ja" data-calculator-context /><span>Elektrische auto / laadpaal</span></label>
+          <label class="adviesCalculatorKeuze"><input name="warmtepomp" type="checkbox" value="ja" data-calculator-context /><span>Warmtepomp</span></label>
+          <label class="adviesCalculatorKeuze"><input name="inductie" type="checkbox" value="ja" data-calculator-context /><span>Inductiekookplaat</span></label>
         </fieldset>
+        <aside class="adviesFotoVoorbereiding">
+          <strong>Foto’s helpen bij de beoordeling</strong>
+          <p>Voeg bij uw aanvraag via het contactformulier duidelijke foto’s toe van de groepenkast met gesloten deksel en het dak vanaf een veilige plek op de grond. Open de groepenkast niet voor een foto.</p>
+        </aside>
         <button class="siteBtn siteBtnPrimary" type="submit">Bereken mijn opwekindicatie</button>
-        <p class="adviesCalculatorPrivacy">De werkelijke opbrengst hangt ook af van schaduw, hellingshoek, beschikbare dakmaat en lokale omstandigheden. Daarom volgt altijd een dakcontrole.</p>
+        <p class="adviesCalculatorPrivacy">De werkelijke opbrengst en het passende aantal panelen hangen af van schaduw, hellingshoek, beschikbare dakmaat en lokale omstandigheden. Daarom volgt altijd een dakcontrole.</p>
         <p class="adviesCalculatorPrivacy">Een indicatie voor uw gesprek met de installateur. Ontwerp en verificatie vragen <a href="https://www.nen.nl/elektrotechniek/installatievoorschriften/nen-1010-laagspanningsinstallaties" target="_blank" rel="noopener">NEN 1010</a>; veilige bedrijfsvoering vraagt <a href="https://www.nen.nl/elektrotechniek/werkvoorschriften/laagspanninginstallaties" target="_blank" rel="noopener">NEN 3140</a>. Deze calculator geeft geen keuringsverklaring.</p>
         <p class="adviesCalculatorPrivacy">Een locatieberekening kan worden gemaakt met de <a href="https://re.jrc.ec.europa.eu/pvg_tools/en/" target="_blank" rel="noopener">Europese PVGIS-calculator</a>.</p>
       </form>
       <output class="adviesCalculatorResultaat" data-calculation-output aria-live="polite">
         <h3 data-result-title>Vul uw gegevens in</h3>
-        <p data-result-summary>Daarna ziet u hoeveel panelen ongeveer passen bij uw huidige en toekomstige stroomvraag.</p>
+        <p data-result-summary>Daarna ziet u een opwekindicatie op basis van uw netafname en dakrichting.</p>
         <ul data-result-details role="list"><li>Indicatief aantal panelen</li><li>Geschat systeemvermogen</li><li>Mogelijke jaaropbrengst</li></ul>
         <a class="siteBtn siteBtnPrimary adviesCalculatorContact" data-calculation-contact href="contact.html?onderwerp=zonnepanelen&amp;calculator=zonnepanelen#contactRouteKeuze" hidden>Neem deze indicatie mee</a>
       </output>

@@ -226,14 +226,14 @@ test('na succes wordt overgenomen calculatoradvies opgeruimd vóór de bedankpag
   const h = harness(t, {
     html: contactHtml, runMain: true, fetchImpl: async () => new Response('{"ok":true}', { status: 200 }),
     url: 'https://www.sparkyenergies.com/contact.html?calculator=laadpaal&onderwerp=laadpaal',
-    advice: { version: 2, savedAt: Date.now(), type: 'laadpaal', topic: 'laadpaal', title: 'Synthetisch advies', summary: 'Niet meten', details: ['Niet meten'], fields: [['Naam', 'Niet meten']] }
+    advice: { version: 3, savedAt: Date.now(), type: 'laadpaal', topic: 'laadpaal', title: 'Synthetisch advies', summary: 'Niet meten', details: ['Niet meten'], fields: [['Naam', 'Niet meten']], contextFields: [['Warmtepomp', 'Ja']] }
   });
   const form = h.window.document.getElementById('contactSectLatenWeBeginnenFormulier');
   assert.ok(form.querySelector('input[name="calculator_samenvatting"]'));
   form.checkValidity = () => true;
   form.dispatchEvent(new h.window.Event('submit', { cancelable: true }));
   await settle();
-  assert.equal(form.querySelector('input[name="calculator_samenvatting"], .calculatorOverdrachtMelding'), null);
+  assert.equal(form.querySelector('input[name="calculator_samenvatting"], input[name="calculator_situatie"], .calculatorOverdrachtMelding'), null);
   assert.equal(h.window.sessionStorage.getItem('sparkyCalculatorAanvraag'), null);
   assert.deepEqual(h.navigations, ['/bedankt']);
 });
@@ -332,9 +332,7 @@ test('bedankmeting werkt alleen op de bedankroutes en blijft veilig bij geblokke
 test('calculatorgebruik blijft via GTM gemeten zonder invoer en stopt na intrekken', t => {
   const h = harness(t, { html: calculatorHtml, choice: 'volledig', runMain: true, url: 'https://www.sparkyenergies.com/laadpalen.html' });
   const form = h.window.document.querySelector('form[data-calculator-type="laadpaal"]');
-  form.elements.namedItem('gebruikslocatie').value = 'woning';
   form.elements.namedItem('netaansluiting').value = '3-fase';
-  form.elements.namedItem('kilometersPerDag').value = '55';
   form.elements.namedItem('afstandMeterkastMeter').value = '8';
   form.elements.namedItem('zonnepanelenAanwezig').value = 'nee';
   const input = form.querySelector('input');
@@ -358,7 +356,7 @@ test('overgenomen calculatoradvies stuurt alleen het calculatortype naar GTM', t
   const h = harness(t, {
     html: contactHtml, choice: 'volledig', runMain: true,
     url: 'https://www.sparkyenergies.com/contact.html?calculator=laadpaal&onderwerp=laadpaal',
-    advice: { version: 2, savedAt: Date.now(), type: 'laadpaal', topic: 'laadpaal', title: 'Synthetisch advies', summary: 'Niet meten', details: ['Niet meten'], fields: [['Naam', 'Niet meten']] }
+    advice: { version: 3, savedAt: Date.now(), type: 'laadpaal', topic: 'laadpaal', title: 'Synthetisch advies', summary: 'Niet meten', details: ['Niet meten'], fields: [['Naam', 'Niet meten']], contextFields: [['Warmtepomp', 'Ja']] }
   });
   assert.deepEqual(h.events('calculator_transferred'), [{ event: 'calculator_transferred', page_path: '/contact.html', calculator_type: 'laadpaal' }]);
   const transferIndex = h.window.dataLayer.findIndex(entry => entry.event === 'calculator_transferred');

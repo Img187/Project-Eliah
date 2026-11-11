@@ -1,39 +1,47 @@
 # Bronnen en grenzen van de calculators
 
-Geraadpleegd op **8 september 2026**. De calculators geven een indicatie voor een eerste gesprek. De formules, aannames en vergelijking met het aangeleverde rekenblad staan in `calculator-rekenmodel.md`.
+Geraadpleegd op **11 november 2026**. Het actieve [rekenmodel](calculator-rekenmodel.md) beschrijft alle invoer, formules en aannames. Openbare broninformatie ondersteunt de uitleg; er is geen volledige normtoets uitgevoerd.
 
-## Installatienormen
+## Installatie en veilige bedrijfsvoering
 
-- **NEN 1010:2020+C1:2024** behandelt ontwerp, aanleg, uitbreiding en verificatie van laagspanningsinstallaties. De Nederlandse norm bouwt voort op de Europese HD 60364- en internationale IEC 60364-reeksen. **NEN 1010-8:2026** behandelt aanvullende functionele aspecten, waaronder lokale productie en opslag. Zie [NEN-overzicht](https://www.nen.nl/en/elektrotechniek/installatievoorschriften/nen-1010-laagspanningsinstallaties) en [NEN 1010-8:2026](https://www.nen.nl/nen-1010-8-2026-nl-338683).
-- **NEN 3140:2011+A3:2019** betreft veilige bedrijfsvoering, inspectie en onderhoud. **NEN 3140:2026 Ontw.** is op de raadpleegdatum een ontwerp, geen definitieve nieuwe editie. Zie [NEN 3140](https://www.nen.nl/elektrotechniek/werkvoorschriften/laagspanninginstallaties) en [ontwerp 2026](https://www.nen.nl/nen-3140-2026-ontw-nl-349693).
+- [NEN 1010:2020+C1:2024](https://www.nen.nl/nen-1010-2020-c1-2024-nl-325089) beschrijft ontwerp, aanleg, uitbreiding en verificatie van laagspanningsinstallaties.
+- [NEN 1010-8:2026](https://www.nen.nl/nen-1010-8-2026-nl-338683) voegt functionele aspecten toe, onder meer lokale opwek en opslag.
+- [NEN 3140:2011+A3:2019](https://www.nen.nl/nen-3140-2011-a3-2019-nl-261555) betreft veilige bedrijfsvoering, inspectie en onderhoud. De [uitgave 2026 Ontw.](https://www.nen.nl/nen-3140-2026-ontw-nl-349693) staat op de raadpleegdatum als ontwerp vermeld; die wordt hier niet als definitief vervangende norm behandeld.
 
-Deze verantwoording gebruikt openbare omschrijvingen en toelichtingen. Er is geen volledige normtekst overgenomen of integrale normtoets uitgevoerd. Een capaciteit-, energie- of vermogensberekening is geen conformiteitsverklaring. De toepasselijke normeditie en de installatie moeten bij ontwerp en opname worden vastgesteld; onder meer bekabeling, beveiligingen, aarding, faseverdeling en verificatiemetingen vallen buiten deze online indicatie.
+Een energie-inschatting met jaarwaarden bewijst geen veilige installatie. De installateur bepaalt de toepasselijke editie en controleert onder meer kabels, beveiliging, aarding, fasebelasting en metingen. De calculator specificeert geen kabeldoorsnede, beveiligingswaarde of inspectieverklaring.
 
-## Vermogen en AC-laden
+## Aansluiting
 
-Bij nominale **230 V tussen fase en nul**, met arbeidsfactor ongeveer 1, volgt uit de elektrische vermogensrelatie:
+[Liander: soorten aansluitingen](https://www.liander.nl/aansluitingen/soorten-aansluitingen) onderscheidt meerdere stroomsterkten en aansluittypen. Alleen 1-fase/3-fase zegt daarom niet hoeveel vermogen werkelijk beschikbaar is. Zonder stroomsterkte en gelijktijdige belasting geven laadpaal- en groepenkastcalculator geen numerieke capaciteitsbeoordeling.
 
-```text
-1 fase: P (kW) ≈ 230 × I (A) / 1000
-3 fasen, gelijkmatig belast: P (kW) ≈ 3 × 230 × I (A) / 1000
-```
+De elementaire relatie bij 230 V en arbeidsfactor 1 is eenfasig P ≈ 230 × I en driefasig gelijkmatig belast P ≈ 3 × 230 × I. Dit is geen NEN-goedkeuring en wordt zonder bekende I niet als klantresultaat ingevuld.
 
-Dit is een rekenkundige benadering, geen normformule die een geschikte installatie bewijst. [Liander](https://www.liander.nl/aansluitingen/soorten-aansluitingen) publiceert overeenkomstige afgeronde aansluitvermogens. Een 3×25 A-aansluiting heeft circa 17,25 kW totaal; een eenfasige lader kan daarvan slechts de ruimte op zijn eigen 25 A-fase gebruiken. Andere gelijktijdige belasting vermindert die ruimte. Load balancing maakt geen extra vermogen beschikbaar.
+## Jaarafname en apparaten
 
-Volgens [Alfen](https://aceservice.alfen.com/en-us/knowledgebase/article/KA-01197) is **6 A per actieve fase** een gebruikelijke ondergrens voor AC-laden: ongeveer 1,4 kW eenfasig of 4,2 kW driefasig. Sommige voertuigen hebben een hogere ondergrens. Fasewisseling hangt af van voertuig, laadpunt en configuratie. Deze AC-grens is geen algemene minimumgrens voor DC-laden of ontladen.
+[Milieu Centraal: gemiddeld energieverbruik](https://www.milieucentraal.nl/energie-besparen/inzicht-in-je-energierekening/gemiddeld-energieverbruik/) noemt 2.430 kWh als huishoudelijk gemiddelde binnen een afgebakende woningpopulatie; volledig elektrisch verwarmde woningen zijn daarin niet meegenomen. Dat gemiddelde wordt niet als ontbrekende klantinvoer gebruikt, ook niet voor bedrijven.
+
+[Milieu Centraal: eigen zonnestroom gebruiken](https://www.milieucentraal.nl/energie-besparen/zonnepanelen/verbruik-zelf-meer-zonnestroom/) noemt circa 30% direct huishoudelijk zelfverbruik zonder actieve sturing. Dat is geen vast percentage voor een specifieke klant. De calculator reconstrueert daarom geen totale vraag of PV-opwek uit alleen netafname.
+
+Bestaande apparaatverbruiken zitten in de gemeten afname voor zover ze al gebruikt zijn. Selecties melden de situatie aan Sparky. Toekomstige wijzigingen vereisen onderbouwde aanvullende gegevens; vaste kWh-toeslagen voor een warmtepomp, auto of kookplaat zijn niet toegepast.
+
+## Batterijscenario
+
+De [Consumentenbond, Consumentengids mei 2025, pagina 19](https://www.consumentenbond.nl/binaries/content/assets/cbhippowebsite/gidsen/consumentengids/2025/nummer-5---mei/202505p16-thuisbatterij-p.pdf) beschrijft onder meer een grove capaciteitsvuistregel van 60–80% van dagelijks stroomverbruik. De website gebruikt deze fracties als scenario voor de bekende gemiddelde netafname, begrensd door teruglevering na opslagverlies. Deze toepassing is een eigen rekenaanname, geen gemeten avondprofiel of NEN-bepaling. Voor bedrijfspanden kan de vuistregel sterk afwijken.
+
+90% round-trip, 90% ontlaaddiepte en 15% capaciteitsmarge zijn behouden scenarioaannames uit het eerdere model. Het laad- en ontlaadrendement worden ieder als de wortel van round-trip benaderd. Productrendement, standbyverbruik, degradatie en werkelijk dag-/seizoensprofiel moeten apart worden onderzocht. Er is geen financieel rendement berekend.
+
+## Zonneopbrengst
+
+[RVO: Tool zonnestroom voor maatschappelijk vastgoed, pagina 6](https://www.rvo.nl/sites/default/files/2022/01/Tool-zonnestroom-voor-maatschappelijk-vastgoed.pdf) geeft als voorbeeld ongeveer 340 kWh per jaar voor 375 Wp op het zuiden zonder schaduw, circa 907 kWh/kWp. De website rondt dit af naar **900 kWh/kWp** als referentiescenario; het is geen locatiespecifiek advies of actueel productgegeven. **435 Wp** is een voorbeeldpaneel uit het bestaande model.
+
+[Milieu Centraal: richting en helling van het dak](https://www.milieucentraal.nl/energie-besparen/zonnepanelen/zonnepanelen-hoe-geschikt-is-je-dak/) geeft bij 15–45° helling voor oost/west 75–85% van de optimale opbrengst en voor zuid/noord gezamenlijk een bereik van 45–100%. De website gebruikt deze bereiken zonder een fictieve verdeling van panelen over de dakvlakken. Op een plat dak kan de feitelijke paneelrichting afwijken van de gebouwrichting. Schaduw en andere hellingen kunnen buiten deze voorbeelden vallen.
+
+[EU-JRC PVGIS](https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis_en) kan de opbrengst op basis van locatie en systeemconfiguratie nader bepalen. De calculator heeft geen dakmaat of locatie en bewijst daarom geen passend legplan of haalbare volledige dekking van de stroomvraag.
 
 ## Bidirectioneel laden
 
-- [ISO 15118-20:2022](https://www.iso.org/standard/77845.html), met **Amd 1:2026**, beschrijft communicatie tussen voertuig en laadpunt, inclusief bidirectionele energieoverdracht. Een protocolvermelding alleen bewijst geen werkende productcombinatie.
-- [IEC 61851-23:2023](https://webstore.iec.ch/en/publication/32973) betreft DC-laadapparatuur; de openbare scope begrenst de uitgewerkte bidirectionele eisen tot systeem A. [IEC 61851-24:2023](https://webstore.iec.ch/en/publication/32582) betreft digitale communicatie voor DC-energieoverdracht. Dit zijn internationale edities; de toepasselijke Europese/Nederlandse productnormen moeten bij de gekozen apparatuur worden gecontroleerd.
-- [NEN-EN 50549-1:2019/A1:2023](https://www.nen.nl/nen-en-50549-1-2019-a1-2023-en-317053) betreft parallel op het laagspanningsdistributienet aangesloten opwek. [Netbeheer Nederland](https://www.netbeheernederland.nl/requirements-generators) beschrijft technische eisen, verificatie en aanmelding van opwek en opslag.
+De V2H/V2G-keuze is uitsluitend een gewenste functie. Auto, laadpunt, energiesturing en netkoppeling moeten samen worden gecontroleerd. [Netbeheer Nederland: technische eisen opwek](https://www.netbeheernederland.nl/requirements-generators) beschrijft eisen, verificatie en aanmelding voor netgekoppelde opwek en opslag. De calculator verzint geen autoaccu, ontlaadvermogen, rijreserve of beschikbare exportlimiet. V2H op een aanwezig net bewijst geen noodstroomfunctie.
 
-De [Nationale Routekaart Bidirectioneel Laden, juni 2026](https://open.overheid.nl/overheid/openbaarmakingen/api/v0/attachment/7e8c20da-49de-4438-9702-3714ba3e7729), pagina 11, beschrijft voor 2026 maatwerk met vaste voertuig-laadpaalcombinaties en registratie per locatie bij de netbeheerder. Compatibiliteit met energiemanagement, zonnepanelen en thuisbatterijen is niet vanzelfsprekend. V2L voor losse apparaten bewijst geen V2H/V2G-ondersteuning. Aanmelding en toepasselijke teruglevervoorwaarden moeten voor de concrete combinatie worden bevestigd.
+## Foto's
 
-V2H bij aanwezig net garandeert geen noodstroom bij netuitval. Daarvoor zijn een geschikte systeemfunctie en aanvullende installatievoorzieningen nodig. [Wallbox](https://support.wallbox.com/wp-content/uploads/ht_kb/2025/02/V2_FA_QX2NA_User-Guide-NA.pdf) onderscheidt bijvoorbeeld een V2H-kit en een backupkit met extra hardware; dit is een productvoorbeeld, geen algemene productspecificatie voor Nederland.
-
-## Opbrengst en opslagrendement
-
-[EU-JRC PVGIS](https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis_en) berekent PV-opbrengst op basis van onder meer locatie en systeemconfiguratie. Een vaste jaarlijkse kWh/kWp-factor op de website blijft een aanname; het is geen locatiespecifieke PVGIS-uitkomst. Verliezen worden [multiplicatief verwerkt](https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis/getting-started-pvgis/using-pvgis-frequently-asked-questions_en). Verliezen die al in een opbrengstfactor zitten mogen niet opnieuw worden afgetrokken.
-
-[HTW Berlin, opslagonderzoek 2026](https://solar.htw-berlin.de/studien/stromspeicher-inspektion-2026/), laat verschillen in deellastrendement en standbyverbruik zien. Een vast opslagrendement is daarom een modelaanname, geen universele productwaarde. Nominale capaciteit, bruikbare capaciteit en laad-/ontlaadrendement moeten afzonderlijk worden behandeld. Voor nauwkeuriger dimensionering zijn productgegevens en tijdreeksen van verbruik en opwek nodig.
+Foto's helpen de intake, maar vervangen geen metingen of inspectie. Het bestaande contactformulier accepteert maximaal vijf JPG-, PNG- of WebP-bestanden van maximaal 10 MB per foto. De bezoeker kiest deze zelf en verstuurt pas via de eigen verzendknop. Voor de foto's hoeft de klant geen kast te openen of dak te betreden.

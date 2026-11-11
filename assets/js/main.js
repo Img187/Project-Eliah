@@ -1223,7 +1223,7 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
         form.reset();
         fileUploads.forEach(validateFormspreeUpload);
         if (form.id === 'contactSectLatenWeBeginnenFormulier') {
-          form.querySelectorAll('input[name="calculator_samenvatting"], .calculatorOverdrachtMelding').forEach((element) => element.remove());
+          form.querySelectorAll('input[name="calculator_samenvatting"], input[name="calculator_situatie"], .calculatorOverdrachtMelding').forEach((element) => element.remove());
           try {
             window.sessionStorage.removeItem('sparkyCalculatorAanvraag');
           } catch (error) {
@@ -1263,41 +1263,6 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
     window.SparkyTracking.track(eventName, { calculator_type: calculatorType });
   }
 
-  function calculatorGroupsAreValid(form) {
-    let valid = true;
-    form.querySelectorAll('[data-calculator-required-group]').forEach((group) => {
-      const checkboxes = Array.from(group.querySelectorAll('input[type="checkbox"]'));
-      const firstCheckbox = checkboxes[0];
-      const hasSelection = checkboxes.some((checkbox) => checkbox.checked);
-      if (firstCheckbox) firstCheckbox.setCustomValidity(hasSelection ? '' : 'Kies minimaal één werkzaamheid.');
-      if (!hasSelection) valid = false;
-    });
-    return valid;
-  }
-
-  document.querySelectorAll('[data-roof-area-select]').forEach((select) => {
-    const unknownOption = select.querySelector('option[value="onbekend"]');
-    for (let area = 10; area <= 1000; area += 5) {
-      const option = document.createElement('option');
-      option.value = String(area);
-      option.textContent = `${area.toLocaleString('nl-NL')} m²`;
-      select.insertBefore(option, unknownOption);
-    }
-
-    const form = select.closest('form');
-    const customField = form && form.querySelector('[data-roof-area-custom]');
-    const customInput = customField && customField.querySelector('input');
-    const updateCustomRoofArea = () => {
-      if (!customField || !customInput) return;
-      const needsCustomArea = select.value === 'meer-dan-1000';
-      customField.hidden = !needsCustomArea;
-      customInput.disabled = !needsCustomArea;
-      customInput.required = needsCustomArea;
-    };
-    select.addEventListener('change', updateCustomRoofArea);
-    updateCustomRoofArea();
-  });
-
   function showCalculatorResult(form, advice) {
     const section = form.closest('.adviesCalculatorSectie');
     const output = section && section.querySelector('[data-calculation-output]');
@@ -1328,7 +1293,7 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
   function saveCalculatorAdvice(advice) {
     try {
       window.sessionStorage.setItem(calculatorStorageKey, JSON.stringify({
-        version: 2,
+        version: 3,
         savedAt: Date.now(),
         ...advice
       }));
@@ -1352,9 +1317,7 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
       });
     };
     updateConditions();
-    form.addEventListener('change', updateConditions);
-    form.addEventListener('input', (event) => {
-      if (event.target.setCustomValidity) event.target.setCustomValidity('');
+    const invalidateResult = () => {
       // Cross-field errors must not survive a correction in a different control.
       form.querySelectorAll('input, select').forEach((input) => input.setCustomValidity(''));
       const output = form.closest('.adviesCalculatorSectie').querySelector('[data-calculation-output]');
@@ -1364,8 +1327,21 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
         output.querySelector('[data-result-details]').replaceChildren();
         output.querySelector('[data-calculation-contact]').hidden = true;
         output.classList.remove('heeftResultaat');
-        try { window.sessionStorage.removeItem(calculatorStorageKey); } catch (error) { /* Storage is optional. */ }
       }
+      try { window.sessionStorage.removeItem(calculatorStorageKey); } catch (error) { /* Storage is optional. */ }
+    };
+    form.addEventListener('change', () => {
+      updateConditions();
+      invalidateResult();
+    });
+    form.addEventListener('input', invalidateResult);
+    form.addEventListener('reset', (event) => {
+      // The reset event fires before the controls receive their default values.
+      window.setTimeout(() => {
+        if (event.defaultPrevented) return;
+        updateConditions();
+        invalidateResult();
+      }, 0);
     });
 
     form.addEventListener('focusin', () => {
@@ -1374,14 +1350,9 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
       trackCalculatorEvent('calculator_started', form.dataset.calculatorType || 'onbekend');
     });
 
-    form.querySelectorAll('[data-calculator-required-group] input[type="checkbox"]').forEach((checkbox) => {
-      checkbox.addEventListener('change', () => calculatorGroupsAreValid(form));
-    });
-
     form.addEventListener('submit', (event) => {
       event.preventDefault();
-      const groupsValid = calculatorGroupsAreValid(form);
-      if (!groupsValid || !form.checkValidity()) {
+      if (!form.checkValidity()) {
         form.reportValidity();
         return;
       }
@@ -1409,15 +1380,17 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
         return;
       }
       if (!advice) return;
-      // Include the visible labels, units and every supplied assumption in the contact handoff.
-      advice.fields = Array.from(form.querySelectorAll('input[name], select[name]'))
-        .filter((input) => !input.disabled && input.value !== '' && (input.type !== 'checkbox' || input.checked))
-        .map((input) => {
-          const label = input.labels && input.labels[0];
-          const unit = input.parentElement.classList.contains('adviesCalculatorEenheid') ? input.parentElement.querySelector('span').textContent : '';
-          const value = input.tagName === 'SELECT' ? input.selectedOptions[0].textContent : input.type === 'checkbox' ? 'Ja' : input.value;
-          return [(label ? label.textContent : input.name).replace(/\s+/g, ' ').trim(), `${value}${unit ? ` ${unit}` : ''}`];
-        });
+      // Device choices describe the request; annual use already includes existing devices.
+      const suppliedInputs = Array.from(form.querySelectorAll('input[name], select[name]'))
+        .filter((input) => !input.disabled && input.type !== 'file' && input.value !== '' && (input.type !== 'checkbox' || input.checked));
+      const describeInput = (input) => {
+        const label = input.labels && input.labels[0];
+        const unit = input.parentElement.classList.contains('adviesCalculatorEenheid') ? input.parentElement.querySelector('span').textContent : '';
+        const value = input.tagName === 'SELECT' ? input.selectedOptions[0].textContent : input.type === 'checkbox' ? 'Ja' : input.value;
+        return [(label ? label.textContent : input.name).replace(/\s+/g, ' ').trim(), `${value}${unit ? ` ${unit}` : ''}`];
+      };
+      advice.fields = suppliedInputs.filter((input) => !input.hasAttribute('data-calculator-context')).map(describeInput);
+      advice.contextFields = suppliedInputs.filter((input) => input.hasAttribute('data-calculator-context')).map(describeInput);
       showCalculatorResult(form, advice);
       saveCalculatorAdvice(advice);
       trackCalculatorEvent('calculator_completed', calculatorType);
@@ -1440,8 +1413,9 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
     } catch (error) {
       return;
     }
-    const isRecent = advice && Date.now() - Number(advice.savedAt) < 24 * 60 * 60 * 1000;
-    if (!isRecent || advice.type !== requestedCalculator || !Array.isArray(advice.fields)) return;
+    const age = advice && Date.now() - Number(advice.savedAt);
+    const isRecent = advice && age >= 0 && age < 24 * 60 * 60 * 1000;
+    if (!isRecent || advice.version !== 3 || advice.type !== requestedCalculator || !Array.isArray(advice.fields)) return;
 
     const detailedRoute = document.getElementById('contactSectLatenWeBeginnen');
     const quickRoute = document.getElementById('contactSnelAdvies');
@@ -1469,13 +1443,25 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
     hiddenSummary.value = transferText;
     form.prepend(hiddenSummary);
 
+    const contextFields = Array.isArray(advice.contextFields) ? advice.contextFields.filter((field) =>
+      Array.isArray(field) && field.length === 2 && field.every((value) => typeof value === 'string')) : [];
+    if (contextFields.length) {
+      const context = document.createElement('input');
+      context.type = 'hidden';
+      context.name = 'calculator_situatie';
+      context.value = `Wat speelt nu of binnenkort?\n${contextFields.map(([label, value]) => `- ${label}: ${value}`).join('\n')}\nBestaande apparaten zitten al in de opgegeven jaarafname. Bespreek geplande wijzigingen en vraag zo nodig een nieuw verbruiksprofiel op.`;
+      form.prepend(context);
+    }
+
     const notice = document.createElement('aside');
     notice.className = 'calculatorOverdrachtMelding';
     notice.setAttribute('role', 'status');
     const noticeTitle = document.createElement('strong');
     noticeTitle.textContent = 'Uw calculatorgegevens zijn overgenomen';
     const noticeText = document.createElement('p');
-    noticeText.textContent = `${advice.title}. Controleer de samenvatting en vul alleen uw contactgegevens nog aan.`;
+    const contextNotice = contextFields.length ? ' Uw aangevinkte situatie gaat mee met de aanvraag.' : '';
+    const photoNotice = advice.type === 'zonnepanelen' ? ' Voeg ook een foto van het dak toe, gemaakt vanaf een veilige plek.' : '';
+    noticeText.textContent = `${advice.title}. Controleer de samenvatting en vul uw contactgegevens aan.${contextNotice} Voeg bij voorkeur hieronder foto’s toe van de groepenkast met gesloten deksel en de gewenste installatielocatie.${photoNotice}`;
     notice.append(noticeTitle, noticeText);
     form.prepend(notice);
     trackCalculatorEvent('calculator_transferred', requestedCalculator);

@@ -261,53 +261,30 @@
   <div class="adviesCalculatorKaart">
     <header class="sectieKop adviesCalculatorKop">
       <h2 id="thuisbatterijCalculatorH2" class="sectieTitel">Welke thuisbatterij past bij uw situatie?</h2>
-      <p class="sectieIntro">Beantwoord enkele korte vragen. U ziet direct een indicatieve opslagcapaciteit voor uw woning, bedrijf of grootschalige energie-installatie.</p>
+      <p class="sectieIntro">Beantwoord enkele korte vragen over uw netafname en zonnepanelen. U ziet een eerste opslagindicatie; het dagprofiel en de installatie bepalen de uiteindelijke keuze.</p>
     </header>
     <div class="adviesCalculatorGrid">
       <form class="adviesCalculatorFormulier" data-calculation-form="sparky-advies" data-calculator-type="thuisbatterij">
         <div class="adviesCalculatorVelden">
-          <div class="contactFormulierVeld">
-            <label for="thuisbatterijJaarverbruik">Jaarlijkse afname uit het net</label>
-            <div class="adviesCalculatorEenheid"><input id="thuisbatterijJaarverbruik" name="jaarverbruikKwh" type="number" min="0" step="any" inputmode="decimal" placeholder="Bijvoorbeeld 12000" required /><span>kWh</span></div>
-          </div>
-          <div class="contactFormulierVeld">
-            <label for="thuisbatterijZonneOpwek">Jaarlijkse zonne-opwek</label>
-            <div class="adviesCalculatorEenheid"><input id="thuisbatterijZonneOpwek" name="zonneOpwekKwh" type="number" min="0" step="any" inputmode="numeric" placeholder="Bijvoorbeeld 10000" required /><span>kWh</span></div>
-          </div>
-          <div class="contactFormulierVeld">
-            <label for="thuisbatterijPanelen">Aantal zonnepanelen</label>
-            <input id="thuisbatterijPanelen" name="aantalZonnepanelen" type="number" min="0" step="1" inputmode="numeric" placeholder="Bijvoorbeeld 24" required />
-          </div>
-          <div class="contactFormulierVeld">
-            <label for="thuisbatterijLocatie">Type locatie</label>
-            <select id="thuisbatterijLocatie" name="typeLocatie" required><option value="">Kies een optie</option><option value="woning">Woning</option><option value="bedrijf">Bedrijf</option><option value="industrie">Industrie</option><option value="datacenter">Datacenter</option></select>
-          </div>
-          <div class="contactFormulierVeld">
-            <label for="thuisbatterijContract">Energiecontract</label>
-            <select id="thuisbatterijContract" name="energiecontract" required>
-              <option value="">Kies een optie</option>
-              <option value="dynamisch">Dynamisch</option>
-              <option value="vast-variabel">Vast of variabel</option>
-              <option value="onbekend">Weet ik niet</option>
-            </select>
-          </div>
-
-          <div class="contactFormulierVeld"><label for="accuterugleveringKwh">Jaarlijks teruggeleverde zonnestroom</label><div class="adviesCalculatorEenheid"><input id="accuterugleveringKwh" name="terugleveringKwh" type="number" min="0" step="any" inputmode="decimal" required placeholder="Bijvoorbeeld 9000" /><span>kWh</span></div></div>
-          <div class="contactFormulierVeld"><label for="accuextraJaarverbruikKwh">Alleen nieuwe extra netafname per jaar</label><div class="adviesCalculatorEenheid"><input id="accuextraJaarverbruikKwh" name="extraJaarverbruikKwh" type="number" min="0" step="any" inputmode="decimal" value="0" required /><span>kWh</span></div></div>
-
+          <div class="contactFormulierVeld"><label for="thuisbatterijJaarverbruik">Jaarlijkse afname uit het net</label><div class="adviesCalculatorEenheid"><input id="thuisbatterijJaarverbruik" name="jaarverbruikKwh" type="number" min="0" step="any" inputmode="decimal" placeholder="Bijvoorbeeld 4500" required /><span>kWh</span></div></div>
+          <div class="contactFormulierVeld"><label for="thuisbatterijZonnepanelen">Zonnepanelen aanwezig?</label><select id="thuisbatterijZonnepanelen" name="zonnepanelenAanwezig" required><option value="">Kies een optie</option><option value="ja">Ja</option><option value="nee">Nee</option></select></div>
+          <div class="contactFormulierVeld" data-calculator-condition="zonnepanelenAanwezig" data-calculator-values="ja" hidden><label for="accuterugleveringKwh">Jaarlijks teruggeleverde zonnestroom</label><div class="adviesCalculatorEenheid"><input id="accuterugleveringKwh" name="terugleveringKwh" type="number" min="0" step="any" inputmode="decimal" required disabled placeholder="Bijvoorbeeld 2000" /><span>kWh</span></div></div>
+          <div class="contactFormulierVeld"><label for="thuisbatterijLocatie">Type locatie</label><select id="thuisbatterijLocatie" name="typeLocatie" required><option value="">Kies een optie</option><option value="woning">Woning</option><option value="bedrijf">Bedrijf</option><option value="industrie">Industrie</option><option value="datacenter">Datacenter</option></select></div>
+          <div class="contactFormulierVeld"><label for="thuisbatterijContract">Energiecontract</label><select id="thuisbatterijContract" name="energiecontract" required><option value="">Kies een optie</option><option value="dynamisch">Dynamisch</option><option value="vast-variabel">Vast of variabel</option><option value="onbekend">Weet ik niet</option></select></div>
+          <div class="contactFormulierVeld"><label for="thuisbatterijAansluiting">Netaansluiting</label><select id="thuisbatterijAansluiting" name="netaansluiting" required><option value="">Kies een optie</option><option value="1-fase">1-fase</option><option value="3-fase">3-fase</option><option value="onbekend">Weet ik niet</option></select></div>
         </div>
-        <p class="adviesCalculatorToelichting">Gebruik de afname en teruglevering op uw jaaroverzicht, vóór salderen. Tel alleen verbruik op dat daar nog niet in zit. Auto en warmtepomp krijgen geen vaste toeslag.</p>
+        <p class="adviesCalculatorToelichting">Gebruik de afname uit het net op uw jaaroverzicht, vóór salderen. Het verbruik van uw bestaande auto, warmtepomp of kookplaat zit daar al in. Vink uw situatie aan voor het adviesgesprek; toekomstige veranderingen bespreekt Sparky met u. Er wordt geen vaste verbruikstoeslag toegevoegd.</p>
         <fieldset class="adviesCalculatorKeuzes">
           <legend>Wat speelt nu of binnenkort?</legend>
-          <label class="adviesCalculatorKeuze"><input name="elektrischeAuto" type="checkbox" value="ja" /><span>Elektrische auto</span></label>
-          <label class="adviesCalculatorKeuze"><input name="warmtepomp" type="checkbox" value="ja" /><span>Warmtepomp</span></label>
-          <label class="adviesCalculatorKeuze"><input name="noodstroom" type="checkbox" value="ja" /><span>Noodstroom gewenst</span></label>
+          <label class="adviesCalculatorKeuze"><input name="elektrischeAuto" type="checkbox" value="ja" data-calculator-context /><span>Elektrische auto / laadpaal</span></label>
+          <label class="adviesCalculatorKeuze"><input name="warmtepomp" type="checkbox" value="ja" data-calculator-context /><span>Warmtepomp</span></label>
+          <label class="adviesCalculatorKeuze"><input name="inductie" type="checkbox" value="ja" data-calculator-context /><span>Inductiekookplaat</span></label>
+          <label class="adviesCalculatorKeuze"><input name="noodstroom" type="checkbox" value="ja" data-calculator-context /><span>Noodstroom gewenst</span></label>
         </fieldset>
-        <div class="adviesCalculatorVelden" data-calculator-condition="noodstroom" data-calculator-values="ja" hidden>
-          <div class="contactFormulierVeld"><label for="accunoodstroomKw">Vermogen dat u wilt blijven voeden</label><div class="adviesCalculatorEenheid"><input id="accunoodstroomKw" name="noodstroomKw" type="number" min=".1" step="any" inputmode="decimal" value="1" required /><span>kW</span></div></div>
-          <div class="contactFormulierVeld"><label for="accunoodstroomUren">Gewenste overbrugging</label><div class="adviesCalculatorEenheid"><input id="accunoodstroomUren" name="noodstroomUren" type="number" min=".1" step="any" inputmode="decimal" value="4" required /><span>uur</span></div></div>
-        </div>
-
+        <aside class="adviesFotoVoorbereiding">
+          <strong>Foto’s helpen bij de beoordeling</strong>
+          <p>Voeg bij uw aanvraag via het contactformulier duidelijke foto’s toe van de groepenkast met gesloten deksel en de gewenste plek voor de thuisbatterij. Open de groepenkast niet voor een foto.</p>
+        </aside>
         <button class="siteBtn siteBtnPrimary" type="submit">Bereken mijn indicatie</button>
         <p class="adviesCalculatorPrivacy">Dit is een eerste technische indicatie, geen offerte. Uw invoer verlaat deze pagina pas wanneer u die zelf naar het contactformulier meeneemt.</p>
         <p class="adviesCalculatorPrivacy">Een indicatie voor uw gesprek met de installateur. Ontwerp en verificatie vragen <a href="https://www.nen.nl/elektrotechniek/installatievoorschriften/nen-1010-laagspanningsinstallaties" target="_blank" rel="noopener">NEN 1010</a>; veilige bedrijfsvoering vraagt <a href="https://www.nen.nl/elektrotechniek/werkvoorschriften/laagspanninginstallaties" target="_blank" rel="noopener">NEN 3140</a>. Deze calculator geeft geen keuringsverklaring.</p>

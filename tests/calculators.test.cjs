@@ -3,169 +3,221 @@ const assert = require('node:assert/strict');
 const models = require('../assets/js/calculator-models.js');
 const values = (data) => new URLSearchParams(data);
 const near = (actual, expected, tolerance = 1e-8) => assert.ok(Math.abs(actual - expected) < tolerance, `${actual} ≠ ${expected}`);
-const battery = (data = {}) => models.battery(values({ jaarverbruikKwh: 3650, zonneOpwekKwh: 4000, terugleveringKwh: 2000, ...data }));
-const charger = (data = {}) => models.charger(values({ netaansluiting: '3-fase', hoofdzekeringA: 25, overigeBelastingKw: 0, kilometersPerDag: 55, ...data }));
-const electrical = (data = {}) => models.electrical(values({ netaansluiting: '3-fase', hoofdzekeringA: 25, overigeBelastingKw: 3, aansluitvermogenKw: 11, ...data }));
+const battery = (data = {}) => models.battery(values({ jaarverbruikKwh: 3650, zonnepanelenAanwezig: 'ja', terugleveringKwh: 3650, netaansluiting: '3-fase', ...data }));
+const solar = (data = {}) => models.solar(values({ jaarverbruikKwh: 3650, dakrichting: 'oost-west', netaansluiting: '3-fase', ...data }));
+const charger = (data = {}) => models.charger(values({ netaansluiting: '3-fase', afstandMeterkastMeter: 12, zonnepanelenAanwezig: 'ja', bidirectioneel: 'geen', ...data }));
+const electrical = (data = {}) => models.electrical(values({ netaansluiting: '3-fase', ...data }));
 
-test('Excel case: one-way losses, DoD once, 15% design margin; no forced 0.5C inverter', () => {
-  const m = battery({ jaarverbruikKwh: 12000, zonneOpwekKwh: 10920, terugleveringKwh: 9000, extraJaarverbruikKwh: 5000, dagOverschotKwh: 60, batterijPiekKw: 13.095 }).metrics;
-  near(m.night, 17000 / 365 * .8);
-  near(m.nominal, 50.18571547948599);
-  near(m.delivered, m.night);
-  near(m.inverterFloor, 13.095);
-  assert.ok(m.delivered <= 60 * .9);
-});
-test('battery zero surplus/zero night/tiny demand: no fixed 5 kWh minimum or checkbox additions', () => {
-  near(battery({ terugleveringKwh: 0 }).metrics.nominal, 0);
-  near(battery({ avondAandeelPct: 0 }).metrics.nominal, 0);
-  assert.ok(battery({ jaarverbruikKwh: 1 }).metrics.nominal < .01);
-  assert.deepEqual(battery().metrics, battery({ elektrischeAuto: 'ja', warmtepomp: 'ja' }).metrics);
-});
-test('backup is separate energy reserve, not daily solar output', () => {
-  const b = battery().metrics;
-  const m = battery({ noodstroom: 'ja', noodstroomKw: 2, noodstroomUren: 5 }).metrics;
-  near(m.delivered, b.delivered);
-  near(m.reserveDc, 10 / Math.sqrt(.9));
-  near(m.nominal - b.nominal, m.reserveDc * 1.15 / .9);
-  near(battery({ noodstroomKw: 100, noodstroomUren: 100 }).metrics.nominal, b.nominal);
-});
-test('inconsistent battery export and impossible day windows are rejected', () => {
-  assert.throws(() => battery({ terugleveringKwh: 5000 }), { field: 'terugleveringKwh' });
-  assert.throws(() => battery({ dagOverschotKwh: 5000 }), { field: 'dagOverschotKwh' });
-  assert.throws(() => battery({ batterijLaadUren: 20, batterijOntlaadUren: 8 }), { field: 'batterijOntlaadUren' });
-});
-test('PV roof regression: a 5 m² roof never yields a 3-panel recommendation', () => {
-  const result = models.solar(values({ jaarverbruikKwh: 760, dakoppervlakteM2: 5, dakrichting: 'zuid' }));
-  assert.equal(result.metrics.panels, 2);
-  assert.equal(result.metrics.availableRoof, 2);
-  assert.match(result.title, /2 zonnepanelen/);
-});
-test('PV measured yield overrides direction; existing output and footprint counted exactly once', () => {
-  const result = models.solar(values({ jaarverbruikKwh: 5000, extraJaarverbruikKwh: 1000, bestaandePanelen: 10, bestaandeOpwekKwh: 3000, dakrichting: 'noord', opbrengstPerKwp: 1000, paneelWp: 500, dakoppervlakteM2: 30, bestaandDakgebruikM2: 20, ruimtePerPaneelM2: 2 })).metrics;
-  assert.equal(result.requiredPanels, 6);
-  assert.equal(result.panels, 5);
-  assert.equal(result.yieldKwh, 2500);
-  assert.equal(result.specificYield, 1000);
-  assert.equal(result.roofLimited, true);
-});
-test('PV unknown/full roof and already covered demand', () => {
-  assert.equal(models.solar(values({ jaarverbruikKwh: 10000, dakoppervlakteM2: 'onbekend' })).metrics.availableRoof, null);
-  assert.equal(models.solar(values({ jaarverbruikKwh: 10000, dakoppervlakteM2: 5, bestaandePanelen: 3 })).metrics.panels, 0);
-  assert.equal(models.solar(values({ jaarverbruikKwh: 3000, bestaandeOpwekKwh: 4000 })).metrics.panels, 0);
-  assert.ok(models.solar(values({ jaarverbruikKwh: 1e8, dakoppervlakteM2: 'meer-dan-1000', dakoppervlakteExtraM2: 100000 })).metrics.panels > 1000);
-});
-test('charger totals: total km are not multiplied by number of points, losses are included', () => {
-  near(charger().metrics.driveDc, 11);
-  near(charger().metrics.driveAc, 11 / .9);
-  near(charger({ aantalLaadpunten: 4 }).metrics.driveDc, 11);
-  near(charger({ kilometersPerDag: 0 }).metrics.driveAc, 0);
-});
-test('1-phase car is limited to one main fuse on a 3-phase service', () => {
-  const hardware = { laadtechniek: 'ac-1', autoLaadvermogenKw: 11, laadpuntVermogenKw: 11 };
-  const m = charger(hardware).metrics;
-  near(m.aggregatePower, 5.75);
-  near(charger({ ...hardware, aantalLaadpunten: 2 }).metrics.aggregatePower, 11.5);
-  near(charger({ ...hardware, aantalLaadpunten: 3 }).metrics.aggregatePower, 17.25);
-});
-test('simple forms work without technical settings, including a 1-phase connection', () => {
-  const m = charger({ netaansluiting: '1-fase' }).metrics;
-  near(m.aggregatePower, 3.7);
-  near(m.minimumPower, 1.38);
-  const e = electrical({ netaansluiting: '1-fase', overigeBelastingKw: 1, aansluitvermogenKw: 1 }).metrics;
-  assert.equal(e.mismatch, false);
-  near(e.phaseCurrent, 2000 / 230);
-});
-test('AC minimum current is respected, including per-phase count and equipment limit', () => {
-  near(charger({ overigeBelastingKw: 14 }).metrics.aggregatePower, 0);
-  near(charger({ netaansluiting: '1-fase', laadtechniek: 'ac-3' }).metrics.aggregatePower, 0);
-  const m = charger({ hoofdzekeringA: 15, laadtechniek: 'ac-1', aantalLaadpunten: 7 }).metrics;
-  assert.equal(m.activePoints, 6);
-  near(m.aggregatePower, 10.35);
-  near(charger({ laadtechniek: 'ac-1', autoLaadvermogenKw: 1 }).metrics.aggregatePower, 0);
-});
-test('unknown service/current/other load does not yield a made-up available power', () => {
-  for (const data of [{ hoofdzekeringA: '' }, { overigeBelastingKw: '' }, { netaansluiting: 'onbekend' }, { netaansluiting: 'middenspanning' }]) {
-    const m = charger(data).metrics;
-    assert.equal(m.aggregatePower, null);
-    assert.equal(m.chargeHoursNeeded, null);
-    assert.equal(m.enoughTime, false);
-  }
-});
-test('DC charging uses its own power limits and conversion, not the AC minimum', () => {
-  const m = charger({ laadtechniek: 'dc', autoLaadvermogenKw: 9, laadpuntVermogenKw: 20 }).metrics;
-  near(m.hardwarePower, 10);
-  near(m.aggregatePower, 10);
-  assert.equal(m.minimumPower, 0);
-});
-test('V2H and V2G share one battery, time window and round-trip refill budget', () => {
-  const m = charger({ bidirectioneel: 'beide', terugleverLimietKw: 3.6 }).metrics;
-  const b = m.bidirectional;
-  near(b.availableDc, 30);
-  near(b.homeAc, 8);
-  near(b.exportAc, 6.4);
-  near(b.refillAc, 14.4 / .81);
-  assert.ok(b.deliveredAc <= b.availableDc * .9);
-  assert.ok(m.driveAc + b.refillAc <= m.dailyChargeCapacity);
-});
-test('V2 modes, zero/reserved SOC, missing/zero export allowance', () => {
-  assert.equal(charger().metrics.bidirectional, null);
-  assert.equal(charger({ bidirectioneel: 'v2h' }).metrics.bidirectional.exportAc, 0);
-  assert.equal(charger({ bidirectioneel: 'v2g', terugleverLimietKw: 5 }).metrics.bidirectional.homeAc, 0);
-  for (const data of [{ aankomstSocPct: 20, reserveSocPct: 30 }, { terugleverLimietKw: 0 }, {}]) {
-    assert.equal(charger({ bidirectioneel: 'v2g', ...data }).metrics.bidirectional.deliveredAc, 0);
-  }
-  assert.equal(charger({ bidirectioneel: 'beide', hoofdzekeringA: '' }).metrics.bidirectional.known, false);
-});
-test('one bidirectional vehicle cannot refill at the whole charging plaza power', () => {
-  const m = charger({ hoofdzekeringA: 63, aantalLaadpunten: 2, kilometersPerDag: 0, laadUren: 1, bidirectioneel: 'v2g', ontlaadVermogenKw: 11, terugleverLimietKw: 11 }).metrics;
-  near(m.aggregatePower, 22);
-  near(m.bidirectional.refillAc, 11);
-  near(m.bidirectional.exportAc, 8.91);
-});
-test('V2G is bounded by its own inverter phases, not the entire 3-phase supply', () => {
-  const b = charger({ kilometersPerDag: 0, bidirectioneel: 'v2g', ontlaadFasen: '1', ontlaadVermogenKw: 11, terugleverLimietKw: 11 }).metrics.bidirectional;
-  near(b.exportPower, 5.75);
-});
-test('daily bidirectional scenario cannot charge above 100% or use an impossible window', () => {
-  const b = charger({ kilometersPerDag: 200, bidirectioneel: 'beide', terugleverLimietKw: 3 }).metrics.bidirectional;
-  assert.equal(b.socFeasible, false);
-  assert.equal(b.deliveredAc, 0);
-  assert.throws(() => charger({ bidirectioneel: 'beide', laadUren: 22, ontlaadUren: 4 }), { field: 'ontlaadUren' });
-  assert.throws(() => charger({ bidirectioneel: 'beide', bidirectioneleKilometers: 100 }), { field: 'bidirectioneleKilometers' });
-});
-test('electricity demand really affects advice, even below 100 kW', () => {
-  assert.equal(electrical().metrics.exceeds, false);
-  assert.equal(electrical({ aansluitvermogenKw: 99 }).metrics.exceeds, true);
-  assert.equal(electrical({ aansluitvermogenKw: '' }).metrics.known, false);
-  assert.equal(electrical({ overigeBelastingKw: '' }).metrics.known, false);
-});
-test('single-phase new load can overload a phase while total kW remains below the service limit', () => {
-  const m = electrical({ aansluitvermogenKw: 7, belastingFasen: '1' }).metrics;
-  assert.ok(m.total < m.capacityKw);
-  assert.equal(m.exceeds, true);
-  near(m.phaseCurrent, 8000 / 230);
-});
-test('electrical simultaneity/power factor and unsupported grid type', () => {
-  const m = electrical({ aansluitvermogenKw: 20, gelijktijdigheidPct: 50, arbeidsfactorPct: 80 }).metrics;
-  near(m.total, 13);
-  near(m.capacityKw, 13.8);
-  assert.equal(electrical({ netaansluiting: 'middenspanning' }).metrics.known, false);
-});
-test('invalid nonfinite inputs and zero efficiencies are rejected instead of Infinity/NaN output', () => {
-  assert.throws(() => charger({ laadRendementPct: 0 }), models.InputError);
-  assert.throws(() => charger({ minimumLaadstroomA: 5 }), models.InputError);
-  assert.throws(() => battery({ jaarverbruikKwh: 'NaN' }), models.InputError);
-  assert.throws(() => charger({ kilometersPerDag: '1e309' }), models.InputError);
+test('battery uses one-way conversion, DoD once and capacity margin without adding energy', () => {
+  const m = battery().metrics;
+  near(m.dailyImport, 10);
+  near(m.dailySurplus, 10);
+  near(m.demandMin, 6);
+  near(m.demandMax, 8);
+  near(m.deliveredMin, 6);
+  near(m.deliveredMax, 8);
+  near(m.nominalMin, 6 / Math.sqrt(.9) * 1.15 / .9);
+  near(m.nominalMax, 8 / Math.sqrt(.9) * 1.15 / .9);
+  near(m.usableMin, m.nominalMin * .9);
+  near(m.usableMax, m.nominalMax * .9);
+  assert.match(battery().details.join(' '), /aanname, geen gemeten avondverbruik of NEN-eis/);
 });
 
-test('grote eindige invoer en gemaskeerde overflow stoppen vóór advies ontstaat', () => {
-  const cases = [
-    ['battery', { noodstroom: 'ja', noodstroomKw: '1e308', noodstroomUren: '4' }],
-    ['solar', { jaarverbruikKwh: '1e308', extraJaarverbruikKwh: '1e308' }],
-    ['solar', { jaarverbruikKwh: '5000', paneelWp: '1e308', opbrengstPerKwp: '1e308' }],
-    ['solar', { jaarverbruikKwh: '5000', dakoppervlakteM2: '9'.repeat(309) }],
-    ['charger', { netaansluiting: '3-fase', hoofdzekeringA: '1e308', overigeBelastingKw: '0' }],
-    ['electrical', { netaansluiting: '3-fase', hoofdzekeringA: '25', overigeBelastingKw: '1e308', aansluitvermogenKw: '1e308' }],
-  ];
-  for (const [model, input] of cases) assert.throws(() => models[model](values(input)), models.InputError);
+test('battery output is bounded by net demand and solar export after round-trip losses', () => {
+  for (const importKwh of [0, 1, 2430, 10000, 1000000]) {
+    for (const exportKwh of [0, 1, 1000, 10000]) {
+      const m = battery({ jaarverbruikKwh: importKwh, terugleveringKwh: exportKwh }).metrics;
+      assert.ok(m.deliveredMin <= m.deliveredMax);
+      assert.ok(m.nominalMin <= m.nominalMax);
+      assert.ok(m.deliveredMax <= importKwh / 365 * .8 + 1e-9);
+      assert.ok(m.deliveredMax <= exportKwh / 365 * .9 + 1e-9);
+      near(m.nominalMax / 1.15 * .9 * Math.sqrt(.9), m.deliveredMax);
+    }
+  }
+});
+
+test('export-limited battery collapses to one energy bound without a fixed minimum', () => {
+  const m = battery({ terugleveringKwh: 365 }).metrics;
+  near(m.deliveredMin, .9);
+  near(m.deliveredMax, .9);
+  near(m.nominalMin, m.nominalMax);
+  assert.ok(battery({ jaarverbruikKwh: 1 }).metrics.nominalMax < .01);
+  near(battery({ terugleveringKwh: 0 }).metrics.nominalMax, 0);
+  near(battery({ jaarverbruikKwh: 0 }).metrics.nominalMax, 0);
+});
+
+test('battery needs no PV generation field and export may exceed grid import', () => {
+  const m = battery({ jaarverbruikKwh: 1000, terugleveringKwh: 9000 }).metrics;
+  near(m.exportKwh, 9000);
+  near(m.deliveredMax, 1000 / 365 * .8);
+});
+
+test('no panels ignores stale export and never claims a solar storage capacity', () => {
+  for (const stale of ['9000', 'not a number', '-10', '1e309']) {
+    const result = battery({ zonnepanelenAanwezig: 'nee', terugleveringKwh: stale });
+    near(result.metrics.exportKwh, 0);
+    near(result.metrics.nominalMax, 0);
+    assert.match(result.title, /Geen zonne-opslagcapaciteit/);
+    assert.match(result.summary, /Zonder zonnepanelen/);
+  }
+});
+
+test('checked appliances and backup wishes are context, never extra consumption or reserve', () => {
+  const flags = { elektrischeAuto: 'ja', warmtepomp: 'ja', inductie: 'ja', noodstroom: 'ja' };
+  assert.deepEqual(battery(), battery(flags));
+  assert.deepEqual(solar(), solar(flags));
+});
+
+test('removed battery inputs have no hidden effect', () => {
+  assert.deepEqual(battery(), battery({ zonneOpwekKwh: 'NaN', extraJaarverbruikKwh: 50000, avondAandeelPct: 0, avondVerbruikKwh: 100, dagOverschotKwh: 200, batterijRendementPct: 1, ontlaaddieptePct: 1, capaciteitsmargePct: 99, noodstroomKw: 99, noodstroomUren: 99, batterijPiekKw: 99 }));
+});
+
+test('PV targets extra annual output against grid import, not total demand or old PV output', () => {
+  const m = solar().metrics;
+  near(m.specificYieldMin, 675);
+  near(m.specificYieldMax, 765);
+  assert.equal(m.minPanels, 11);
+  assert.equal(m.maxPanels, 13);
+  near(m.powerKwpMin, 4.785);
+  near(m.powerKwpMax, 5.655);
+  assert.ok(m.yieldAtMinPanels >= m.importKwh);
+  assert.ok(m.yieldAtMaxPanels >= m.importKwh);
+  assert.match(solar().details.join(' '), /niet het totale stroomverbruik/);
+  assert.deepEqual(solar(), solar({ bestaandePanelen: 24, bestaandeOpwekKwh: 9000, extraJaarverbruikKwh: 5000, dakoppervlakteM2: 1, paneelWp: 1000, opbrengstPerKwp: 1 }));
+});
+
+test('Zuid/Noord preserves both orientation extremes without assuming an equal split', () => {
+  const result = solar({ dakrichting: 'zuid-noord' });
+  const m = result.metrics;
+  near(m.specificYieldMin, 405);
+  near(m.specificYieldMax, 900);
+  assert.equal(m.minPanels, 10);
+  assert.equal(m.maxPanels, 21);
+  assert.match(result.details.join(' '), /geen gelijke verdeling aangenomen/);
+  assert.ok(m.maxPanels > solar().metrics.maxPanels);
+});
+
+test('zero PV demand is zero panels and rounding never leaves either scenario short', () => {
+  const zero = solar({ jaarverbruikKwh: 0 }).metrics;
+  assert.equal(zero.minPanels, 0);
+  assert.equal(zero.maxPanels, 0);
+  assert.equal(zero.powerKwpMax, 0);
+  for (const direction of ['oost-west', 'zuid-noord']) {
+    for (const demand of [1, 2430, 4350, 10000, 1000000]) {
+      const m = solar({ dakrichting: direction, jaarverbruikKwh: demand }).metrics;
+      assert.ok(m.minPanels <= m.maxPanels);
+      assert.ok(m.yieldAtMinPanels >= demand);
+      assert.ok(m.yieldAtMaxPanels >= demand);
+      assert.ok((m.minPanels - 1) * .435 * m.specificYieldMax < demand);
+      assert.ok((m.maxPanels - 1) * .435 * m.specificYieldMin < demand);
+    }
+  }
+});
+
+test('unknown roof dimensions cannot produce a fit or guaranteed reduction of net import', () => {
+  const result = solar();
+  assert.equal(result.metrics.availableRoof, null);
+  assert.match(result.details.join(' '), /geen legplan/);
+  assert.match(result.summary, /geen garantie op minder netafname of zelfvoorziening/);
+});
+
+test('grid choices retain unknown usable power without an invented ampere rating', () => {
+  for (const netaansluiting of ['1-fase', '3-fase', 'onbekend']) {
+    const phases = netaansluiting === 'onbekend' ? null : netaansluiting === '1-fase' ? 1 : 3;
+    for (const model of [battery, solar, charger, electrical]) {
+      const grid = model({ netaansluiting }).metrics.grid;
+      assert.equal(grid.phases, phases);
+      assert.equal(grid.nominalPower, null);
+      assert.equal(grid.available, null);
+      assert.equal(grid.known, false);
+      assert.match(model({ netaansluiting }).details.join(' '), /hoofdzekering/);
+    }
+  }
+});
+
+test('charger stores distance but invents neither drive energy, charge time nor safe power', () => {
+  const result = charger({ afstandMeterkastMeter: 47 });
+  assert.equal(result.metrics.distance, 47);
+  assert.equal(result.metrics.aggregatePower, null);
+  assert.equal(result.metrics.chargeHoursNeeded, null);
+  assert.equal(result.metrics.known, false);
+  assert.match(result.details.join(' '), /47 meter/);
+  assert.doesNotMatch(result.details.join(' '), /\d+(?:[,.]\d+)?\s*kWh|\d+(?:[,.]\d+)?\s*kW\b/);
+  assert.deepEqual(charger(), charger({ kilometersPerDag: 200, hoofdzekeringA: 25, overigeBelastingKw: 0, aantalLaadpunten: 20, laadUren: 8, autoLaadvermogenKw: 11, laadpuntVermogenKw: 11 }));
+});
+
+test('bidirectional choices trigger a technical review without a made-up battery scenario', () => {
+  for (const mode of ['v2h', 'v2g', 'beide']) {
+    const result = charger({ bidirectioneel: mode });
+    assert.equal(result.metrics.bidirectional, mode);
+    assert.equal(result.metrics.known, false);
+    const text = result.details.join(' ');
+    assert.match(text, /Auto, lader, energiesturing en netkoppeling/);
+    assert.match(text, /geen dagelijkse energieprognose/);
+    assert.match(text, /garandeert geen noodstroom/);
+    if (mode !== 'v2h') assert.match(text, /aanmelding/);
+    assert.deepEqual(result, charger({ bidirectioneel: mode, autoAccuKwh: 60, aankomstSocPct: 80, reserveSocPct: 30, ontlaadVermogenKw: 3.6, terugleverLimietKw: 11 }));
+  }
+});
+
+test('charger distinguishes present and planned PV without guaranteed extra capacity', () => {
+  for (const presence of ['ja', 'nee', 'gepland']) {
+    const result = charger({ zonnepanelenAanwezig: presence });
+    assert.equal(result.metrics.solarPresent, presence);
+    assert.equal(result.metrics.aggregatePower, null);
+  }
+  assert.match(charger({ zonnepanelenAanwezig: 'gepland' }).details.join(' '), /Zonnepanelen zijn gepland/);
+  assert.match(charger({ zonnepanelenAanwezig: 'nee' }).details.join(' '), /Geen zonnepanelen/);
+});
+
+test('electrical is a review request from phases alone, never a passed capacity test', () => {
+  const result = electrical();
+  assert.equal(result.metrics.capacityKw, null);
+  assert.equal(result.metrics.phaseCurrent, null);
+  assert.equal(result.metrics.known, false);
+  assert.match(result.summary, /geen uitspraak over geschiktheid/);
+  assert.deepEqual(result, electrical({ aansluitvermogenKw: 99, hoofdzekeringA: 25, overigeBelastingKw: 3, gelijktijdigheidPct: 50, belastingFasen: 1, werkzaamheden: 'inductie' }));
+});
+
+test('all calculators distinguish NEN scopes and do not claim certification', () => {
+  for (const model of [battery, solar, charger, electrical]) {
+    const text = model().details.join(' ');
+    assert.match(text, /Ontwerp, aanleg en verificatie.*NEN 1010/);
+    assert.match(text, /veilige bedrijfsvoering.*NEN 3140/);
+    assert.match(text, /geen keuring of bewijs van geschiktheid/);
+  }
+});
+
+test('bad and missing numeric inputs fail with field-specific errors before NaN or Infinity', () => {
+  for (const invalid of ['', ' ', '-1', 'NaN', 'Infinity', '1e309', '1e308', '0x20', '1,5']) {
+    assert.throws(() => battery({ jaarverbruikKwh: invalid }), { name: 'InputError', field: 'jaarverbruikKwh' });
+    assert.throws(() => solar({ jaarverbruikKwh: invalid }), { name: 'InputError', field: 'jaarverbruikKwh' });
+    assert.throws(() => charger({ afstandMeterkastMeter: invalid }), { name: 'InputError', field: 'afstandMeterkastMeter' });
+  }
+  assert.throws(() => battery({ terugleveringKwh: '' }), { field: 'terugleveringKwh' });
+  assert.throws(() => charger({ afstandMeterkastMeter: 0 }), { field: 'afstandMeterkastMeter' });
+  assert.throws(() => models.battery(values({ netaansluiting: '1-fase', zonnepanelenAanwezig: 'nee' })), { field: 'jaarverbruikKwh' });
+});
+
+test('invalid grid, roof and presence choices never become silently assumed defaults', () => {
+  for (const invalid of ['', 'grootverbruik', 'middenspanning', '4-fase']) {
+    for (const model of [battery, solar, charger, electrical]) assert.throws(() => model({ netaansluiting: invalid }), { field: 'netaansluiting' });
+  }
+  assert.throws(() => battery({ zonnepanelenAanwezig: 'gepland' }), { field: 'zonnepanelenAanwezig' });
+  assert.throws(() => solar({ dakrichting: 'zuid' }), { field: 'dakrichting' });
+  assert.throws(() => charger({ zonnepanelenAanwezig: '' }), { field: 'zonnepanelenAanwezig' });
+  assert.throws(() => charger({ bidirectioneel: 'v2l' }), { field: 'bidirectioneel' });
+});
+
+test('large accepted inputs remain finite and no artificial cap limits the panel count', () => {
+  const finiteTree = (value) => {
+    if (typeof value === 'number') assert.ok(Number.isFinite(value));
+    if (value && typeof value === 'object') Object.values(value).forEach(finiteTree);
+  };
+  for (const model of [battery, solar]) {
+    const result = model({ jaarverbruikKwh: Number.MAX_SAFE_INTEGER, terugleveringKwh: Number.MAX_SAFE_INTEGER });
+    finiteTree(result.metrics);
+    assert.doesNotMatch(JSON.stringify(result), /NaN|Infinity/);
+  }
+  assert.ok(solar({ jaarverbruikKwh: 1000000 }).metrics.maxPanels > 1000);
 });
