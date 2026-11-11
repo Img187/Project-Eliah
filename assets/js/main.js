@@ -1461,7 +1461,7 @@ Alle selectors verwijzen naar vaste HTML-ID's of data-attributen.
     const noticeText = document.createElement('p');
     const contextNotice = contextFields.length ? ' Uw aangevinkte situatie gaat mee met de aanvraag.' : '';
     const photoNotice = advice.type === 'zonnepanelen' ? ' Voeg ook een foto van het dak toe, gemaakt vanaf een veilige plek.' : '';
-    noticeText.textContent = `${advice.title}. Controleer de samenvatting en vul uw contactgegevens aan.${contextNotice} Voeg bij voorkeur hieronder foto’s toe van de groepenkast met gesloten deksel en de gewenste installatielocatie.${photoNotice}`;
+    noticeText.textContent = `${advice.title}. Controleer de samenvatting en vul uw contactgegevens aan.${contextNotice} Voeg hieronder een overzichtsfoto toe van de meterkast met de groepenkast en de meter eronder, gevolgd door close-ups van de zichtbare componenten van de groepenkast. Voeg indien mogelijk foto’s van het kabeltracé toe, met de meterkast als herkenbaar referentiepunt zodat de route duidelijk is. Een foto van de gewenste installatielocatie helpt ook. Laat beschermkappen op hun plaats.${photoNotice}`;
     notice.append(noticeTitle, noticeText);
     form.prepend(notice);
     trackCalculatorEvent('calculator_transferred', requestedCalculator);

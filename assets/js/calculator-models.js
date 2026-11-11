@@ -159,7 +159,7 @@
       if (bidirectional !== 'v2h') details.push('V2G vraagt bevestiging van de toepasselijke netkoppelingsvoorwaarden, beschikbare terugleverruimte en aanmelding voor de concrete installatie.');
       details.push('V2H bij aanwezig net garandeert geen noodstroom bij netuitval; daarvoor zijn een geschikte systeemfunctie en aanvullende installatievoorzieningen nodig.');
     }
-    details.push('Stuur bij uw aanvraag bij voorkeur foto’s van de groepenkast met gesloten deksel en de gewenste laadplek mee.', installationNote);
+    details.push('Foto’s voor uw aanvraag: een overzicht van de meterkast met de groepenkast en de meter eronder, close-ups van de zichtbare componenten van de groepenkast en de gewenste laadplek. Voeg indien mogelijk foto’s van het kabeltracé toe met de meterkast als herkenbaar referentiepunt. Laat beschermkappen op hun plaats.', installationNote);
     return advice('laadpaal', 'laadpaal',
       bidirectional === 'geen' ? 'Technische opname voor uw laadpunt' : 'Controleer uw bidirectionele laadcombinatie',
       'Uw situatie is vastgelegd. Met deze gegevens kan Sparky de technische vervolgstap bepalen; het beschikbare laadvermogen staat nog niet vast.',
@@ -177,7 +177,7 @@
           : grid.phases === 3 ? 'Een driefasenaansluiting vraagt nog steeds controle van de belasting op iedere fase en van de bestaande groepenkast.'
             : 'Sparky controleert de aansluitgegevens samen met de uitvoering van de groepenkast.',
         'De technische opname beoordeelt onder meer aarding, beveiligingen, selectiviteit, vrije ruimte, toestand en benodigde metingen. Er worden geen vermogens of groepen afgeleid uit alleen het aantal fasen.',
-        'Stuur bij uw aanvraag bij voorkeur duidelijke foto’s van de groepenkast met gesloten deksel en de installatielocatie mee.', installationNote
+        'Foto’s voor uw aanvraag: een overzicht van de meterkast met de groepenkast en de meter eronder, close-ups van de zichtbare componenten van de groepenkast en de gewenste installatielocatie. Voeg indien mogelijk foto’s van het kabeltracé toe met de meterkast als herkenbaar referentiepunt. Laat beschermkappen op hun plaats.', installationNote
       ], { grid, capacityKw: null, phaseCurrent: null, known: false });
   }
 

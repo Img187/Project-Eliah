@@ -44,4 +44,4 @@ De V2H/V2G-keuze is uitsluitend een gewenste functie. Auto, laadpunt, energiestu
 
 ## Foto's
 
-Foto's helpen de intake, maar vervangen geen metingen of inspectie. Het bestaande contactformulier accepteert maximaal vijf JPG-, PNG- of WebP-bestanden van maximaal 10 MB per foto. De bezoeker kiest deze zelf en verstuurt pas via de eigen verzendknop. Voor de foto's hoeft de klant geen kast te openen of dak te betreden.
+Foto's helpen de intake, maar vervangen geen metingen of inspectie. Het bestaande contactformulier accepteert maximaal vijf JPG-, PNG- of WebP-bestanden van maximaal 10 MB per foto. De bezoeker kiest deze zelf en verstuurt pas via de eigen verzendknop. Gevraagd worden een overzicht van de meterkast met groepenkast en meter, close-ups van zichtbare componenten en indien mogelijk het kabeltracé met de meterkast als referentiepunt. Beschermkappen blijven op hun plaats; dakfoto's worden vanaf een veilige plek op de grond gemaakt.

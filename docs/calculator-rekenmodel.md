@@ -74,7 +74,7 @@ Berekenen verstuurt niets. De actuele indicatie en invoer worden lokaal in sessi
 
 Via de contactknop komen rekeninvoer/resultaten in de zichtbare omschrijving en `calculator_samenvatting`. Aangevinkte apparaten en noodstroom gaan uitsluitend als `calculator_situatie` mee in de aanvraag aan Sparky; ze verschijnen niet als extra resultaatregels of verbruikstoeslagen. De bezoeker krijgt te zien dat de aangevinkte situatie meegaat.
 
-Het bestaande contactformulier laat maximaal vijf JPG-, PNG- of WebP-foto's van maximaal 10 MB per foto toevoegen. Foto's worden niet in sessieopslag opgeslagen of automatisch verstuurd. De bezoeker voegt ze zelf toe en verzendt de aanvraag. Het formulier vraagt bij voorkeur foto's van de gesloten groepenkast en gewenste installatielocatie; voor zonnepanelen ook het dak vanaf een veilige plek. Na een geslaagde verzending worden de calculatoroverdracht en situatievelden opgeruimd.
+Het bestaande contactformulier laat maximaal vijf JPG-, PNG- of WebP-foto's van maximaal 10 MB per foto toevoegen. Foto's worden niet in sessieopslag opgeslagen of automatisch verstuurd. De bezoeker voegt ze zelf toe en verzendt de aanvraag. Het fotoverzoek vraagt om een overzicht van de meterkast met de groepenkast en de meter eronder, gevolgd door close-ups van zichtbare groepenkastcomponenten. Indien mogelijk worden foto's van het kabeltracé gevraagd, met de meterkast als herkenbaar referentiepunt. Ook de gewenste installatielocatie helpt; voor zonnepanelen het dak vanaf een veilige plek. Beschermkappen blijven op hun plaats. Na een geslaagde verzending worden de calculatoroverdracht en situatievelden opgeruimd.
 
 ## Controle
 
