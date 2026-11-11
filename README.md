@@ -114,7 +114,7 @@ Alle indexeerbare contentpagina's gebruiken dezelfde consent-gestuurde Google Ta
 - Measurement ID: `G-87KMB19788`
 - Tag Manager-container: `GTM-WLFHDLMC`
 
-`assets/js/cookie-consent.js` initialiseert `dataLayer` en de standaard geweigerde toestemming. De loader injecteert het asynchrone `gtm.js`-script eenmalig tijdens een vrij browsermoment, uitsluitend nadat de bezoeker volledige toestemming heeft gegeven. Analytics wordt via de GTM-container ingesteld; de oude losse `gtag.js`-loader is vervallen.
+`assets/js/cookie-consent.js` initialiseert `dataLayer` en de standaard geweigerde toestemming. De loader injecteert het asynchrone `gtm.js`-script tijdens een vrij browsermoment na volledige toestemming; de eerste geldige meetactie start het laden direct. Een mislukte download kan na opnieuw toestemmen of terugkeer van de verbinding herstellen, zonder een tweede GTM-start. Cookiekeuzes synchroniseren tussen tabbladen op basis van de actuele opgeslagen keuze. Analytics wordt via de GTM-container ingesteld; er staat geen losse `gtag.js`-loader naast.
 
 - `Volledig`: Google Tag Manager wordt geladen en de Google Maps-iframe wordt toegestaan.
 - `Weigeren`: Tag Manager wordt niet geladen, eventuele Analytics-cookies worden verwijderd en Maps wordt niet geladen. Intrekken van toestemming blokkeert nieuwe meetacties.

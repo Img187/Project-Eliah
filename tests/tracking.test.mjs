@@ -141,6 +141,154 @@ test('intrekken tijdens de wachttijd voorkomt het laden van GTM', t => {
   assert.deepEqual(h.events(), []);
 });
 
+test('cookiekeuze uit een andere tab werkt door zonder opslag terug te schrijven', t => {
+  const html = minimalHtml.replace('<main>Website</main>', '<main>Website<iframe data-cookie-src="https://www.google.com/maps/embed?synthetic"></iframe></main>');
+  const h = harness(t, { html, choice: 'volledig' });
+  h.flushIdle();
+  const { window } = h;
+  const frame = window.document.querySelector('iframe');
+  const layer = window.document.getElementById('cookieToestemmingLaag');
+  const storagePrototype = Object.getPrototypeOf(window.localStorage);
+  const originalSetItem = storagePrototype.setItem;
+  let writes = 0;
+  storagePrototype.setItem = function (...args) { writes++; return originalSetItem.apply(this, args); };
+  const receive = value => {
+    const oldValue = window.localStorage.getItem(storageKey);
+    originalSetItem.call(window.localStorage, storageKey, value);
+    window.dispatchEvent(new window.StorageEvent('storage', { key: storageKey, oldValue, newValue: value, storageArea: window.localStorage }));
+  };
+
+  window.document.cookie = '_ga=synthetic; Path=/';
+  receive('functioneel');
+  assert.equal(window['ga-disable-G-87KMB19788'], true);
+  assert.equal(window.SparkyTracking.track('generate_lead', { form_id: 'testForm' }), false);
+  assert.doesNotMatch(window.document.cookie, /_ga=/);
+  assert.equal(frame.hidden, true);
+  assert.equal(frame.hasAttribute('src'), false);
+  assert.equal(layer.hidden, true);
+
+  receive('volledig');
+  h.flushIdle();
+  assert.equal(window['ga-disable-G-87KMB19788'], false);
+  assert.equal(frame.hidden, false);
+  assert.equal(frame.src, frame.dataset.cookieSrc);
+  assert.equal(window.SparkyTracking.track('contact_click', { contact_method: 'phone' }), true);
+  assert.equal(window.document.querySelectorAll('#googleTagManagerTag').length, 1);
+  assert.equal(h.events('gtm.js').length, 1);
+  assert.equal(writes, 0);
+  assert.equal(window.localStorage.getItem(storageKey), 'volledig');
+});
+
+test('een vertraagd toestaan-event kan een inmiddels ingetrokken keuze niet herstellen', t => {
+  const h = harness(t, { choice: 'functioneel' });
+  const { window } = h;
+  // Een andere tab heeft achtereenvolgens toegestaan en alweer ingetrokken.
+  window.localStorage.setItem(storageKey, 'functioneel');
+  window.dispatchEvent(new window.StorageEvent('storage', {
+    key: storageKey,
+    oldValue: 'functioneel',
+    newValue: 'volledig',
+    storageArea: window.localStorage
+  }));
+  h.flushIdle();
+  assert.equal(window.localStorage.getItem(storageKey), 'functioneel');
+  assert.equal(window['ga-disable-G-87KMB19788'], true);
+  assert.equal(window.SparkyTracking.track('contact_click', { contact_method: 'phone' }), false);
+  assert.equal(window.document.getElementById('googleTagManagerTag'), null);
+  assert.deepEqual(h.events(), []);
+});
+
+test('clear of ongeldige externe toestemming weigert meten; andere opslag verandert de keuze niet', t => {
+  for (const externalValue of [null, 'ongeldige-keuze']) {
+    const h = harness(t, { choice: 'volledig' });
+    const { window } = h;
+    if (externalValue === null) window.localStorage.clear();
+    else window.localStorage.setItem(storageKey, externalValue);
+    window.dispatchEvent(new window.StorageEvent('storage', {
+      key: externalValue === null ? null : storageKey,
+      oldValue: externalValue === null ? null : 'volledig',
+      newValue: externalValue,
+      storageArea: window.localStorage
+    }));
+    h.flushIdle();
+    assert.equal(window['ga-disable-G-87KMB19788'], true);
+    assert.equal(window.document.getElementById('cookieToestemmingLaag').hidden, false);
+    assert.equal(window.SparkyTracking.track('generate_lead', { form_id: 'testForm' }), false);
+    assert.equal(window.document.querySelector('#googleTagManagerTag'), null);
+
+    window.localStorage.setItem('unrelated-choice', 'volledig');
+    window.dispatchEvent(new window.StorageEvent('storage', { key: 'unrelated-choice', newValue: 'volledig', storageArea: window.localStorage }));
+    window.sessionStorage.setItem(storageKey, 'volledig');
+    window.dispatchEvent(new window.StorageEvent('storage', { key: storageKey, newValue: 'volledig', storageArea: window.sessionStorage }));
+    assert.equal(window['ga-disable-G-87KMB19788'], true);
+    assert.equal(window.SparkyTracking.track('contact_click', { contact_method: 'phone' }), false);
+    assert.equal(window.document.getElementById('cookieToestemmingLaag').hidden, false);
+
+    window.localStorage.setItem(storageKey, 'volledig');
+    window.dispatchEvent(new window.StorageEvent('storage', { key: storageKey, newValue: 'volledig', storageArea: window.localStorage }));
+    assert.equal(window.document.getElementById('cookieToestemmingLaag').hidden, true);
+    assert.equal(window.SparkyTracking.track('contact_click', { contact_method: 'phone' }), true);
+  }
+});
+
+test('een mislukte GTM-download kan na een nieuwe toestemmingskeuze opnieuw zonder dubbele start', t => {
+  const h = harness(t, { choice: 'volledig' });
+  h.flushIdle();
+  const first = h.window.document.getElementById('googleTagManagerTag');
+  first.dispatchEvent(new h.window.Event('error'));
+  assert.equal(h.window.document.getElementById('googleTagManagerTag'), null);
+  h.choose('volledig');
+  h.flushIdle();
+  const second = h.window.document.getElementById('googleTagManagerTag');
+  assert.ok(second);
+  assert.notEqual(second, first);
+  first.dispatchEvent(new h.window.Event('error'));
+  assert.equal(h.window.document.getElementById('googleTagManagerTag'), second);
+  assert.equal(h.events('gtm.js').length, 1);
+  assert.equal(h.window.dataLayer.filter(entry => entry[0] === 'js').length, 1);
+});
+
+test('online herstelt een mislukte download alleen bij toestemming en oude idle-taken proberen niet door', t => {
+  const h = harness(t, { choice: 'volledig' });
+  assert.equal(h.window.SparkyTracking.track('contact_click', { contact_method: 'phone' }), true);
+  h.window.document.getElementById('googleTagManagerTag').dispatchEvent(new h.window.Event('error'));
+  h.flushIdle();
+  assert.equal(h.window.document.getElementById('googleTagManagerTag'), null);
+
+  h.window.dispatchEvent(new h.window.Event('online'));
+  const recovered = h.window.document.getElementById('googleTagManagerTag');
+  assert.ok(recovered);
+  h.window.dispatchEvent(new h.window.Event('online'));
+  assert.equal(h.window.document.querySelectorAll('#googleTagManagerTag').length, 1);
+  recovered.dispatchEvent(new h.window.Event('error'));
+  h.choose('functioneel');
+  h.window.dispatchEvent(new h.window.Event('online'));
+  assert.equal(h.window.document.getElementById('googleTagManagerTag'), null);
+  assert.equal(h.window.SparkyTracking.track('contact_click', { contact_method: 'phone' }), false);
+  h.choose('volledig');
+  h.window.dispatchEvent(new h.window.Event('online'));
+  h.flushIdle();
+  assert.equal(h.window.document.querySelectorAll('#googleTagManagerTag').length, 1);
+  assert.equal(h.events('gtm.js').length, 1);
+});
+
+test('de eerste geldige interactie start GTM vóór haar event zonder op idle te wachten', t => {
+  const h = harness(t, { choice: 'volledig' });
+  assert.equal(h.window.document.getElementById('googleTagManagerTag'), null);
+  assert.equal(h.window.SparkyTracking.track('unknown_event'), false);
+  assert.equal(h.window.SparkyTracking.track('contact_click', { contact_method: 'invalid' }), false);
+  assert.equal(h.window.document.getElementById('googleTagManagerTag'), null);
+  h.clickLink('tel:+31000000000');
+  const script = h.window.document.getElementById('googleTagManagerTag');
+  assert.ok(script);
+  const startIndex = h.window.dataLayer.findIndex(entry => entry.event === 'gtm.js');
+  const eventIndex = h.window.dataLayer.findIndex(entry => entry.event === 'contact_click');
+  assert.ok(startIndex >= 0 && startIndex < eventIndex);
+  h.flushIdle();
+  assert.equal(h.window.document.getElementById('googleTagManagerTag'), script);
+  assert.equal(h.events('gtm.js').length, 1);
+});
+
 test('bestaande en dynamische contactlinks meten alleen methode, ID en pad', t => {
   const h = harness(t, { choice: 'volledig' });
   h.clickLink('tel:+31000000000', 'phoneLink');
@@ -361,4 +509,10 @@ test('overgenomen calculatoradvies stuurt alleen het calculatortype naar GTM', t
   assert.deepEqual(h.events('calculator_transferred'), [{ event: 'calculator_transferred', page_path: '/contact.html', calculator_type: 'laadpaal' }]);
   const transferIndex = h.window.dataLayer.findIndex(entry => entry.event === 'calculator_transferred');
   assert.ok(h.window.dataLayer.slice(0, transferIndex).some(entry => entry[0] === 'consent' && entry[1] === 'update' && entry[2].analytics_storage === 'granted'));
+  // main.js neemt het advies in de harness vóór DOMContentLoaded over.
+  assert.ok(h.window.document.getElementById('googleTagManagerTag'));
+  const startIndex = h.window.dataLayer.findIndex(entry => entry.event === 'gtm.js');
+  assert.ok(startIndex >= 0 && startIndex < transferIndex);
+  h.flushIdle();
+  assert.equal(h.events('gtm.js').length, 1);
 });

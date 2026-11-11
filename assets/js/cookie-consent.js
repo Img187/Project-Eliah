@@ -15,6 +15,7 @@
   let returnFocusElement;
   let lockedPageElements = [];
   let tagManagerLoadScheduled = false;
+  let tagManagerScheduleVersion = 0;
   let tagManagerConfigured = false;
 
   function readChoice() {
@@ -55,6 +56,8 @@
   // Alleen deze loader mag de Google-tag laden; de GA4-configuratie staat in GTM.
   function loadGoogleTagManager() {
     tagManagerLoadScheduled = false;
+    // Een directe start maakt een eerder ingeplande idle-callback ongeldig.
+    tagManagerScheduleVersion++;
     if (currentChoice !== CHOICE_FULL || document.getElementById(GOOGLE_TAG_MANAGER_SCRIPT_ID)) return;
 
     ensureGtag();
@@ -68,19 +71,28 @@
     script.id = GOOGLE_TAG_MANAGER_SCRIPT_ID;
     script.async = true;
     script.src = 'https://www.googletagmanager.com/gtm.js?id=' + encodeURIComponent(TAG_MANAGER_ID);
+    script.addEventListener('error', () => {
+      // Een nieuwe toestemmingskeuze of online-event mag deze download opnieuw proberen.
+      // De bestaande gtm.js-start blijft in de wachtrij staan en wordt niet herhaald.
+      if (document.getElementById(GOOGLE_TAG_MANAGER_SCRIPT_ID) === script) script.remove();
+    }, { once: true });
     document.head.appendChild(script);
   }
 
   function scheduleGoogleTagManagerLoad() {
     if (tagManagerLoadScheduled || document.getElementById(GOOGLE_TAG_MANAGER_SCRIPT_ID)) return;
     tagManagerLoadScheduled = true;
+    const version = ++tagManagerScheduleVersion;
+    const startIfScheduled = () => {
+      if (tagManagerLoadScheduled && version === tagManagerScheduleVersion) loadGoogleTagManager();
+    };
 
     if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(loadGoogleTagManager, { timeout: 1500 });
+      window.requestIdleCallback(startIfScheduled, { timeout: 1500 });
       return;
     }
 
-    window.setTimeout(loadGoogleTagManager, 0);
+    window.setTimeout(startIfScheduled, 0);
   }
 
   function enableGoogleAnalytics() {
@@ -111,6 +123,8 @@
     }
 
     try {
+      // Een echte interactie hoeft niet op het idle-moment van deze pagina te wachten.
+      loadGoogleTagManager();
       window.dataLayer.push(event);
       return true;
     } catch (error) {
@@ -124,6 +138,34 @@
   // main.js kan een opgeslagen calculatoradvies al vóór DOMContentLoaded overnemen.
   if (currentChoice === CHOICE_FULL) window.gtag('consent', 'update', consentSettings(CHOICE_FULL));
   window.SparkyTracking = Object.freeze({ track });
+
+  window.addEventListener('online', () => {
+    if (currentChoice === CHOICE_FULL) loadGoogleTagManager();
+  });
+
+  window.addEventListener('storage', (event) => {
+    if (event.key !== STORAGE_KEY && event.key !== null) return;
+    try {
+      if (event.storageArea !== window.localStorage) return;
+    } catch (error) {
+      return;
+    }
+
+    // Een storage-event kan achterlopen op een volgende keuze in een andere tab.
+    // Alleen de actuele opslag bepaalt of meten nu is toegestaan.
+    currentChoice = readChoice();
+    if (currentChoice === CHOICE_FULL) enableGoogleAnalytics();
+    else disableGoogleAnalytics();
+    updateGoogleMaps(currentChoice === CHOICE_FULL);
+
+    // Vóór DOMContentLoaded verwerkt initializeCookieConsent de nieuwe keuze.
+    if (!consentLayer) return;
+    if (!currentChoice) {
+      if (consentLayer.hidden) showConsentLayer(true);
+    } else if (!consentLayer.hidden) {
+      closeConsentLayer();
+    }
+  });
 
   document.addEventListener('click', (event) => {
     const link = event.target instanceof Element && event.target.closest('a[href]');
