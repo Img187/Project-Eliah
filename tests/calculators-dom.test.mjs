@@ -64,15 +64,44 @@ function harness(t, type, advice) {
 }
 
 function batteryInput(h, extra = {}) {
-  h.fill({ jaarverbruikKwh: 3650, zonnepanelenAanwezig: 'ja', terugleveringKwh: 2000,
+  h.fill({ jaarverbruikKwh: 3650, zonnepanelenAanwezig: 'ja', aantalZonnepanelen: 12, terugleveringKwh: 2000,
     typeLocatie: 'woning', energiecontract: 'vast-variabel', netaansluiting: '3-fase', ...extra });
+}
+
+function assertPanelCountState(h, visible) {
+  const count = h.form.elements.namedItem('aantalZonnepanelen');
+  assert.equal(count.closest('[data-calculator-condition]').hidden, !visible);
+  assert.equal(count.disabled, !visible);
+  assert.equal(count.required, true);
+  assert.equal(count.type, 'number');
+  assert.equal(count.min, '1');
+  assert.equal(count.step, '1');
+  return count;
+}
+
+function assertInvalidPanelCounts(h) {
+  for (const invalid of ['', 0, 12.5]) {
+    h.fill({ aantalZonnepanelen: invalid });
+    assert.equal(h.form.checkValidity(), false, `Ongeldig paneelaantal: ${invalid}`);
+    h.form.dispatchEvent(new h.window.Event('submit', { cancelable: true }));
+    assert.equal(h.window.sessionStorage.getItem(storageKey), null);
+    assert.equal(h.output.classList.contains('heeftResultaat'), false);
+  }
+}
+
+function assertPanelCountTransferred(t, h, advice, value) {
+  const label = h.form.elements.namedItem('aantalZonnepanelen').labels[0].textContent.trim();
+  assert.ok(advice.fields.some(([field, supplied]) => field === label && supplied === String(value)));
+  const contact = harness(t, 'contact', advice);
+  const summary = contact.window.document.querySelector('input[name="calculator_samenvatting"]').value;
+  assert.ok(summary.includes(`- ${label}: ${value}`));
 }
 
 test('alle vier formulieren bevatten uitsluitend de afgesproken invoer en dezelfde fasekeuze', t => {
   const expected = {
-    thuisbatterij: ['jaarverbruikKwh', 'zonnepanelenAanwezig', 'terugleveringKwh', 'typeLocatie', 'energiecontract', 'netaansluiting', 'elektrischeAuto', 'warmtepomp', 'inductie', 'noodstroom'],
+    thuisbatterij: ['jaarverbruikKwh', 'zonnepanelenAanwezig', 'aantalZonnepanelen', 'terugleveringKwh', 'typeLocatie', 'energiecontract', 'netaansluiting', 'elektrischeAuto', 'warmtepomp', 'inductie', 'noodstroom'],
     zonnepanelen: ['jaarverbruikKwh', 'typeLocatie', 'daktype', 'dakrichting', 'netaansluiting', 'elektrischeAuto', 'warmtepomp', 'inductie'],
-    laadpaal: ['afstandMeterkastMeter', 'zonnepanelenAanwezig', 'netaansluiting', 'bidirectioneel'],
+    laadpaal: ['afstandMeterkastMeter', 'zonnepanelenAanwezig', 'aantalZonnepanelen', 'netaansluiting', 'bidirectioneel'],
     elektrotechniek: ['netaansluiting']
   };
   for (const type of Object.keys(pages)) {
@@ -93,25 +122,37 @@ test('alle vier formulieren bevatten uitsluitend de afgesproken invoer en dezelf
   assert.equal(ev.form.elements.namedItem('afstandMeterkastMeter').labels[0].textContent.trim(), 'Afstand tot de (hoofd)-groepenkast');
 });
 
-test('batterij vraagt teruglevering alleen bij zonnepanelen en negeert de oude waarde na nee', t => {
+test('batterij vraagt aantal en teruglevering alleen bij zonnepanelen en negeert oude waarden na nee', t => {
   const h = harness(t, 'thuisbatterij');
   const exported = h.form.elements.namedItem('terugleveringKwh');
   const condition = exported.closest('[data-calculator-condition]');
   assert.equal(condition.hidden, true);
   assert.equal(exported.disabled, true);
+  const count = assertPanelCountState(h, false);
   batteryInput(h);
   assert.equal(condition.hidden, false);
   assert.equal(exported.disabled, false);
   assert.equal(exported.required, true);
+  assertPanelCountState(h, true);
   const withPv = h.submit();
   assert.ok(withPv.fields.some(([label]) => /teruggelever|teruglevering/i.test(label)));
+  h.fill({ aantalZonnepanelen: 24 });
+  const morePanels = h.submit();
+  assert.deepEqual(morePanels.metrics, withPv.metrics);
+  assertPanelCountTransferred(t, h, morePanels, 24);
+  assertInvalidPanelCounts(h);
+  h.fill({ aantalZonnepanelen: 24 });
   h.fill({ zonnepanelenAanwezig: 'nee' });
   assert.equal(condition.hidden, true);
   assert.equal(exported.disabled, true);
   assert.equal(exported.value, '2000');
+  assertPanelCountState(h, false);
+  assert.equal(count.value, '24');
   assert.equal(new h.window.FormData(h.form).has('terugleveringKwh'), false);
+  assert.equal(new h.window.FormData(h.form).has('aantalZonnepanelen'), false);
   const withoutPv = h.submit();
   assert.ok(withoutPv.fields.every(([label]) => !/teruggelever|teruglevering/i.test(label)));
+  assert.ok(withoutPv.fields.every(([label]) => label !== count.labels[0].textContent.trim()));
   const direct = h.window.SparkyCalculators.battery(new h.window.FormData(h.form));
   assert.deepEqual(withoutPv.metrics, JSON.parse(JSON.stringify(direct.metrics)));
   assert.notDeepEqual(withoutPv.metrics, withPv.metrics);
@@ -179,13 +220,30 @@ test('zonnepanelen gebruikt de netafname en twee dakrichtingen zonder verbruik d
 
 test('iedere EV-keuze en onbekende netaansluiting werkt zonder verwijderde technische invoer', t => {
   const h = harness(t, 'laadpaal');
+  const count = assertPanelCountState(h, false);
   for (const mode of ['geen', 'v2h', 'v2g', 'beide']) {
-    h.fill({ afstandMeterkastMeter: 12, zonnepanelenAanwezig: 'ja', netaansluiting: 'onbekend', bidirectioneel: mode });
+    h.fill({ afstandMeterkastMeter: 12, zonnepanelenAanwezig: 'ja', aantalZonnepanelen: 12, netaansluiting: 'onbekend', bidirectioneel: mode });
+    assertPanelCountState(h, true);
     const advice = h.submit();
     assert.equal(advice.type, 'laadpaal');
     assert.ok(advice.fields.some(([label, value]) => label === 'Netaansluiting' && value === 'Weet ik niet'));
     assert.doesNotMatch(h.output.textContent, /\bNaN\b|Infinity/);
     assert.doesNotMatch(h.output.textContent, /\d[\d,.]*\s*kW(?:h)?\b/);
+  }
+  const twelvePanels = h.submit();
+  h.fill({ aantalZonnepanelen: 24 });
+  const twentyFourPanels = h.submit();
+  assert.deepEqual(twentyFourPanels.metrics, twelvePanels.metrics);
+  assertPanelCountTransferred(t, h, twentyFourPanels, 24);
+  assertInvalidPanelCounts(h);
+  h.fill({ aantalZonnepanelen: 24 });
+  for (const presence of ['nee', 'gepland']) {
+    h.fill({ zonnepanelenAanwezig: presence });
+    assertPanelCountState(h, false);
+    assert.equal(count.value, '24');
+    assert.equal(new h.window.FormData(h.form).has('aantalZonnepanelen'), false);
+    const advice = h.submit();
+    assert.ok(advice.fields.every(([label]) => label !== count.labels[0].textContent.trim()));
   }
   const electrical = harness(t, 'elektrotechniek');
   for (const type of ['1-fase', '3-fase', 'onbekend']) {
@@ -222,6 +280,7 @@ test('formulierreset herstelt voorwaardelijke velden en verwijdert verouderd adv
   const exported = h.form.elements.namedItem('terugleveringKwh');
   assert.equal(exported.closest('[data-calculator-condition]').hidden, true);
   assert.equal(exported.disabled, true);
+  assertPanelCountState(h, false);
   assert.equal(h.form.elements.namedItem('elektrischeAuto').checked, false);
   assert.equal(h.window.sessionStorage.getItem(storageKey), null);
   assert.equal(h.output.classList.contains('heeftResultaat'), false);

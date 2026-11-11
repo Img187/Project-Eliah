@@ -14,7 +14,7 @@ De [bronnenverantwoording](calculator-bronnen.md) onderscheidt energieaannames v
 
 ## Thuisbatterij
 
-Invoer: netafname, zonnepanelen ja/nee, teruglevering alleen bij ja, type locatie, energiecontract, netaansluiting en situatiecheckboxen. Bij nee wordt eventuele oude terugleverinvoer genegeerd. Zonder panelen volgt geen op zonnestroom gebaseerde capaciteit; een netlaadstrategie vereist aparte meet- en tariefgegevens.
+Invoer: netafname, zonnepanelen ja/nee, aantal zonnepanelen en teruglevering alleen bij ja, type locatie, energiecontract, netaansluiting en situatiecheckboxen. Het aantal is een positief geheel getal en gaat mee als informatie voor de aanvraag; het vervangt de gemeten teruglevering niet en bepaalt geen veronderstelde opwek. Bij nee worden het aantal en eventuele oude terugleverinvoer niet meegenomen. Zonder panelen volgt geen op zonnestroom gebaseerde capaciteit; een netlaadstrategie vereist aparte meet- en tariefgegevens.
 
 Voor een eerste **scenario**, geen gemeten nachtprofiel, rekenen we met 60–80% van de gemiddelde dagelijkse netafname als te verschuiven vraag. De publiek beschreven 60–80%-vuistregel voor dagelijks huishoudelijk verbruik is hier toegepast op de bekende netafname; dat is een expliciete modelkeuze. Bij bedrijven, industrie en datacenters kan het werkelijke profiel sterk afwijken. De band is geen statistisch betrouwbaarheidsinterval.
 
@@ -54,7 +54,7 @@ Het model kent geen dakmaat en garandeert dus geen passend aantal. Legplan, brui
 
 ## Laadpaal
 
-Invoer: afstand tot de (hoofd)-groepenkast, zonnepanelen aanwezig/gepland, netaansluiting en bidirectioneel laden (alleen laden, V2H, V2G of beide).
+Invoer: afstand tot de (hoofd)-groepenkast, zonnepanelen aanwezig/gepland, aantal zonnepanelen alleen bij aanwezig, netaansluiting en bidirectioneel laden (alleen laden, V2H, V2G of beide). Het aantal gaat mee in de aanvraag en wordt zonder paneelvermogen en tijdprofiel niet omgerekend naar opwek of laadruimte.
 
 Zonder stroomsterkte, fasebelasting, voertuig, laadpunt en laadprofiel is geen beschikbaar kW-vermogen, laadtijd of dagelijkse kWh-vraag bekend. Het model toont daarom alleen gerichte vervolgstappen. Ook 3-fase is geen toezegging van 11 of 22 kW. Zonnepanelen leveren zonder tijdprofiel geen gegarandeerde laadruimte.
 
