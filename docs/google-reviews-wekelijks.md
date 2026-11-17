@@ -26,6 +26,8 @@ node scripts/prepare-pages.mjs
 
 Handmatig op GitHub: open **Actions → Website controleren en publiceren → Run workflow**, kies `main` en vink **Google-reviews nu controleren** aan. Voor een gewone herpublicatie hoeft dat vinkje niet aan.
 
+Voor een expliciete controle via de bestaande Git-login kan ook `[reviews-check]` in een commitbericht worden gebruikt. Alleen die expliciete marker start bij een push een extra fetch; normale websitewijzigingen doen dat niet.
+
 De reviewjob controleert de kaarten en de build en commit uitsluitend `homepage.html` en `data/google-reviews.snapshot.json`. Daarna doorloopt exact die commit de volledige bestaande publicatiechecks en Pages-deployment. Een gelijktijdige nieuwe commit op `main` wordt niet overschreven. De JSON-snapshot en het collectorscript worden niet als losse websitebestanden gepubliceerd.
 
 Volg de status in de GitHub Actions-run. GitHub kan geplande taken vertragen en schakelt schedules in openbare repositories na 60 dagen zonder repositoryactiviteit uit; controleer bij langdurige stilte of de workflow nog actief is. Zie [GitHub schedules](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
