@@ -20,23 +20,28 @@ const feed = (count, overrides = {}) => ({
 });
 const settle = async () => { for (let i = 0; i < 4; i++) await new Promise(resolve => setImmediate(resolve)); };
 
-test('statische fallback bevat vier reviews; alleen teksten boven 250 tekens zijn inklapbaar', async t => {
+test('statische kaarten behouden hun auteurs, datums en eigen bronlinks; lange teksten zijn inklapbaar', async t => {
+  const original = new JSDOM(sectionHtml);
+  t.after(() => original.window.close());
+  const originals = [...original.window.document.querySelectorAll('.googleReviewKaart')].slice(0, 4);
   const h = await harness(t, { endpoint: '' });
   const cards = [...h.list.querySelectorAll('.googleReviewKaart')];
-  assert.equal(cards.length, 4);
+  assert.equal(cards.length, Math.min(4, originals.length));
   assert.deepEqual(
     cards.map(card => card.querySelector('h3').textContent.trim()),
-    ['Roberto Verde', 'Info Bruidsatelier', 'muriel van wymeersch', 'Duy Blanco'],
+    originals.map(card => card.querySelector('h3').textContent.trim()),
   );
   assert.deepEqual(
     cards.map(card => card.querySelector('time').dateTime),
-    ['2026-09-10', '2026-09-13', '2026-09-28', '2026-09-30'],
+    originals.map(card => card.querySelector('time').dateTime),
   );
   assert.ok(cards.every(card => card.querySelector('.googleReviewBron').href.startsWith('https://www.google.com/maps/reviews/')));
-  assert.match(cards[2].textContent, /Betrouwbare partner!/);
-  assert.match(cards[3].textContent, /TOP SERVICE!!/);
-  assert.deepEqual(cards.map(card => Boolean(card.querySelector('[data-review-toggle]'))), [false, true, false, true]);
-  for (const card of [cards[1], cards[3]]) {
+  assert.deepEqual(cards.map(card => Boolean(card.querySelector('[data-review-toggle]'))), originals.map(card => {
+    const paragraph = card.querySelector('blockquote p').cloneNode(true);
+    paragraph.querySelectorAll('br').forEach(br => br.replaceWith(original.window.document.createTextNode('\n')));
+    return Array.from(paragraph.textContent.trim()).length > 250;
+  }));
+  for (const card of cards.filter(card => card.querySelector('[data-review-toggle]'))) {
     const button = card.querySelector('[data-review-toggle]');
     const paragraph = card.querySelector('blockquote p');
     assert.equal(button.type, 'button');
@@ -76,8 +81,8 @@ test('ongeldige en te grote reviewfeeds vervangen de geldige cache niet', async 
   assert.equal(h.ids().length, 3);
 });
 
-async function harness(t, { data = feed(7), endpoint = 'https://reviews.example/reviews', hover = false, withoutStatic = false } = {}) {
-  const dom = new JSDOM(sectionHtml, { url: 'https://www.sparkyenergies.com/homepage', runScripts: 'outside-only', pretendToBeVisual: true });
+async function harness(t, { data = feed(7), endpoint = 'https://reviews.example/reviews', hover = false, withoutStatic = false, markup = sectionHtml } = {}) {
+  const dom = new JSDOM(markup, { url: 'https://www.sparkyenergies.com/homepage', runScripts: 'outside-only', pretendToBeVisual: true });
   t.after(() => dom.window.close());
   const { window } = dom;
   window.TextDecoder = TextDecoder;
@@ -122,9 +127,51 @@ async function harness(t, { data = feed(7), endpoint = 'https://reviews.example/
     advance: milliseconds => { clock += milliseconds; },
     requests: () => requests,
     tick: async () => { intervals.get(12000)(); await settle(); },
-    refresh: async () => { await intervals.get(300000)(); await settle(); },
+    refresh: async () => { await intervals.get(300000)?.(); await settle(); },
+    intervalDelays: () => [...intervals.keys()],
   };
 }
+
+test('zeven statische kaarten wisselen volledig met vier zichtbaar, zonder periodieke fetch', async t => {
+  const cards = Array.from({ length: 7 }, (_, i) => `<li data-review-id="static-${i}"><article class="googleReviewKaart"><h3>Testpersoon ${i}</h3><blockquote><p>${'Fictieve tekst. '.repeat(30)}</p></blockquote><a class="googleReviewBron" href="https://www.google.com/maps/reviews/?id=${i}">Google</a></article></li>`).join('');
+  const markup = sectionHtml.replace(/(<ul\b[^>]*class="[^"]*googleReviewLijst[^>]*>)[\s\S]*?<\/ul>/, `$1${cards}</ul>`);
+  const h = await harness(t, { endpoint: '', markup });
+  assert.equal(h.list.children.length, 4);
+  assert.equal(h.controls.hidden, false);
+  const first = h.list.firstElementChild;
+  first.querySelector('[data-review-toggle]').click();
+  const seen = new Set(h.ids());
+  for (let i = 0; i < 14; i++) {
+    await h.tick();
+    assert.equal(h.list.children.length, 4);
+    assert.equal(new Set(h.ids()).size, 4);
+    h.ids().forEach(id => seen.add(id));
+    for (const card of h.list.children) {
+      assert.equal(new URL(card.querySelector('a').href).searchParams.get('id'), card.dataset.reviewId.slice(7));
+    }
+  }
+  assert.equal(seen.size, 7);
+  assert.equal(first.querySelector('[data-review-toggle]').getAttribute('aria-expanded'), 'true');
+  h.pause.click();
+  const paused = h.ids();
+  await h.tick();
+  assert.deepEqual(h.ids(), paused);
+  h.next.click();
+  assert.notDeepEqual(h.ids(), paused);
+  h.setHover(true);
+  const reading = h.ids();
+  h.pause.click();
+  await h.tick();
+  assert.deepEqual(h.ids(), reading);
+  h.setHover(false);
+  h.setReduced(true);
+  await h.tick();
+  assert.deepEqual(h.ids(), reading);
+  h.window.document.dispatchEvent(new h.window.Event('visibilitychange'));
+  await h.refresh();
+  assert.equal(h.requests(), 0);
+  assert.ok(!h.intervalDelays().includes(300000));
+});
 
 test('0, 2, 4, 5 en 7 reviews: maximaal vier horizontale kaarten en alle beoordelingen komen aan bod', async t => {
   for (const count of [0, 2, 4, 5, 7]) {

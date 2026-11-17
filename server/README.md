@@ -1,5 +1,7 @@
 # Google-reviews voor de homepage
 
+**Update 17 november 2026:** de huidige werkwijze gebruikt statische reviewkaarten met een wekelijkse openbare controle. Zie [wekelijkse verwerking en de grenzen van de bron](../docs/google-reviews-wekelijks.md). De onderstaande API-inrichting is voor een eventuele latere volledige koppeling. De vroegere 60-dagenwachttijd is inmiddels verstreken; actuele API-goedkeuring is nog niet vastgesteld.
+
 Status op 14 september 2026: server en frontend zijn geïmplementeerd en lokaal getest. **Nog geen live koppeling:** Googles aanvraaghulp meldt dat het profiel nog niet aan de criteria voldoet. De gevonden livegangbevestiging is van 20 augustus 2026; controleer de vereiste 60 dagen opnieuw rond 19 oktober. OAuth, API-goedkeuring en hosting moeten worden afgerond. De openbare configuratie heeft daarom nog een lege `endpoint`.
 
 ## Inrichten

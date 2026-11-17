@@ -12,6 +12,8 @@ De drie landelijke thuisbatterij-intentiepagina's worden gegenereerd met `node s
 
 Alle tests: `npm --prefix tests test`. Na wijzigen van landelijke thuisbatterij-intentiecontent, regionale content of de gedeelde header/footer: voer de bijbehorende generator(s) uit. Na overige wijzigingen van JSON-LD of de review-API-configuratie: `node scripts/prepare-pages.mjs --sync`, zodat de Content Security Policy weer overeenkomt.
 
+Google-reviewkaarten: [wekelijkse openbare controle](docs/google-reviews-wekelijks.md), iedere maandag om 09:17 Nederlandse tijd. Deze route gebruikt geen Google API-toegang; onvolledige of onduidelijke brongegevens stoppen de update.
+
 ## Structuur
 
 - `homepage.html` (publieke route `/homepage`)

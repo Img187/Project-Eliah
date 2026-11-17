@@ -5,7 +5,15 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  schedule:
+    - cron: '17 9 * * 1'
+      timezone: Europe/Amsterdam
   workflow_dispatch:
+    inputs:
+      refresh_reviews:
+        description: Google-reviews nu controleren
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -15,24 +23,68 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  reviews:
+    name: Wekelijkse Google-reviews
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh_reviews))
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    outputs:
+      sha: ${{ steps.save.outputs.sha }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: main
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          check-latest: true
+      - name: Openbare reviews ophalen en bestaande kaarten bijwerken
+        run: node scripts/sync-google-reviews.mjs
+      - run: npm --prefix tests ci --ignore-scripts --no-audit
+      - run: node scripts/check-secrets.mjs
+      - run: npm --prefix tests audit --audit-level=moderate --ignore-scripts
+      - run: npm --prefix tests test
+      - run: node scripts/prepare-pages.mjs
+      - name: Alleen gecontroleerde reviewwijzigingen bewaren
+        id: save
+        shell: bash
+        run: |
+          git add -- homepage.html data/google-reviews.snapshot.json
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Werk Google-reviewkaarten bij na wekelijkse controle'
+            git push origin HEAD:main
+          fi
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
   check:
     name: Beveiliging en tests
+    needs: reviews
+    if: always() && (needs.reviews.result == 'success' || needs.reviews.result == 'skipped')
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           persist-credentials: false
+          ref: ${{ needs.reviews.outputs.sha || github.sha }}
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: '24'
           check-latest: true
           cache: npm
           cache-dependency-path: tests/package-lock.json
-      - run: npm --prefix tests ci --ignore-scripts --no-audit
-      - run: node scripts/check-secrets.mjs
-      - run: npm --prefix tests audit --audit-level=moderate --ignore-scripts
-      - run: npm --prefix tests test
+      - if: needs.reviews.result != 'success'
+        run: npm --prefix tests ci --ignore-scripts --no-audit
+      - if: needs.reviews.result != 'success'
+        run: node scripts/check-secrets.mjs
+      - if: needs.reviews.result != 'success'
+        run: npm --prefix tests audit --audit-level=moderate --ignore-scripts
+      - if: needs.reviews.result != 'success'
+        run: npm --prefix tests test
       - run: node scripts/prepare-pages.mjs
       - name: Alleen de publieke website verpakken
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
@@ -41,7 +93,7 @@ jobs:
           path: build/pages
 
   deploy:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    if: always() && needs.check.result == 'success' && github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     needs: check
     runs-on: ubuntu-latest
     timeout-minutes: 10

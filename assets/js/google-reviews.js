@@ -24,6 +24,8 @@
   let pending = null;
   let signature = '';
   let reviewTextId = 0;
+  let staticMode = true;
+  let staticSlot = 0;
 
   const node = (tag, className, text) => {
     const item = document.createElement(tag);
@@ -81,9 +83,13 @@
     if (!paragraph) return;
     addReviewText(card.querySelector('blockquote'), reviewTextFromElement(paragraph), card.querySelector('h3')?.textContent.trim() || 'een klant', paragraph);
   });
+  const staticCards = [...list.children];
+  const staticVisible = staticCards.slice(0, MAX_VISIBLE);
+  const staticQueue = staticCards.slice(MAX_VISIBLE);
+  if (staticQueue.length) list.replaceChildren(...staticVisible);
   const reading = () => list.matches(':hover') || list.contains(document.activeElement);
   function updateControls() {
-    controls.hidden = reviews.length <= MAX_VISIBLE;
+    controls.hidden = (staticMode ? staticCards.length : reviews.length) <= MAX_VISIBLE;
     pauseButton.textContent = paused || reduced.matches ? 'Reviews afspelen' : 'Reviews pauzeren';
     pauseButton.setAttribute('aria-pressed', String(paused || reduced.matches));
     pauseButton.disabled = reduced.matches;
@@ -156,6 +162,16 @@
     status.hidden = !status.textContent;
   }
   function next() {
+    if (staticMode) {
+      if (!staticQueue.length) return;
+      const outgoing = staticVisible[staticSlot];
+      staticVisible[staticSlot] = staticQueue.shift();
+      staticQueue.push(outgoing);
+      staticSlot = (staticSlot + 1) % staticVisible.length;
+      // Hergebruik de kaartnodes: Meer/Minder en de eigen bronlink blijven intact.
+      list.replaceChildren(...staticVisible);
+      return;
+    }
     if (!queue.length) return;
     const outgoing = visible[slot];
     visible[slot] = queue.shift();
@@ -222,7 +238,7 @@
     }
     if (!paused && !reduced.matches) next();
   }, 12000);
-  setInterval(refresh, 5 * 60 * 1000);
+  updateControls();
   document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });
   window.SparkyNetwork.fetchJson('data/reviews-config.json', { cache: 'no-cache' }, { maxBytes: 8192, timeoutMs: 10000 })
     .then(({ response, data }) => { if (!response.ok) throw new Error('Geen configuratie'); return data; })
@@ -232,11 +248,14 @@
       const url = new URL(config.endpoint, location.href);
       if (url.username || url.password || (url.protocol !== 'https:' && !(location.hostname === '127.0.0.1' && url.hostname === '127.0.0.1' && url.protocol === 'http:'))) throw new Error('HTTPS vereist');
       endpoint = url.href;
+      staticMode = false;
+      updateControls();
       // Een statische proef mag bij een API-storing niet als live resultaat doorgaan.
       list.replaceChildren();
       section.dataset.reviewMode = 'loading';
       status.hidden = false;
       status.textContent = 'Reviews laden…';
+      setInterval(refresh, 5 * 60 * 1000);
       refresh();
     })
     .catch(() => { /* Zonder configuratie blijft de bestaande statische weergave beschikbaar. */ });
